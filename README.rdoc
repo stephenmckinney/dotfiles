@@ -1,11 +1,11 @@
-= Ryan Bates Dot Files
+= Steve McKinney's Dot Files
 
-These are config files to set up a system the way I like it.
+These are config files to set up a system the way I like it. Forked from Ryan Bates and made it my own.
 
 
 == Installation
 
-  git clone git://github.com/ryanb/dotfiles ~/.dotfiles
+  git clone git://github.com/poorlilrichboy/dotfiles ~/.dotfiles
   cd ~/.dotfiles
   rake install
 

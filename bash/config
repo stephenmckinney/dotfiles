@@ -1,2 +1,28 @@
-export PS1="\w$ "
-export EDITOR="mate -w"
+# Prettiness
+export PS1='\[\033[0;35m\][\w]\$\[\e[0m\] ' # {magneta color}{prompt}{regular color}
+                                            # {magenta} = \[\e[0;35m\]
+                                            # {prompt} = [directory]
+export LSCOLORS='fxfxcxdxbxegedabagacad'
+#   1.   directory = magneta
+#   2.   symbolic link = magneta
+#   3.   socket = green
+#   4.   pipe = brown
+#   5.   executable = red
+#   6.   block special = blue cyan
+#   7.   character special = blue brown
+#   8.   executable with setuid bit set = black red
+#   9.   executable with setgid bit set = black cyan
+#   10.  directory writable to others, with sticky bit = black green
+#   11.  directory writable to others, without sticky bit = black brown
+
+# Dev environment setup
+export DISPLAY=:0.0
+export EDITOR='mate -w' #use Textmate
+export SVN_EDITOR='mate -w' #use Textmate
+export GIT_EDITOR='mate -w' #use Textmate
+export LC_CTYPE=en_US.UTF-8 # Subversion
+
+# Bash History
+export HISTCONTROL=erasedups
+export HISTSIZE=10000
+shopt -s histappend

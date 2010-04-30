@@ -2,23 +2,34 @@
 alias ..='cd ..'
 
 # ls
-alias ls="ls -F"
-alias l="ls -lAh"
-alias ll="ls -l"
-alias la='ls -A'
+#-l long
+#-h human readable size
+#-G colorized output
+#-a all
+alias ls="ls -FlhG"
+alias la="ls -FlhGa"
 
-# git
-alias gl='git pull'
-alias gp='git push'
-alias gd='git diff'
-alias gc='git commit'
-alias gca='git commit -a'
-alias gco='git checkout'
-alias gb='git branch'
-alias gs='git status'
+# Subversion
+alias sup='svn update'
+alias sstat='svn status'
+alias scomm='svn commit'
+alias sdiff='svn diff | mate'
+alias slog='svn log -v | mate'
+alias sexp='svn export'
+
+# Git
+alias gpull='git pull'
+alias gpush='git push'
+alias gstat='git status'
+alias gcomm='git commit -v'
+alias gcomma='git commit -v -a'
+alias gbranch='git branch'
+alias gbrancha='git branch -a'
+alias gdiff='git diff | mate'
+alias glog='git log -v | mate'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 
-# rails
+# Rails
 alias sc='script/console'
 alias ss='script/server'
 alias sg='script/generate'
@@ -28,5 +39,37 @@ alias scaffold='script/generate nifty_scaffold'
 alias migrate='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
 
+# Textmate
+alias et='mate . &'
+alias etr='mate app config lib lib_common db features public spec test &'
+alias etv='mate app config lib lib_common db features public spec test vendor &'
+
+# Apache
+alias apachectl='sudo /opt/local/apache2/bin/apachectl'
+
+# Python
+alias python='python2.5'
+
+# Python Simple HTTP Server
+alias pythonsimplehttpserver='python -m SimpleHTTPServer'
+
+# MySQL
+alias mysqlstart='echo "Note: Use sudo password"; sudo /opt/local/lib/mysql5/bin/mysqld_safe'
+alias mysqlstop='echo "Note: Use MySQL password"; /opt/local/lib/mysql5/bin/mysqladmin -u root -p shutdown'
+
+# Memcached
+alias memcachedstart='memcached -p 11211 &'
+
 # commands starting with % for pasting from web
 alias %=' '
+
+# General
+alias vi='vim' #use vim
+alias tc='top -o cpu' #cpu
+alias tm='top -o vsize' #memory
+alias flarge='find . -size +100000000c -print' #print all file over 100 MB
+alias ffile='du -h'
+alias fdir='du -sk' #file size of directory
+alias history='history | grep'
+alias sbash='source ~/.bash_profile'
+alias ebash='mate ~/.dotfiles &'
