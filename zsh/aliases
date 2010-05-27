@@ -48,7 +48,7 @@ alias etv='mate app config lib lib_common db features public spec test vendor &'
 alias apachectl='sudo /opt/local/apache2/bin/apachectl'
 
 # Python
-alias python='python2.5'
+alias python='python2.6'
 
 # Python Simple HTTP Server
 alias pythonsimplehttpserver='python -m SimpleHTTPServer'
