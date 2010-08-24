@@ -1,10 +1,10 @@
 . ~/.zsh/aliases
 
 # changing directory to dev projects
-function d { cd ~/dev/$1; }
+function d { cd ~/Documents/Dev/$1; }
 
 # changing directory to work projects
-function w { cd ~/dev/web/healthcentral/$1; }
+function w { cd ~/Documents/Dev/web/threespot/$1; }
 
 # alternative to "rails" command to use templates
 function railsapp {

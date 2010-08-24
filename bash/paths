@@ -1,5 +1,7 @@
 # Add MacPorts and MySQL to PATH
-export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/lib/mysql5/bin:$PATH
+# export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/lib/mysql5/bin:$PATH
+# Add Homebrew to PATH
+export PATH=/usr/local/bin:$PATH
 
 # Add Macports man to MANPATH
-export MANPATH=/opt/local/share/man:$MANPATH
+# export MANPATH=/opt/local/share/man:$MANPATH

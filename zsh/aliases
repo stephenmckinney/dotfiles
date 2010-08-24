@@ -45,7 +45,7 @@ alias etr='mate app config lib lib_common db features public spec test &'
 alias etv='mate app config lib lib_common db features public spec test vendor &'
 
 # Apache
-alias apachectl='sudo /opt/local/apache2/bin/apachectl'
+# alias apachectl='sudo /opt/local/apache2/bin/apachectl'
 
 # Python
 alias python='python2.6'
@@ -54,8 +54,8 @@ alias python='python2.6'
 alias pythonsimplehttpserver='python -m SimpleHTTPServer'
 
 # MySQL
-alias mysqlstart='echo "Note: Use sudo password"; sudo /opt/local/lib/mysql5/bin/mysqld_safe'
-alias mysqlstop='echo "Note: Use MySQL password"; /opt/local/lib/mysql5/bin/mysqladmin -u root -p shutdown'
+alias mysqlstart='/usr/local/Cellar/mysql/5.1.48/bin/mysqld_safe &'
+alias mysqlstop='/usr/local/Cellar/mysql/5.1.48/bin/mysqladmin -u root -p shutdown'
 
 # Memcached
 alias memcachedstart='memcached -p 11211 &'
