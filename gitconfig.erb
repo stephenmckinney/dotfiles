@@ -12,5 +12,7 @@
 	editor = mate -w
 [apply]
 	whitespace = nowarn
-[format]
-	pretty = %C(yellow)%h%Creset %s
+  [log]
+  	date =short
+  [format]
+  	pretty = %C(yellow)%h %ad%C(cyan) %an<%ae>%Creset %s
