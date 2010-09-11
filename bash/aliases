@@ -1,4 +1,5 @@
-. ~/.zsh/aliases
+# cd
+alias ..='cd ..'
 
 # changing directory to dev projects
 function d { cd ~/Documents/Dev/$1; }
@@ -6,13 +7,66 @@ function d { cd ~/Documents/Dev/$1; }
 # changing directory to work projects
 function w { cd ~/Documents/Dev/web/threespot/$1; }
 
-# alternative to "rails" command to use templates
-function railsapp {
-  template=$1
-  appname=$2
-  shift 2
-  rails $appname -m http://github.com/ryanb/rails-templates/raw/master/$template.rb $@
-}
+# changing directory to home
+function h { cd ~/$1; }
 
-# misc
-alias reload='. ~/.bash_profile'
+# ls
+#-l long
+#-h human readable size
+#-G colorized output
+#-a all
+alias ls="ls -FlhG"
+alias la="ls -FlhGa"
+
+# Subversion
+alias sup='svn update'
+alias sstat='svn status'
+alias scomm='svn commit'
+function sdiff() { svn diff $1 | mate ; }
+alias slog='svn log -v'
+alias sexp='svn export'
+
+# Git
+alias gpull='git pull'
+alias gpush='git push'
+alias gstat='git status'
+alias gcomm='git commit -v'
+alias gcomma='git commit -v -a'
+alias gbranch='git branch'
+alias gbrancha='git branch -a'
+function gdiff() { git diff $1 | mate; }
+alias glog='git log -v | mate'
+alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
+
+# Rails
+alias rc='rails console'
+alias rs='rails server'
+alias rg='rails generate'
+alias tlog='tail -f log/development.log'
+alias migrate='rake db:migrate db:test:clone'
+
+# Textmate
+alias et='mate . &'
+alias etr='mate app config lib db features public spec test &'
+alias etv='mate app config lib db features public spec test vendor &'
+
+# Python Simple HTTP Server
+alias pythonserver='python -m SimpleHTTPServer'
+
+# MySQL
+alias mysqlstart='/usr/local/Cellar/mysql/5.1.48/bin/mysqld_safe &'
+alias mysqlstop='/usr/local/Cellar/mysql/5.1.48/bin/mysqladmin -u root -p shutdown'
+
+# Memcached
+alias memcachedstart='memcached -p 11211 &'
+
+# General
+alias vi='vim' #use vim
+alias tc='top -o cpu' #cpu
+alias tm='top -o vsize' #memory
+alias flarge='find . -size +100000000c -print' #print all file over 100 MB
+alias ffile='du -h'
+alias fdir='du -sk' #file size of directory
+alias history='history | grep'
+alias sbash='source ~/.bash_profile'
+alias ebash='mate ~/.dotfiles &'
