@@ -1,5 +1,7 @@
 #!/usr/bin/ruby
 
+puts "> all systems are go railsrc <"
+
 begin
   require 'hirb' # sudo gem install cldwalker-hirb --source http://gems.github.com
   Hirb.enable
@@ -17,4 +19,8 @@ end
 
 def hide_log
   change_log(nil)
+end
+
+def load_routes
+  include ActionController::UrlWriter
 end

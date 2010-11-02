@@ -40,15 +40,15 @@ alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 
 # Rails
 alias rc='rails console'
-alias rs='rails server'
+alias rs='rails server --debugger'
 alias rg='rails generate'
 alias tlog='tail -f log/development.log'
 alias migrate='rake db:migrate db:test:clone'
 
 # Textmate
 alias et='mate . &'
-alias etr='mate app config lib db features public spec test &'
-alias etv='mate app config lib db features public spec test vendor &'
+alias etr='mate app config db Gemfile features lib public spec test &'
+alias etv='mate app config db Gemfile features lib public spec test vendor &'
 
 # Python Simple HTTP Server
 alias pythonserver='python -m SimpleHTTPServer'
