@@ -5,6 +5,7 @@ filetype plugin indent on
 
 " Basic options
 " ======================================================================
+set encoding=utf-8
 set nobackup " backups suck?
 set nowritebackup " backups suck?
 set history=100		" keep 100 lines of command line history
@@ -35,9 +36,8 @@ set nowrap textwidth=0 " softwrap
 " Color scheme
 colorscheme ir_black 
 set guifont=Monaco:h12
-hi LineNr           guifg=#4A4A4A
-hi Visual           guibg=#562D56
-"hi Visual           guibg=#751012
+hi LineNr           guifg=#4A4A4A     guibg=black       gui=NONE      ctermfg=darkgray    ctermbg=NONE        cterm=NONE
+hi Visual           guifg=NONE        guibg=#562D56     gui=NONE      ctermfg=NONE        ctermbg=darkgray    cterm=NONE
 
 " Search
 " ======================================================================

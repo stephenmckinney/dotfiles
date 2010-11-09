@@ -1,7 +1,12 @@
 # Prettiness
-export PS1='\[\033[0;35m\][\w]\$\[\e[0m\] ' # {magneta color}{prompt}{regular color}
-                                            # {magenta} = \[\e[0;35m\]
-                                            # {prompt} = [directory]
+magenta='\[\e[0;35m\]' 
+no_color='\[\e[0m\]'
+if [ "${HOST}"=="smckinney.local" ]; then
+  export PS1="${magenta}[\w]\$${no_color} "
+else
+  export PS1="${magenta}\h[\w]\$${no_color} "
+fi
+
 export LSCOLORS='fxfxcxdxbxegedabagacad'
 #   1.   directory = magneta
 #   2.   symbolic link = magneta
