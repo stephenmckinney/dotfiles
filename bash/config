@@ -1,7 +1,7 @@
 # Prettiness
 magenta='\[\e[0;35m\]' 
 no_color='\[\e[0m\]'
-if [ "${HOST}"=="smckinney.local" ]; then
+if [ "${HOSTNAME}"=="smckinney.local" ]; then
   export PS1="${magenta}[\w]\$${no_color} "
 else
   export PS1="${magenta}\h[\w]\$${no_color} "
