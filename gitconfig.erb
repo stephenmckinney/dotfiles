@@ -12,7 +12,8 @@
 	editor = mate -w
 [apply]
 	whitespace = nowarn
-  [log]
-  	date =short
-  [format]
-  	pretty = %C(yellow)%h %ad%C(cyan) %an<%ae>%Creset %s
+[log]
+ 	date = short
+[format]
+<%# <hash> <committer name> <committer date relative> <subject> %>
+  pretty = %C(yellow)%h [%cn] %C(cyan)%cr %Creset%s

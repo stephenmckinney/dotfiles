@@ -18,25 +18,29 @@ function h { cd ~/$1; }
 alias ls="ls -FlhG"
 alias la="ls -FlhGa"
 
-# Subversion
-alias sup='svn update'
-alias sstat='svn status'
-alias scomm='svn commit'
-function sdiff() { svn diff $1 | mate ; }
-alias slog='svn log -v'
-alias sexp='svn export'
+# General
+alias vi='vim' #use vim
+alias tc='top -o cpu' #cpu
+alias tm='top -o vsize' #memory
+alias flarge='find . -size +100000000c -print' #print all file over 100 MB
+alias ffile='du -h'
+alias fdir='du -sk' #file size of directory
+alias history='history | grep'
+alias sbash='source ~/.bash_profile'
+alias ebash='mvim ~/.dotfiles &'
 
-# Git
-alias gpull='git pull'
-alias gpush='git push'
-alias gstat='git status'
-alias gcomm='git commit -v'
-alias gcomma='git commit -v -a'
-alias gbranch='git branch'
-alias gbrancha='git branch -a'
-function gdiff() { git diff $1 | mate; }
-alias glog='git log -v | mate'
-alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
+# Memcached
+alias memcachedstart='memcached -p 11211 &'
+
+# MySQL
+alias mysqlstart='/usr/local/Cellar/mysql/5.1.48/bin/mysqld_safe &'
+alias mysqlstop='/usr/local/Cellar/mysql/5.1.48/bin/mysqladmin -u root -p shutdown'
+
+# Postgresql
+alias postgresstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start &'
+
+# Python Simple HTTP Server
+alias pythonserver='python -m SimpleHTTPServer'
 
 # Rails
 alias rc='rails console'
@@ -50,23 +54,27 @@ alias et='mate . &'
 alias etr='mate app config db Gemfile features lib public spec test &'
 alias etv='mate app config db Gemfile features lib public spec test vendor &'
 
-# Python Simple HTTP Server
-alias pythonserver='python -m SimpleHTTPServer'
+# Version Control...
 
-# MySQL
-alias mysqlstart='/usr/local/Cellar/mysql/5.1.48/bin/mysqld_safe &'
-alias mysqlstop='/usr/local/Cellar/mysql/5.1.48/bin/mysqladmin -u root -p shutdown'
+# Git
+alias gpull='git pull'
+alias gpush='git push'
+alias gstat='git status'
+alias gcomm='git commit -v'
+alias gcomma='git commit -v -a'
+alias gbranch='git branch'
+alias gbrancha='git branch -a'
+function gdiff() { git diff $1 | mate; }
+alias glog='git log -v | mate'
+alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
+alias git-pretty='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cn%Creset %Cblue%cr%Creset'\'' --abbrev-commit --date=relative'
 
-# Memcached
-alias memcachedstart='memcached -p 11211 &'
+# Subversion
+alias sup='svn update'
+alias sstat='svn status'
+alias scomm='svn commit'
+function sdiff() { svn diff $1 | mate ; }
+alias slog='svn log -v'
+alias sexp='svn export'
 
-# General
-alias vi='vim' #use vim
-alias tc='top -o cpu' #cpu
-alias tm='top -o vsize' #memory
-alias flarge='find . -size +100000000c -print' #print all file over 100 MB
-alias ffile='du -h'
-alias fdir='du -sk' #file size of directory
-alias history='history | grep'
-alias sbash='source ~/.bash_profile'
-alias ebash='mate ~/.dotfiles &'
+
