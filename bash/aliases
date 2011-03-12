@@ -57,17 +57,18 @@ alias etv='mate app config db Gemfile features lib public spec test vendor &'
 # Version Control...
 
 # Git
-alias gpull='git pull'
-alias gpush='git push'
-alias gstat='git status'
-alias gcomm='git commit -v'
-alias gcomma='git commit -v -a'
-alias gbranch='git branch'
-alias gbrancha='git branch -a'
-function gdiff() { git diff $1 | mate; }
-alias glog='git log -v | mate'
-alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
-alias git-pretty='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cn%Creset %Cblue%cr%Creset'\'' --abbrev-commit --date=relative'
+alias gl='git pull'
+alias gp='git push'
+alias gs='git status'
+alias gc='git commit -v'
+alias gca='git commit -v -a'
+alias gb='git branch'
+alias gb='git branch -a'
+#function gdiff() { git diff $1 | mate; }
+alias glog='git log'
+alias gdiff='git diff'
+#alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
+#alias git-pretty='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cn%Creset %Cblue%cr%Creset'\'' --abbrev-commit --date=relative'
 
 # Subversion
 alias sup='svn update'
