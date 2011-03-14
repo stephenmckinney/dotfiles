@@ -1,6 +1,7 @@
 --- 
 :verbose: true
-gem: --no-ri --no-rdoc
+gem: --no-ri
+rdoc: --inline-source --line-numbers --format=html --template=hanna
 :update_sources: true
 :sources: 
 - http://rubygems.org
