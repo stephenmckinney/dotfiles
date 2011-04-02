@@ -22,9 +22,7 @@ export LSCOLORS='fxfxcxdxbxegedabagacad'
 
 # Dev environment setup
 export DISPLAY=:0.0
-export EDITOR='mate -w' #use Textmate
-export SVN_EDITOR='mate -w' #use Textmate
-export GIT_EDITOR='mate -w' #use Textmate
+export EDITOR='mvim' #use MacVim
 export LC_CTYPE=en_US.UTF-8 # Subversion
 
 # Bash History

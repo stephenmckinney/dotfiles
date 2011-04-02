@@ -1,5 +1,9 @@
 # cd
 alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
 
 # changing directory to dev projects
 function d { cd ~/Documents/Dev/$1; }
@@ -26,8 +30,8 @@ alias flarge='find . -size +100000000c -print' #print all file over 100 MB
 alias ffile='du -h'
 alias fdir='du -sk' #file size of directory
 alias history='history | grep'
-alias sbash='source ~/.bash_profile'
-alias ebash='mvim ~/.dotfiles &'
+alias sbash='source ~/.bash_profile && echo "sourced ~/.bash_profile"'
+alias ebash='mvim ~/.dotfiles'
 
 # Memcached
 alias memcachedstart='memcached -p 11211 &'
@@ -64,8 +68,11 @@ alias gc='git commit -v'
 alias gca='git commit -v -a'
 alias gb='git branch'
 alias gba='git branch -a'
+alias gco='git checkout'
+alias gcom='git checkout master'
 alias gl='git log'
-alias gd='git diff'
+alias gd='git diff'  # What's changed but not yet added?
+alias gdc='git diff --cached'  # What's added but not yet committed?
 alias gr='git rm'
 alias ga='git add'
 #function gdiff() { git diff $1 | mate; }
