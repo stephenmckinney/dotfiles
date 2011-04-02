@@ -2,7 +2,9 @@
 	name = <%= print("Your Name: "); STDOUT.flush; STDIN.gets.chomp %>
 	email = <%= print("Your Email: "); STDOUT.flush; STDIN.gets.chomp %>
 [alias]
-	co = checkout
+  co = checkout
+  unstage = reset HEAD --
+  discard = checkout --
 [color]
 	diff = auto
 	status = auto
