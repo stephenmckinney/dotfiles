@@ -1,48 +1,88 @@
+" TODO: commenting and indentation
+
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
-filetype plugin indent on
+filetype plugin indent on " load the plugin and indent settings for the detected filetype
 
 " Basic options
 " ======================================================================
 set encoding=utf-8
-set nobackup " backups suck?
-set nowritebackup " backups suck?
-set history=100		" keep 100 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
+set history=100 " keep 100 lines of command line history
+set showcmd " display incomplete commands
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set laststatus=2 " Always display the status line
 
-" Tab completion options
+" Directories for swp files
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
+
+" Tab completion options in Command mode
 set wildmode=list:longest,list:full
 set wildmenu
 set wildignore=*.o,CVS,*.pyc,._*,.DS_Store,*~,*.gif,*.jpg,*.png,*.pdf,*.psd,*.svn,.svn,.git,.hg
 
-" Softtabs, 2 spaces
+" Whitespace (Softtabs, 2 spaces)
+set nowrap
 set tabstop=2
 set shiftwidth=2
+set softtabstop=2
 set expandtab
-set smarttab
-set smartindent
-set autoindent		" always set autoindenting on
+set list listchars=tab:\ \ ,trail:· "Show tailing whitespace as .
+
+" Use modeline overrides
+set modeline
+set modelines=10
 
 " Presentation
 " ======================================================================
+" UI
+set ruler " show the cursor position all the time
 set number " show line numbers
 set numberwidth=4
-set nowrap textwidth=0 " softwrap
+set laststatus=2 " Always display the status bar
 
 " Color scheme
-colorscheme ir_black 
+colorscheme vividchalk
 set guifont=Monaco:h12
-hi LineNr           guifg=#4A4A4A     guibg=black       gui=NONE      ctermfg=darkgray    ctermbg=NONE        cterm=NONE
-hi Visual           guifg=NONE        guibg=#562D56     gui=NONE      ctermfg=NONE        ctermbg=darkgray    cterm=NONE
+
+" Syntax Highlighting
+" ======================================================================
+syntax on
+
+function s:setupWrapping()
+  set wrap
+  set wm=2
+  set textwidth=72
+endfunction
+
+function s:setupMarkup()
+  call s:setupWrapping()
+  map <buffer> <Leader>p :Mm <CR>
+endfunction
+
+" make uses real tabs
+au FileType make                                     set noexpandtab
+
+" Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
+au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
+
+" md, markdown, and mk are markdown and define buffer-local preview
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
+
+au BufRead,BufNewFile *.txt call s:setupWrapping()
+
+" make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
+au FileType python  set tabstop=4 textwidth=79
 
 " Search
 " ======================================================================
-set incsearch		" do incremental searching
+set incsearch " do incremental searching
+set hlsearch
+set ignorecase
+set smartcase
 
+" Commands and Plugin Configuration
+" ======================================================================
 " <,> is the leader character
 let mapleader = ","
 
@@ -54,14 +94,20 @@ nnoremap <C-h> <C-W>h
 " Split window vertically
 nnoremap <leader>w <C-w>v<C-w>l 
 
+" Command-T
+" Default for Command-T is <leader>t
+let g:CommandTMaxHeight=20
+
 " NERDTree
+let NERDTreeIgnore=['\.rbc$', '\~$']
 nnoremap <leader>d :NERDTreeToggle<cr>
 nnoremap <leader>o :NERDTree<space>
 
 " Ack
 nnoremap <leader>f :Ack<space>
 
-" .vimrc
-nnoremap <leader>ev <C-w>v<C-w>l :e $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
+" Include user's local vim config
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
 
