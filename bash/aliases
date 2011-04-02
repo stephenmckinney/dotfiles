@@ -61,7 +61,6 @@ alias etv='mate app config db Gemfile features lib public spec test vendor &'
 # Version Control...
 
 # Git
-alias gitk='gitk --all &'
 alias gpull='git pull'
 alias gpush='git push'
 alias gs='git status'
