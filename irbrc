@@ -31,7 +31,7 @@ class Object
       klass = self.kind_of?(Class) ? name : self.class.name
       method = [klass, method].compact.join('#')
     end
-    puts `ri '#{method}'`
+    system 'ri', method.to_s
   end
 end
 
@@ -51,4 +51,6 @@ def paste
   `pbpaste`
 end
 
-load File.dirname(__FILE__) + '/.railsrc' if defined?(Rails) #if $0 == 'irb' && (ENV['RAILS_ENV'] || defined?(Rails))
+load File.dirname(__FILE__) + '/.railsrc' if ($0 == 'irb' && ENV['RAILS_ENV']) || ($0 == 'script/rails' && Rails.env)
+# The old way:
+# load File.dirname(__FILE__) + '/.railsrc' if defined?(Rails) 

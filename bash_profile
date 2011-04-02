@@ -1,14 +1,5 @@
-source ~/.bash/aliases
-source ~/.bash/completions
-source ~/.bash/paths
-source ~/.bash/config
-
 if [ -f ~/.bashrc ]; then
-  . ~/.bashrc
-fi
-
-if [ -f ~/.localrc ]; then
-  . ~/.localrc
+  source ~/.bashrc
 fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
