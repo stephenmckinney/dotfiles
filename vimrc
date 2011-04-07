@@ -49,6 +49,12 @@ set guifont=Monaco:h12
 " ======================================================================
 syntax on
 
+" Remember last location in file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal g'\"" | endif
+endif
+
 function s:setupWrapping()
   set wrap
   set wm=2
@@ -87,12 +93,20 @@ set smartcase
 let mapleader = ","
 
 " Window navigation
-nnoremap <C-j> <C-W>j
-nnoremap <C-k> <C-W>k
-nnoremap <C-l> <C-W>l
-nnoremap <C-h> <C-W>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
 " Split window vertically
-nnoremap <leader>w <C-w>v<C-w>l 
+nnoremap <leader>v <C-w>v<C-w>l
+" Split window horizontally
+nnoremap <leader>s <C-w>s<C-w>j
+" Close all but current
+nnoremap <leader>o <C-w>o
+" Cycle through all windows
+nnoremap <leader>w <C-w>w
+" Exchange with other window
+nnoremap <leader>x <C-w>x
 
 " Command-T
 " Default for Command-T is <leader>t
@@ -101,7 +115,7 @@ let g:CommandTMaxHeight=20
 " NERDTree
 let NERDTreeIgnore=['\.rbc$', '\~$']
 nnoremap <leader>d :NERDTreeToggle<cr>
-nnoremap <leader>o :NERDTree<space>
+nnoremap <leader>n :NERDTree<space>
 
 " Ack
 nnoremap <leader>f :Ack<space>
