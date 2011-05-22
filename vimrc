@@ -33,6 +33,10 @@ set list listchars=tab:\ \ ,trail:· "Show tailing whitespace as .
 set modeline
 set modelines=10
 
+" Load all plugins using Pathogen
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
 " Presentation
 " ======================================================================
 " UI
@@ -63,7 +67,8 @@ endfunction
 
 function s:setupMarkup()
   call s:setupWrapping()
-  map <buffer> <Leader>p :Mm <CR>
+  " Hammer - to preview Github markup
+  map <buffer> <leader>p :Hammer<CR>
 endfunction
 
 " make uses real tabs
@@ -73,12 +78,18 @@ au FileType make                                     set noexpandtab
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
 
 " md, markdown, and mk are markdown and define buffer-local preview
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
+au BufRead,BufNewFile *.{rdoc,md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
+
+au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
 au BufRead,BufNewFile *.txt call s:setupWrapping()
 
 " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python  set tabstop=4 textwidth=79
+
+" Enable syntastic syntax checking
+let g:syntastic_enable_signs=1
+let g:syntastic_quiet_warnings=1
 
 " Search
 " ======================================================================
@@ -119,6 +130,10 @@ nnoremap <leader>n :NERDTree<space>
 
 " Ack
 nnoremap <leader>f :Ack<space>
+
+" CTags
+map <leader>rt :!ctags --extra=+f -R *<CR><CR>
+map <C-\> :tnext<CR>
 
 " Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
