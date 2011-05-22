@@ -11,8 +11,8 @@ if has("gui_macvim")
 endif
 
 colorscheme ir_black
-hi LineNr           guifg=#4A4A4A     guibg=black       gui=NONE      ctermfg=darkgray    ctermbg=NONE        cterm=NONE
-hi Visual           guifg=NONE        guibg=#562D56     gui=NONE      ctermfg=NONE        ctermbg=darkgray    cterm=NONE
+hi LineNr           guifg=#6c6c6c     guibg=#000000       gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
+hi Visual           guifg=NONE        guibg=#562D56       gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
 
 " START NERDTree Customizations
 "
