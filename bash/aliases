@@ -47,9 +47,8 @@ alias postgresstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgre
 alias pythonserver='python -m SimpleHTTPServer'
 
 # Rails
-alias rc='rails console'
-alias rs='rails server --debugger'
-alias rg='rails generate'
+alias r='rails'
+alias rs='rails s --debugger'
 alias tlog='tail -f log/development.log'
 alias migrate='rake db:migrate db:test:clone'
 
@@ -61,23 +60,7 @@ alias etv='mate app config db Gemfile features lib public spec test vendor &'
 # Version Control...
 
 # Git
-alias gpull='git pull'
-alias gpush='git push'
-alias gs='git status'
-alias gc='git commit -v'
-alias gca='git commit -v -a'
-alias gb='git branch'
-alias gba='git branch -a'
-alias gco='git checkout'
-alias gcom='git checkout master'
-alias gl='git log'
-alias gd='git diff'  # What's changed but not yet added?
-alias gdc='git diff --cached'  # What's added but not yet committed?
-alias gr='git rm'
-alias ga='git add'
-#function gdiff() { git diff $1 | mate; }
-#alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
-#alias git-pretty='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen%cn%Creset %Cblue%cr%Creset'\'' --abbrev-commit --date=relative'
+alias g='git'
 
 # Subversion
 alias sup='svn update'

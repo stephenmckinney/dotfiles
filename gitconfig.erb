@@ -1,21 +1,32 @@
 [user]
-	name = <%= print("Your Name: "); STDOUT.flush; STDIN.gets.chomp %>
-	email = <%= print("Your Email: "); STDOUT.flush; STDIN.gets.chomp %>
+  name = Steve McKinney
+  email = steve.mckinney@threespot.com
 [alias]
   co = checkout
+  com = checkout master
+  s = status
+  c = commit -v
+  ca = commit -v -a
+  b = branch
+  ba = branch -a
+  l = log
+  d = diff # What's changed but not yet added?
+  dc = diff --cached # What's changed and added but not yet committed?
+  dh = diff HEAD # What's changed (added or not)?
+  a = add
+  r = rm
   unstage = reset HEAD --
   discard = checkout --
 [color]
-	diff = auto
-	status = auto
-	branch = auto
+  diff = auto
+  status = auto
+  branch = auto
 [core]
 	excludesfile = <%= ENV['HOME'] %>/.gitignore
-	editor = mate -w
+	editor = mvim -f
 [apply]
-	whitespace = nowarn
+  whitespace = nowarn
 [log]
- 	date = short
+  date = short
 [format]
-<%# <hash> <committer name> <committer date relative> <subject> %>
   pretty = %C(yellow)%h [%cn] %C(cyan)%cr %Creset%s
