@@ -1,8 +1,8 @@
-" TODO: commenting and indentation
-
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+set nobackup
+set nowritebackup
 filetype plugin indent on " load the plugin and indent settings for the detected filetype
 
 " Basic options
@@ -11,10 +11,6 @@ set encoding=utf-8
 set history=100 " keep 100 lines of command line history
 set showcmd " display incomplete commands
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
-
-" Directories for swp files
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
 
 " Tab completion options in Command mode
 set wildmode=list:longest,list:full
@@ -37,17 +33,12 @@ set modelines=10
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
-" Presentation
-" ======================================================================
 " UI
+" ======================================================================
 set ruler " show the cursor position all the time
 set number " show line numbers
 set numberwidth=4
 set laststatus=2 " Always display the status bar
-
-" Color scheme
-colorscheme vividchalk
-set guifont=Monaco:h12
 
 " Syntax Highlighting
 " ======================================================================
