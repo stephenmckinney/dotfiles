@@ -1,11 +1,15 @@
 # Prettiness
-magenta='\[\e[0;35m\]' 
-no_color='\[\e[0m\]'
+green='\[\033[0;32m\]'
+yellow='\[\033[0;33m\]'
+magenta='\[\033[0;35m\]'
+cyan='\[\033[01;36m\]'
+default='\[\033[00m\]'
 if [ "${HOSTNAME}"=="smckinney.local" ]; then
-  export PS1="${magenta}[\w]\$${no_color} "
+  export PS1="${green}\$(~/.rvm/bin/rvm-prompt) ${magenta}\w${yellow}\$(__git_ps1 \" (%s)\") ${cyan}\$${default} "
 else
-  export PS1="${magenta}\h[\w]\$${no_color} "
+  export PS1="${yellow}(\H) ----- ${magenta}\w ${cyan}\$${default} "
 fi
+
 
 export LSCOLORS='fxfxcxdxbxegedabagacad'
 #   1.   directory = magneta
