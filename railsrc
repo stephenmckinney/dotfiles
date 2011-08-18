@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-puts "> all systems are go railsrc <"
+puts "Loading ~/.railsrc"
 
 begin
   require 'hirb' # sudo gem install cldwalker-hirb --source http://gems.github.com
