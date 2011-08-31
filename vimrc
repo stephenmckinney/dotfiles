@@ -116,6 +116,9 @@ let g:CommandTMaxHeight=20
 
 " NERDTree
 let NERDTreeIgnore=['\.rbc$', '\~$']
+" TODO: Other directories: log, vendor, tmp
+let NERDTreeMapOpenVSplit='v'
+let NERDTreeMapOpenSplit='s'
 nnoremap <leader>d :NERDTreeToggle<cr>
 nnoremap <leader>n :NERDTree<space>
 
