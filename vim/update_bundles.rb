@@ -17,6 +17,7 @@ git_bundles = [
   "git://github.com/wgibbs/vim-irblack.git",
   "git://github.com/tpope/vim-vividchalk.git",
   "git://github.com/altercation/vim-colors-solarized.git",
+  "git://github.com/ChrisKempson/Tomorrow-Theme.git",
   # Languages & Syntax
   "git://github.com/scrooloose/syntastic.git",
   "git://github.com/tpope/vim-rails.git",
@@ -64,4 +65,13 @@ vim_org_scripts.each do |name, script_id, script_type|
     file << open("http://www.vim.org/scripts/download_script.php?src_id=#{script_id}").read
   end
 end
+
+puts "Compiling Command-T"
+FileUtils.cd(File.join(bundles_dir, "Command-t"))
+`rake make`
+
+puts "Pathogenizing Tomorrow-Theme"
+FileUtils.cd(File.join(bundles_dir, "Tomorrow-Theme"))
+Dir["*"].reject{|d| d=="Vim" || d=="README.md"}.each{|d| FileUtils.rm_rf d}
+FileUtils.mv("Vim", "colors")
 
