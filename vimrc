@@ -125,6 +125,9 @@ nnoremap <leader>n :NERDTree<space>
 " Ack
 nnoremap <leader>f :Ack<space>
 
+" Align
+xnoremap <leader>a :Align<space>
+
 " CTags
 map <leader>rt :!ctags --extra=+f -R *<CR><CR>
 map <C-\> :tnext<CR>
