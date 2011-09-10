@@ -67,11 +67,11 @@ vim_org_scripts.each do |name, script_id, script_type|
 end
 
 puts "Compiling Command-T"
-FileUtils.cd(File.join(bundles_dir, "Command-t"))
+FileUtils.cd("Command-T")
 `rake make`
 
 puts "Pathogenizing Tomorrow-Theme"
-FileUtils.cd(File.join(bundles_dir, "Tomorrow-Theme"))
+FileUtils.cd("../Tomorrow-Theme")
 Dir["*"].reject{|d| d=="Vim" || d=="README.md"}.each{|d| FileUtils.rm_rf d}
 FileUtils.mv("Vim", "colors")
 
