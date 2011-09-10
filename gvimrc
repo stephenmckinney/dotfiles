@@ -13,9 +13,9 @@ endif
 
 " Presentation
 " ======================================================================
-colorscheme ir_black
-set guifont=Consolas:h14
-hi LineNr           guifg=#6c6c6c     guibg=#000000       gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
+colorscheme Tomorrow-Night-Bright
+set guifont=Menlo:h13
+hi LineNr           guifg=#969896     guibg=#000000       gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
 hi Visual           guifg=NONE        guibg=#562D56       gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
 
 " START NERDTree Customizations
