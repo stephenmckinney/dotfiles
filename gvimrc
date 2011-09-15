@@ -4,7 +4,7 @@ if has("gui_macvim")
   au GUIEnter * set fullscreen
 
   " Remove scrollbar
-  set guioptions-=r
+  "set guioptions-=r
 
   " Remove toolbar
   set guioptions-=T

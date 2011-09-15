@@ -7,7 +7,7 @@ default='\[\033[00m\]'
 if [[ $HOSTNAME =~ ^smckinney.[a-z.]+ ]]; then
   export PS1="${green}\$(~/.rvm/bin/rvm-prompt) ${magenta}\w${yellow}\$(__git_ps1 \" (%s)\") ${cyan}\$${default} "
 else
-  export PS1="${green}(SSH'd into ${cyan}\H${green}) ----- ${magenta}\w${yellow}\$(__git_ps1 \" (%s)\") ${cyan}\$${default} "
+  export PS1="${cyan}\u@\H${green} ${magenta}\w${yellow}\$(__git_ps1 \" (%s)\") ${cyan}\$${default} "
 fi
 
 
