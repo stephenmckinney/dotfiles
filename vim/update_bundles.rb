@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-git_bundles = [ 
+git_bundles = [
   # Does stuff
   "git://github.com/mileszs/ack.vim.git",
   "git://github.com/wincent/Command-T.git",
@@ -10,8 +10,10 @@ git_bundles = [
   "git://github.com/vim-scripts/taglist.vim.git",
   "git://github.com/tpope/vim-surround.git",
   "git://github.com/tsaleh/vim-align.git",
+  "git://github.com/michaeljsmith/vim-indent-object.git",
   "git://github.com/tsaleh/vim-supertab.git",
   "git://github.com/robgleeson/hammer.vim.git",
+  "git://github.com/tpope/vim-fugitive.git",
   # Themes
   "git://github.com/vim-scripts/Color-Sampler-Pack.git",
   "git://github.com/wgibbs/vim-irblack.git",

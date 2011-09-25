@@ -70,4 +70,6 @@ function sdiff() { svn diff $1 | mate ; }
 alias slog='svn log -v'
 alias sexp='svn export'
 
-
+#Threespot
+alias sshstaging='ssh smckinney@50.57.110.230'
+alias sftpstaging='sftp smckinney@50.57.110.230'

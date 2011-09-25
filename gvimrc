@@ -15,8 +15,11 @@ endif
 " ======================================================================
 colorscheme Tomorrow-Night-Bright
 set guifont=Menlo:h13
-hi LineNr           guifg=#969896     guibg=#000000       gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
-hi Visual           guifg=NONE        guibg=#562D56       gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
+" Highlight extra white space
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+match ExtraWhitespace /\s\+$\|^\t/
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhitespace /\s\+$\|^\t/
 
 " START NERDTree Customizations
 "

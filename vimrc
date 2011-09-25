@@ -23,7 +23,6 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-set list listchars=tab:\ \ ,trail:· "Show tailing whitespace as .
 
 " Use modeline overrides
 set modeline
@@ -32,6 +31,31 @@ set modelines=10
 " Load all plugins using Pathogen
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
+
+" Handling extra whitespace
+" ======================================================================
+"Show trailing whitespace as .
+set list listchars=tab:\ \ ,trail:·
+" Highlight extra white space
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+match ExtraWhitespace /\s\+$\|^\t/
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhitespace /\s\+$\|^\t/
+" Strip trailing whitespace
+" http://vimcasts.org/episodes/tidying-whitespace/
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+" Strip trailing whitespace on save
+autocmd BufWritePre *.rb,*.py,*.html :call <SID>StripTrailingWhitespaces()
 
 " UI
 " ======================================================================
@@ -63,10 +87,10 @@ function s:setupMarkup()
 endfunction
 
 " make uses real tabs
-au FileType make                                     set noexpandtab
+au FileType make set noexpandtab
 
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
+au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
 
 " md, markdown, and mk are markdown and define buffer-local preview
 au BufRead,BufNewFile *.{rdoc,md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
@@ -76,7 +100,7 @@ au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 au BufRead,BufNewFile *.txt call s:setupWrapping()
 
 " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-au FileType python  set tabstop=4 textwidth=79
+au  BufRead,BufNewFile *.py  set tabstop=4 softtabstop=4 textwidth=79 shiftwidth=4
 
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
@@ -110,19 +134,24 @@ nnoremap <leader>w <C-w>w
 " Exchange with other window
 nnoremap <leader>x <C-w>x
 
+" Unhighlight search
+nnoremap <leader>n :noh<cr>
+
 " Command-T
 " Default for Command-T is <leader>t
-let g:CommandTMaxHeight=20
+let g:CommandTMatchWindowAtTop=1
+let g:CommandTMaxHeight=15
+let g:CommandTMaxFiles=20000
 
 " NERDTree
 let NERDTreeIgnore=['\.rbc$', '\~$']
-" TODO: Other directories: log, vendor, tmp
 let NERDTreeMapOpenVSplit='v'
 let NERDTreeMapOpenSplit='s'
 nnoremap <leader>d :NERDTreeToggle<cr>
-nnoremap <leader>n :NERDTree<space>
+nnoremap <leader>o :NERDTree<space>
 
 " Ack
+" Ack ignores are stored in ~/.ackrc
 nnoremap <leader>f :Ack<space>
 
 " Align
