@@ -15,7 +15,7 @@ set backspace=indent,eol,start " allow backspacing over everything in insert mod
 " Tab completion options in Command mode
 set wildmode=list:longest,list:full
 set wildmenu
-set wildignore=*.o,CVS,*.pyc,._*,.DS_Store,*~,*.gif,*.jpg,*.png,*.pdf,*.psd,*.svn,.svn,.git,.hg
+set wildignore=*.o,CVS,*.pyc,._*,.DS_Store,*~,*.gif,*.jpg,*.png,*.pdf,*.psd,*.svn,.svn,.git,.hg,tmp/**,vendor/**,**/migrations/**
 
 " Whitespace (Softtabs, 2 spaces)
 set nowrap
