@@ -62,7 +62,21 @@ autocmd BufWritePre *.rb,*.py,*.html :call <SID>StripTrailingWhitespaces()
 set ruler " show the cursor position all the time
 set number " show line numbers
 set numberwidth=4
+
+" Status line
+" ======================================================================
 set laststatus=2 " Always display the status bar
+set statusline=%t       "tail of the filename
+set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
+set statusline+=%{&ff}] "file format
+set statusline+=%h      "help file flag
+set statusline+=%y      "filetype
+set statusline+=%r      "read only flag
+set statusline+=%m      "modified flag
+set statusline+=%=      "left/right separator
+set statusline+=%c,     "cursor column
+set statusline+=%l/%L   "cursor line/total lines
+set statusline+=\ %P    "percent through file
 
 " Syntax Highlighting
 " ======================================================================
