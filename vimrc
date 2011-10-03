@@ -100,7 +100,7 @@ au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 au BufRead,BufNewFile *.txt call s:setupWrapping()
 
 " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-au  BufRead,BufNewFile *.py  set tabstop=4 softtabstop=4 textwidth=79 shiftwidth=4
+au  BufRead,BufNewFile *.py  set tabstop=4 softtabstop=4 shiftwidth=4
 
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
