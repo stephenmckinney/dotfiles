@@ -76,9 +76,9 @@ endfunction
 function s:UpdateNERDTree(...)
   let stay = 0
 
-  if(exists("a:1"))
-    let stay = a:1
-  end
+  "if(exists("a:1"))
+    "let stay = a:1
+  "end
 
   if exists("t:NERDTreeBufName")
     let nr = bufwinnr(t:NERDTreeBufName)
@@ -91,9 +91,11 @@ function s:UpdateNERDTree(...)
     endif
   endif
 
-  if exists(":CommandTFlush") == 2
-    CommandTFlush
-  endif
+  if(exists("a:1"))
+    if exists(":CommandTFlush") == 2
+      CommandTFlush
+    endif
+  end
 endfunction
 
 " Utility functions to create file commands
@@ -130,7 +132,7 @@ endfunction
 
 function Touch(file)
   execute "!touch " . shellescape(a:file, 1)
-  call s:UpdateNERDTree()
+  call s:UpdateNERDTree("flush")
 endfunction
 
 function Remove(file)
@@ -143,12 +145,12 @@ function Remove(file)
     execute "!rm " . shellescape(a:file, 1)
   endif
 
-  call s:UpdateNERDTree()
+  call s:UpdateNERDTree("flush")
 endfunction
 
 function Mkdir(file)
   execute "!mkdir " . shellescape(a:file, 1)
-  call s:UpdateNERDTree()
+  call s:UpdateNERDTree("flush")
 endfunction
 
 function Edit(file)
