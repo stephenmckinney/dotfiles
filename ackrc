@@ -1,3 +1,14 @@
+--color
+# only search with case sensitivity if there is mixed case
+--smart-case
+# follow symlinks
+--follow
+# filetypes
+--type-set=cucumber=.feature
+--type-set=doc=.markdown,.md,.mdown,.rdoc
+--type-set=erb=.erb
+# ignore
+--nosql
 --ignore-dir=log
 --ignore-dir=tmp
 --ignore-dir=vendor
