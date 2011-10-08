@@ -166,7 +166,7 @@ nnoremap <leader>o :NERDTree<space>
 
 " Ack
 " Ack ignores are stored in ~/.ackrc
-nnoremap <leader>f :Ack<space>
+nnoremap <leader>f :Ack!<space>
 
 " Align
 xnoremap <leader>a :Align<space>
