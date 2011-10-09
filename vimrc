@@ -147,12 +147,15 @@ nnoremap <leader>o <C-w>o
 nnoremap <leader>w <C-w>w
 " Exchange with other window
 nnoremap <leader>x <C-w>x
+" Toggle ZoomWin
+nnoremap <leader>z :ZoomWin<cr>
 
 " Unhighlight search
 nnoremap <leader>n :noh<cr>
 
 " Command-T
 " Default for Command-T is <leader>t
+nnoremap <leader>T :CommandTFlush
 let g:CommandTMatchWindowAtTop=1
 let g:CommandTMaxHeight=15
 let g:CommandTMaxFiles=20000
@@ -162,7 +165,7 @@ let NERDTreeIgnore=['\.rbc$', '\~$']
 let NERDTreeMapOpenVSplit='v'
 let NERDTreeMapOpenSplit='s'
 nnoremap <leader>d :NERDTreeToggle<cr>
-nnoremap <leader>o :NERDTree<space>
+nnoremap <leader>e :NERDTree<space>
 
 " Ack
 " Ack ignores are stored in ~/.ackrc
