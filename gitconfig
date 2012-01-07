@@ -15,18 +15,20 @@
   dh = diff HEAD # What's changed (added or not)?
   a = add
   r = rm
+  p = pull
+  m = merge
+  messages = log --pretty=format:'%s'
   unstage = reset HEAD --
   discard = checkout --
 [color]
-  diff = auto
-  status = auto
-  branch = auto
+  ui = true
 [core]
-	excludesfile = <%= ENV['HOME'] %>/.gitignore
-	editor = mvim -f
+  excludesfile = /Users/smckinney/.gitignore
+  editor = mvim -f
 [apply]
   whitespace = nowarn
 [log]
   date = short
 [format]
-  pretty = %C(yellow)%h [%cn] %C(cyan)%cr %Creset%s
+  # abbreviated commit hash, committer name, committer date relative, subject
+  pretty=%C(yellow)%h %Creset[%C(blue)%cn%Creset] %C(cyan)%cr%Creset %s
