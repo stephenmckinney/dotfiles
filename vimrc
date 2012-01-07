@@ -3,6 +3,9 @@
 set nocompatible
 set nobackup
 set nowritebackup
+set noswapfile
+set visualbell            " don't beep
+set noerrorbells          " don't beep
 filetype plugin indent on " load the plugin and indent settings for the detected filetype
 
 " Basic options
@@ -15,7 +18,7 @@ set backspace=indent,eol,start " allow backspacing over everything in insert mod
 " Tab completion options in Command mode
 set wildmode=list:longest,list:full
 set wildmenu
-set wildignore=*.o,CVS,*.pyc,._*,.DS_Store,*~,*.gif,*.jpg,*.png,*.pdf,*.psd,*.svn,.svn,.git,.hg,tmp/**,vendor/**,**/migrations/**
+set wildignore=*.o,CVS,*.pyc,._*,.DS_Store,*~,*.gif,*.jpg,*.png,*.pdf,*.psd,*.svn,.svn,.git,.hg,log/**,tmp/**,vendor/**,**/migrations/**
 
 " Whitespace (Softtabs, 2 spaces)
 set nowrap
@@ -28,6 +31,10 @@ set expandtab
 set modeline
 set modelines=10
 
+" enable ruby folding, default to unfolded
+let ruby_fold=1
+set foldlevelstart=99
+
 " Load all plugins using Pathogen
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
@@ -37,10 +44,10 @@ call pathogen#runtime_append_all_bundles()
 "Show trailing whitespace as .
 set list listchars=tab:\ \ ,trail:·
 " Highlight extra white space
-highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-match ExtraWhitespace /\s\+$\|^\t/
-au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-au InsertLeave * match ExtraWhitespace /\s\+$\|^\t/
+"highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+"match ExtraWhitespace /\s\+$\|^\t/
+"au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+"au InsertLeave * match ExtraWhitespace /\s\+$\|^\t/
 " Strip trailing whitespace
 " http://vimcasts.org/episodes/tidying-whitespace/
 function! <SID>StripTrailingWhitespaces()
@@ -91,7 +98,7 @@ endif
 function s:setupWrapping()
   set wrap
   set wm=2
-  set textwidth=72
+  "set textwidth=72
 endfunction
 
 function s:setupMarkup()
@@ -119,6 +126,9 @@ au  BufRead,BufNewFile *.py  set tabstop=4 softtabstop=4 shiftwidth=4
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
+
+" Enable matchit.vim for Ruby blocks and HTML navigation
+runtime macros/matchit.vim
 
 " Search
 " ======================================================================
@@ -150,12 +160,20 @@ nnoremap <leader>x <C-w>x
 " Toggle ZoomWin
 nnoremap <leader>z :ZoomWin<cr>
 
+" Page up/Page down
+nnoremap <Space> <C-d>
+nnoremap <S-Space> <C-u>
+
 " Unhighlight search
 nnoremap <leader>n :noh<cr>
 
+" Open/Close quickfix window
+nnoremap <leader>q :cclose<cr>
+nnoremap <leader>Q :copen<cr>
+
 " Command-T
 " Default for Command-T is <leader>t
-nnoremap <leader>T :CommandTFlush
+nnoremap <leader>T :CommandTFlush<cr>
 let g:CommandTMatchWindowAtTop=1
 let g:CommandTMaxHeight=15
 let g:CommandTMaxFiles=20000

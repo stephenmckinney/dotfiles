@@ -13,13 +13,14 @@ endif
 
 " Presentation
 " ======================================================================
-colorscheme Tomorrow-Night-Bright
+set background=dark
+colorscheme solarized
 set guifont=Menlo:h13
 " Highlight extra white space
-highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-match ExtraWhitespace /\s\+$\|^\t/
-au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-au InsertLeave * match ExtraWhitespace /\s\+$\|^\t/
+"highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+"match ExtraWhitespace /\s\+$\|^\t/
+"au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+"au InsertLeave * match ExtraWhitespace /\s\+$\|^\t/
 
 " START NERDTree Customizations
 "
