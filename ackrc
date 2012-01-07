@@ -3,13 +3,16 @@
 --smart-case
 # follow symlinks
 --follow
-# filetypes
+# custom filetypes
 --type-set=cucumber=.feature
---type-set=doc=.markdown,.md,.mdown,.rdoc
+--type-set=doc=.markdown,.md,.mdown,.rdoc,.rst
 --type-set=erb=.erb
 # ignore
 --nosql
+# ignore - Rails
 --ignore-dir=log
 --ignore-dir=tmp
 --ignore-dir=vendor
+# ignore - Django
+--ignore-dir=media
 --ignore-dir=migrations
