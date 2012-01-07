@@ -196,6 +196,9 @@ xnoremap <leader>a :Align<space>
 map <leader>rt :!ctags --extra=+f -R *<CR><CR>
 map <C-\> :tnext<CR>
 
+" Snipmate
+let g:snippets_dir='~/.vim/bundle/snipmate-snippets/snippets/'
+
 " Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
