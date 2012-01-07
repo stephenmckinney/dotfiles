@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+require 'fileutils'
+require 'open-uri'
+
 git_bundles = [
   ###
   # Does stuff
@@ -81,13 +84,9 @@ git_bundles = [
   "git://github.com/ajf/puppet-vim.git",
 ]
 
-
 vim_org_scripts = [
   #["jquery",        "12107", "syntax"],
 ]
-
-require 'fileutils'
-require 'open-uri'
 
 bundles_dir = File.join(File.dirname(__FILE__), "bundle")
 
