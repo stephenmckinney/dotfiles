@@ -14,5 +14,4 @@
 --ignore-dir=tmp
 --ignore-dir=vendor
 # ignore - Django
---ignore-dir=media
 --ignore-dir=migrations
