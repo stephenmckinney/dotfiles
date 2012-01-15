@@ -1,74 +1,73 @@
+" Basic options
+" ======================================================================
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
-set nobackup
-set nowritebackup
-set noswapfile
-set visualbell            " don't beep
-set noerrorbells          " don't beep
-filetype plugin indent on " load the plugin and indent settings for the detected filetype
 
-" Basic options
-" ======================================================================
+" Load all plugins using Pathogen
+call pathogen#infect()
+call pathogen#helptags()
+
+" Load the filetype detection, plugin, and indent settings
+filetype plugin indent on
+
+" Basics
 set encoding=utf-8
 set history=100 " keep 100 lines of command line history
 set showcmd " display incomplete commands
+set showmode " display mode
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
+
+" When the page starts to scroll, keep the cursor 8 lines from the top and 8
+" lines from the bottom
+set scrolloff=8
+
+" Indentation (Softtabs, 2 spaces)
+set nowrap
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set autoindent
+" Special indention for some languages
+" FIXME does python ft work better than *.py?
+"autocmd BufRead,BufNewFile *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent
+autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent
+autocmd FileType make   setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+
+" No backups
+set nobackup
+set nowritebackup
+set noswapfile
+
+" No beeps
+set visualbell
+set noerrorbells
 
 " Tab completion options in Command mode
 set wildmode=list:longest,list:full
 set wildmenu
 set wildignore=*.o,CVS,*.pyc,._*,.DS_Store,*~,*.gif,*.jpg,*.png,*.pdf,*.psd,*.svn,.svn,.git,.hg,log/**,tmp/**,vendor/**,**/migrations/**
 
-" Whitespace (Softtabs, 2 spaces)
-set nowrap
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-
 " Use modeline overrides
 set modeline
 set modelines=10
 
-" enable ruby folding, default to unfolded
+" Make sure that unsaved buffers that are to be put in the background are
+" allowed to go in there (ie. the 'must save first' error doesn't come up)
+set hidden
+
+" Enable ruby folding, default to unfolded
 let ruby_fold=1
 set foldlevelstart=99
 
-" Load all plugins using Pathogen
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
-
-" Handling extra whitespace
-" ======================================================================
-"Show trailing whitespace as .
-set list listchars=tab:\ \ ,trail:·
-" Highlight extra white space
-"highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-"match ExtraWhitespace /\s\+$\|^\t/
-"au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-"au InsertLeave * match ExtraWhitespace /\s\+$\|^\t/
-" Strip trailing whitespace
-" http://vimcasts.org/episodes/tidying-whitespace/
-function! <SID>StripTrailingWhitespaces()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-" Strip trailing whitespace on save
-autocmd BufWritePre *.rb,*.py,*.html :call <SID>StripTrailingWhitespaces()
 
 " UI
 " ======================================================================
 set ruler " show the cursor position all the time
 set number " show line numbers
 set numberwidth=4
+
 
 " Status line
 " ======================================================================
@@ -85,9 +84,44 @@ set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 
-" Syntax Highlighting
+
+" Search
 " ======================================================================
-syntax on
+set incsearch " do incremental searching
+set hlsearch
+set ignorecase
+set smartcase
+
+
+" Functions
+" ======================================================================
+" Strip trailing whitespace
+" http://vimcasts.org/episodes/tidying-whitespace/
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+" Wrap like a text file
+function! s:setupWrapping()
+  set wrap
+  set wm=2
+  set textwidth=72
+endfunction
+
+" Wrap like a text file and allow preview
+function! s:setupMarkup()
+  call s:setupWrapping()
+  " Preview in Marked.app
+  nnoremap <leader>p :silent !open -a Marked.app '%:p'<cr>
+endfunction
 
 " Remember last location in file
 if has("autocmd")
@@ -95,33 +129,33 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
-function s:setupWrapping()
-  set wrap
-  set wm=2
-  "set textwidth=72
-endfunction
 
-function s:setupMarkup()
-  call s:setupWrapping()
-  " Hammer - to preview Github markup
-  map <buffer> <leader>p :Hammer<CR>
-endfunction
+" Whitespace
+" ======================================================================
+"Show trailing whitespace as .
+set list listchars=tab:\ \ ,trail:·
 
-" make uses real tabs
-au FileType make set noexpandtab
+" FIXME will this stay or not?
+" Highlight extra white space
+"highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+"match ExtraWhitespace /\s\+$\|^\t/
+"au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+"au InsertLeave * match ExtraWhitespace /\s\+$\|^\t/
+
+" Strip trailing whitespace on save
+autocmd BufWritePre *.rb,*.py,*.html,*.css,*.js :call <SID>StripTrailingWhitespaces()
+
+
+" Syntax and Syntax Highlighting
+" ======================================================================
+syntax enable
 
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
-
-" md, markdown, and mk are markdown and define buffer-local preview
+" FIXME I here this is handle by ruby.vim
+"au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
 au BufRead,BufNewFile *.{rdoc,md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
-
-au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-
 au BufRead,BufNewFile *.txt call s:setupWrapping()
-
-" make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-au  BufRead,BufNewFile *.py  set tabstop=4 softtabstop=4 shiftwidth=4
+au BufRead,BufNewFile jquery.*.js setlocal ft=javascript syntax=jquery
 
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
@@ -130,12 +164,6 @@ let g:syntastic_quiet_warnings=1
 " Enable matchit.vim for Ruby blocks and HTML navigation
 runtime macros/matchit.vim
 
-" Search
-" ======================================================================
-set incsearch " do incremental searching
-set hlsearch
-set ignorecase
-set smartcase
 
 " Commands and Plugin Configuration
 " ======================================================================
@@ -157,6 +185,8 @@ nnoremap <leader>o <C-w>o
 nnoremap <leader>w <C-w>w
 " Exchange with other window
 nnoremap <leader>x <C-w>x
+" Adjust viewports to the same size
+nnoremap <Leader>= <C-w>=
 " Toggle ZoomWin
 nnoremap <leader>z :ZoomWin<cr>
 
@@ -164,16 +194,25 @@ nnoremap <leader>z :ZoomWin<cr>
 nnoremap <Space> <C-d>
 nnoremap <S-Space> <C-u>
 
-" Unhighlight search
+" TODO Toggle highligth search
+" Turn off hightlight search
 nnoremap <leader>n :noh<cr>
 
-" Open/Close quickfix window
-nnoremap <leader>q :cclose<cr>
-nnoremap <leader>Q :copen<cr>
+" Edit vimrc file
+nnoremap <leader>ev :e $MYVIMRC<cr>
+nnoremap <leader>sv :so $MYVIMRC<cr>
+
+" Toggle Quickfix window
+nnoremap <leader>q :QFix<cr>
+
+" Toggle Tagbar
+nnoremap <leader>T :TagbarToggle<cr>
 
 " Command-T
-" Default for Command-T is <leader>t
-nnoremap <leader>T :CommandTFlush<cr>
+" Default for Command-T window list is <leader>t
+" Default for Command-T buffer list is <leader>b
+nnoremap <C-t> :CommandTFlush<cr>
+nnoremap <C-b> :BufOnly<cr>
 let g:CommandTMatchWindowAtTop=1
 let g:CommandTMaxHeight=15
 let g:CommandTMaxFiles=20000
@@ -191,10 +230,6 @@ nnoremap <leader>f :Ack!<space>
 
 " Align
 xnoremap <leader>a :Align<space>
-
-" CTags
-map <leader>rt :!ctags --extra=+f -R *<CR><CR>
-map <C-\> :tnext<CR>
 
 " Snipmate
 let g:snippets_dir='~/.vim/bundle/snipmate-snippets/snippets/'
