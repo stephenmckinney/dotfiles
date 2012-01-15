@@ -1,0 +1,74 @@
+# cd
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+
+# changing directory to dev projects
+c() { cd ~/Documents/Dev/$1; }
+_c() { _files -W ~/Documents/Dev -/; }
+compdef _c c
+# changing directory to work projects
+w() { cd ~/Documents/Dev/web/threespot/$1; }
+_w() { _files -W ~/Documents/Dev/web/threespot -/; }
+compdef _w w
+
+# changing directory to home
+function h { cd ~/$1; }
+
+# ls
+#-l long
+#-h human readable size
+#-G colorized output
+#-a all
+alias ls="ls -FlhG"
+alias la="ls -FlhGa"
+
+# General
+alias vi='vim' #use vim
+alias tc='top -o cpu' #cpu
+alias tm='top -o vsize' #memory
+alias flarge='find . -size +100000000c -print' #print all file over 100 MB
+alias ffile='du -h'
+alias fdir='du -sk' #file size of directory
+alias history='history | grep'
+alias sbash='source ~/.bash_profile && echo "sourced ~/.bash_profile"'
+alias ebash='mvim ~/.dotfiles'
+
+# Memcached
+alias memcachedstart='memcached -p 11211 &'
+
+# MySQL
+alias mysqlstart='/usr/local/Cellar/mysql/5.1.48/bin/mysqld_safe &'
+alias mysqlstop='/usr/local/Cellar/mysql/5.1.48/bin/mysqladmin -u root -p shutdown'
+
+# Postgresql
+alias postgresstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start &'
+
+# Python Simple HTTP Server
+alias pythonserver='python -m SimpleHTTPServer'
+
+# Rails
+alias r='rails'
+alias rs='rails s --debugger'
+alias tlog='tail -f log/development.log'
+alias migrate='rake db:migrate db:test:clone'
+
+# Textmate
+alias et='mate . &'
+alias etr='mate app config db Gemfile features lib public spec test &'
+alias etv='mate app config db Gemfile features lib public spec test vendor &'
+
+# Version Control...
+
+# Git
+alias g='git'
+
+# Subversion
+alias sup='svn update'
+alias sstat='svn status'
+alias scomm='svn commit'
+function sdiff() { svn diff $1 | mate ; }
+alias slog='svn log -v'
+alias sexp='svn export'
