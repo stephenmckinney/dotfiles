@@ -33,18 +33,20 @@ git_bundles = [
   "git://github.com/kana/vim-textobj-user.git",
   # Vim Text Object - Ruby Block
   "git://github.com/nelstrom/vim-textobj-rubyblock.git",
-  # Taglist
-  "git://github.com/vim-scripts/taglist.vim.git",
+  # Tagbar
+  "git://github.com/majutsushi/tagbar.git",
   # Supertab
   "git://github.com/tsaleh/vim-supertab.git",
   # ZoomWin
   "git://github.com/vim-scripts/ZoomWin.git",
+  # QFixToggle
+  "git://github.com/Valloric/QFixToggle.git",
+  # BufOnly
+  "git://github.com/vim-scripts/BufOnly.vim.git",
   # Fugitive
   "git://github.com/tpope/vim-fugitive.git",
   # Gist
   "git://github.com/mattn/gist-vim.git",
-  # Hammer
-  "git://github.com/robgleeson/hammer.vim.git",
   ###
   # Themes
   ###
