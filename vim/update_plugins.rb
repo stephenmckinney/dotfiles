@@ -101,7 +101,7 @@ git_bundles.each do |url|
   dir = url.split('/').last.sub(/\.git$/, '')
   puts "  Unpacking #{url} into #{dir}"
   `git clone #{url} #{dir}`
-  FileUtils.rm_rf(File.join(dir, ".git"))
+  FileUtils.rm_rf(File.join(dir, ".git")) unless url=="git@github.com:poorlilrichboy/snipmate-snippets.git"
 end
 
 vim_org_scripts.each do |name, script_id, script_type|
