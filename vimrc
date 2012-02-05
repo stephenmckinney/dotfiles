@@ -19,8 +19,10 @@ set showmode " display mode
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 
 " When the page starts to scroll, keep the cursor 8 lines from the top and 8
-" lines from the bottom
+" lines from the bottom and 15 lines on the left
 set scrolloff=8
+set sidescrolloff=15
+set sidescroll=1
 
 " Indentation (Softtabs, 2 spaces)
 set nowrap

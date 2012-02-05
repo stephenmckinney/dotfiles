@@ -48,6 +48,3 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR='mvim' # use MacVim
 export LC_CTYPE=en_US.UTF-8 # Subversion
 
-# RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-__rvm_project_rvmrc
