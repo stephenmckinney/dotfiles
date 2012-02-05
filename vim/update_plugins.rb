@@ -63,7 +63,7 @@ git_bundles = [
   # Rails
   "git://github.com/tpope/vim-rails.git",
   # Rspec
-  "git://github.com/taq/vim-rspec.git",
+  "git://github.com/skwp/vim-rspec.git",
   # Cucumber
   "git://github.com/tpope/vim-cucumber.git",
   # Shoulda
