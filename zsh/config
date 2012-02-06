@@ -45,6 +45,7 @@ source $ZSH/oh-my-zsh.sh
 #   10.  directory writable to others, with sticky bit = black green
 #   11.  directory writable to others, without sticky bit = black brown
 
+autoload zmv
 export EDITOR='mvim' # use MacVim
 export LC_CTYPE=en_US.UTF-8 # Subversion
 
