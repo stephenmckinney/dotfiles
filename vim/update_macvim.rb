@@ -32,13 +32,13 @@ end
 
 # clone repo
 begin
-  FileUtils.rm_rf("/Users/smckinney/Documents/Dev/src/macvim")
+  FileUtils.rm_rf("/Users/smckinney/code/src/macvim")
 rescue
   # noop
 end
-FileUtils.cd("/Users/smckinney/Documents/Dev/src")
+FileUtils.cd("/Users/smckinney/code/src")
 system "git clone git://github.com/b4winckler/macvim.git"
-FileUtils.cd("/Users/smckinney/Documents/Dev/src/macvim")
+FileUtils.cd("/Users/smckinney/code/src/macvim")
 system "git checkout -b #{opts[:tag]}_branch #{opts[:tag]}"
 
 # compile icons
@@ -53,8 +53,8 @@ system "make"
 
 # install
 FileUtils.rm_rf("/Applications/MacVim.app")
-FileUtils.mv("/Users/smckinney/Documents/Dev/src/macvim/src/MacVim/build/Release/MacVim.app", "/Applications/MacVim.app")
+FileUtils.mv("/Users/smckinney/code/src/macvim/src/MacVim/build/Release/MacVim.app", "/Applications/MacVim.app")
 
 # remove src and build
-FileUtils.rm_rf("/Users/smckinney/Documents/Dev/src/macvim")
+FileUtils.rm_rf("/Users/smckinney/code/src/macvim")
 
