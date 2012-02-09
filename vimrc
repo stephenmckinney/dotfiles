@@ -172,6 +172,9 @@ runtime macros/matchit.vim
 " <,> is the leader character
 let mapleader = ","
 
+" It's not like :W is bound to anything anyway.
+command! W :w
+
 " Window navigation
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -197,6 +200,8 @@ nnoremap <Space> <C-d>
 nnoremap <S-Space> <C-u>
 
 " TODO Toggle highligth search
+" TODO turn it off with <CR>
+"nnoremap <CR> :nohlsearch<cr>
 " Turn off hightlight search
 nnoremap <leader>n :noh<cr>
 
@@ -208,13 +213,13 @@ nnoremap <leader>sv :so $MYVIMRC<cr>
 nnoremap <leader>q :QFix<cr>
 
 " Toggle Tagbar
-nnoremap <leader>T :TagbarToggle<cr>
+nnoremap <C-t> :TagbarToggle<cr>
 
 " Command-T
 " Default for Command-T window list is <leader>t
 " Default for Command-T buffer list is <leader>b
-nnoremap <C-t> :CommandTFlush<cr>
-nnoremap <C-b> :BufOnly<cr>
+nnoremap <leader>T :CommandTFlush<cr>\|:CommandT<cr>
+nnoremap <leader>B :BufOnly<cr>\|:CommandTBuffer<cr>
 let g:CommandTMatchWindowAtTop=1
 let g:CommandTMaxHeight=15
 let g:CommandTMaxFiles=20000
