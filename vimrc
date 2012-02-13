@@ -71,8 +71,9 @@ set modelines=10
 set hidden
 
 " Enable ruby folding, default to unfolded
-let ruby_fold=1
-set foldlevelstart=99
+" FIXME What the hell does this do?
+"let ruby_fold=1
+"set foldlevelstart=99
 
 
 " UI
@@ -92,10 +93,12 @@ set statusline+=%h      "help file flag
 set statusline+=%y      "filetype
 set statusline+=%r      "read only flag
 set statusline+=%m      "modified flag
+set statusline+=%{fugitive#statusline()} "git status
 set statusline+=%=      "left/right separator
 set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
+set statusline+=%{SyntasticStatuslineFlag()}
 
 
 " Search
@@ -122,14 +125,15 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 
-" Wrap like a text file
+" Wrap text
 function! s:setupWrapping()
   set wrap
-  set wm=2
+  set linebreak
   set textwidth=72
+  set nolist
 endfunction
 
-" Wrap like a text file and allow preview
+" Wrap text and allow preview
 function! s:setupMarkup()
   call s:setupWrapping()
   " Preview in Marked.app
@@ -137,10 +141,8 @@ function! s:setupMarkup()
 endfunction
 
 " Remember last location in file
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal g'\"" | endif
-endif
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+  \| exe "normal g'\"" | endif
 
 
 " Whitespace
@@ -161,16 +163,17 @@ autocmd BufWritePre *.rb,*.py,*.html,*.css,*.js :call <SID>StripTrailingWhitespa
 
 " Syntax and Syntax Highlighting
 " ======================================================================
+" Turn on syntax highlighting allowing local overrides
 syntax enable
 
-" Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
-" FIXME I here this is handle by ruby.vim
-"au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
-au BufRead,BufNewFile *.{rdoc,md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
-au BufRead,BufNewFile *.txt call s:setupWrapping()
-au BufRead,BufNewFile jquery.*.js setlocal ft=javascript syntax=jquery
+" Text files
+au BufRead,BufNewFile *.{rdoc,md,markdown,mdown,mkd,mkdn,txt} call s:setupMarkup()
+
+" Ruby compiler
+au FileType ruby compiler ruby
 
 " Enable syntastic syntax checking
+let g:statline_syntastic = 1
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
 
@@ -212,13 +215,15 @@ nnoremap <S-Space> <C-u>
 
 " TODO Toggle highligth search
 " TODO turn it off with <CR>
-"nnoremap <CR> :nohlsearch<cr>
 " Turn off hightlight search
 nnoremap <leader>n :noh<cr>
 
 " Edit vimrc file
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>sv :so $MYVIMRC<cr>
+
+" Find merge conflict markers
+nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 
 " Toggle Quickfix window
 nnoremap <leader>q :QFix<cr>
@@ -227,10 +232,10 @@ nnoremap <leader>q :QFix<cr>
 nnoremap <C-t> :TagbarToggle<cr>
 
 " Command-T
-" Default for Command-T window list is <leader>t
-" Default for Command-T buffer list is <leader>b
-nnoremap <leader>T :CommandTFlush<cr>\|:CommandT<cr>
-nnoremap <leader>B :BufOnly<cr>\|:CommandTBuffer<cr>
+nnoremap <silent> <Leader>t :CommandT<cr>
+nnoremap <silent> <leader>T :CommandTFlush<cr>\|:CommandT<cr>
+nnoremap <silent> <Leader>b :CommandTBuffer<cr>
+nnoremap <silent> <leader>B :BufOnly<cr>\|:CommandTBuffer<cr>
 let g:CommandTMatchWindowAtTop=1
 let g:CommandTMaxHeight=15
 let g:CommandTMaxFiles=20000
@@ -250,7 +255,12 @@ nnoremap <leader>f :Ack!<space>
 xnoremap <leader>a :Align<space>
 
 " Snipmate
-let g:snippets_dir='~/.vim/bundle/snipmate-snippets/snippets/'
+let g:snipMate = {}
+let g:snipMate.scope_aliases = {}
+let g:snipMate.scope_aliases['eruby'] = 'eruby, eruby-rails, html'
+let g:snipMate.scope_aliases['htmldjango'] = 'htmldjango, html'
+let g:snipMate.scope_aliases['php'] = 'php, html'
+let g:snipMate.scope_aliases['ruby'] = 'ruby, ruby-factorygirl, ruby-rails, ruby-rspec, ruby-shoulda'
 
 " Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
