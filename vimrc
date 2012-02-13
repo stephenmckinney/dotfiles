@@ -49,7 +49,18 @@ set noerrorbells
 " Tab completion options in Command mode
 set wildmode=list:longest,list:full
 set wildmenu
-set wildignore=*.o,CVS,*.pyc,._*,.DS_Store,*~,*.gif,*.jpg,*.png,*.pdf,*.psd,*.svn,.svn,.git,.hg,log/**,tmp/**,vendor/**,**/migrations/**
+" Disable output and VCS files
+set wildignore+=*.o,*.out,*.obj,*.pyc,.git,.hg,*.rbc,*.rbo,*.class,.svn,*.gem
+" Disable archive files
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
+" Disable images
+set wildignore+=*.gif,*.jpg,*.png,*.pdf,*.psd
+" Ignore bundler and sass cache
+set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
+" Ignore Rails log, tmp, and migrations; as well as Django migrations
+set wildignore+=log/**,tmp/**,**/migrations/**
+" Disable temp and backup files
+set wildignore+=*.swp,*~,._*,.DS_Store
 
 " Use modeline overrides
 set modeline
