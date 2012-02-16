@@ -18,7 +18,7 @@
   p = pull
   m = merge
   messages = log --pretty=format:'%s'
-  unstage = reset HEAD --
+  unstage = reset HEAD
   discard = checkout --
 [color]
   ui = true
