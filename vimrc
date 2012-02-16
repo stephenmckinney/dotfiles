@@ -1,3 +1,6 @@
+" Also see gvimrc
+
+" ======================================================================
 " Basic options
 " ======================================================================
 " Use Vim settings, rather then Vi settings (much better!).
@@ -7,9 +10,6 @@ set nocompatible
 " Load all plugins using Pathogen
 call pathogen#infect()
 call pathogen#helptags()
-
-" Load the filetype detection, plugin, and indent settings
-filetype plugin indent on
 
 " Basics
 set encoding=utf-8
@@ -31,11 +31,6 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set autoindent
-" Special indention for some languages
-" FIXME does python ft work better than *.py?
-"autocmd BufRead,BufNewFile *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent
-autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent
-autocmd FileType make   setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 
 " No backups
 set nobackup
@@ -54,7 +49,7 @@ set wildignore+=*.o,*.out,*.obj,*.pyc,.git,.hg,*.rbc,*.rbo,*.class,.svn,*.gem
 " Disable archive files
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 " Disable images
-set wildignore+=*.gif,*.jpg,*.png,*.pdf,*.psd
+set wildignore+=*.gif,*.GIF,*.jpg,*.JPG,*.png,*.PNG,*.pdf,*.PDF,*.psd,*.PSD
 " Ignore bundler and sass cache
 set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
 " Ignore Rails log, tmp, and migrations; as well as Django migrations
@@ -70,37 +65,8 @@ set modelines=10
 " allowed to go in there (ie. the 'must save first' error doesn't come up)
 set hidden
 
-" Enable ruby folding, default to unfolded
-" FIXME What the hell does this do?
-"let ruby_fold=1
-"set foldlevelstart=99
 
-
-" UI
 " ======================================================================
-set ruler " show the cursor position all the time
-set number " show line numbers
-set numberwidth=4
-
-
-" Status line
-" ======================================================================
-set laststatus=2 " Always display the status bar
-set statusline=%t       "tail of the filename
-set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
-set statusline+=%{&ff}] "file format
-set statusline+=%h      "help file flag
-set statusline+=%y      "filetype
-set statusline+=%r      "read only flag
-set statusline+=%m      "modified flag
-set statusline+=%{fugitive#statusline()} "git status
-set statusline+=%=      "left/right separator
-set statusline+=%c,     "cursor column
-set statusline+=%l/%L   "cursor line/total lines
-set statusline+=\ %P    "percent through file
-set statusline+=%{SyntasticStatuslineFlag()}
-
-
 " Search
 " ======================================================================
 set incsearch " do incremental searching
@@ -109,11 +75,40 @@ set ignorecase
 set smartcase
 
 
+" ======================================================================
+" UI
+" ======================================================================
+set ruler " show the cursor position all the time
+set number " show line numbers
+set numberwidth=4
+
+
+" ======================================================================
+" Status line
+" ======================================================================
+if has("statusline")
+  set laststatus=2 " Always display the status bar
+  set statusline=%t       "tail of the filename
+  set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
+  set statusline+=%{&ff}] "file format
+  set statusline+=%h      "help file flag
+  set statusline+=%y      "filetype
+  set statusline+=%r      "read only flag
+  set statusline+=%m      "modified flag
+  set statusline+=%=      "left/right separator
+  set statusline+=%{fugitive#statusline()} "git status
+  set statusline+=%c,     "cursor column
+  set statusline+=%l/%L   "cursor line/total lines
+  set statusline+=\ %P    "percent through file
+endif
+
+
+" ======================================================================
 " Functions
 " ======================================================================
 " Strip trailing whitespace
 " http://vimcasts.org/episodes/tidying-whitespace/
-function! <SID>StripTrailingWhitespaces()
+function! s:StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
     let _s=@/
     let l = line(".")
@@ -140,48 +135,69 @@ function! s:setupMarkup()
   nnoremap <leader>p :silent !open -a Marked.app '%:p'<cr>
 endfunction
 
-" Remember last location in file
-au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-  \| exe "normal g'\"" | endif
 
-
-" Whitespace
 " ======================================================================
-"Show trailing whitespace as .
-set list listchars=tab:\ \ ,trail:·
-
-" FIXME will this stay or not?
-" Highlight extra white space
-"highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-"match ExtraWhitespace /\s\+$\|^\t/
-"au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-"au InsertLeave * match ExtraWhitespace /\s\+$\|^\t/
-
-" Strip trailing whitespace on save
-autocmd BufWritePre *.rb,*.py,*.html,*.css,*.js :call <SID>StripTrailingWhitespaces()
-
-
-" Syntax and Syntax Highlighting
+" Filetypes and autocmds
 " ======================================================================
+" Load the filetype detection, plugin, and indent settings
+filetype plugin indent on
 " Turn on syntax highlighting allowing local overrides
 syntax enable
 
-" Text files
-au BufRead,BufNewFile *.{rdoc,md,markdown,mdown,mkd,mkdn,txt} call s:setupMarkup()
+"Show trailing whitespace as .
+set list listchars=tab:\ \ ,trail:·
 
-" Ruby compiler
-au FileType ruby compiler ruby
+if has("autocmd")
+  " Special indention for some languages
+  au FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent
+  au FileType make   setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+  au BufRead,BufNewFile *.{rdoc,md,markdown,mdown,mkd,mkdn,txt} call s:setupMarkup()
+  " Ruby compiler
+  au FileType ruby compiler ruby
+  " Strip trailing whitespace on save
+  au BufWritePre *.rb,*.py,*.html,*.css,*.js :call s:StripTrailingWhitespaces()
+  " Remember last location in file
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal g'\"" | endif
+endif
 
-" Enable syntastic syntax checking
-let g:statline_syntastic = 1
-let g:syntastic_enable_signs=1
+
+" ======================================================================
+" Plugin Configuration
+" ======================================================================
+" Syntastic
+let g:syntastic_enable_signs=1 " Enable syntastic syntax checking
 let g:syntastic_quiet_warnings=1
 
-" Enable matchit.vim for Ruby blocks and HTML navigation
-runtime macros/matchit.vim
+" Command-T
+let g:CommandTMatchWindowAtTop=1
+let g:CommandTMaxHeight=15
+let g:CommandTMaxFiles=20000
+
+" NERDTree
+let NERDTreeIgnore=['\.rbc$', '\~$']
+let NERDTreeMapOpenVSplit='v'
+let NERDTreeMapOpenSplit='s'
+
+" Snipmate
+let g:snipMate = {}
+let g:snipMate.scope_aliases = {}
+let g:snipMate.scope_aliases['eruby'] = 'eruby, eruby-rails, html'
+let g:snipMate.scope_aliases['htmldjango'] = 'htmldjango, html'
+let g:snipMate.scope_aliases['php'] = 'php, html'
+let g:snipMate.scope_aliases['ruby'] = 'ruby, ruby-factorygirl, ruby-rails, ruby-rspec, ruby-shoulda'
+
+" Matchit
+runtime macros/matchit.vim " Enable matchit.vim for Ruby blocks and HTML navigation
+
+" Ruby.vim:
+"   This will set the 'foldmethod' option to 'syntax' and allow folding of
+"   classes, modules, methods, code blocks, heredocs and comments.
+let ruby_fold=1 " Enable ruby folding.
 
 
-" Commands and Plugin Configuration
+" ======================================================================
+" Key mappings Commands
 " ======================================================================
 " <,> is the leader character
 let mapleader = ","
@@ -209,10 +225,6 @@ nnoremap <Leader>= <C-w>=
 " Toggle ZoomWin
 nnoremap <leader>z :ZoomWin<cr>
 
-" Page up/Page down
-nnoremap <Space> <C-d>
-nnoremap <S-Space> <C-u>
-
 " TODO Toggle highligth search
 " TODO turn it off with <CR>
 " Turn off hightlight search
@@ -236,14 +248,8 @@ nnoremap <silent> <Leader>t :CommandT<cr>
 nnoremap <silent> <leader>T :CommandTFlush<cr>\|:CommandT<cr>
 nnoremap <silent> <Leader>b :CommandTBuffer<cr>
 nnoremap <silent> <leader>B :BufOnly<cr>\|:CommandTBuffer<cr>
-let g:CommandTMatchWindowAtTop=1
-let g:CommandTMaxHeight=15
-let g:CommandTMaxFiles=20000
 
 " NERDTree
-let NERDTreeIgnore=['\.rbc$', '\~$']
-let NERDTreeMapOpenVSplit='v'
-let NERDTreeMapOpenSplit='s'
 nnoremap <leader>d :NERDTreeToggle<cr>
 nnoremap <leader>e :NERDTree<space>
 
@@ -254,13 +260,14 @@ nnoremap <leader>f :Ack!<space>
 " Align
 xnoremap <leader>a :Align<space>
 
-" Snipmate
-let g:snipMate = {}
-let g:snipMate.scope_aliases = {}
-let g:snipMate.scope_aliases['eruby'] = 'eruby, eruby-rails, html'
-let g:snipMate.scope_aliases['htmldjango'] = 'htmldjango, html'
-let g:snipMate.scope_aliases['php'] = 'php, html'
-let g:snipMate.scope_aliases['ruby'] = 'ruby, ruby-factorygirl, ruby-rails, ruby-rspec, ruby-shoulda'
+" Fugitive
+nmap <leader>gb :Gblame<CR>
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>gd :Gdiff<CR>
+nmap <leader>gl :Glog<CR>
+" I'm not ready to start committing and pushing from vim. Maybe one day.
+"nmap <leader>gc :Gcommit<CR>
+"nmap <leader>gp :Git push<CR>
 
 " Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))

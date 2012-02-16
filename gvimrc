@@ -1,28 +1,30 @@
+" ======================================================================
+" UI
+" ======================================================================
+set background=dark
+colorscheme solarized
+set guifont=Menlo:h13
+
 if has("gui_macvim")
   " Fullscreen takes up entire screen
   set fuoptions=maxhorz,maxvert
   au GUIEnter * set fullscreen
-
-  " Remove scrollbar
-  "set guioptions-=r
-
   " Remove toolbar
   set guioptions-=T
 endif
 
 
-" Presentation
 " ======================================================================
-set background=dark
-colorscheme solarized
-set guifont=Menlo:h13
-" Highlight extra white space
-"highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-"match ExtraWhitespace /\s\+$\|^\t/
-"au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-"au InsertLeave * match ExtraWhitespace /\s\+$\|^\t/
+" Key mappings Commands
+" ======================================================================
+" Page up/Page down
+nnoremap <Space> <C-d>
+nnoremap <S-Space> <C-u>
 
-" START NERDTree Customizations
+
+" ======================================================================
+" NERDTree Customizations
+" ======================================================================
 "
 " Automatically activate NERDTree when MacVIM opens and make the original buffer the active one
 " Provide alternative :e, :cd, :rm and :touch abbreviations which also refresh NERDTree when done (when NERDTree is open)
@@ -178,8 +180,6 @@ call s:DefineCommand("touch", "Touch")
 call s:DefineCommand("rm", "Remove")
 call s:DefineCommand("e", "Edit")
 call s:DefineCommand("mkdir", "Mkdir")
-
-" END NERDTree Customizations
 
 
 " Include user's local vim config
