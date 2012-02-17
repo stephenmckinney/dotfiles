@@ -96,7 +96,6 @@ if has("statusline")
   set statusline+=%r      "read only flag
   set statusline+=%m      "modified flag
   set statusline+=%=      "left/right separator
-  set statusline+=%{fugitive#statusline()} "git status
   set statusline+=%c,     "cursor column
   set statusline+=%l/%L   "cursor line/total lines
   set statusline+=\ %P    "percent through file

@@ -52,8 +52,6 @@ git_bundles = [
   # Gist
   "git://github.com/mattn/gist-vim.git",
   # FIXME decide if the below plugins are here to stay
-  # CSS Colors?
-  "git://github.com/ap/vim-css-color.git",
   # Rename?
   "git://github.com/vim-scripts/Rename2.git",
   # Endwise?
