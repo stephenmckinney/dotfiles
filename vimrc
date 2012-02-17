@@ -135,6 +135,54 @@ function! s:setupMarkup()
   nnoremap <leader>p :silent !open -a Marked.app '%:p'<cr>
 endfunction
 
+" NERDTree Customizations (taken from Janus)
+" https://github.com/carlhuda/janus/blob/master/janus/vim/tools/janus/after/plugin/nerdtree.vim
+" If the parameter is a directory, cd into it
+function s:CdIfDirectory(directory)
+  let explicitDirectory = isdirectory(a:directory)
+  let directory = explicitDirectory || empty(a:directory)
+
+  if explicitDirectory
+    exe "cd " . fnameescape(a:directory)
+  endif
+
+  " Allows reading from stdin
+  " ex: git diff | mvim -R -
+  if strlen(a:directory) == 0
+    return
+  endif
+
+  if directory
+    NERDTree
+    wincmd p
+    bd
+  endif
+
+  if explicitDirectory
+    wincmd p
+  endif
+endfunction
+
+" NERDTree utility function
+function s:UpdateNERDTree(...)
+  let stay = 0
+
+  if(exists("a:1"))
+    let stay = a:1
+  end
+
+  if exists("t:NERDTreeBufName")
+    let nr = bufwinnr(t:NERDTreeBufName)
+    if nr != -1
+      exe nr . "wincmd w"
+      exe substitute(mapcheck("R"), "<CR>", "", "")
+      if !stay
+        wincmd p
+      end
+    endif
+  endif
+endfunction
+
 
 " ======================================================================
 " Filetypes and autocmds
@@ -144,21 +192,28 @@ filetype plugin indent on
 " Turn on syntax highlighting allowing local overrides
 syntax enable
 
-"Show trailing whitespace as .
+" Show trailing whitespace as .
 set list listchars=tab:\ \ ,trail:·
 
 if has("autocmd")
-  " Special indention for some languages
-  au FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent
-  au FileType make   setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
-  au BufRead,BufNewFile *.{rdoc,md,markdown,mdown,mkd,mkdn,txt} call s:setupMarkup()
-  " Ruby compiler
-  au FileType ruby compiler ruby
-  " Strip trailing whitespace on save
-  au BufWritePre *.rb,*.py,*.html,*.css,*.js :call s:StripTrailingWhitespaces()
-  " Remember last location in file
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal g'\"" | endif
+  augroup poorlilrichboy
+    au!
+    " Special indention for some languages
+    au FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent
+    au FileType make   setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+    au BufRead,BufNewFile *.{rdoc,md,markdown,mdown,mkd,mkdn,txt} call s:setupMarkup()
+    " Ruby compiler
+    au FileType ruby compiler ruby
+    " Strip trailing whitespace on save
+    au BufWritePre *.rb,*.py,*.html,*.css,*.js :call s:StripTrailingWhitespaces()
+    " Remember last location in file
+    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+      \| exe "normal g'\"" | endif
+    " NERDTree Customizations (taken from Janus)
+    " https://github.com/carlhuda/janus/blob/master/janus/vim/tools/janus/after/plugin/nerdtree.vim
+    au VimEnter * call s:CdIfDirectory(expand("<amatch>"))
+    au FocusGained * call s:UpdateNERDTree()
+  augroup END
 endif
 
 
@@ -166,20 +221,28 @@ endif
 " Plugin Configuration
 " ======================================================================
 " Syntastic
-let g:syntastic_enable_signs=1 " Enable syntastic syntax checking
 let g:syntastic_quiet_warnings=1
 
+"CtrlP
+let g:ctrlp_map = ''
+let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_max_height = 15
+let g:ctrlp_extensions = ['tag']
+
 " Command-T
-let g:CommandTMatchWindowAtTop=1
-let g:CommandTMaxHeight=15
-let g:CommandTMaxFiles=20000
+"let g:CommandTMatchWindowAtTop=1
+"let g:CommandTMaxHeight=15
+"let g:CommandTMaxFiles=20000
 
 " NERDTree
-let NERDTreeIgnore=['\.rbc$', '\~$']
+let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o', '\~$']
+let NERDTreeHijackNetrw = 0
 let NERDTreeMapOpenVSplit='v'
 let NERDTreeMapOpenSplit='s'
 
 " Snipmate
+let g:snips_author='Steve McKinney'
 let g:snipMate = {}
 let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['eruby'] = 'eruby, eruby-rails, html'
@@ -194,6 +257,7 @@ runtime macros/matchit.vim " Enable matchit.vim for Ruby blocks and HTML navigat
 "   This will set the 'foldmethod' option to 'syntax' and allow folding of
 "   classes, modules, methods, code blocks, heredocs and comments.
 let ruby_fold=1 " Enable ruby folding.
+set foldlevel=99
 
 
 " ======================================================================
@@ -243,11 +307,17 @@ nnoremap <leader>q :QFix<cr>
 " Toggle Tagbar
 nnoremap <C-t> :TagbarToggle<cr>
 
+" CtrlP
+nnoremap <silent> <Leader>t :CtrlP<cr>
+nnoremap <silent> <leader>T :ClearCtrlPCache<cr>\|:CtrlP<cr>
+nnoremap <silent> <Leader>b :CtrlPBuffer<cr>
+nnoremap <silent> <leader>B :BufOnly<cr><cr>
+
 " Command-T
-nnoremap <silent> <Leader>t :CommandT<cr>
-nnoremap <silent> <leader>T :CommandTFlush<cr>\|:CommandT<cr>
-nnoremap <silent> <Leader>b :CommandTBuffer<cr>
-nnoremap <silent> <leader>B :BufOnly<cr>\|:CommandTBuffer<cr>
+"nnoremap <silent> <Leader>t :CommandT<cr>
+"nnoremap <silent> <leader>T :CommandTFlush<cr>\|:CommandT<cr>
+"nnoremap <silent> <Leader>b :CommandTBuffer<cr>
+"nnoremap <silent> <leader>B :BufOnly<cr>\|:CommandTBuffer<cr>
 
 " NERDTree
 nnoremap <leader>d :NERDTreeToggle<cr>
