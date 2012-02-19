@@ -24,13 +24,15 @@ set scrolloff=8
 set sidescrolloff=15
 set sidescroll=1
 
-" Indentation (Softtabs, 2 spaces)
+" Indentation (Softtabs, 2 spaces): rb, html, css, js
 set nowrap
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
 set autoindent
+set foldmethod=indent
+set foldlevel=99
 
 " No backups
 set nobackup
@@ -197,12 +199,12 @@ set list listchars=tab:\ \ ,trail:·
 if has("autocmd")
   augroup poorlilrichboy
     au!
-    " Special indention for some languages
-    au FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent
+    " rb, html, css, js indention are handled by the defaults
     au FileType make   setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
-    au BufRead,BufNewFile *.{rdoc,md,markdown,mdown,mkd,mkdn,txt} call s:setupMarkup()
-    " Ruby compiler
+    au FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    au FileType ruby setlocal foldmethod=syntax
     au FileType ruby compiler ruby
+    au BufRead,BufNewFile *.{rdoc,md,markdown,mdown,mkd,mkdn,txt} call s:setupMarkup()
     " Strip trailing whitespace on save
     au BufWritePre *.rb,*.py,*.html,*.css,*.js :call s:StripTrailingWhitespaces()
     " Remember last location in file
@@ -252,11 +254,8 @@ let g:snipMate.scope_aliases['ruby'] = 'ruby, ruby-factorygirl, ruby-rails, ruby
 " Matchit
 runtime macros/matchit.vim " Enable matchit.vim for Ruby blocks and HTML navigation
 
-" Ruby.vim:
-"   This will set the 'foldmethod' option to 'syntax' and allow folding of
-"   classes, modules, methods, code blocks, heredocs and comments.
-let ruby_fold=1 " Enable ruby folding.
-set foldlevel=99
+" Tagbar
+let g:tagbar_compact = 1
 
 
 " ======================================================================
@@ -337,6 +336,18 @@ nmap <leader>gl :Glog<CR>
 " I'm not ready to start committing and pushing from vim. Maybe one day.
 "nmap <leader>gc :Gcommit<CR>
 "nmap <leader>gp :Git push<CR>
+"
+""" Code folding options
+nmap <silent> <D-0> :set foldlevel=99<CR>
+nmap <silent> <D-1> :set foldlevel=0<CR>
+nmap <silent> <D-2> :set foldlevel=1<CR>
+nmap <silent> <D-3> :set foldlevel=2<CR>
+nmap <silent> <D-4> :set foldlevel=3<CR>
+nmap <silent> <D-5> :set foldlevel=4<CR>
+nmap <silent> <D-6> :set foldlevel=5<CR>
+nmap <silent> <D-7> :set foldlevel=6<CR>
+nmap <silent> <D-8> :set foldlevel=7<CR>
+nmap <silent> <D-9> :set foldlevel=8<CR>
 
 " Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
