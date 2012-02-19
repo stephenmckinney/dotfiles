@@ -133,7 +133,7 @@ endfunction
 function! s:setupMarkup()
   call s:setupWrapping()
   " Preview in Marked.app
-  nnoremap <leader>p :silent !open -a Marked.app '%:p'<cr>
+  nmap <leader>p :silent !open -a Marked.app '%:p'<CR>
 endfunction
 
 " NERDTree Customizations (taken from Janus)
@@ -268,65 +268,69 @@ let mapleader = ","
 command! W :w
 
 " Window navigation
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+nmap <C-h> <C-w>h
 " Split window vertically
-nnoremap <leader>v <C-w>v<C-w>l
+nmap <leader>v <C-w>v<C-w>l
 " Split window horizontally
-nnoremap <leader>s <C-w>s<C-w>j
+nmap <leader>s <C-w>s<C-w>j
 " Close all but current
-nnoremap <leader>o <C-w>o
+nmap <leader>o <C-w>o
 " Cycle through all windows
-nnoremap <leader>w <C-w>w
+nmap <leader>w <C-w>w
 " Exchange with other window
-nnoremap <leader>x <C-w>x
+nmap <leader>x <C-w>x
 " Adjust viewports to the same size
-nnoremap <Leader>= <C-w>=
+nmap <Leader>= <C-w>=
 " Toggle ZoomWin
-nnoremap <leader>z :ZoomWin<cr>
+nmap <silent> <leader>z :ZoomWin<CR>
 
-" TODO Toggle highligth search
-" TODO turn it off with <CR>
 " Turn off hightlight search
-nnoremap <leader>n :noh<cr>
+nnoremap <silent> <CR> :noh<CR>
 
 " Edit vimrc file
-nnoremap <leader>ev :e $MYVIMRC<cr>
-nnoremap <leader>sv :so $MYVIMRC<cr>
+nmap <leader>ev :e $MYVIMRC<CR>
+nmap <leader>sv :so $MYVIMRC<CR>
 
 " Find merge conflict markers
 nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
+" Maintain selection after indent
+vmap > >gv
+vmap < <gv
 
 " Toggle Quickfix window
-nnoremap <leader>q :QFix<cr>
+nmap <silent> <leader>q :QFix<CR>
 
 " Toggle Tagbar
-nnoremap <C-t> :TagbarToggle<cr>
+nmap <silent> <C-t> :TagbarToggle<CR>
 
 " CtrlP
-nnoremap <silent> <Leader>t :CtrlP<cr>
-nnoremap <silent> <leader>T :ClearCtrlPCache<cr>\|:CtrlP<cr>
-nnoremap <silent> <Leader>b :CtrlPBuffer<cr>
-nnoremap <silent> <leader>B :BufOnly<cr><cr>
+nmap <silent> <Leader>t :CtrlP<CR>
+nmap <silent> <leader>T :ClearCtrlPCache<CR>\|:CtrlP<CR>
+nmap <silent> <Leader>b :CtrlPBuffer<CR>
+nmap <silent> <leader>B :BufOnly<CR><CR>
 
 " Command-T
-"nnoremap <silent> <Leader>t :CommandT<cr>
-"nnoremap <silent> <leader>T :CommandTFlush<cr>\|:CommandT<cr>
-"nnoremap <silent> <Leader>b :CommandTBuffer<cr>
-"nnoremap <silent> <leader>B :BufOnly<cr>\|:CommandTBuffer<cr>
+"nmap <silent> <Leader>t :CommandT<CR>
+"nmap <silent> <leader>T :CommandTFlush<CR>\|:CommandT<CR>
+"nmap <silent> <Leader>b :CommandTBuffer<CR>
+"nmap <silent> <leader>B :BufOnly<CR>\|:CommandTBuffer<CR>
 
 " NERDTree
-nnoremap <leader>d :NERDTreeToggle<cr>
-nnoremap <leader>e :NERDTree<space>
+nmap <silent> <leader>d :NERDTreeToggle<CR>
+nmap <leader>e :NERDTree<space>
 
 " Ack
-" Ack ignores are stored in ~/.ackrc
-nnoremap <leader>f :Ack!<space>
+" Ack igs are stored in ~/.ackrc
+nmap <leader>f :Ack!<space>
 
 " Align
-xnoremap <leader>a :Align<space>
+xmap <leader>a :Align<space>
+
+" NarrowRegion
+vmap <silent> <leader>n :NarrowRegion<CR>
 
 " Fugitive
 nmap <leader>gb :Gblame<CR>
