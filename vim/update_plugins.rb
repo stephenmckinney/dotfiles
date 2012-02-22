@@ -10,7 +10,9 @@ git_bundles = [
   # Ack
   "git://github.com/mileszs/ack.vim.git",
   # Command-T
-  "git://github.com/wincent/Command-T.git",
+  #"git://github.com/wincent/Command-T.git",
+  # Ctrl-P
+  "git://github.com/kien/ctrlp.vim.git",
   # Nerdtree
   "git://github.com/scrooloose/nerdtree.git",
   # Nerdcommenter
