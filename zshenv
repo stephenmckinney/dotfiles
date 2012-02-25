@@ -3,3 +3,5 @@
 # `.zshenv' should not contain commands that produce output or assume the shell is attached to a tty.
 
 . ~/.zsh/paths
+
+#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

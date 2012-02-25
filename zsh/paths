@@ -3,4 +3,4 @@ export PATH=/usr/local/bin:$PATH
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-__rvm_project_rvmrc
+#__rvm_project_rvmrc
