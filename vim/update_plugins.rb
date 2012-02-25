@@ -132,9 +132,9 @@ vim_org_scripts.each do |name, script_id, script_type|
   end
 end
 
-puts "Compiling Command-T"
-FileUtils.cd("Command-T")
-`rake make`
+#puts "Compiling Command-T"
+#FileUtils.cd("Command-T")
+#`rake make`
 
 puts "Pathogenizing Tomorrow-Theme"
 FileUtils.cd("../Tomorrow-Theme")
