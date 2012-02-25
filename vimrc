@@ -229,6 +229,7 @@ let g:ctrlp_map = ''
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_max_height = 15
+let g:ctrlp_open_new_file = 'v'
 let g:ctrlp_extensions = ['tag']
 
 " Command-T
@@ -310,7 +311,7 @@ nmap <silent> <C-t> :TagbarToggle<CR>
 nmap <silent> <Leader>t :CtrlP<CR>
 nmap <silent> <leader>T :ClearCtrlPCache<CR>\|:CtrlP<CR>
 nmap <silent> <Leader>b :CtrlPBuffer<CR>
-nmap <silent> <leader>B :BufOnly<CR><CR>
+nmap <silent> <leader>B :BufOnly<CR>
 
 " Command-T
 "nmap <silent> <Leader>t :CommandT<CR>
