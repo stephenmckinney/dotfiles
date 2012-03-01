@@ -1,5 +1,5 @@
-# Add Homebrew to PATH
-export PATH=/usr/local/bin:$PATH
+# Add Homebrew and Homebrew Python to PATH
+export PATH=/usr/local/bin:/usr/local/share/python:$PATH
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

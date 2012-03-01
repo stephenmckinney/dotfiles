@@ -36,11 +36,12 @@ alias ezsh='mvim ~/.dotfiles'
 alias memcachedstart='memcached -p 11211 &'
 
 # MySQL
-alias mysqlstart='/usr/local/Cellar/mysql/5.1.48/bin/mysqld_safe &'
-alias mysqlstop='/usr/local/Cellar/mysql/5.1.48/bin/mysqladmin -u root -p shutdown'
+alias mysqlstart='/usr/local/Cellar/mysql/5.5.19/bin/mysqld_safe &'
+alias mysqlstop='/usr/local/Cellar/mysql/5.5.19/bin/mysqladmin -u root -p shutdown'
 
 # Postgresql
 alias postgresstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start &'
+alias postgresstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 
 # Python Simple HTTP Server
 alias pythonserver='python -m SimpleHTTPServer'
