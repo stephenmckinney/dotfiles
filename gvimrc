@@ -1,10 +1,6 @@
 " ======================================================================
 " UI
 " ======================================================================
-set background=dark
-colorscheme solarized
-set guifont=Menlo:h13
-
 if has("gui_macvim")
   " Fullscreen
   set fuoptions=maxhorz,maxvert

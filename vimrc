@@ -83,6 +83,9 @@ set smartcase
 set ruler " show the cursor position all the time
 set number " show line numbers
 set numberwidth=4
+set background=dark
+colorscheme solarized
+set guifont=Menlo:h13
 
 
 " ======================================================================
