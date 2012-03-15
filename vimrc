@@ -251,10 +251,10 @@ let NERDTreeMapOpenSplit='s'
 let g:snips_author='Steve McKinney'
 let g:snipMate = {}
 let g:snipMate.scope_aliases = {}
-let g:snipMate.scope_aliases['eruby'] = 'eruby, eruby-rails, html'
-let g:snipMate.scope_aliases['htmldjango'] = 'htmldjango, html'
-let g:snipMate.scope_aliases['php'] = 'php, html'
-let g:snipMate.scope_aliases['ruby'] = 'ruby, ruby-factorygirl, ruby-rails, ruby-rspec, ruby-shoulda'
+let g:snipMate.scope_aliases['eruby'] = 'eruby,eruby-rails,html'
+let g:snipMate.scope_aliases['htmldjango'] = 'htmldjango,html'
+let g:snipMate.scope_aliases['php'] = 'php,html'
+let g:snipMate.scope_aliases['ruby'] = 'ruby,ruby-factorygirl,ruby-rails,ruby-rspec,ruby-shoulda'
 
 " Matchit
 runtime macros/matchit.vim " Enable matchit.vim for Ruby blocks and HTML navigation
