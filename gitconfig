@@ -14,9 +14,10 @@
   dc = diff --cached # What's changed and added but not yet committed?
   dh = diff HEAD # What's changed (added or not)?
   a = add
-  r = rm
+  f = fetch
   p = pull
   m = merge
+  r = rebase
   messages = log --pretty=format:'%s'
   unstage = reset HEAD
   discard = checkout --
