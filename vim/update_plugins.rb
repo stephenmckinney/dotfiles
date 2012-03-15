@@ -9,8 +9,6 @@ git_bundles = [
   ###
   # Ack
   "git://github.com/mileszs/ack.vim.git",
-  # Command-T
-  #"git://github.com/wincent/Command-T.git",
   # Ctrl-P
   "git://github.com/kien/ctrlp.vim.git",
   # Nerdtree
@@ -54,13 +52,13 @@ git_bundles = [
   # Gist
   "git://github.com/mattn/gist-vim.git",
   # FIXME decide if the below plugins are here to stay
-  # Rename?
+  # Rename
   "git://github.com/vim-scripts/Rename2.git",
-  # Endwise?
+  # Endwise
   "git://github.com/tpope/vim-endwise.git",
-  # Narrow Region?
+  # Narrow Region
   "git://github.com/chrisbra/NrrwRgn.git",
-  # Matchit?
+  # Matchit
   "git://github.com/edsono/vim-matchit.git",
   ###
   # Themes
@@ -131,13 +129,4 @@ vim_org_scripts.each do |name, script_id, script_type|
     file << open("http://www.vim.org/scripts/download_script.php?src_id=#{script_id}").read
   end
 end
-
-#puts "Compiling Command-T"
-#FileUtils.cd("Command-T")
-#`rake make`
-
-puts "Pathogenizing Tomorrow-Theme"
-FileUtils.cd("../Tomorrow-Theme")
-Dir["*"].reject{|d| d=="Vim" || d=="README.md"}.each{|d| FileUtils.rm_rf d}
-FileUtils.mv("Vim", "colors")
 
