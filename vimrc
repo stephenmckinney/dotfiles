@@ -262,6 +262,10 @@ runtime macros/matchit.vim " Enable matchit.vim for Ruby blocks and HTML navigat
 " Tagbar
 let g:tagbar_compact = 1
 
+" Indent Guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
 
 " ======================================================================
 " Key mappings Commands

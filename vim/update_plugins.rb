@@ -60,6 +60,8 @@ git_bundles = [
   "git://github.com/chrisbra/NrrwRgn.git",
   # Matchit
   "git://github.com/edsono/vim-matchit.git",
+  # Indent Guides
+  "git://github.com/nathanaelkane/vim-indent-guides.git",
   ###
   # Themes
   ###
