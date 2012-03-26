@@ -83,9 +83,15 @@ set smartcase
 set ruler " show the cursor position all the time
 set number " show line numbers
 set numberwidth=4
+set guifont=Menlo:h13
+" ------------------------------------------------------------------
+" Solarized Colorscheme Config
+" ------------------------------------------------------------------
+let g:solarized_contrast="high"    "default value is normal
+let g:solarized_diffmode="high"    "default value is normal
+let g:solarized_hitrail=1          "default value is 0
 set background=dark
 colorscheme solarized
-set guifont=Menlo:h13
 
 
 " ======================================================================
@@ -342,11 +348,11 @@ xmap <leader>a :Align<space>
 vmap <silent> <leader>n :NarrowRegion<CR>
 
 " Fugitive
-nmap <leader>gb :Gblame<CR>
-nmap <leader>gs :Gstatus<CR>
-nmap <leader>gd :Gdiff<CR>
-nmap <leader>gl :Glog<CR>
-" I'm not ready to start committing and pushing from vim. Maybe one day.
+" I'm enjoying just using the commands for now
+"nmap <leader>gb :Gblame<CR>
+"nmap <leader>gs :Gstatus<CR>
+"nmap <leader>gd :Gdiff<CR>
+"nmap <leader>gl :Glog<CR>
 "nmap <leader>gc :Gcommit<CR>
 "nmap <leader>gp :Git push<CR>
 "
