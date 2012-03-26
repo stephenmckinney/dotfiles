@@ -4,3 +4,4 @@ export PATH=/usr/local/bin:/usr/local/share/python:$PATH
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 #__rvm_project_rvmrc
+#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

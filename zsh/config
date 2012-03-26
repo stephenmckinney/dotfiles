@@ -31,22 +31,8 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-# TODO: Create better Solarized LSCOLORS using: http://geoff.greer.fm/lscolors/
-#export LSCOLORS='gxfxbEaEBxxEhEhBaDaCaD'
-#export LSCOLORS='fxfxcxdxbxegedabagacad'
-#   1.   directory = magneta
-#   2.   symbolic link = magneta
-#   3.   socket = green
-#   4.   pipe = brown
-#   5.   executable = red
-#   6.   block special = blue cyan
-#   7.   character special = blue brown
-#   8.   executable with setuid bit set = black red
-#   9.   executable with setgid bit set = black cyan
-#   10.  directory writable to others, with sticky bit = black green
-#   11.  directory writable to others, without sticky bit = black brown
-
 autoload zmv
 export EDITOR='mvim' # use MacVim
 export LC_CTYPE=en_US.UTF-8 # Subversion
+export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD # Solarized LSCOLORS
 
