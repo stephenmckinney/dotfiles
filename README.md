@@ -12,11 +12,6 @@ Configures ack, bash, gem, git, irb, pry, rails, rspec, rvm, vim, zsh...for use 
 
 ## Stay Updated
 
-To compile [MacVim](https://github.com/b4winckler/macvim) from master branch with RVM Ruby support:
-
-    cd ~/.dotfiles
-    ruby vim/update_macvim.rb
-
 To update Vim plugins:
 
     cd ~/.dotfiles
@@ -37,3 +32,14 @@ Uses many [Vim plugins](https://github.com/poorlilrichboy/dotfiles/blob/master/v
 #### Snipmate Snippets
 
 Uses my [snipmate-snippets](https://github.com/poorlilrichboy/snipmate-snippets).
+
+## TODO
+* Move from pathogen to vundle, once 'fast' branch is merged into
+  master.
+* Add install of vundle and creation of vim/bundle directory to
+  Rakefile and delete bash script.
+* Update all zsh files to work with ohmyzsh 2.0, once that is merged
+  into master.
+* Add vim cheatsheet.
+* Remove bash dir.
+* Test .dotfiles on linux, especially vimrc.
