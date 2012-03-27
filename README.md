@@ -27,17 +27,13 @@ Uses [oh my zsh](https://github.com/robbyrussell/oh-my-zsh).
 
 #### Plugins
 
-Uses many [Vim plugins](https://github.com/poorlilrichboy/dotfiles/blob/master/vim/update_bundles.rb).
+Uses many [Vim plugins](https://github.com/poorlilrichboy/dotfiles/blob/master/vimrc#L20).
 
 #### Snipmate Snippets
 
 Uses my [snipmate-snippets](https://github.com/poorlilrichboy/snipmate-snippets).
 
 ## TODO
-* Move from pathogen to vundle, once 'fast' branch is merged into
-  master.
-* Add install of vundle and creation of vim/bundle directory to
-  Rakefile and delete bash script.
 * Update all zsh files to work with ohmyzsh 2.0, once that is merged
   into master.
 * Add vim cheatsheet.

@@ -1,15 +1,19 @@
 " Also see gvimrc
-
 " ======================================================================
 " Basic options
 " ======================================================================
+
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" Load all plugins using Pathogen
-call pathogen#infect()
-call pathogen#helptags()
+" Load plugins
+if filereadable(expand("~/.vim/bundle.vim"))
+  source ~/.vim/bundle.vim
+endif
+
+" Load the filetype detection, plugin, and indent settings
+filetype plugin indent on
 
 " Basics
 set encoding=utf-8
@@ -197,8 +201,6 @@ endfunction
 " ======================================================================
 " Filetypes and autocmds
 " ======================================================================
-" Load the filetype detection, plugin, and indent settings
-filetype plugin indent on
 " Turn on syntax highlighting allowing local overrides
 syntax enable
 
@@ -242,11 +244,6 @@ let g:ctrlp_max_height = 15
 let g:ctrlp_open_new_file = 'v'
 let g:ctrlp_extensions = ['tag']
 
-" Command-T
-"let g:CommandTMatchWindowAtTop=1
-"let g:CommandTMaxHeight=15
-"let g:CommandTMaxFiles=20000
-
 " NERDTree
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o', '\~$']
 let NERDTreeHijackNetrw = 0
@@ -270,8 +267,9 @@ let g:tagbar_compact = 1
 
 " Indent Guides
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 1
+let g:indent_guides_guide_size = 0
 let g:indent_guides_start_level = 2
+
 
 " ======================================================================
 " Key mappings Commands
@@ -326,12 +324,6 @@ nmap <silent> <Leader>t :CtrlP<CR>
 nmap <silent> <leader>T :ClearCtrlPCache<CR>\|:CtrlP<CR>
 nmap <silent> <Leader>b :CtrlPBuffer<CR>
 nmap <silent> <leader>B :BufOnly<CR>
-
-" Command-T
-"nmap <silent> <Leader>t :CommandT<CR>
-"nmap <silent> <leader>T :CommandTFlush<CR>\|:CommandT<CR>
-"nmap <silent> <Leader>b :CommandTBuffer<CR>
-"nmap <silent> <leader>B :BufOnly<CR>\|:CommandTBuffer<CR>
 
 " NERDTree
 nmap <silent> <leader>d :NERDTreeToggle<CR>

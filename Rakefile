@@ -6,7 +6,7 @@ task :install do
   replace_all = false
   Dir['*'].each do |file|
     next if %w[Rakefile README.md LICENSE].include? file
-    
+
     if File.exist?(File.join(ENV['HOME'], ".#{file.sub('.erb', '')}"))
       if File.identical? file, File.join(ENV['HOME'], ".#{file.sub('.erb', '')}")
         puts "identical ~/.#{file.sub('.erb', '')}"
@@ -29,6 +29,15 @@ task :install do
     else
       link_file(file)
     end
+  end
+
+  install_neobundle
+end
+
+def install_neobundle
+  unless File.exist?(File.join(ENV['HOME'], '.vim', 'bundle', 'neobundle.vim'))
+    puts "installing ~/.vim/bundle/neobundle.vim"
+    system("git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
   end
 end
 
