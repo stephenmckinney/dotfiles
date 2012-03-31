@@ -1,5 +1,5 @@
 " ======================================================================
-" Bundle.vim - Loads plugins via NeoBundle
+" Loads plugins via NeoBundle
 " ======================================================================
 
 filetype plugin indent off     " required

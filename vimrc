@@ -1,6 +1,6 @@
-" Also see gvimrc
 " ======================================================================
 " Basic options
+"     Also see gvimrc
 " ======================================================================
 
 " Use Vim settings, rather then Vi settings (much better!).
@@ -8,8 +8,8 @@
 set nocompatible
 
 " Load plugins
-if filereadable(expand("~/.vim/bundle.vim"))
-  source ~/.vim/bundle.vim
+if filereadable(expand("~/.vim/plugin.vim"))
+  source ~/.vim/plugin.vim
 endif
 
 " Load the filetype detection, plugin, and indent settings
@@ -88,14 +88,10 @@ set ruler " show the cursor position all the time
 set number " show line numbers
 set numberwidth=4
 set guifont=Menlo:h13
-" ------------------------------------------------------------------
-" Solarized Colorscheme Config
-" ------------------------------------------------------------------
-let g:solarized_contrast="high"    "default value is normal
-let g:solarized_diffmode="high"    "default value is normal
-let g:solarized_hitrail=1          "default value is 0
 set background=dark
 colorscheme solarized
+syntax enable " Turn on syntax highlighting allowing local overrides
+set list listchars=tab:\ \ ,trail:· " Show trailing whitespace as .
 
 
 " ======================================================================
@@ -118,291 +114,21 @@ endif
 
 
 " ======================================================================
-" Functions
+" Load functions, autocommands, plugin configurations,
+" key mappings, and local vim conifg
 " ======================================================================
-" Strip trailing whitespace
-" Taken from: http://vimcasts.org/episodes/tidying-whitespace/
-function! s:StripTrailingWhitespaces()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-
-" Wrap text
-function! s:setupWrapping()
-  set wrap
-  set linebreak
-  set textwidth=72
-  set nolist
-endfunction
-
-" Wrap text and allow preview
-function! s:setupMarkup()
-  call s:setupWrapping()
-  " Preview in Marked.app
-  nmap <leader>p :silent !open -a Marked.app '%:p'<CR>
-endfunction
-
-" NERDTree Customizations (taken from Janus)
-" https://github.com/carlhuda/janus/blob/master/janus/vim/tools/janus/after/plugin/nerdtree.vim
-" If the parameter is a directory, cd into it
-function! s:CdIfDirectory(directory)
-  let explicitDirectory = isdirectory(a:directory)
-  let directory = explicitDirectory || empty(a:directory)
-
-  if explicitDirectory
-    exe "cd " . fnameescape(a:directory)
-  endif
-
-  " Allows reading from stdin
-  " ex: git diff | mvim -R -
-  if strlen(a:directory) == 0
-    return
-  endif
-
-  if directory
-    NERDTree
-    wincmd p
-    bd
-  endif
-
-  if explicitDirectory
-    wincmd p
-  endif
-endfunction
-
-" NERDTree utility function
-function! s:UpdateNERDTree(...)
-  let stay = 0
-
-  if(exists("a:1"))
-    let stay = a:1
-  end
-
-  if exists("t:NERDTreeBufName")
-    let nr = bufwinnr(t:NERDTreeBufName)
-    if nr != -1
-      exe nr . "wincmd w"
-      exe substitute(mapcheck("R"), "<CR>", "", "")
-      if !stay
-        wincmd p
-      end
-    endif
-  endif
-endfunction
-
-
-" ======================================================================
-" Filetypes and autocmds
-" ======================================================================
-" Turn on syntax highlighting allowing local overrides
-syntax enable
-
-" Show trailing whitespace as .
-set list listchars=tab:\ \ ,trail:·
-
-if has("autocmd")
-  augroup poorlilrichboy
-    au!
-    " Indention
-    "   FYI: rb, html, css, js indention are handled by the default vim support
-    au FileType htmldjango setlocal textwidth=200 " stop fucking up my HTML
-    au FileType make   setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
-    au FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4
-    au FileType ruby setlocal foldmethod=syntax
-    au FileType ruby compiler ruby
-    au BufRead,BufNewFile *.{rdoc,md,markdown,mdown,mkd,mkdn,txt} call s:setupMarkup()
-
-    " Strip trailing whitespace on save
-    au BufWritePre *.rb,*.py,*.html,*.css,*.js :call s:StripTrailingWhitespaces()
-
-    " Remember last location in file
-    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-      \| exe "normal g'\"" | endif
-
-    " NERDTree Customizations (taken from Janus)
-    " https://github.com/carlhuda/janus/blob/master/janus/vim/tools/janus/after/plugin/nerdtree.vim
-    au VimEnter * call s:CdIfDirectory(expand("<amatch>"))
-    au FocusGained * call s:UpdateNERDTree()
-  augroup END
+if filereadable(expand("~/.vim/functions.vim"))
+  source ~/.vim/functions.vim
 endif
 
+if filereadable(expand("~/.vim/plugin_config.vim"))
+  source ~/.vim/plugin_config.vim
+endif
 
-" ======================================================================
-" Plugin Configuration
-" ======================================================================
-"CtrlP
-let g:ctrlp_map = ''
-let g:ctrlp_match_window_bottom = 0
-let g:ctrlp_match_window_reversed = 0
-let g:ctrlp_max_height = 15
-let g:ctrlp_open_new_file = 'v'
-let g:ctrlp_extensions = ['tag']
+if filereadable(expand("~/.vim/keymaps.vim"))
+  source ~/.vim/keymaps.vim
+endif
 
-" Indent Guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 1
-let g:indent_guides_guide_size = 1
-let g:indent_guides_start_level = 2
-
-" Matchit
-runtime macros/matchit.vim " Enable matchit.vim for Ruby blocks and HTML navigation
-
-" NERDTree
-let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o', '\~$']
-let NERDTreeHijackNetrw = 0
-let NERDTreeMapOpenVSplit='v'
-let NERDTreeMapOpenSplit='s'
-
-" ShowMarks
-" Solarized support
-hi! link SignColumn   LineNr
-hi! link ShowMarksHLl DiffAdd
-hi! link ShowMarksHLu DiffChange
-hi! link ShowMarksHLo DiffAdd
-hi! link ShowMarksowMarksHLm DiffChanget
-let g:showmarks_textlower="\t>"
-let g:showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY"
-
-" Snipmate
-let g:snips_author='Steve McKinney'
-let g:snipMate = {}
-let g:snipMate.scope_aliases = {}
-let g:snipMate.scope_aliases['eruby'] = 'eruby,eruby-rails,html'
-let g:snipMate.scope_aliases['htmldjango'] = 'htmldjango,html'
-let g:snipMate.scope_aliases['php'] = 'php,html'
-let g:snipMate.scope_aliases['ruby'] = 'ruby,ruby-factorygirl,ruby-rails,ruby-rspec,ruby-shoulda'
-
-" Syntastic
-let g:syntastic_auto_jump=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_quiet_warnings=1
-
-" Tagbar
-let g:tagbar_compact = 1
-
-
-" ======================================================================
-" General Key Mappings
-" ======================================================================
-" <,> is the leader character
-let mapleader = ","
-
-" It's not like :W is bound to anything anyway.
-command! W :w
-
-" Page up/Page down
-nnoremap <Space> <C-d>
-nnoremap <C-@> <C-u>
-
-" New tab
-nmap <silent> <C-t> :tabnew<CR>
-
-" Window navigation
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
-nmap <C-h> <C-w>h
-" Split window vertically
-nmap <leader>v <C-w>v<C-w>l
-" Split window horizontally
-nmap <leader>s <C-w>s<C-w>j
-" Close all but current
-nmap <leader>o <C-w>o
-" Cycle through all windows
-nmap <leader>w <C-w>w
-" Exchange with other window
-nmap <leader>x <C-w>x
-" Adjust viewports to the same size
-nmap <Leader>= <C-w>=
-" Toggle ZoomWin
-nmap <silent> <leader>z :ZoomWin<CR>
-
-" Turn off hightlight search
-nnoremap <silent> <CR> :noh<CR>
-
-" Edit vimrc file
-nmap <leader>ev :tabnew $MYVIMRC<CR>
-nmap <leader>sv :so $MYVIMRC<CR>
-
-"make Y consistent with C and D
-nnoremap Y y$
-
-" Maintain selection after indent
-vmap > >gv
-vmap < <gv
-
-" Code folding options
-nmap <silent> <D-0> :set foldlevel=99<CR>
-nmap <silent> <D-1> :set foldlevel=0<CR>
-nmap <silent> <D-2> :set foldlevel=1<CR>
-nmap <silent> <D-3> :set foldlevel=2<CR>
-nmap <silent> <D-4> :set foldlevel=3<CR>
-nmap <silent> <D-5> :set foldlevel=4<CR>
-nmap <silent> <D-6> :set foldlevel=5<CR>
-nmap <silent> <D-7> :set foldlevel=6<CR>
-nmap <silent> <D-8> :set foldlevel=7<CR>
-nmap <silent> <D-9> :set foldlevel=8<CR>
-
-
-" ======================================================================
-" Plugin Key Mappings
-" ======================================================================
-" Ack
-" Ack ignores are stored in ~/.ackrc
-nmap <leader>f :Ack!<space>
-
-" Align
-xmap <leader>a :Align<space>
-
-" CtrlP
-nmap <silent> <Leader>t :CtrlP<CR>
-nmap <silent> <leader>T :ClearCtrlPCache<CR>\|:CtrlP<CR>
-nmap <silent> <Leader>b :CtrlPBuffer<CR>
-nmap <silent> <leader>B :BufOnly<CR>
-" Rails CtrlP Mappings - taken from:
-" https://github.com/skwp/dotfiles/blob/master/vim/plugin/settings/ctrlp.vim
-" Open CtrlP starting from a particular path, making it much
-" more likely to find the correct thing first. mnemonic 'jump to [something]'
-nmap ,jm :CtrlP app/models<CR>
-nmap ,jc :CtrlP app/controllers<CR>
-nmap ,jv :CtrlP app/views<CR>
-nmap ,jh :CtrlP app/helpers<CR>
-nmap ,jl :CtrlP lib<CR>
-nmap ,jp :CtrlP public<CR>
-nmap ,js :CtrlP spec<CR>
-nmap ,jf :CtrlP factories<CR>
-nmap ,jt :CtrlP test<CR>
-nmap ,jd :CtrlP db<CR>
-nmap ,jC :CtrlP config<CR>
-nmap ,jV :CtrlP vendor<CR>
-
-" Fugitive
-command! Dg :diffget
-command! Dp :diffput
-
-" NarrowRegion
-xmap <leader>n <Plug>NrrwrgnDo
-
-" NERDTree
-nmap <silent> <leader>d :NERDTreeToggle<CR>
-nmap <leader>e :NERDTree<space>
-
-" QFix
-" Toggle Quickfix window
-nmap <silent> <leader>q :QFix<CR>
-
-" Tagbar
-" Toggle Tagbar
-nmap <silent> <leader>c :TagbarToggle<CR>
-
-" Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
