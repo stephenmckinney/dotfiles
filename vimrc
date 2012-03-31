@@ -44,7 +44,7 @@ set nowritebackup
 set noswapfile
 
 " No beeps
-set visualbell
+set novisualbell
 set noerrorbells
 
 " Tab completion options in Command mode
@@ -280,6 +280,13 @@ let mapleader = ","
 " It's not like :W is bound to anything anyway.
 command! W :w
 
+" Page up/Page down
+nnoremap <Space> <C-d>
+nnoremap <C-@> <C-u>
+
+" New tab
+nmap <silent> <C-t> :tabnew<CR>
+
 " Window navigation
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
@@ -304,7 +311,7 @@ nmap <silent> <leader>z :ZoomWin<CR>
 nnoremap <silent> <CR> :noh<CR>
 
 " Edit vimrc file
-nmap <leader>ev :e $MYVIMRC<CR>
+nmap <leader>ev :tabnew $MYVIMRC<CR>
 nmap <leader>sv :so $MYVIMRC<CR>
 
 " Find merge conflict markers
@@ -317,7 +324,7 @@ vmap < <gv
 nmap <silent> <leader>q :QFix<CR>
 
 " Toggle Tagbar
-nmap <silent> <C-t> :TagbarToggle<CR>
+nmap <silent> <leader>c :TagbarToggle<CR>
 
 " CtrlP
 nmap <silent> <Leader>t :CtrlP<CR>
