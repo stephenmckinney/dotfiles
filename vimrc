@@ -234,6 +234,11 @@ endif
 " Plugin Configuration
 " ======================================================================
 " Syntastic
+"automatically jump to the error when saving the file
+let g:syntastic_auto_jump=1
+"show the error list automatically
+let g:syntastic_auto_loc_list=1
+"don't care about warnings
 let g:syntastic_quiet_warnings=1
 
 "CtrlP
@@ -267,8 +272,18 @@ let g:tagbar_compact = 1
 
 " Indent Guides
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 0
+let g:indent_guides_auto_colors = 1
+let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
+
+" ShowMarks Solarized support
+hi! link SignColumn   LineNr
+hi! link ShowMarksHLl DiffAdd
+hi! link ShowMarksHLu DiffChange
+hi! link ShowMarksHLo DiffAdd
+hi! link ShowMarksowMarksHLm DiffChanget
+let g:showmarks_textlower="\t>"
+let g:showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY"
 
 
 " ======================================================================
@@ -314,8 +329,9 @@ nnoremap <silent> <CR> :noh<CR>
 nmap <leader>ev :tabnew $MYVIMRC<CR>
 nmap <leader>sv :so $MYVIMRC<CR>
 
-" Find merge conflict markers
-nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
+"make Y consistent with C and D
+nnoremap Y y$
+
 " Maintain selection after indent
 vmap > >gv
 vmap < <gv
@@ -331,31 +347,42 @@ nmap <silent> <Leader>t :CtrlP<CR>
 nmap <silent> <leader>T :ClearCtrlPCache<CR>\|:CtrlP<CR>
 nmap <silent> <Leader>b :CtrlPBuffer<CR>
 nmap <silent> <leader>B :BufOnly<CR>
+" Rails CtrlP Mappings - taken from:
+" https://github.com/skwp/dotfiles/blob/master/vim/plugin/settings/ctrlp.vim
+" Open CtrlP starting from a particular path, making it much
+" more likely to find the correct thing first. mnemonic 'jump to [something]'
+nmap ,jm :CtrlP app/models<CR>
+nmap ,jc :CtrlP app/controllers<CR>
+nmap ,jv :CtrlP app/views<CR>
+nmap ,jh :CtrlP app/helpers<CR>
+nmap ,jl :CtrlP lib<CR>
+nmap ,jp :CtrlP public<CR>
+nmap ,js :CtrlP spec<CR>
+nmap ,jf :CtrlP factories<CR>
+nmap ,jt :CtrlP test<CR>
+nmap ,jd :CtrlP db<CR>
+nmap ,jC :CtrlP config<CR>
+nmap ,jV :CtrlP vendor<CR>
 
 " NERDTree
 nmap <silent> <leader>d :NERDTreeToggle<CR>
 nmap <leader>e :NERDTree<space>
 
 " Ack
-" Ack igs are stored in ~/.ackrc
+" Ack ignores are stored in ~/.ackrc
 nmap <leader>f :Ack!<space>
 
 " Align
 xmap <leader>a :Align<space>
 
 " NarrowRegion
-vmap <silent> <leader>n :NarrowRegion<CR>
+xmap <leader>n <Plug>NrrwrgnDo
 
 " Fugitive
-" I'm enjoying just using the commands for now
-"nmap <leader>gb :Gblame<CR>
-"nmap <leader>gs :Gstatus<CR>
-"nmap <leader>gd :Gdiff<CR>
-"nmap <leader>gl :Glog<CR>
-"nmap <leader>gc :Gcommit<CR>
-"nmap <leader>gp :Git push<CR>
-"
-""" Code folding options
+command! Dg :diffget
+command! Dp :diffput
+
+" Code folding options
 nmap <silent> <D-0> :set foldlevel=99<CR>
 nmap <silent> <D-1> :set foldlevel=0<CR>
 nmap <silent> <D-2> :set foldlevel=1<CR>

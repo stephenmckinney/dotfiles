@@ -25,10 +25,10 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'ddollar/nerdcommenter'
 " Snipmate
 NeoBundle 'garbas/vim-snipmate'
-" Snipmate dependencies
 NeoBundle 'MarcWeber/vim-addon-mw-utils'
 NeoBundle 'tomtom/tlib_vim'
-" My Snipmate Snippets - with read/write access
+" My Snipmate Snippets
+" with read/write access
 NeoBundle 'git@github.com:poorlilrichboy/snipmate-snippets.git'
 " Surround
 NeoBundle 'tpope/vim-surround'
@@ -40,7 +40,8 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tsaleh/vim-align'
 " Vim Indent Object
 NeoBundle 'michaeljsmith/vim-indent-object'
-" FIXME delete the below two plugins if ruby-vim provides block support
+" FIXME delete the below two plugins
+" if ruby-vim provides block support
 " Vim Text Object
 "NeoBundle 'kana/vim-textobj-user'
 " Vim Text Object - Ruby Block
@@ -61,7 +62,8 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'mattn/gist-vim'
 " Narrow Region
 NeoBundle 'chrisbra/NrrwRgn'
-" FIXME decide if the below plugins are here to stay
+" FIXME decide if the below plugins
+" are here to stay
 " Rename
 NeoBundle 'vim-scripts/Rename2'
 " Endwise
@@ -70,6 +72,11 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'edsono/vim-matchit'
 " Indent Guides
 NeoBundle 'nathanaelkane/vim-indent-guides'
+" Docs
+" with read/write access
+NeoBundle 'git@github.com:poorlilrichboy/vim-dochub.git'
+" Marks
+NeoBundle 'VimEz/ShowMarks'
 
 
 " ======================================================================
