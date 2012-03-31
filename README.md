@@ -12,12 +12,11 @@ Configures ack, bash, gem, git, irb, pry, rails, rspec, rvm, vim, zsh...for use 
 
 ## Stay Updated
 
-To update Vim plugins:
+To update Zsh:
 
-    cd ~/.dotfiles
-    ruby vim/update_plugins.rb
+    ...coming soon...
 
-## Other Repos
+## Dependencies
 
 ### Zsh
 
@@ -27,15 +26,15 @@ Uses [oh my zsh](https://github.com/robbyrussell/oh-my-zsh).
 
 #### Plugins
 
-Uses many [Vim plugins](https://github.com/poorlilrichboy/dotfiles/blob/master/vimrc#L20).
+Uses [NeoBundle](https://github.com/Shougo/neobundle.vim) to manage many
+other [Vim plugins](https://github.com/poorlilrichboy/dotfiles/blob/master/vim/plugin.vim).
 
 #### Snipmate Snippets
 
 Uses my [snipmate-snippets](https://github.com/poorlilrichboy/snipmate-snippets).
 
 ## TODO
-* Update all zsh files to work with ohmyzsh 2.0, once that is merged
-  into master.
+* Update all zsh files to work with ohmyzsh 2.0.
 * Add vim cheatsheet.
 * Remove bash dir.
 * Test .dotfiles on linux, especially vimrc.
