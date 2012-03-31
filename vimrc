@@ -121,7 +121,7 @@ endif
 " Functions
 " ======================================================================
 " Strip trailing whitespace
-" http://vimcasts.org/episodes/tidying-whitespace/
+" Taken from: http://vimcasts.org/episodes/tidying-whitespace/
 function! s:StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
     let _s=@/
@@ -210,18 +210,22 @@ set list listchars=tab:\ \ ,trail:·
 if has("autocmd")
   augroup poorlilrichboy
     au!
-    " rb, html, css, js indention are handled by the defaults
+    " Indention
+    "   FYI: rb, html, css, js indention are handled by the default vim support
+    au FileType htmldjango setlocal textwidth=200 " stop fucking up my HTML
     au FileType make   setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
     au FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4
-    au FileType htmldjango setlocal textwidth=200 " stop fucking up my HTML
     au FileType ruby setlocal foldmethod=syntax
     au FileType ruby compiler ruby
     au BufRead,BufNewFile *.{rdoc,md,markdown,mdown,mkd,mkdn,txt} call s:setupMarkup()
+
     " Strip trailing whitespace on save
     au BufWritePre *.rb,*.py,*.html,*.css,*.js :call s:StripTrailingWhitespaces()
+
     " Remember last location in file
     au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
       \| exe "normal g'\"" | endif
+
     " NERDTree Customizations (taken from Janus)
     " https://github.com/carlhuda/janus/blob/master/janus/vim/tools/janus/after/plugin/nerdtree.vim
     au VimEnter * call s:CdIfDirectory(expand("<amatch>"))
@@ -233,14 +237,6 @@ endif
 " ======================================================================
 " Plugin Configuration
 " ======================================================================
-" Syntastic
-"automatically jump to the error when saving the file
-let g:syntastic_auto_jump=1
-"show the error list automatically
-let g:syntastic_auto_loc_list=1
-"don't care about warnings
-let g:syntastic_quiet_warnings=1
-
 "CtrlP
 let g:ctrlp_map = ''
 let g:ctrlp_match_window_bottom = 0
@@ -249,11 +245,30 @@ let g:ctrlp_max_height = 15
 let g:ctrlp_open_new_file = 'v'
 let g:ctrlp_extensions = ['tag']
 
+" Indent Guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
+
+" Matchit
+runtime macros/matchit.vim " Enable matchit.vim for Ruby blocks and HTML navigation
+
 " NERDTree
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o', '\~$']
 let NERDTreeHijackNetrw = 0
 let NERDTreeMapOpenVSplit='v'
 let NERDTreeMapOpenSplit='s'
+
+" ShowMarks
+" Solarized support
+hi! link SignColumn   LineNr
+hi! link ShowMarksHLl DiffAdd
+hi! link ShowMarksHLu DiffChange
+hi! link ShowMarksHLo DiffAdd
+hi! link ShowMarksowMarksHLm DiffChanget
+let g:showmarks_textlower="\t>"
+let g:showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY"
 
 " Snipmate
 let g:snips_author='Steve McKinney'
@@ -264,30 +279,17 @@ let g:snipMate.scope_aliases['htmldjango'] = 'htmldjango,html'
 let g:snipMate.scope_aliases['php'] = 'php,html'
 let g:snipMate.scope_aliases['ruby'] = 'ruby,ruby-factorygirl,ruby-rails,ruby-rspec,ruby-shoulda'
 
-" Matchit
-runtime macros/matchit.vim " Enable matchit.vim for Ruby blocks and HTML navigation
+" Syntastic
+let g:syntastic_auto_jump=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_quiet_warnings=1
 
 " Tagbar
 let g:tagbar_compact = 1
 
-" Indent Guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 1
-let g:indent_guides_guide_size = 1
-let g:indent_guides_start_level = 2
-
-" ShowMarks Solarized support
-hi! link SignColumn   LineNr
-hi! link ShowMarksHLl DiffAdd
-hi! link ShowMarksHLu DiffChange
-hi! link ShowMarksHLo DiffAdd
-hi! link ShowMarksowMarksHLm DiffChanget
-let g:showmarks_textlower="\t>"
-let g:showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY"
-
 
 " ======================================================================
-" Key mappings Commands
+" General Key Mappings
 " ======================================================================
 " <,> is the leader character
 let mapleader = ","
@@ -336,11 +338,28 @@ nnoremap Y y$
 vmap > >gv
 vmap < <gv
 
-" Toggle Quickfix window
-nmap <silent> <leader>q :QFix<CR>
+" Code folding options
+nmap <silent> <D-0> :set foldlevel=99<CR>
+nmap <silent> <D-1> :set foldlevel=0<CR>
+nmap <silent> <D-2> :set foldlevel=1<CR>
+nmap <silent> <D-3> :set foldlevel=2<CR>
+nmap <silent> <D-4> :set foldlevel=3<CR>
+nmap <silent> <D-5> :set foldlevel=4<CR>
+nmap <silent> <D-6> :set foldlevel=5<CR>
+nmap <silent> <D-7> :set foldlevel=6<CR>
+nmap <silent> <D-8> :set foldlevel=7<CR>
+nmap <silent> <D-9> :set foldlevel=8<CR>
 
-" Toggle Tagbar
-nmap <silent> <leader>c :TagbarToggle<CR>
+
+" ======================================================================
+" Plugin Key Mappings
+" ======================================================================
+" Ack
+" Ack ignores are stored in ~/.ackrc
+nmap <leader>f :Ack!<space>
+
+" Align
+xmap <leader>a :Align<space>
 
 " CtrlP
 nmap <silent> <Leader>t :CtrlP<CR>
@@ -364,35 +383,24 @@ nmap ,jd :CtrlP db<CR>
 nmap ,jC :CtrlP config<CR>
 nmap ,jV :CtrlP vendor<CR>
 
-" NERDTree
-nmap <silent> <leader>d :NERDTreeToggle<CR>
-nmap <leader>e :NERDTree<space>
-
-" Ack
-" Ack ignores are stored in ~/.ackrc
-nmap <leader>f :Ack!<space>
-
-" Align
-xmap <leader>a :Align<space>
-
-" NarrowRegion
-xmap <leader>n <Plug>NrrwrgnDo
-
 " Fugitive
 command! Dg :diffget
 command! Dp :diffput
 
-" Code folding options
-nmap <silent> <D-0> :set foldlevel=99<CR>
-nmap <silent> <D-1> :set foldlevel=0<CR>
-nmap <silent> <D-2> :set foldlevel=1<CR>
-nmap <silent> <D-3> :set foldlevel=2<CR>
-nmap <silent> <D-4> :set foldlevel=3<CR>
-nmap <silent> <D-5> :set foldlevel=4<CR>
-nmap <silent> <D-6> :set foldlevel=5<CR>
-nmap <silent> <D-7> :set foldlevel=6<CR>
-nmap <silent> <D-8> :set foldlevel=7<CR>
-nmap <silent> <D-9> :set foldlevel=8<CR>
+" NarrowRegion
+xmap <leader>n <Plug>NrrwrgnDo
+
+" NERDTree
+nmap <silent> <leader>d :NERDTreeToggle<CR>
+nmap <leader>e :NERDTree<space>
+
+" QFix
+" Toggle Quickfix window
+nmap <silent> <leader>q :QFix<CR>
+
+" Tagbar
+" Toggle Tagbar
+nmap <silent> <leader>c :TagbarToggle<CR>
 
 " Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
