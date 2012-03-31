@@ -152,7 +152,7 @@ endfunction
 " NERDTree Customizations (taken from Janus)
 " https://github.com/carlhuda/janus/blob/master/janus/vim/tools/janus/after/plugin/nerdtree.vim
 " If the parameter is a directory, cd into it
-function s:CdIfDirectory(directory)
+function! s:CdIfDirectory(directory)
   let explicitDirectory = isdirectory(a:directory)
   let directory = explicitDirectory || empty(a:directory)
 
@@ -178,7 +178,7 @@ function s:CdIfDirectory(directory)
 endfunction
 
 " NERDTree utility function
-function s:UpdateNERDTree(...)
+function! s:UpdateNERDTree(...)
   let stay = 0
 
   if(exists("a:1"))
