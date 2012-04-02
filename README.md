@@ -14,13 +14,13 @@ Configures ack, bash, gem, git, irb, pry, rails, rspec, rvm, vim, zsh...for use 
 
 To update Zsh:
 
-    ...coming soon...
+    TBD by OMZ 2.0
 
 ## Dependencies
 
 ### Zsh
 
-Uses [oh my zsh](https://github.com/robbyrussell/oh-my-zsh).
+Uses [sorin-ionescu](https://github.com/sorin-ionescu)'s fork of [oh my zsh](https://github.com/sorin-ionescu/oh-my-zsh).
 
 ### Vim
 
@@ -34,9 +34,5 @@ other [Vim plugins](https://github.com/poorlilrichboy/dotfiles/blob/master/vim/p
 Uses my [snipmate-snippets](https://github.com/poorlilrichboy/snipmate-snippets).
 
 ## TODO
-* Update all zsh files to work with ohmyzsh 2.0.
-* Add python executable loading in path once ohmyzsh 2.0 is complete
-  following https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python
 * Add vim cheatsheet.
-* Remove bash dir.
-* Test .dotfiles on linux, especially vimrc.
+* Test dotfiles on linux, especially vimrc.
