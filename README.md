@@ -35,6 +35,8 @@ Uses my [snipmate-snippets](https://github.com/poorlilrichboy/snipmate-snippets)
 
 ## TODO
 * Update all zsh files to work with ohmyzsh 2.0.
+* Add python executable loading in path once ohmyzsh 2.0 is complete
+  following https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python
 * Add vim cheatsheet.
 * Remove bash dir.
 * Test .dotfiles on linux, especially vimrc.
