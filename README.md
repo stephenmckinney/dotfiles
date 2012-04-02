@@ -14,25 +14,29 @@ Configures ack, bash, gem, git, irb, pry, rails, rspec, rvm, vim, zsh...for use 
 
 To update Zsh:
 
-    TBD by OMZ 2.0
+* TBD by OMZ 2.0
 
 ## Dependencies
 
 ### Zsh
 
-Uses [sorin-ionescu](https://github.com/sorin-ionescu)'s fork of [oh my zsh](https://github.com/sorin-ionescu/oh-my-zsh).
+* [sorin-ionescu](https://github.com/sorin-ionescu)'s fork of [oh my zsh](https://github.com/sorin-ionescu/oh-my-zsh).
+* [GNU coreutils](http://www.gnu.org/software/coreutils/) for dircolors
+  (via [Homebrew](http://mxcl.github.com/homebrew/))
+* [dircolors-solarized](https://github.com/seebi/dircolors-solarized)
 
 ### Vim
 
 #### Plugins
 
-Uses [NeoBundle](https://github.com/Shougo/neobundle.vim) to manage many
-other [Vim plugins](https://github.com/poorlilrichboy/dotfiles/blob/master/vim/plugin.vim).
+* [NeoBundle](https://github.com/Shougo/neobundle.vim) to manage many
+other Vim plugins (see [plugin.vim](https://github.com/poorlilrichboy/dotfiles/blob/master/vim/plugin.vim))
 
 #### Snipmate Snippets
 
-Uses my [snipmate-snippets](https://github.com/poorlilrichboy/snipmate-snippets).
+* My [snipmate-snippets](https://github.com/poorlilrichboy/snipmate-snippets)
 
 ## TODO
 * Add vim cheatsheet.
 * Test dotfiles on linux, especially vimrc.
+* Add [fasd](https://github.com/clvv/fasd) zsh plugin.
