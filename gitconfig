@@ -1,6 +1,8 @@
 [user]
   name = Steve McKinney
   email = steve.mckinney@threespot.com
+[github]
+	user = poorlilrichboy
 [alias]
   co = checkout
   com = checkout master
