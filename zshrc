@@ -52,7 +52,14 @@ source "$HOME/.oh-my-zsh/init.zsh"
 
 #################################################
 # Customize to your needs...
+#
+# Re PATH: "OMZ did that so hopefully you won't have to go through that"
+#   * PATH for Homebrew (module/environment)
+#   * PATH for Homebrew'd Python's `install-scripts` (module/python)
+#   * PATH for RVM (module/ruby)
+#
 #################################################
+
 
 # The 'ls' Familiy overrides.
 alias l='ls -lh'         # List human readable sizes.
