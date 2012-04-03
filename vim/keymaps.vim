@@ -94,8 +94,8 @@ nmap ,jC :CtrlP config<CR>
 nmap ,jV :CtrlP vendor<CR>
 
 " Fugitive
-command! Dg :diffget
-command! Dp :diffput
+command! -range Gg <line1>,<line2>diffget
+command! -range Gp <line1>,<line2>diffput
 
 " NarrowRegion
 xmap <leader>n <Plug>NrrwrgnDo
