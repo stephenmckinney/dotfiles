@@ -30,7 +30,7 @@ nmap <leader>w <C-w>w
 " Exchange with other window
 nmap <leader>x <C-w>x
 " Adjust viewports to the same size
-nmap <Leader>= <C-w>=
+nmap <leader>= <C-w>=
 " Toggle ZoomWin
 nmap <silent> <leader>z :ZoomWin<CR>
 
@@ -68,13 +68,10 @@ nmap <silent> <D-9> :set foldlevel=8<CR>
 " Ack ignores are stored in ~/.ackrc
 nmap <leader>f :Ack!<space>
 
-" Align
-xmap <leader>a :Align<space>
-
 " CtrlP
-nmap <silent> <Leader>t :CtrlP<CR>
+nmap <silent> <leader>t :CtrlP<CR>
 nmap <silent> <leader>T :ClearCtrlPCache<CR>\|:CtrlP<CR>
-nmap <silent> <Leader>b :CtrlPBuffer<CR>
+nmap <silent> <leader>b :CtrlPBuffer<CR>
 nmap <silent> <leader>B :BufOnly<CR>
 " Rails CtrlP Mappings - taken from:
 " https://github.com/skwp/dotfiles/blob/master/vim/plugin/settings/ctrlp.vim
@@ -111,4 +108,12 @@ nmap <silent> <leader>q :QFix<CR>
 " Tagbar
 " Toggle Tagbar
 nmap <silent> <leader>c :TagbarToggle<CR>
+
+" Tabular
+nmap <leader>a  :Tabularize /
+vmap <leader>a  :Tabularize /
+nmap <leader>a= :Tabularize /=<CR>
+vmap <leader>a= :Tabularize /=<CR>
+nmap <leader>a: :Tabularize /:<CR>
+vmap <leader>a: :Tabularize /:<CR>
 

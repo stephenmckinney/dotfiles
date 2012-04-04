@@ -36,8 +36,8 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 " Repeat
 NeoBundle 'tpope/vim-repeat'
-" Align
-NeoBundle 'tsaleh/vim-align'
+" Tabularize
+NeoBundle "godlygeek/tabular"
 " Vim Indent Object
 NeoBundle 'michaeljsmith/vim-indent-object'
 " FIXME delete the below two plugins
