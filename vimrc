@@ -91,7 +91,7 @@ set guifont=Menlo:h13
 set background=dark
 colorscheme solarized
 syntax enable " Turn on syntax highlighting allowing local overrides
-set list listchars=tab:\ \ ,trail:· " Show trailing whitespace as .
+set list listchars=tab:▸\ ,trail:· " Show tabs and trailing whitespace
 
 
 " ======================================================================
