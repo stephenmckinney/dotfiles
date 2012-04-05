@@ -27,7 +27,7 @@ endfunction
 function! s:setupMarkup()
   call s:setupWrapping()
   " Preview in Marked.app
-  nmap <leader>p :silent !open -a Marked.app '%:p'<CR>
+  nmap <silent> <leader>p :<C-u>silent !open -a Marked.app '%:p'<CR><C-l>
 endfunction
 
 " NERDTree Customizations (taken from Janus)
@@ -105,5 +105,8 @@ if has("autocmd")
     " https://github.com/carlhuda/janus/blob/master/janus/vim/tools/janus/after/plugin/nerdtree.vim
     au VimEnter * call s:CdIfDirectory(expand("<amatch>"))
     au FocusGained * call s:UpdateNERDTree()
+    " Quit NERDTree when there are no active windows
+    " Taken from https://github.com/scrooloose/nerdtree/issues/21
+    au bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
   augroup END
 endif
