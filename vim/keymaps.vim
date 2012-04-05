@@ -41,7 +41,11 @@ nnoremap <silent> <CR> :noh<CR>
 nmap <leader>ev :tabnew $MYVIMRC<CR>
 nmap <leader>sv :so $MYVIMRC<CR>
 
-"make Y consistent with C and D
+" Make j and k move by screen line instead of file line
+nnoremap j gj
+nnoremap k gk
+
+" Make Y consistent with C and D
 nnoremap Y y$
 
 " Maintain selection after indent
