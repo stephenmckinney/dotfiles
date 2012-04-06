@@ -2,7 +2,7 @@
   name = Steve McKinney
   email = steve.mckinney@threespot.com
 [github]
-	user = poorlilrichboy
+  user = poorlilrichboy
 [alias]
   co = checkout
   com = checkout master
@@ -27,7 +27,7 @@
   ui = true
 [core]
   excludesfile = /Users/smckinney/.gitignore
-  editor = mvim -f
+  editor = vim -f
 [apply]
   whitespace = nowarn
 [log]
