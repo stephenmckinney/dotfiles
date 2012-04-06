@@ -97,3 +97,6 @@ alias mysqlstop='/usr/local/Cellar/mysql/5.5.19/bin/mysqladmin -u root -p shutdo
 alias postgresstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start &'
 alias postgresstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 
+# Use .localrc for settings specific to one system
+[[ -f ~/.localrc ]] && . ~/.localrc
+
