@@ -29,6 +29,7 @@ zstyle ':omz:terminal' auto-title 'yes'
 # Set the plugins to load (browse plugins).
 zstyle ':omz:load' plugin \
   'history-substring-search' \
+  'fasd' \
   'osx' \
   'git' \
   'ruby' \
@@ -78,23 +79,6 @@ alias sl='ls'            # I often screw this up.
 function chpwd { l }
 
 # TODO Replace d,c,w,h with fasd plugin
-
-# List previous `chpwd`s.
-alias d='dirs -v'
-# Changing directory to code
-c() { cd ~/code/$1; }
-_c() { _files -W ~/code -/; }
-compdef _c c
-
-# Changing directory to work projects
-w() { cd ~/code/web/threespot/$1; }
-_w() { _files -W ~/code/web/threespot -/; }
-compdef _w w
-
-# Changing directory to home
-h() { cd ~/$1; }
-_h() { _files -W ~/ -/; }
-compdef _h h
 
 # Use vim
 alias vi='vim' #use vim
