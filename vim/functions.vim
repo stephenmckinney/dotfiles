@@ -27,7 +27,8 @@ endfunction
 function! s:setupMarkup()
   call s:setupWrapping()
   " Preview in Marked.app
-  nmap <silent> <leader>p :<C-u>silent !open -a Marked.app '%:p'<CR><C-l>
+  command! Marked silent !open -a "Marked.app" "%:p"
+  nmap <silent> <leader>p :Marked<CR>\|:redraw!<CR>
 endfunction
 
 " NERDTree Customizations (taken from Janus)
