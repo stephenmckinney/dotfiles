@@ -5,11 +5,14 @@
 #   Steve McKinney <stevemckinney@gmail.com>
 #
 
+# Set the path to Oh My Zsh.
+export OMZ="$HOME/.oh-my-zsh"
+
 # Set the key mapping style to 'emacs' or 'vi'.
-zstyle ':omz:editor' keymap 'emacs'
+zstyle ':omz:module:editor' keymap 'emacs'
 
 # Auto convert .... to ../..
-zstyle ':omz:editor' dot-expansion 'yes'
+zstyle ':omz:module:editor' dot-expansion 'yes'
 
 # Set case-sensitivity for completion, history lookup, etc.
 zstyle ':omz:*:*' case-sensitive 'no'
@@ -18,16 +21,17 @@ zstyle ':omz:*:*' case-sensitive 'no'
 zstyle ':omz:*:*' color 'yes'
 
 # Auto set the tab and window titles.
-zstyle ':omz:terminal' auto-title 'yes'
+zstyle ':omz:module:terminal' auto-title 'yes'
 
 # Set the Zsh modules to load (man zshmodules).
-# zstyle ':omz:load' module 'attr' 'stat'
+# zstyle ':omz:load' zmodule 'attr' 'stat'
 
 # Set the Zsh functions to load (man zshcontrib).
-# zstyle ':omz:load' function 'zargs' 'zmv'
+# zstyle ':omz:load' zfunction 'zargs' 'zmv'
 
-# Set the plugins to load (browse plugins).
-zstyle ':omz:load' plugin \
+# Set the Oh My Zsh modules to load (browse modules).
+zstyle ':omz:load' omodule \
+  'environment' 'terminal' 'editor' 'completion' 'history' 'directory' 'spectrum' 'alias' 'utility' 'prompt' \
   'history-substring-search' \
   'fasd' \
   'osx' \
@@ -39,7 +43,7 @@ zstyle ':omz:load' plugin \
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
-zstyle ':omz:prompt' theme 'poorlilrichboy'
+zstyle ':omz:module:prompt' theme 'poorlilrichboy'
 
 #################################################
 # A hack to get environment.zsh to use GNU
@@ -47,9 +51,13 @@ zstyle ':omz:prompt' theme 'poorlilrichboy'
 #################################################
 alias 'dircolors'='gdircolors'
 alias 'ls'='gls'
+#################################################
+# Fin.
+#################################################
 
 # This will make you shout: OH MY ZSHELL!
-source "$HOME/.oh-my-zsh/init.zsh"
+source "$OMZ/init.zsh"
+
 
 #################################################
 # Customize to your needs...
@@ -60,7 +68,6 @@ source "$HOME/.oh-my-zsh/init.zsh"
 #   * PATH for RVM (module/ruby)
 #
 #################################################
-
 
 # The 'ls' Familiy overrides.
 alias l='ls -lh'         # List human readable sizes.
@@ -77,8 +84,6 @@ alias sl='ls'            # I often screw this up.
 
 # List files after changing directories
 function chpwd { l }
-
-# TODO Replace d,c,w,h with fasd plugin
 
 # Use vim
 alias vi='vim' #use vim
