@@ -30,8 +30,10 @@ zstyle ':omz:module:terminal' auto-title 'yes'
 # zstyle ':omz:load' zfunction 'zargs' 'zmv'
 
 # Set the Oh My Zsh modules to load (browse modules).
+# Core: 'environment' 'terminal' 'editor' 'completion' 'history' 'directory' 'spectrum' 'alias' 'utility' 'prompt'
+# Note: 'gnu-utility' must be run before 'alias'
 zstyle ':omz:load' omodule \
-  'environment' 'terminal' 'editor' 'completion' 'history' 'directory' 'spectrum' 'alias' 'utility' 'prompt' \
+  'environment' 'terminal' 'editor' 'completion' 'history' 'directory' 'spectrum' 'gnu-utility' 'alias' 'utility' 'prompt' \
   'history-substring-search' \
   'fasd' \
   'osx' \
@@ -44,16 +46,6 @@ zstyle ':omz:load' omodule \
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
 zstyle ':omz:module:prompt' theme 'poorlilrichboy'
-
-#################################################
-# A hack to get environment.zsh to use GNU
-# coreutils for 'ls' and 'dircolors'
-#################################################
-alias 'dircolors'='gdircolors'
-alias 'ls'='gls'
-#################################################
-# Fin.
-#################################################
 
 # This will make you shout: OH MY ZSHELL!
 source "$OMZ/init.zsh"
