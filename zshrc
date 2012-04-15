@@ -33,14 +33,25 @@ zstyle ':omz:module:terminal' auto-title 'yes'
 # Core: 'environment' 'terminal' 'editor' 'completion' 'history' 'directory' 'spectrum' 'alias' 'utility' 'prompt'
 # Note: 'gnu-utility' must be run before 'alias'
 zstyle ':omz:load' omodule \
-  'environment' 'terminal' 'editor' 'completion' 'history' 'directory' 'spectrum' 'gnu-utility' 'alias' 'utility' 'prompt' \
-  'history-substring-search' \
-  'fasd' \
+  'environment' \
+  'terminal' \
+  'editor' \
+  'completion' \
+  'history' \
+  'directory' \
+  'spectrum' \
+  'gnu-utility' \
+  'alias' \
+  'utility' \
   'osx' \
   'git' \
   'ruby' \
   'rails' \
-  'python'
+  'python' \
+  'fasd' \
+  'syntax-highlighting' \
+  'history-substring-search' \
+  'prompt'
 
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
