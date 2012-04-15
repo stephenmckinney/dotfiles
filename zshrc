@@ -61,6 +61,9 @@ source "$OMZ/init.zsh"
 #
 #################################################
 
+# Don't beep!
+unsetopt beep
+
 # The 'ls' Familiy overrides.
 alias l='ls -lh'         # List human readable sizes.
 alias ll='ls -1A'        # List in one column.

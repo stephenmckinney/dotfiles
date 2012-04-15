@@ -44,8 +44,8 @@ set nowritebackup
 set noswapfile
 
 " No beeps
-set novisualbell
-set noerrorbells
+set noerrorbells visualbell t_vb=
+
 
 " Tab completion options in Command mode
 set wildmode=list:longest,list:full
