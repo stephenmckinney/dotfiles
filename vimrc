@@ -46,6 +46,8 @@ set noswapfile
 " No beeps
 set noerrorbells visualbell t_vb=
 
+" Always open vertical splits to the right
+set splitright
 
 " Tab completion options in Command mode
 set wildmode=list:longest,list:full
