@@ -87,12 +87,13 @@ if has("autocmd")
   augroup poorlilrichboy
     au!
     " Indention
-    "   FYI: rb, html, css, js indention are handled by the default vim support
+    "   FYI: rb, html, css indention are handled by the default vim support
+    au FileType make       setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+    au FileType python     setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    au FileType javascript setlocal tabstop=4 softtabstop=4 shiftwidth=4
     au FileType htmldjango setlocal textwidth=200 " stop fucking up my HTML
-    au FileType make   setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
-    au FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4
-    au FileType ruby setlocal foldmethod=syntax
-    au FileType ruby compiler ruby
+    au FileType ruby       setlocal foldmethod=syntax
+    au FileType ruby       compiler ruby
     au BufRead,BufNewFile *.{rdoc,md,markdown,mdown,mkd,mkdn,txt} call s:setupMarkup()
 
     " Strip trailing whitespace on save
