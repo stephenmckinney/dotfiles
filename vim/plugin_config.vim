@@ -31,7 +31,7 @@ hi! link ShowMarksHLl DiffAdd
 hi! link ShowMarksHLu DiffChange
 hi! link ShowMarksHLo DiffAdd
 hi! link ShowMarksHLm DiffChange
-let g:showmarks_textlower="\t>"
+let g:showmarks_textlower="*\t"
 let g:showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY"
 
 " Solarized
