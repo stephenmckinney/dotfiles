@@ -43,6 +43,7 @@ zstyle ':omz:load' omodule \
   'gnu-utility' \
   'alias' \
   'utility' \
+  'archive' \
   'osx' \
   'git' \
   'ruby' \
