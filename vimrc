@@ -60,8 +60,8 @@ set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=*.gif,*.GIF,*.jpg,*.JPG,*.png,*.PNG,*.pdf,*.PDF,*.psd,*.PSD
 " Ignore bundler and sass cache
 set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
-" Ignore Rails log, tmp, and migrations; as well as Django migrations
-set wildignore+=log/**,tmp/**,**/migrations/**
+" Ignore Rails log and tmp
+set wildignore+=log/**,tmp/**
 " Disable temp and backup files
 set wildignore+=*.swp,*~,._*,.DS_Store
 

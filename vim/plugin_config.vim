@@ -8,6 +8,9 @@ let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_max_height = 15
 let g:ctrlp_open_new_file = 'v'
 let g:ctrlp_extensions = ['tag']
+let g:ctrlp_custom_ignore = {
+\ 'dir':  '\migrations$',
+\ }
 
 " Indent Guides
 let g:indent_guides_enable_on_vim_startup = 1
