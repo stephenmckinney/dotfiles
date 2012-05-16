@@ -38,8 +38,9 @@ let g:showmarks_textlower="*\t"
 let g:showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY"
 
 " Solarized
-let g:solarized_contrast="high"    "default value is normal
+let g:solarized_contrast="normal"  "default value is normal
 let g:solarized_diffmode="high"    "default value is normal
+let g:solarized_visibility="high"  "default value is normal
 let g:solarized_hitrail=1          "default value is 0
 
 " Snipmate
