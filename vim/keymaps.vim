@@ -52,6 +52,9 @@ nnoremap Y y$
 vmap > >gv
 vmap < <gv
 
+" Toggle paste mode
+set pastetoggle=<F1>
+
 " Code folding options
 nmap <silent> <D-0> :set foldlevel=99<CR>
 nmap <silent> <D-1> :set foldlevel=0<CR>
