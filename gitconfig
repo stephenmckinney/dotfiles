@@ -15,7 +15,6 @@
 
   # checkout
   co  = checkout
-  cof = checkout --
   f   = fetch
   fm  = pull
   fo  = fetch origin
@@ -39,6 +38,9 @@
   a = add
   ia = add
   ix = reset
+
+  # working directory
+  wx = checkout -- 
 
   # remote
   re  = remote
