@@ -116,6 +116,9 @@ nmap <leader>e :NERDTree<space>
 " Toggle Quickfix window
 nmap <silent> <leader>q :QFix<CR>
 
+" Rainbow Parantheses
+nmap <leader>r :RainbowParenthesesToggle<CR>
+
 " Tagbar
 " Toggle Tagbar
 nmap <silent> <leader>c :TagbarToggle<CR>
