@@ -40,12 +40,6 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle "godlygeek/tabular"
 " Vim Indent Object
 NeoBundle 'michaeljsmith/vim-indent-object'
-" FIXME delete the below two plugins
-" if ruby-vim provides block support
-" Vim Text Object
-"NeoBundle 'kana/vim-textobj-user'
-" Vim Text Object - Ruby Block
-"NeoBundle 'nelstrom/vim-textobj-rubyblock'
 " Tagbar
 NeoBundle 'majutsushi/tagbar'
 " Supertab
@@ -60,23 +54,38 @@ NeoBundle 'vim-scripts/BufOnly.vim'
 NeoBundle 'tpope/vim-fugitive'
 " Gist
 NeoBundle 'mattn/gist-vim'
+NeoBundle 'mattn/webapi-vim'
 " Narrow Region
 NeoBundle 'chrisbra/NrrwRgn'
-" FIXME decide if the below plugins
-" are here to stay
+" Indent Guides
+NeoBundle 'nathanaelkane/vim-indent-guides'
+" history of yanks, changes, and deletes.
+NeoBundle 'vim-scripts/YankRing.vim'
+" Marks
+NeoBundle 'VimEz/ShowMarks'
+" =========================================
+" TODO try: scratch, 'nelstrom/vim-markdown-preview'
+" =========================================
+" FIXME delete the below two plugins
+" if ruby-vim provides block support
+" =========================================
+" Vim Text Object
+" NeoBundle 'kana/vim-textobj-user'
+" Vim Text Object - Ruby Block
+" NeoBundle 'nelstrom/vim-textobj-rubyblock'
+" =========================================
+" TODO decide if the below experimental
+" plugins are here to stay
+" =========================================
 " Rename
 NeoBundle 'vim-scripts/Rename2'
 " Endwise
 NeoBundle 'tpope/vim-endwise'
 " Matchit
 NeoBundle 'edsono/vim-matchit'
-" Indent Guides
-NeoBundle 'nathanaelkane/vim-indent-guides'
 " Docs
 " with read/write access
 NeoBundle 'git@github.com:poorlilrichboy/vim-dochub.git'
-" Marks
-NeoBundle 'VimEz/ShowMarks'
 
 
 " ======================================================================
@@ -86,6 +95,7 @@ NeoBundle 'vim-scripts/Color-Sampler-Pack'
 NeoBundle 'wgibbs/vim-irblack'
 NeoBundle 'tpope/vim-vividchalk'
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'chriskempson/vim-tomorrow-theme'
 
 
 " ======================================================================
@@ -122,3 +132,11 @@ NeoBundle 'tpope/vim-git'
 " Puppet
 NeoBundle 'ajf/puppet-vim'
 
+" ======================================================================
+" Tried and didn't like
+" ======================================================================
+
+" 'sjl/gundo.vim'
+" 'sjl/threesome.vim'
+" 'Lokaltog/vim-easymotion'
+" 'Lokaltog/vim-powerline'
