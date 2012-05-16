@@ -96,10 +96,14 @@ nmap ,jt :CtrlP test<CR>
 nmap ,jd :CtrlP db<CR>
 nmap ,jC :CtrlP config<CR>
 nmap ,jV :CtrlP vendor<CR>
+"Cmd-(m)ethod - jump to a method (tag in current file)
+map ,m :CtrlPBufTag<CR>
+"Ctrl-(M)ethod - jump to a method (tag in all files)
+map ,M :CtrlPBufTagAll<CR>
 
 " Fugitive
-command! -range Dg <line1>,<line2>diffget
-command! -range Dp <line1>,<line2>diffput
+command! -range Dg <line1>,<line2>diffget | diffupdate
+command! -range Dp <line1>,<line2>diffput | diffupdate
 
 " NarrowRegion
 xmap <leader>n <Plug>NrrwrgnDo
