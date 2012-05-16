@@ -23,6 +23,10 @@ function! s:setupWrapping()
   set nolist
 endfunction
 
+" Add keymaps for the above
+nmap <silent> <leader>S :call <SID>StripTrailingWhitespaces()<CR>
+nmap <silent> <leader>W :call <SID>setupWrapping()<CR>
+
 " Wrap text and allow preview
 function! s:setupMarkup()
   call s:setupWrapping()
