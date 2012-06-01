@@ -118,7 +118,7 @@ nmap <leader>e :NERDTree<space>
 nmap <silent> <leader>q :QFix<CR>
 
 " Rainbow Parantheses
-nmap <leader>r :RainbowParenthesesToggle<CR>
+"nmap <leader>r :RainbowParenthesesToggle<CR>
 
 " Tagbar
 " Toggle Tagbar
@@ -132,3 +132,6 @@ vmap <leader>a= :Tabularize /=<CR>
 nmap <leader>a: :Tabularize /:<CR>
 vmap <leader>a: :Tabularize /:<CR>
 
+" Vim-Turbux
+nmap <leader>r <Plug>SendTestToTmux
+nmap <leader>R <Plug>SendFocusedTestToTmux

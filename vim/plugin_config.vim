@@ -60,3 +60,5 @@ let g:syntastic_quiet_warnings=1
 " Tagbar
 let g:tagbar_compact = 1
 
+" Turbux
+let g:no_turbux_mappings = 1

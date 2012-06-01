@@ -87,7 +87,10 @@ NeoBundle 'edsono/vim-matchit'
 " with read/write access
 NeoBundle 'git@github.com:poorlilrichboy/vim-dochub.git'
 " colors parenthesis.
-NeoBundle 'kien/rainbow_parentheses.vim'
+"NeoBundle 'kien/rainbow_parentheses.vim'
+" Vim-Tmux integration
+NeoBundle 'jgdavey/vim-turbux'
+NeoBundle 'jgdavey/tslime.vim'
 
 
 " ======================================================================
