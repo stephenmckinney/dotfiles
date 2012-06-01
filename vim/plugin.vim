@@ -126,6 +126,8 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'kchmck/vim-coffee-script'
 " SCSS
 NeoBundle 'cakebaker/scss-syntax.vim'
+" Less
+NeoBundle 'groenewege/vim-less'
 " Haml
 NeoBundle 'tpope/vim-haml'
 " Textile
