@@ -84,22 +84,23 @@ nmap <silent> <leader>B :BufOnly<CR>
 " https://github.com/skwp/dotfiles/blob/master/vim/plugin/settings/ctrlp.vim
 " Open CtrlP starting from a particular path, making it much
 " more likely to find the correct thing first. mnemonic 'jump to [something]'
-nmap ,jm :CtrlP app/models<CR>
-nmap ,jc :CtrlP app/controllers<CR>
-nmap ,jv :CtrlP app/views<CR>
-nmap ,jh :CtrlP app/helpers<CR>
-nmap ,jl :CtrlP lib<CR>
-nmap ,jp :CtrlP public<CR>
-nmap ,js :CtrlP spec<CR>
-nmap ,jf :CtrlP factories<CR>
-nmap ,jt :CtrlP test<CR>
-nmap ,jd :CtrlP db<CR>
-nmap ,jC :CtrlP config<CR>
-nmap ,jV :CtrlP vendor<CR>
+nmap <leader>jm :CtrlP app/models<CR>
+nmap <leader>jc :CtrlP app/controllers<CR>
+nmap <leader>jv :CtrlP app/views<CR>
+nmap <leader>jh :CtrlP app/helpers<CR>
+nmap <leader>jl :CtrlP lib<CR>
+nmap <leader>jp :CtrlP public<CR>
+nmap <leader>js :CtrlP spec<CR>
+nmap <leader>jf :CtrlP features<CR>
+nmap <leader>jF :CtrlP factories<CR>
+nmap <leader>jt :CtrlP test<CR>
+nmap <leader>jd :CtrlP db<CR>
+nmap <leader>jC :CtrlP config<CR>
+nmap <leader>jV :CtrlP vendor<CR>
 "Cmd-(m)ethod - jump to a method (tag in current file)
-map ,m :CtrlPBufTag<CR>
+map <leader>m :CtrlPBufTag<CR>
 "Ctrl-(M)ethod - jump to a method (tag in all files)
-map ,M :CtrlPBufTagAll<CR>
+map <leader>M :CtrlPBufTagAll<CR>
 
 " Fugitive
 command! -range Dg <line1>,<line2>diffget | diffupdate
