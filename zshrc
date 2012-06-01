@@ -1,12 +1,14 @@
 #
 # Sets Oh My Zsh options.
 #
+# This file is sourced by interactive shells. It should define aliases,
+# functions, shell options, and key bindings.
+#
+# This is the main Oh My Zsh configuration file.
+#
 # Authors:
 #   Steve McKinney <stevemckinney@gmail.com>
 #
-
-# Set the path to Oh My Zsh.
-export OMZ="$HOME/.oh-my-zsh"
 
 # Set the key mapping style to 'emacs' or 'vi'.
 zstyle ':omz:module:editor' keymap 'emacs'
@@ -31,17 +33,19 @@ zstyle ':omz:module:terminal' auto-title 'no'
 
 # Set the Oh My Zsh modules to load (browse modules).
 # Core: 'environment' 'terminal' 'editor' 'completion' 'history' 'directory' 'spectrum' 'alias' 'utility' 'prompt'
-# Note: 'gnu-utility' must be run before 'alias'
+# Note:
+#       * 'gnu-utility' must be loaded before 'alias'
+#       * 'completion' must be loaded after 'alias' but before the 'utility'
 zstyle ':omz:load' omodule \
   'environment' \
   'terminal' \
   'editor' \
-  'completion' \
   'history' \
   'directory' \
   'spectrum' \
   'gnu-utility' \
   'alias' \
+  'completion' \
   'utility' \
   'archive' \
   'osx' \
@@ -66,7 +70,7 @@ source "$OMZ/init.zsh"
 #################################################
 # Customize to your needs...
 #
-# Re PATH: "OMZ did that so hopefully you won't have to go through that"
+# OMZ handles the following concerns re $PATH:
 #   * PATH for Homebrew (module/environment)
 #   * PATH for Homebrew'd Python's `install-scripts` (module/python)
 #   * PATH for RVM (module/ruby)
@@ -76,7 +80,7 @@ source "$OMZ/init.zsh"
 # Don't beep!
 unsetopt beep
 
-# The 'ls' Familiy overrides.
+# The 'ls' family overrides.
 alias l='ls -lh'         # List human readable sizes.
 alias ll='ls -1A'        # List in one column.
 alias lr='l -R'          # List recursively.
@@ -93,7 +97,7 @@ alias sl='ls'            # I often screw this up.
 function chpwd { l }
 
 # Use vim
-alias vi='vim' #use vim
+alias vi='vim'
 
 # Edit dotfiles
 alias edots='vim ~/.dotfiles'
