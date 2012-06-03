@@ -38,7 +38,7 @@ Pry.config.ls.private_method_color = :bright_black
 # === Color Customization ===
 # Taken from: https://github.com/skwp/dotfiles/blob/master/irb/pryrc
 # Everything below this line is for customizing colors, you have to use the ugly
-# color codes, but such is life. 
+# color codes, but such is life.
 CodeRay.scan("example", :ruby).term # just to load necessary files
 # Token colors pulled from: https://github.com/rubychan/coderay/blob/master/lib/coderay/encoders/terminal.rb
 TERM_TOKEN_COLORS = {
@@ -103,7 +103,7 @@ TERM_TOKEN_COLORS = {
         :type => '1;34',
         :value => '36',
         :variable => '34',
-        
+
         :insert => '42',
         :delete => '41',
         :change => '44',
