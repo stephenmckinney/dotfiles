@@ -97,6 +97,9 @@ alias sl='ls'            # I often screw this up.
 function chpwd { l }
 
 # Use vim
+# Git
+alias g='git'
+
 alias vi='vim'
 
 # Edit dotfiles

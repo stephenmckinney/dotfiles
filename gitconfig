@@ -6,21 +6,32 @@
 [alias]
   # branch
   b  = branch
-  ba = branch -av
+  bc = checkout -b
+  bl = branch -v
+  bL = branch -av
+  bx = branch -d
+  bX = branch -D
+  bm = branch -m
+  bM = branch -M
+  bs = show-branch
+  bS = show-branch -a
 
-  # commit
-  c  = commit -v
-  ca = commit -av
-  cp = cherry-pick
-  undo = reset --soft "HEAD^"
-
+  # checkout/fetch/merge/push/rebase
   # checkout
   co  = checkout
+  co0 = checkout HEAD -- 
+  # fetch
   f   = fetch
   fm  = pull
   fo  = fetch origin
+  # merge
   m   = merge
   mom = merge origin/master
+  # push
+  p   = push
+  pa  = push --all
+  pt  = push --tags
+  # rebase
   r   = rebase
   ra  = rebase --abort
   rc  = rebase --continue
@@ -28,26 +39,28 @@
   rs  = rebase --skip
   rom = rebase origin/master
 
+  # commit
+  c      = commit -v
+  ca     = commit --all -v
+  cm     = commit --message
+  cam    = commit --all --message
+  camend = commit --amend --reuse-message HEAD
+  cundo  = reset --soft "HEAD^"
+  cp     = cherry-pick
+
   # diff
-  d  = diff          # Diff working dir to index
-  ds = diff --staged # Diff index to HEAD
-  dc = diff --staged # Diff index to HEAD
-  dh = diff HEAD     # Diff working dir and index to HEAD
+  d    = diff          # Diff working dir to index
+  ds   = diff --staged # Diff index to HEAD
+  dc   = diff --staged # Diff index to HEAD
+  dh   = diff HEAD     # Diff working dir and index to HEAD
+  hub  = browse
+  hubd = compare
 
   # index
   s  = status
-  a = add
+  a  = add
   ia = add
-  ix = reset
-
-  # working directory
-  wx = checkout -- 
-
-  # remote
-  re  = remote
-  rea = remote add
-  rex = remote rm
-  rem = remote rename
+  ir = reset
 
   # log
   l   = log --topo-order --pretty=format:'%C(yellow)%h %C(cyan)%cn %C(blue)%cr%C(reset) %s'
@@ -59,10 +72,13 @@
   lh  = shortlog --summary --numbered
   llf = fsck --lost-found
 
-  # push
-  p  = push
-  pa = push --all
-  pt = push --tags
+  # remote
+  re  = remote
+  rel = remote --verbose
+  rea = remote add
+  rex = remote rm
+  rem = remote rename
+
 [color]
   ui = auto
 [core]
