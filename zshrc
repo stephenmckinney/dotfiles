@@ -70,10 +70,11 @@ source "$OMZ/init.zsh"
 #################################################
 # Customize to your needs...
 #
-# OMZ handles the following concerns re $PATH:
-#   * PATH for Homebrew (module/environment)
-#   * PATH for Homebrew'd Python's `install-scripts` (module/python)
-#   * PATH for RVM (module/ruby)
+# The following concerns are handled thru OMZ and other dotfiles not here:
+#   * PATH for Homebrew (~/.zshenv)
+#   * PATH for Homebrew'd Python's `install-scripts` (~/omz/module/python)
+#   * PATH for RVM (~/omz/module/ruby)
+#   * Loading RVM into a shell session for Pow, etc. (~/.zlogin)
 #
 #################################################
 
@@ -96,14 +97,15 @@ alias sl='ls'            # I often screw this up.
 # List files after changing directories
 function chpwd { l }
 
-# Use vim
 # Git
 alias g='git'
 
+# Use vim
 alias vi='vim'
 
 # Edit dotfiles
 alias edots='vim ~/.dotfiles'
+alias eomz='vim ~/.oh-my-zsh'
 
 # Memcached
 alias memcachedstart='memcached -p 11211 &'

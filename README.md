@@ -12,6 +12,8 @@ Configures ack, gem, git, irb, pry, rails, rspec, rvm, tmux, vim, zsh...for use 
     cd ~/.oh-my-zsh
     git co my-theme-and-customizations
 
+Follow further instructions from [Oh My Zsh](https://github.com/sorin-ionescu/oh-my-zsh).
+
 ### Install Requirements and Dependencies on Mac OS X
 
 #### Basics
