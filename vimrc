@@ -17,6 +17,7 @@ filetype plugin indent on
 
 " Basics
 set encoding=utf-8
+set shell=/bin/sh
 set history=100 " keep 100 lines of command line history
 set showcmd " display incomplete commands
 set showmode " display mode
