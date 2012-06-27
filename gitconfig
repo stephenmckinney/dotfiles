@@ -10,7 +10,6 @@
   bl = branch -v
   bL = branch -av
   bx = branch -d
-  bX = branch -D
   bm = branch -m
   bM = branch -M
   bs = show-branch
