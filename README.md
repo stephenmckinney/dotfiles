@@ -5,12 +5,12 @@ Configures ack, gem, git, irb, pry, rails, rspec, rvm, tmux, vim, zsh...for use 
 
 ## Install
 
-    git clone git://github.com/poorlilrichboy/dotfiles ~/.dotfiles
+    git clone git://github.com/stephenmckinney/dotfiles ~/.dotfiles
     cd ~/.dotfiles
     rake install
-    git clone git://github.com/poorlilrichboy/oh-my-zsh ~/.oh-my-zsh
+    git clone git://github.com/stephenmckinney/oh-my-zsh ~/.oh-my-zsh
     cd ~/.oh-my-zsh
-    git co my-theme-and-customizations
+    git co my-customizations-and-theme
 
 Follow further instructions from [Oh My Zsh](https://github.com/sorin-ionescu/oh-my-zsh).
 
@@ -67,7 +67,7 @@ These are installed by following the above.
 ### Optional
 
 #### Zsh
-* My [fork](https://github.com/poorlilrichboy/oh-my-zsh) of sorin-ionescu's [Oh My Zsh](https://github.com/sorin-ionescu/oh-my-zsh)
+* My [fork](https://github.com/stephenmckinney/oh-my-zsh) of sorin-ionescu's [Oh My Zsh](https://github.com/sorin-ionescu/oh-my-zsh)
 * [fasd](https://github.com/clvv/fasd) gives you quick access to frequent/recent files and directories
 * [GNU Coreutils](http://www.gnu.org/software/coreutils/) is required to use Solarized dircolors
 
@@ -99,9 +99,9 @@ These are included within the repo.
 ### Vim
 
 * [NeoBundle](https://github.com/Shougo/neobundle.vim) to manage plugins
-* Many [other Vim plugins](https://github.com/poorlilrichboy/dotfiles/blob/master/vim/plugin.vim),
-  including my [snipmate-snippets](https://github.com/poorlilrichboy/snipmate-snippets)
-  and [dochub.vim](https://github.com/poorlilrichboy/vim-dochub)
+* Many [other Vim plugins](https://github.com/stephenmckinney/dotfiles/blob/master/vim/plugin.vim),
+  including my [snipmate-snippets](https://github.com/stephenmckinney/snipmate-snippets)
+  and [dochub.vim](https://github.com/stephenmckinney/vim-dochub)
 
 ## TODO
 * Add vim cheatsheet.

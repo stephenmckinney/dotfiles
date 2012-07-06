@@ -29,7 +29,7 @@ NeoBundle 'MarcWeber/vim-addon-mw-utils'
 NeoBundle 'tomtom/tlib_vim'
 " My Snipmate Snippets
 " with read/write access
-NeoBundle 'git@github.com:poorlilrichboy/snipmate-snippets.git'
+NeoBundle 'git@github.com:stephenmckinney/snipmate-snippets.git'
 " Surround
 NeoBundle 'tpope/vim-surround'
 " Unimpaired
@@ -85,7 +85,7 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'edsono/vim-matchit'
 " Docs
 " with read/write access
-NeoBundle 'git@github.com:poorlilrichboy/vim-dochub.git'
+NeoBundle 'git@github.com:stephenmckinney/vim-dochub.git'
 " colors parenthesis.
 "NeoBundle 'kien/rainbow_parentheses.vim'
 " Vim-Tmux integration
