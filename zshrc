@@ -32,10 +32,10 @@ zstyle ':omz:module:terminal' auto-title 'no'
 # zstyle ':omz:load' zfunction 'zargs' 'zmv'
 
 # Set the Oh My Zsh modules to load (browse modules).
-# Core: 'environment' 'terminal' 'editor' 'completion' 'history' 'directory' 'spectrum' 'alias' 'utility' 'prompt'
 # Note:
-#       * 'gnu-utility' must be loaded before 'alias'
-#       * 'completion' must be loaded after 'alias' but before the 'utility'
+#       * 'gnu-utility' must be loaded before 'utility'
+#       * 'syntax-highlighting' must be loaded before 'history-substring-search'
+#         Both must be loaded immediately before 'prompt'
 zstyle ':omz:load' omodule \
   'environment' \
   'terminal' \
@@ -44,9 +44,8 @@ zstyle ':omz:load' omodule \
   'directory' \
   'spectrum' \
   'gnu-utility' \
-  'alias' \
-  'completion' \
   'utility' \
+  'completion' \
   'archive' \
   'osx' \
   'git' \
