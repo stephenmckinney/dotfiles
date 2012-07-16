@@ -8,7 +8,7 @@ Configures ack, gem, git, irb, pry, rails, rspec, rvm, tmux, vim, zsh...for use 
     git clone git://github.com/stephenmckinney/dotfiles ~/.dotfiles
     cd ~/.dotfiles
     rake install
-    git clone git://github.com/stephenmckinney/oh-my-zsh ~/.oh-my-zsh
+    git clone --recursive git://github.com/stephenmckinney/oh-my-zsh ~/.oh-my-zsh
     cd ~/.oh-my-zsh
     git co my-customizations-and-theme
 
@@ -16,19 +16,23 @@ Follow further instructions from [Oh My Zsh](https://github.com/sorin-ionescu/oh
 
 ### Install Requirements and Dependencies on Mac OS X
 
-#### Basics
+#### Aside: A Nice Vim-Emacs Hack
 
-[RVM](http://beginrescueend.com/) and [Homebrew'd Python](https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python)
+[Remap Caps Lock to act like Control and ESC](http://www.quora.com/How-can-I-remap-Caps-Lock-in-Mac-OS-X-so-that-it-acts-like-Control-in-Emacs-but-acts-like-Escape-in-Vim)
 
 #### Brews
 
 Install [Homebrew](http://mxcl.github.com/homebrew/), then:
 
-    brew install git ack ctags hub coreutils fasd tmux reattach-to-user-namespace
+    brew install git mercurial ack wget ctags hub coreutils fasd tmux reattach-to-user-namespace
 
 Install terminal Vim with Ruby support:
 
     brew install https://raw.github.com/Homebrew/homebrew-dupes/master/vim.rb
+
+#### Rubies & Pythons
+
+[RVM](http://beginrescueend.com/) and [Homebrew'd Python](https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python)
 
 #### Gems
 
