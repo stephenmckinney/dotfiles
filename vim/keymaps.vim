@@ -7,7 +7,7 @@ let mapleader = ","
 " It's not like :W is bound to anything anyway.
 command! W :w
 
-" Page up/Page down
+" Page up/Page down: Space/Ctrl-Space
 nnoremap <Space> <C-d>
 nnoremap <C-@> <C-u>
 
