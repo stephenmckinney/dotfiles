@@ -37,7 +37,7 @@ nmap <silent> <leader>z :ZoomWin<CR>
 " Turn off hightlight search
 nnoremap <silent> <CR> :noh<CR>
 
-" Edit vimrc file
+" Edit/source vimrc file
 nmap <leader>ev :tabnew $MYVIMRC<CR>
 nmap <leader>sv :so $MYVIMRC<CR>
 
@@ -45,7 +45,7 @@ nmap <leader>sv :so $MYVIMRC<CR>
 nnoremap j gj
 nnoremap k gk
 
-" Make Y consistent with C and D
+" Make Y consistent with C and D: Yank from the cursor to the end of the line
 nnoremap Y y$
 
 " Maintain selection after indent
