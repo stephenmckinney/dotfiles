@@ -91,7 +91,7 @@ nmap <leader>jh :CtrlP app/helpers<CR>
 nmap <leader>jl :CtrlP lib<CR>
 nmap <leader>jp :CtrlP public<CR>
 nmap <leader>js :CtrlP spec<CR>
-nmap <leader>jf :CtrlP features<CR>
+nmap <leader>jf :CtrlP test/fixtures<CR>
 nmap <leader>jF :CtrlP factories<CR>
 nmap <leader>jt :CtrlP test<CR>
 nmap <leader>jd :CtrlP db<CR>
