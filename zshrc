@@ -99,8 +99,12 @@ function chpwd { l }
 # Git
 alias g='git'
 
+# Rails
+alias r='rails'
+
 # Use vim
 alias vi='vim'
+alias v='vim'
 
 # Edit dotfiles
 alias edots='vim ~/.dotfiles'
@@ -116,6 +120,12 @@ alias mysqlstop='mysqladmin -u root shutdown'
 # Postgresql
 alias postgresstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start &'
 alias postgresstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+
+# MondoDB
+alias mongodbstart='mongod run --config /usr/local/etc/mongod.conf'
+
+# Misc.
+alias gf='fg'            # I often screw this up.
 
 # Use .localrc for settings specific to one system
 [[ -f ~/.localrc ]] && . ~/.localrc
