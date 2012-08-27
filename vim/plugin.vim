@@ -80,6 +80,8 @@ NeoBundle 'jgdavey/tslime.vim'
 " TODO decide if the below experimental
 " plugins are here to stay
 " =========================================
+" Powerline
+NeoBundle 'skwp/vim-powerline'
 " Endwise
 NeoBundle 'tpope/vim-endwise'
 " Matchit

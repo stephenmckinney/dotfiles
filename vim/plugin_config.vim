@@ -27,6 +27,11 @@ let NERDTreeHijackNetrw = 0
 let NERDTreeMapOpenVSplit='v'
 let NERDTreeMapOpenSplit='s'
 
+" Powerline
+let g:Powerline_symbols='fancy'
+let g:Powerline_theme='skwp'
+let g:Powerline_colorscheme='skwp'
+
 " ShowMarks
 " Solarized support
 hi! link SignColumn   LineNr
