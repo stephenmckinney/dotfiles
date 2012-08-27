@@ -110,8 +110,8 @@ alias eomz='vim ~/.oh-my-zsh'
 alias memcachedstart='memcached -p 11211 &'
 
 # MySQL
-alias mysqlstart='/usr/local/Cellar/mysql/5.5.19/bin/mysqld_safe &'
-alias mysqlstop='/usr/local/Cellar/mysql/5.5.19/bin/mysqladmin -u root -p shutdown'
+alias mysqlstart='mysqld_safe &'
+alias mysqlstop='mysqladmin -u root shutdown'
 
 # Postgresql
 alias postgresstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start &'
