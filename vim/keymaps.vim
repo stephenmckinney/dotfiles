@@ -34,11 +34,15 @@ nmap <leader>= <C-w>=
 " Toggle ZoomWin
 nmap <silent> <leader>z :ZoomWin<CR>
 
+" Quicklist navigation
+nmap <silent> <leader>n :cnext<CR>
+nmap <silent> <leader>N :cprevious<CR>
+
 " Turn off hightlight search
 nnoremap <silent> <CR> :noh<CR>
 
 " Edit/source vimrc file
-nmap <leader>ev :tabnew $MYVIMRC<CR>
+nmap <leader>ev :tabnew<CR>\|:NERDTree ~/.vim<CR>
 nmap <leader>sv :so $MYVIMRC<CR>
 
 " View Rails source
@@ -113,7 +117,7 @@ command! -range Dg <line1>,<line2>diffget | diffupdate
 command! -range Dp <line1>,<line2>diffput | diffupdate
 
 " NarrowRegion
-xmap <leader>n <Plug>NrrwrgnDo
+xmap <leader>nr <Plug>NrrwrgnDo
 
 " NERDTree
 nmap <silent> <leader>d :NERDTreeToggle<CR>
