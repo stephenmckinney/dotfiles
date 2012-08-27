@@ -83,6 +83,8 @@
 [core]
   excludesfile = /Users/smckinney/.gitignore
   editor = vim -f
+[push]
+  default = upstream
 [apply]
   whitespace = nowarn
 
