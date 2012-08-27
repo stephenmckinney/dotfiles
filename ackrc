@@ -7,6 +7,8 @@
 --type-set=cucumber=.feature
 --type-set=doc=.markdown,.md,.mdown,.rdoc,.rst
 --type-set=erb=.erb
+--type-set=rb=.rb
+--type-set=scss=.scss
 # ignore
 --nosql
 # ignore - Rails (matches .gitignore)
