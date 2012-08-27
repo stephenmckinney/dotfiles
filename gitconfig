@@ -6,18 +6,15 @@
 [alias]
   # branch
   b  = branch
-  bc = checkout -b
-  bl = branch -v
-  bL = branch -av
-  bx = branch -d
+  ba = branch -av
+  bd = branch -d
   bm = branch -m
-  bM = branch -M
   bs = show-branch
-  bS = show-branch -a
 
   # checkout/fetch/merge/push/rebase
   # checkout
   co  = checkout
+  cob = checkout -b
   co0 = checkout HEAD -- 
   # fetch
   f   = fetch
@@ -26,6 +23,7 @@
   # merge
   m   = merge
   mom = merge origin/master
+  mos = merge origin/support
   # push
   p   = push
   pa  = push --all
@@ -37,6 +35,7 @@
   ri  = rebase --interactive
   rs  = rebase --skip
   rom = rebase origin/master
+  ros = rebase origin/support
 
   # commit
   c      = commit -v
@@ -77,6 +76,7 @@
   rea = remote add
   rex = remote rm
   rem = remote rename
+  rep = remote prune origin
 
 [color]
   ui = auto
@@ -87,4 +87,3 @@
   default = upstream
 [apply]
   whitespace = nowarn
-
