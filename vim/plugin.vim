@@ -38,8 +38,11 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-repeat'
 " Tabularize
 NeoBundle "godlygeek/tabular"
-" Vim Indent Object
+" Indent Object
 NeoBundle 'michaeljsmith/vim-indent-object'
+" Ruby Block Object
+NeoBundle 'nelstrom/vim-textobj-rubyblock'
+NeoBundle 'kana/vim-textobj-user'
 " Tagbar
 NeoBundle 'majutsushi/tagbar'
 " Supertab
@@ -52,6 +55,8 @@ NeoBundle 'Valloric/QFixToggle'
 NeoBundle 'vim-scripts/BufOnly.vim'
 " Fugitive
 NeoBundle 'tpope/vim-fugitive'
+" Gitv
+NeoBundle 'gregsexton/gitv'
 " Gist
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'mattn/webapi-vim'
@@ -63,22 +68,18 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-scripts/YankRing.vim'
 " Marks
 NeoBundle 'VimEz/ShowMarks'
+" Rename
+NeoBundle 'vim-scripts/Rename2'
+" Vim-Tmux integration
+NeoBundle 'jgdavey/vim-turbux'
+NeoBundle 'jgdavey/tslime.vim'
 " =========================================
 " TODO try: scratch, 'nelstrom/vim-markdown-preview'
 " =========================================
-" FIXME delete the below two plugins
-" if ruby-vim provides block support
-" =========================================
-" Vim Text Object
-" NeoBundle 'kana/vim-textobj-user'
-" Vim Text Object - Ruby Block
-" NeoBundle 'nelstrom/vim-textobj-rubyblock'
 " =========================================
 " TODO decide if the below experimental
 " plugins are here to stay
 " =========================================
-" Rename
-NeoBundle 'vim-scripts/Rename2'
 " Endwise
 NeoBundle 'tpope/vim-endwise'
 " Matchit
@@ -88,9 +89,6 @@ NeoBundle 'edsono/vim-matchit'
 NeoBundle 'git@github.com:stephenmckinney/vim-dochub.git'
 " colors parenthesis.
 "NeoBundle 'kien/rainbow_parentheses.vim'
-" Vim-Tmux integration
-NeoBundle 'jgdavey/vim-turbux'
-NeoBundle 'jgdavey/tslime.vim'
 
 
 " ======================================================================
@@ -118,6 +116,8 @@ NeoBundle 'skwp/vim-rspec'
 NeoBundle 'tpope/vim-cucumber'
 " Shoulda
 NeoBundle 'tsaleh/vim-shoulda'
+" MiniTest
+NeoBundle 'sunaku/vim-ruby-minitest'
 " JQuery
 NeoBundle 'itspriddle/vim-jquery'
 " JavaScript
