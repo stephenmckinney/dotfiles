@@ -41,6 +41,9 @@ nnoremap <silent> <CR> :noh<CR>
 nmap <leader>ev :tabnew $MYVIMRC<CR>
 nmap <leader>sv :so $MYVIMRC<CR>
 
+" View Rails source
+command! Rsource :tabnew | NERDTree ~/code/src/rails
+
 " Make j and k move by screen line instead of file line
 nnoremap j gj
 nnoremap k gk
