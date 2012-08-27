@@ -49,7 +49,10 @@ nnoremap j gj
 nnoremap k gk
 
 " Make Y consistent with C and D: Yank from the cursor to the end of the line
-nnoremap Y y$
+" Customized for YankRing
+function! YRRunAfterMaps()
+  nnoremap Y :<C-U>YRYankCount 'y$'<CR>
+endfunction
 
 " Maintain selection after indent
 vmap > >gv
