@@ -101,7 +101,7 @@ if has("autocmd")
     au BufRead,BufNewFile *.{rdoc,md,markdown,mdown,mkd,mkdn,txt} call s:setupMarkup()
 
     " Strip trailing whitespace on save
-    au BufWritePre *.rb,*.py,*.html,*.css,*.js :call s:StripTrailingWhitespaces()
+    au BufWritePre *.rb,*.py,*.html,*.erb,*.css,*.scss,*.js,*.coffee :call s:StripTrailingWhitespaces()
 
     " Remember last location in file
     au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
