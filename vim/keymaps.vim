@@ -94,27 +94,38 @@ nmap <silent> <leader>B :BufOnly<CR>
 " https://github.com/skwp/dotfiles/blob/master/vim/plugin/settings/ctrlp.vim
 " Open CtrlP starting from a particular path, making it much
 " more likely to find the correct thing first. mnemonic 'jump to [something]'
-nmap <leader>jm :CtrlP app/models<CR>
+nmap <leader>ja :CtrlP app/assets<CR>
 nmap <leader>jc :CtrlP app/controllers<CR>
-nmap <leader>jv :CtrlP app/views<CR>
 nmap <leader>jh :CtrlP app/helpers<CR>
+nmap <leader>jm :CtrlP app/models<CR>
+nmap <leader>jv :CtrlP app/views<CR>
+nmap <leader>jf :CtrlP test/fixtures<CR>
+nmap <leader>jF :CtrlP features<CR>
 nmap <leader>jl :CtrlP lib<CR>
 nmap <leader>jp :CtrlP public<CR>
 nmap <leader>js :CtrlP spec<CR>
-nmap <leader>jf :CtrlP test/fixtures<CR>
-nmap <leader>jF :CtrlP factories<CR>
+"nmap <leader>jF :CtrlP spec/factories<CR>
 nmap <leader>jt :CtrlP test<CR>
 nmap <leader>jd :CtrlP db<CR>
 nmap <leader>jC :CtrlP config<CR>
 nmap <leader>jV :CtrlP vendor<CR>
 "Cmd-(m)ethod - jump to a method (tag in current file)
-map <leader>m :CtrlPBufTag<CR>
+nmap <leader>m :CtrlPBufTag<CR>
 "Ctrl-(M)ethod - jump to a method (tag in all files)
-map <leader>M :CtrlPBufTagAll<CR>
+nmap <leader>M :CtrlPBufTagAll<CR>
 
-" Fugitive
+" Fugitive & Gitv
 command! -range Dg <line1>,<line2>diffget | diffupdate
 command! -range Dp <line1>,<line2>diffput | diffupdate
+nmap <leader>gb :Gblame<CR>
+nmap <leader>gh :Gbrowse<CR>
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>gr :Gread<CR>
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>gw :Gwrite<CR>
+nmap <leader>gv :Gitv --all<CR>
+nmap <leader>gV :Gitv! --all<CR>
+vmap <leader>gV :Gitv! --all<CR>
 
 " NarrowRegion
 xmap <leader>nr <Plug>NrrwrgnDo
