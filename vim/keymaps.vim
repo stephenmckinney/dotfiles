@@ -117,9 +117,12 @@ nmap <leader>M :CtrlPBufTagAll<CR>
 " Fugitive & Gitv
 command! -range Dg <line1>,<line2>diffget | diffupdate
 command! -range Dp <line1>,<line2>diffput | diffupdate
+xmap <leader>dg :diffget<CR>\|:diffupdate<CR>
+xmap <leader>dp :diffput<CR>\|:diffupdate<CR>
 nmap <leader>gb :Gblame<CR>
 nmap <leader>gh :Gbrowse<CR>
 nmap <leader>gc :Gcommit<CR>
+nmap <leader>gd :Gdiff<CR>
 nmap <leader>gr :Gread<CR>
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gw :Gwrite<CR>
