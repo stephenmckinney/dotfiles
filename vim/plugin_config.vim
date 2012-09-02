@@ -35,6 +35,12 @@ let g:Powerline_symbols='fancy'
 let g:Powerline_theme='skwp'
 let g:Powerline_colorscheme='skwp'
 
+" Ruby Doc
+let g:ruby_doc_command='open'
+
+" Ruby Refactoring
+let g:ruby_refactoring_map_keys = 0
+
 " ShowMarks
 " Solarized support
 hi! link SignColumn   LineNr

@@ -33,7 +33,7 @@ NeoBundle 'git@github.com:stephenmckinney/snipmate-snippets.git'
 " Surround
 NeoBundle 'tpope/vim-surround'
 " Unimpaired
-NeoBundle 'tpope/vim-unimpaired'
+"NeoBundle 'tpope/vim-unimpaired'
 " Repeat
 NeoBundle 'tpope/vim-repeat'
 " Tabularize
@@ -89,9 +89,12 @@ NeoBundle 'edsono/vim-matchit'
 " Docs
 " with read/write access
 NeoBundle 'git@github.com:stephenmckinney/vim-dochub.git'
+" Ruby/RSpec/Rails
+NeoBundle 'lucapette/vim-ruby-doc'
 " colors parenthesis.
 "NeoBundle 'kien/rainbow_parentheses.vim'
-
+NeoBundle 'ecomba/vim-ruby-refactoring'
+NeoBundle 'danchoi/ri.vim'
 
 " ======================================================================
 " Themes

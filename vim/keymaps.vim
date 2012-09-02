@@ -138,6 +138,12 @@ nmap <leader>e :NERDTree<space>
 " Toggle Quickfix window
 nmap <silent> <leader>q :QFix<CR>
 
+" ri.vim
+" RI documention
+nnoremap <silent> <leader>K :call ri#OpenSearchPrompt(0)<cr>
+nnoremap <silent> <leader>k :call ri#OpenSearchPrompt(1)<cr>
+"nnoremap <silent> <leader>K :call ri#LookupNameUnderCursor()<cr>
+
 " Rainbow Parantheses
 "nmap <leader>r :RainbowParenthesesToggle<CR>
 
