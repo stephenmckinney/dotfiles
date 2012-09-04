@@ -1,6 +1,6 @@
 [user]
   name = Steve McKinney
-  email = steve.mckinney@sbnation.com
+  email = steve.mckinney@gmail.com
 [github]
   user = stephenmckinney
 [alias]
@@ -16,6 +16,7 @@
   co  = checkout
   cob = checkout -b
   co0 = checkout HEAD -- 
+  com = checkout master
   # fetch
   f   = fetch
   fm  = pull
