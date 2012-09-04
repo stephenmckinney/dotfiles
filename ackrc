@@ -9,6 +9,7 @@
 --type-set=erb=.erb
 --type-set=rb=.rb
 --type-set=scss=.scss
+--type-set=coffee=.coffee
 # ignore
 --nosql
 # ignore - Rails (matches .gitignore)
