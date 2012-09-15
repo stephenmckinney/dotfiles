@@ -1,13 +1,6 @@
 #
 # Executes commands at login post-zshrc.
 #
-# This file is sourced by login shells after zshrc, and thus, it should contain
-# commands that need to execute at login. It is usually used for messages such as
-# [fortune][2], [msgs][3], or for the creation of files.
-#
-# This is not the file to define aliases, functions, shell options, and key
-# bindings. It should not change the shell environment.
-#
 # Authors:
 #   Steve McKinney <stevemckinney@gmail.com>
 #
@@ -15,9 +8,9 @@
 # Execute code that does not affect the current session in the background.
 {
   # Compile the completion dump to increase startup speed.
-  dump_file="$HOME/.zcompdump"
-  if [[ "$dump_file" -nt "${dump_file}.zwc" || ! -s "${dump_file}.zwc" ]]; then
-    zcompile "$dump_file"
+  zcompdump="${ZDOTDIR:-$HOME}/.zcompdump"
+  if [[ "$zcompdump" -nt "${zcompdump}.zwc" || ! -s "${zcompdump}.zwc" ]]; then
+    zcompile "$zcompdump"
   fi
 
   # Set environment variables for launchd processes.

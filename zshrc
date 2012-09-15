@@ -1,79 +1,23 @@
 #
-# Sets Oh My Zsh options.
-#
-# This file is sourced by interactive shells. It should define aliases,
-# functions, shell options, and key bindings.
-#
-# This is the main Oh My Zsh configuration file.
+# Executes commands at the start of an interactive session.
 #
 # Authors:
-#   Steve McKinney <stevemckinney@gmail.com>
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-# Set the key mapping style to 'emacs' or 'vi'.
-zstyle ':omz:module:editor' keymap 'emacs'
-
-# Auto convert .... to ../..
-zstyle ':omz:module:editor' dot-expansion 'yes'
-
-# Set case-sensitivity for completion, history lookup, etc.
-zstyle ':omz:*:*' case-sensitive 'no'
-
-# Color output (auto set to 'no' on dumb terminals).
-zstyle ':omz:*:*' color 'yes'
-
-# Auto set the tab and window titles.
-zstyle ':omz:module:terminal' auto-title 'no'
-
-# Set the Zsh modules to load (man zshmodules).
-# zstyle ':omz:load' zmodule 'attr' 'stat'
-
-# Set the Zsh functions to load (man zshcontrib).
-# zstyle ':omz:load' zfunction 'zargs' 'zmv'
-
-# Set the Oh My Zsh modules to load (browse modules).
-# Note:
-#       * 'gnu-utility' must be loaded before 'utility'
-#       * 'syntax-highlighting' must be loaded before 'history-substring-search'
-#         Both must be loaded immediately before 'prompt'
-zstyle ':omz:load' omodule \
-  'environment' \
-  'terminal' \
-  'editor' \
-  'history' \
-  'directory' \
-  'spectrum' \
-  'gnu-utility' \
-  'utility' \
-  'completion' \
-  'archive' \
-  'osx' \
-  'git' \
-  'ruby' \
-  'rails' \
-  'python' \
-  'fasd' \
-  'syntax-highlighting' \
-  'history-substring-search' \
-  'prompt'
-
-# Set the prompt theme to load.
-# Setting it to 'random' loads a random theme.
-# Auto set to 'off' on dumb terminals.
-zstyle ':omz:module:prompt' theme 'stephenmckinney'
-
-# This will make you shout: OH MY ZSHELL!
-source "$OMZ/init.zsh"
-
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
 #################################################
 # Customize to your needs...
 #
-# The following concerns are handled thru OMZ and other dotfiles not here:
+# The following concerns are handled thru Prezto and other dotfiles not here:
 #   * PATH for Homebrew (~/.zshenv)
-#   * PATH for Homebrew'd Python's `install-scripts` (~/omz/module/python)
-#   * PATH for RVM (~/omz/module/ruby)
-#   * Loading RVM into a shell session for Pow, etc. (~/.zlogin)
+#   * PATH for Homebrew'd Python's `install-scripts` (~/prezto/module/python)
+#   * PATH for RVM (~/prezto/module/ruby)
+#   * Loading RVM into a shell session for Pow, etc. (~/.zshenv)
 #
 #################################################
 
