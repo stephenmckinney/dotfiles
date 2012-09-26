@@ -9,7 +9,7 @@ let g:ctrlp_max_height = 15
 let g:ctrlp_open_new_file = 'v'
 let g:ctrlp_extensions = ['tag']
 let g:ctrlp_custom_ignore = {
-\ 'dir':  '\migrations$',
+\ 'dir':  'bin$\|db/migrate$\|log$\|public/cache$\|public/stylesheets$\|public/system$\|script$\|tmp$\|vendor$'
 \ }
 
 " Gitv

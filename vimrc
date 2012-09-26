@@ -53,18 +53,19 @@ set splitright
 " Tab completion options in Command mode
 set wildmode=list:longest,list:full
 set wildmenu
+" wildignore - A file that matches with one of these patterns is ignored when  completing file or directory names
 " Disable output and VCS files
 set wildignore+=*.o,*.out,*.obj,*.pyc,.git,.hg,*.rbc,*.rbo,*.class,.svn,*.gem
 " Disable archive files
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 " Disable images
 set wildignore+=*.gif,*.GIF,*.jpg,*.JPG,*.png,*.PNG,*.pdf,*.PDF,*.psd,*.PSD
+" Disable temp and backup files
+set wildignore+=*.swp,*~,._*,.DS_Store
 " Ignore bundler and sass cache
 set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
 " Ignore Rails log and tmp
 set wildignore+=log/**,tmp/**
-" Disable temp and backup files
-set wildignore+=*.swp,*~,._*,.DS_Store
 
 " Use modeline overrides
 set modeline

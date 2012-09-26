@@ -12,12 +12,12 @@
 --type-set=coffee=.coffee
 # ignore
 --nosql
-# ignore - Rails (matches .gitignore)
-#   FYI: .sqlite3, .log are not Ack types so don't need to be ignored
+# ignore - Rails
+#   FYI: .sqlite3, .log, files in 'script' and 'bin' are not Ack types so don't need to be ignored
 --ignore-dir=.bundle
---ignore-dir=public/system 
+--ignore-dir=db/migrate
+--ignore-dir=public/cache
+--ignore-dir=public/stylesheets
+--ignore-dir=public/system
 --ignore-dir=tmp
 --ignore-dir=vendor
-# ignore - Django
---ignore-dir=migrations
---ignore-dir=media
