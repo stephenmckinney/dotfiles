@@ -52,7 +52,7 @@ alias v='vim'
 
 # Edit dotfiles
 alias edots='vim ~/.dotfiles'
-alias eomz='vim ~/.oh-my-zsh'
+alias eprezto='vim ~/.zprezto'
 
 # Memcached
 alias memcachedstart='memcached -p 11211 &'
