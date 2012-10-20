@@ -70,4 +70,4 @@ let g:tagbar_compact = 1
 
 " Turbux
 let g:no_turbux_mappings = 1
-let g:turbux_command_prefix = 'bundle exec'
+"let g:turbux_command_prefix = 'bundle exec'
