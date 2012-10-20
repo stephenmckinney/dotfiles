@@ -24,16 +24,14 @@ NeoBundle 'scrooloose/nerdtree'
 " Nerdcommenter
 NeoBundle 'ddollar/nerdcommenter'
 " Snipmate
-NeoBundle 'garbas/vim-snipmate'
-NeoBundle 'MarcWeber/vim-addon-mw-utils'
-NeoBundle 'tomtom/tlib_vim'
-" My Snipmate Snippets
-" with read/write access
+NeoBundle 'garbas/vim-snipmate', { 'depends' : [
+    \ 'MarcWeber/vim-addon-mw-utils',
+    \ 'tomtom/tlib_vim',
+    \ ]}
+" Snipmate Snippets
 NeoBundle 'git@github.com:stephenmckinney/snipmate-snippets.git'
 " Surround
 NeoBundle 'tpope/vim-surround'
-" Unimpaired
-"NeoBundle 'tpope/vim-unimpaired'
 " Repeat
 NeoBundle 'tpope/vim-repeat'
 " Tabularize
@@ -41,8 +39,9 @@ NeoBundle "godlygeek/tabular"
 " Indent Object
 NeoBundle 'michaeljsmith/vim-indent-object'
 " Ruby Block Object
-NeoBundle 'nelstrom/vim-textobj-rubyblock'
-NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'nelstrom/vim-textobj-rubyblock', { 'depends' : [
+    \ 'kana/vim-textobj-user',
+    \ ]}
 " Tagbar
 NeoBundle 'majutsushi/tagbar'
 " Supertab
@@ -58,41 +57,36 @@ NeoBundle 'tpope/vim-fugitive'
 " Gitv
 NeoBundle 'gregsexton/gitv'
 " Gist
-NeoBundle 'mattn/gist-vim'
-NeoBundle 'mattn/webapi-vim'
+NeoBundle 'mattn/gist-vim', { 'depends' : [
+    \ 'mattn/webapi-vim',
+    \ ]}
 " Narrow Region
 NeoBundle 'chrisbra/NrrwRgn'
 " Indent Guides
 NeoBundle 'nathanaelkane/vim-indent-guides'
-" history of yanks, changes, and deletes.
+" Yank History
 NeoBundle 'vim-scripts/YankRing.vim'
 " Marks
 NeoBundle 'VimEz/ShowMarks'
 " Rename
 NeoBundle 'vim-scripts/Rename2'
-" Vim-Tmux integration
-NeoBundle 'jgdavey/vim-turbux'
-NeoBundle 'jgdavey/tslime.vim'
-" =========================================
-" TODO try: scratch, 'nelstrom/vim-markdown-preview'
-" =========================================
-" =========================================
-" TODO decide if the below experimental
-" plugins are here to stay
-" =========================================
 " Powerline
 NeoBundle 'skwp/vim-powerline'
+" Vim-Tmux integration
+NeoBundle 'jgdavey/vim-turbux', { 'depends' : [
+    \ 'jgdavey/tslime.vim',
+    \ ]}
+" =========================================
+" The below plugins I am experimenting with
+" =========================================
 " Endwise
 NeoBundle 'tpope/vim-endwise'
 " Matchit
 NeoBundle 'edsono/vim-matchit'
 " Docs
-" with read/write access
 NeoBundle 'git@github.com:stephenmckinney/vim-dochub.git'
 " Ruby/RSpec/Rails
 NeoBundle 'lucapette/vim-ruby-doc'
-" colors parenthesis.
-"NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'ecomba/vim-ruby-refactoring'
 NeoBundle 'danchoi/ri.vim'
 
@@ -147,8 +141,15 @@ NeoBundle 'ajf/puppet-vim'
 " ======================================================================
 " Tried and didn't like
 " ======================================================================
-
+"
 " 'sjl/gundo.vim'
 " 'sjl/threesome.vim'
 " 'Lokaltog/vim-easymotion'
-" 'Lokaltog/vim-powerline'
+" 'tpope/vim-unimpaired' - RSI
+" 'kien/rainbow_parentheses.vim' - Never worked right
+"
+" ======================================================================
+" Will try some day when I have time
+" ======================================================================
+" 'scratch'
+" 'nelstrom/vim-markdown-preview'
