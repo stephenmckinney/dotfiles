@@ -102,7 +102,7 @@ NeoBundle 'danchoi/ri.vim'
 NeoBundle 'vim-scripts/Color-Sampler-Pack'
 NeoBundle 'wgibbs/vim-irblack'
 NeoBundle 'tpope/vim-vividchalk'
-NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'git@github.com:stephenmckinney/vim-colors-solarized'
 NeoBundle 'chriskempson/vim-tomorrow-theme'
 
 
