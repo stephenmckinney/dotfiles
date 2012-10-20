@@ -70,6 +70,7 @@
   lm  = log --topo-order --pretty=format:'%s'
   lh  = shortlog --summary --numbered
   llf = fsck --lost-found
+  lme = log --author='Steve McKinney'
 
   # remote
   re  = remote
