@@ -30,15 +30,6 @@ task :install do
       link_file(file)
     end
   end
-
-  install_neobundle
-end
-
-def install_neobundle
-  unless File.exist?(File.join(ENV['HOME'], '.vim', 'bundle', 'neobundle.vim'))
-    puts "installing ~/.vim/bundle/neobundle.vim"
-    system("git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
-  end
 end
 
 def replace_file(file)
