@@ -1,0 +1,13 @@
+# ~/.tmuxinator/default.yml
+# you can make as many tabs as you wish...
+
+project_name: default
+project_root: ~/code
+tabs:
+  - editor:
+      layout: d744,208x54,0,0[208x43,0,0,0,208x10,0,44{120x10,0,44,2,87x10,121,44,3}]
+      panes:
+        -
+        -
+        -
+  - shell:
