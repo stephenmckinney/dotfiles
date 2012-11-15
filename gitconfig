@@ -4,6 +4,9 @@
 [github]
   user = stephenmckinney
 [alias]
+  # blame
+  blame = blame -w
+
   # branch
   b  = branch
   ba = branch -av
@@ -21,10 +24,12 @@
   f   = fetch
   fm  = pull
   fo  = fetch origin
+  fu  = fetch upstream
   # merge
   m   = merge
   mom = merge origin/master
   mos = merge origin/support
+  mum = merge upstream/master
   # push
   p   = push
   pa  = push --all
@@ -37,6 +42,10 @@
   rs  = rebase --skip
   rom = rebase origin/master
   ros = rebase origin/support
+  rum = rebase upstream/master
+  riom = rebase --interactive origin/master
+  rios = rebase --interactive origin/support
+  rium = rebase --interactive upstream/master
 
   # commit
   c      = commit -v
@@ -46,6 +55,12 @@
   camend = commit --amend --reuse-message HEAD
   cundo  = reset --soft "HEAD^"
   cp     = cherry-pick
+
+  #stash
+  ss = stash save
+  sp = stash pop
+  sl = stash list
+  sc = stash clear
 
   # diff
   d    = diff          # Diff working dir to index
