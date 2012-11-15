@@ -65,6 +65,10 @@ alias mysqlstop='mysqladmin -u root shutdown'
 alias postgresstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start &'
 alias postgresstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 
+# Mac OS X
+alias show_hidden='defaults write com.apple.finder AppleShowAllFiles NO && killall Finder'
+alias hide_hidden='defaults write com.apple.finder AppleShowAllFiles YES && killall Finder'
+
 # MondoDB
 alias mongodbstart='mongod run --config /usr/local/etc/mongod.conf'
 
