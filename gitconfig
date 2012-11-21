@@ -100,6 +100,10 @@
 [core]
   excludesfile = /Users/smckinney/.gitignore
   editor = vim -f
+[mergetool "fugitive"]
+  cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+[merge]
+  tool = fugitive
 [push]
   default = upstream
 [apply]
