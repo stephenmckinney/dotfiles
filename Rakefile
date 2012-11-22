@@ -3,6 +3,10 @@ require 'erb'
 
 desc "install the dot files into user's home directory"
 task :install do
+  puts "======================================================"
+  puts "Installing symlinks."
+  puts "======================================================"
+
   replace_all = false
   Dir['*'].each do |file|
     next if %w[Rakefile README.md LICENSE].include? file
@@ -30,6 +34,9 @@ task :install do
       link_file(file)
     end
   end
+  puts
+
+  success_msg("installed")
 end
 
 def replace_file(file)
@@ -47,4 +54,12 @@ def link_file(file)
     puts "linking ~/.#{file}"
     system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
   end
+end
+
+def success_msg(action)
+  puts "======================================================"
+  puts "Success!"
+  puts "======================================================"
+  puts
+  puts ".dotfiles have been #{action}. Please restart your terminal."
 end
