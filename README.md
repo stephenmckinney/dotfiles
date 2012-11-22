@@ -19,7 +19,7 @@ Follow further instructions from [Prezto](https://github.com/stephenmckinney/pre
 
 Install [Homebrew](http://mxcl.github.com/homebrew/), then:
 
-    brew install git mercurial hub coreutils wget fasd tmux reattach-to-user-namespace
+    brew install zsh git mercurial hub coreutils fasd tmux reattach-to-user-namespace wget tree
 
 #### Rubies & Pythons
 
@@ -71,4 +71,5 @@ These are included within the repo.
 * [Solarized dircolors](https://github.com/seebi/dircolors-solarized)
 
 ## TODO
+
 * Test dotfiles on linux.
