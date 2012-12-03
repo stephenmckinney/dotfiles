@@ -1,15 +1,15 @@
 # my dotfiles
 
-Configures ack, gem, git, irb, pry, rails, rspec, rvm, tmux, zsh...for use at home and on the road.
+Configures ack, gem, git, irb, iterm2, pry, rails, rspec, rvm,
+tmux, zsh with a focus on Ruby and Rails development. Solarized **ALL** the
+things.
 
 ## Install
 
     git clone git://github.com/stephenmckinney/dotfiles ~/.dotfiles
-    cd ~/.dotfiles
-    rake install
+    cd ~/.dotfiles && rake install
     git clone --recursive git://github.com/stephenmckinney/prezto ~/.zprezto
-    cd ~/.zprezto
-    git co my-customizations-and-theme
+    cd ~/.zprezto && git co my-customizations-and-theme
 
 Follow further instructions from [Prezto](https://github.com/stephenmckinney/prezto).
 
@@ -19,11 +19,11 @@ Follow further instructions from [Prezto](https://github.com/stephenmckinney/pre
 
 Install [Homebrew](http://mxcl.github.com/homebrew/), then:
 
-    brew install zsh git mercurial hub coreutils fasd tmux reattach-to-user-namespace wget tree
+    brew install zsh git mercurial hub coreutils fasd tmux reattach-to-user-namespace wget tree ack
 
 #### Rubies & Pythons
 
-[RVM](http://beginrescueend.com/) and [Homebrew'd Python](https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python)
+Install [RVM](http://beginrescueend.com/) and [Homebrew'd Python](https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python)
 
 #### Gems
 
@@ -70,12 +70,6 @@ These are installed by following the above.
 #### Pry
 * [Pry-nav](https://github.com/nixme/pry-nav) teaches Pry about step, next, and continue to create a simple debugger
 * [Awesome Print](https://github.com/michaeldv/awesome_print) pretty prints Ruby objects in full color with proper indentation
-
-## Makes Use Of
-
-These are included within the repo.
-
-* [Solarized dircolors](https://github.com/seebi/dircolors-solarized)
 
 ## TODO
 
