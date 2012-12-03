@@ -36,7 +36,11 @@ task :install do
   end
   puts
 
-  activate_rvm_bundler_binstubs_integration
+  install_prezto
+
+  fix_osx_zsh          if /darwin/ =~ RUBY_PLATFORM
+
+  activate_rvm_bundler if /darwin/ =~ RUBY_PLATFORM
 
   success_msg("installed")
 end
@@ -58,7 +62,30 @@ def link_file(file)
   end
 end
 
-def activate_rvm_bundler_binstubs_integration
+def install_prezto
+  unless File.exist?(File.join(ENV['HOME'], '.zprezto'))
+    puts "======================================================"
+    puts "Installing Prezto"
+    puts "======================================================"
+    system("git clone --recursive git://github.com/stephenmckinney/prezto ~/.zprezto")
+    system("cd ~/.zprezto")
+    system("git checkout my-customizations-and-theme")
+    system("chsh -s /bin/zsh")
+    puts
+  end
+end
+
+def fix_osx_zsh
+  unless File.exist?(File.join(ENV['HOME'], '.zprezto'))
+    puts "======================================================"
+    puts "Fixing OS X's Zsh Funkiness"
+    puts "======================================================"
+    system("sudo chmod ugo-x /usr/libexec/path_helper")
+    puts
+  end
+end
+
+def activate_rvm_bundler
   puts "======================================================"
   puts "Activating RVM-Bundler binstubs integration"
   puts "======================================================"

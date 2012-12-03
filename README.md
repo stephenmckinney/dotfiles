@@ -8,10 +8,8 @@ things.
 
     git clone git://github.com/stephenmckinney/dotfiles ~/.dotfiles
     cd ~/.dotfiles && rake install
-    git clone --recursive git://github.com/stephenmckinney/prezto ~/.zprezto
-    cd ~/.zprezto && git co my-customizations-and-theme
 
-Follow further instructions from [Prezto](https://github.com/stephenmckinney/prezto).
+> Zsh troubles? See [Prezto](https://github.com/stephenmckinney/prezto).
 
 ### Install Requirements and Dependencies on Mac OS X
 
@@ -23,7 +21,7 @@ Install [Homebrew](http://mxcl.github.com/homebrew/), then:
 
 #### Rubies & Pythons
 
-Install [RVM](http://beginrescueend.com/) and [Homebrew'd Python](https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python)
+Install [RVM](http://beginrescueend.com/) and [Homebrew'd Python](https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python).
 
 #### Gems
 
@@ -72,10 +70,10 @@ These are installed by following the above.
 
 #### iTerm2
 
-* Open Preferences
-* In General tab, check `Load preferences from a user-defined folder or URL`
-* Paste `/Users/smckinney/.dotfiles/iterm2` into the text field
-* Import Solarized Dark and Solarized Light itermcolors
+* Open Preferences.
+* In **General** tab, check **Load preferences from a user-defined folder or URL**.
+* Paste `/Users/smckinney/.dotfiles/iterm2` into the text field.
+* Import Solarized Dark and Solarized Light itermcolors.
 
 #### Zsh
 * My [fork](https://github.com/stephenmckinney/prezto) of [Prezto](https://github.com/sorin-ionescu/prezto)
