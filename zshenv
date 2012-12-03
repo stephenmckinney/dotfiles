@@ -36,7 +36,17 @@ fi
 # Set the default Less options.
 # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
 # Remove -X and -F (exit if the content fits on one screen) to enable it.
-export LESS='-F -g -i -M -R -S -w -X -z-4'
+# Options:
+# -F or --quit-if-one-screen
+# -g or --hilite-search
+# -i or --ignore-case
+# -M or --LONG-PROMPT - Verbose prompt at bottom.
+# -R or --RAW-CONTROL-CHARS - Causes "raw" control characters to be displayed.
+# -S or --chop-long-lines
+# -w or --hilite-unread - Temporarily  highlights the first "new" line after a forward movement of a full page.
+# -X or --no-init - Disables sending the termcap initialization and deinitialization strings to the terminal.
+# -[z]n or --window=n - For example, if the screen is 24 lines, -z-4 sets the scrolling window to 20 lines.
+export LESS='-F -g -i -M -R -S -X -z-4'
 
 # Set the Less input preprocessor.
 if (( $+commands[lesspipe.sh] )); then
