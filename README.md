@@ -49,6 +49,13 @@ These are installed by following the above.
 
 ### Optional
 
+#### iTerm2
+
+* Open Preferences
+* In General tab, check `Load preferences from a user-defined folder or URL`
+* Paste `/Users/smckinney/.dotfiles/iterm2` into the text field
+* Import Solarized Dark and Solarized Light itermcolors
+
 #### Zsh
 * My [fork](https://github.com/stephenmckinney/prezto) of [Prezto](https://github.com/sorin-ionescu/prezto)
 * [fasd](https://github.com/clvv/fasd) gives you quick access to frequent/recent files and directories
