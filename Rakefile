@@ -36,6 +36,8 @@ task :install do
   end
   puts
 
+  activate_rvm_bundler_binstubs_integration
+
   success_msg("installed")
 end
 
@@ -54,6 +56,14 @@ def link_file(file)
     puts "linking ~/.#{file}"
     system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
   end
+end
+
+def activate_rvm_bundler_binstubs_integration
+  puts "======================================================"
+  puts "Activating RVM-Bundler binstubs integration"
+  puts "======================================================"
+  system("chmod +x $rvm_path/hooks/after_cd_bundler")
+  puts
 end
 
 def success_msg(action)
