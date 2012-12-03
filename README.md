@@ -29,6 +29,27 @@ Install [RVM](http://beginrescueend.com/) and [Homebrew'd Python](https://github
 
     gem install pry pry-doc pry-nav awesome_print tmuxinator
 
+
+> **Preventing RSI:**
+>
+> Remap `Caps Lock` to act like `Control` and `ESC` at the same time!
+>
+> Just do this...you'll thank me later.
+>
+> * Download and install [KeyRemap4MacBook](http://pqrs.org/macosx/keyremap4macbook/pckeyboardhack.html)
+> * Open the Keyboard preference pane. Click on **Modifier Keys** in the
+> bottom right corner and **remap Caps Lock to Control**.
+> (*Note: You have to do this remapping separately for each keyboard, or else it won't work on any peripherally attached keyboard.*)
+> * Open the KeyRemap4MacBook Preferences and find the drop-down for
+> **Change Control_L Key (Left Control)**. Expand this drop-down and
+> check the box for **Control_L to Control_L (+ When you type Control_L only, send Escape)**.
+>
+> Now when you hit `Caps Lock` alone, it will act as `ESC`, meaning you can
+> use it as `ESC` in Vim, but if you hold down `Caps Lock` and hit another
+> key (like most Emacs keybindings), it will act as if you hit `Control`
+> plus that other key.
+
+
 ### Install Dependencies on Linux
 
 TBD
