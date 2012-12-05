@@ -51,6 +51,12 @@ alias dd='fasd -sid'     # interactive directory selection
 
 # meta alias
 alias aliasgrep='alias | grep $(echo $1)'
+
+# Most used commands according to history-stat
+# Bundler
+alias b='bundle'
+alias bi='bundle install --binstubs'
+alias bo='bundle outdated'
 # Git
 alias g='git'
 # Rails - other alias `ror*`
