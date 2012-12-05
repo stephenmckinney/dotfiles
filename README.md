@@ -25,7 +25,7 @@ Install [RVM](http://beginrescueend.com/) and [Homebrew'd Python](https://github
 
 #### Gems
 
-    gem install pry pry-doc pry-nav awesome_print tmuxinator
+    gem install pry pry-doc pry-nav awesome_print tmuxinator pomo
 
 
 > **Preventing RSI:**
