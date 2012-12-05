@@ -40,6 +40,14 @@ alias sl='ls'            # I often screw this up.
 # List files after changing directories
 function chpwd { l }
 
+# fasd
+alias j='fasd_cd -d'     # cd AKA jump to directory
+alias jj='fasd_cd -d -i' # cd with interactive selection
+alias v='fasd -f -e vim' # open file vim
+alias f='fasd -f'        # file
+alias ff='fasd -sif'     # interactive file selection
+alias d='fasd -d'        # directory
+alias dd='fasd -sid'     # interactive directory selection
 # Git
 alias g='git'
 # Rails - other alias `ror*`
