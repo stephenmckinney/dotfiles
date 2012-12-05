@@ -48,6 +48,9 @@ alias f='fasd -f'        # file
 alias ff='fasd -sif'     # interactive file selection
 alias d='fasd -d'        # directory
 alias dd='fasd -sid'     # interactive directory selection
+
+# meta alias
+alias aliasgrep='alias | grep $(echo $1)'
 # Git
 alias g='git'
 # Rails - other alias `ror*`
@@ -71,6 +74,8 @@ alias postgresstart=' open -a Postgres'
 #alias postgresstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start &'
 #alias postgresstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 
+# ps
+alias psgrep='ps -e -o pid,command | grep $(echo $1 | sed "s/^\(.\)/[\1]/g")'
 
 # Mac OS X
 alias show_hidden='defaults write com.apple.finder AppleShowAllFiles NO && killall Finder'
