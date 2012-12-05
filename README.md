@@ -17,7 +17,7 @@ things.
 
 Install [Homebrew](http://mxcl.github.com/homebrew/), then:
 
-    brew install zsh git mercurial hub coreutils fasd tmux reattach-to-user-namespace wget tree ack
+    brew install zsh git mercurial hub coreutils fasd tmux reattach-to-user-namespace wget tree ack the_silver_searcher
 
 #### Rubies & Pythons
 
