@@ -4,6 +4,10 @@ Configures ack, gem, git, irb, iterm2, pry, rails, rspec, rvm,
 tmux, zsh with a focus on Ruby and Rails development. Solarized **ALL** the
 things.
 
+These are my personal dotfiles, but it is also a good starting point for
+anyone interested in tmux + zsh + vim as a Ruby and Rails IDE on OS X. See
+[vimfiles](https://github.com/stephenmckinney/vimfiles) for more.
+
 ## Install
 
     git clone git://github.com/stephenmckinney/dotfiles ~/.dotfiles
@@ -89,6 +93,15 @@ These are installed by following the above.
 #### Pry
 * [Pry-nav](https://github.com/nixme/pry-nav) teaches Pry about step, next, and continue to create a simple debugger
 * [Awesome Print](https://github.com/michaeldv/awesome_print) pretty prints Ruby objects in full color with proper indentation
+
+## Moar
+
+Go dumpster diving for more dotfile goodness:
+
+* [tpope's dotfiles](https://github.com/tpope/tpope)
+* [garybernhardt dotfiles](https://github.com/garybernhardt/dotfiles)
+* [sjl dotfiles](https://github.com/sjl/dotfiles)
+* [skwp dotfiles](https://github.com/skwp/dotfiles)
 
 ## TODO
 
