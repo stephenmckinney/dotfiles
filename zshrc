@@ -42,13 +42,10 @@ function chpwd { l }
 
 # Git
 alias g='git'
-
-# Rails
+# Rails - other alias `ror*`
 alias r='rails'
-
-# Use vim
+# Vim
 alias vi='vim'
-alias v='vim'
 
 # Edit dotfiles
 alias edots='vim ~/.dotfiles'
@@ -58,19 +55,22 @@ alias eprezto='vim ~/.zprezto'
 alias memcachedstart='memcached -p 11211 &'
 
 # MySQL
-alias mysqlstart='mysqld_safe &'
-alias mysqlstop='mysqladmin -u root shutdown'
+#alias mysqlstart='mysqld_safe &'
+#alias mysqlstop='mysqladmin -u root shutdown'
 
 # Postgresql
-alias postgresstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start &'
-alias postgresstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+alias postgresstart=' open -a Postgres'
+#alias postgresstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start &'
+#alias postgresstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+
 
 # Mac OS X
 alias show_hidden='defaults write com.apple.finder AppleShowAllFiles NO && killall Finder'
 alias hide_hidden='defaults write com.apple.finder AppleShowAllFiles YES && killall Finder'
 
 # MondoDB
-alias mongodbstart='mongod run --config /usr/local/etc/mongod.conf'
+alias mongodbstart=' mongo: mongod --dbpath=/usr/local/var/mongodb -vv'
+#alias mongodbstart='mongod run --config /usr/local/etc/mongod.conf'
 
 # Misc.
 alias gf='fg'            # I often screw this up.
