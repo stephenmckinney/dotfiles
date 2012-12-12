@@ -94,6 +94,19 @@ These are installed by following the above.
 * [Pry-nav](https://github.com/nixme/pry-nav) teaches Pry about step, next, and continue to create a simple debugger
 * [Awesome Print](https://github.com/michaeldv/awesome_print) pretty prints Ruby objects in full color with proper indentation
 
+### ri/rdoc Documentation
+
+In order to conserve space, RVM does not automatically generate and
+install each Ruby's ri / rdoc documentation.
+
+Provided you have not cleaned up the extracted sources for all currently
+installed Rubies by executing 'rvm cleanup all' then you can install the
+docs for **all** currently installed Rubies by executing:
+
+    rvm all do rvm docs generate all
+
+See [RVM docs](https://rvm.io/rubies/docs) for further details.
+
 ## Moar
 
 Go dumpster diving for more dotfile goodness:
