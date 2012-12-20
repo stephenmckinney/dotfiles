@@ -95,6 +95,13 @@ alias mongodbstart=' mongo: mongod --dbpath=/usr/local/var/mongodb -vv'
 # Misc.
 alias gf='fg'            # I often screw this up.
 
+# Open irssi if it's not already open
+function irc {
+  if ! tmux list-windows -F '#{window_name}' | grep 'irssi' &> /dev/null; then
+    tmux new-window -a -t $(tmux display-message -p '#S'):2 -n 'irssi' 'irssi'
+  fi
+}
+
 # Use .localrc for settings specific to one system
 [[ -f ~/.localrc ]] && . ~/.localrc
 
