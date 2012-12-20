@@ -21,7 +21,7 @@ anyone interested in tmux + zsh + vim as a Ruby and Rails IDE on OS X. See
 
 Install [Homebrew](http://mxcl.github.com/homebrew/), then:
 
-    brew install zsh git mercurial hub coreutils fasd tmux reattach-to-user-namespace wget tree ack the_silver_searcher
+    brew install zsh git mercurial hub coreutils fasd tmux reattach-to-user-namespace wget tree ack the_silver_searcher irssi
 
 #### Rubies & Pythons
 
