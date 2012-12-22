@@ -1,0 +1,8 @@
+# ~/.tmuxinator/simple.yml
+# you can make as many tabs as you wish...
+
+project_name: simple
+project_root: ~/code
+tabs:
+  - editor:
+  - shell:
