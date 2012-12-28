@@ -169,7 +169,7 @@ begin
     ARGV[1..-1].each do |file|
       drop = @client.upload file, :private => (not p.nil?)
       urls << drop.url
-      puts "uploaded #{file} as #{drop.url}"
+      puts "#{drop.url}"
     end
     # Copy it to your (Mac's) clipboard.
     `echo '#{urls.join(', ')}' | tr -d "\n" | pbcopy`
