@@ -55,6 +55,8 @@
   camend = commit --amend --reuse-message HEAD
   cundo  = reset --soft "HEAD^"
   cp     = cherry-pick
+  # verbose alternatives
+  undo-last-commit  = reset --soft "HEAD^"
 
   #stash
   ss = stash save
@@ -75,6 +77,7 @@
   a  = add
   ia = add
   ir = reset
+  unstage = reset HEAD 
 
   # log
   l   = log --topo-order --pretty=format:'%C(yellow)%h %C(cyan)%cn %C(blue)%cr%C(reset) %s'
