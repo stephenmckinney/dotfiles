@@ -1,0 +1,232 @@
+#!/usr/bin/env ruby -rubygems
+# -*- coding: utf-8 -*-
+#
+# cloudapp-cli
+# ============
+
+# A simple cli for [CloudApp][getcloudapp] written in Ruby.
+
+# Install
+# -------
+
+# cloudapp-cli depends on the [cloudapp_api][api], so first install it as a gem dependency:
+
+#   gem install cloudapp_api
+  
+#   # on ruby 1.8 the json gem is not installed by default
+#   gem install json
+
+# Install with the one-liner (shock!) (make sure that your /usr/local/bin is writable and it's in PATH):
+
+#   cd /usr/local/bin && curl -fOs https://raw.github.com/bonifaido/cloudapp-cli/master/cloudapp && chmod +x cloudapp && cd -
+
+# Usage
+# -----
+
+# Configuration:
+
+#   cloudapp config myemail@company.hu passw0rd
+
+# List all your drops:
+
+#   cloudapp list
+
+# Show your stats:
+
+#   cloudapp stats
+
+# Upload files:
+
+#   cloudapp upload drumandbass.ogg cheatsheet.png
+
+# Upload a file as private:
+
+#   cloudapp upload -p topsecret.pdf
+
+# Download a drop to current directory:
+
+#   cloudapp download dZ69
+
+# Change a drop to private:
+
+#   cloudapp private dZ69
+
+# Change all drops to public:
+
+#   cloudapp public
+
+# Rename a drop:
+
+#   cloudapp rename dZ69 UserGuide.txt
+
+# Delete a drop:
+
+#   cloudapp delete dZ69
+
+# Recover a drop:
+
+#   cloudapp recover dZ69
+
+# Jump to your homepage:
+
+#   cloudapp home
+
+# Enjoy!
+# ------
+
+# [getcloudapp]:http://getcloudapp.com/
+# [api]:https://github.com/aaronrussell/cloudapp_api
+
+def usage
+  puts 'Configuration:'
+  puts '  cloudapp config [USERNAME] [PASSWORD]'
+  puts
+  puts 'Example usage:'
+  puts '  cloudapp list'
+  puts '  cloudapp stats'
+  puts '  cloudapp upload [-p] FILE...'
+  puts '  cloudapp download SLUG...'
+  puts '  cloudapp delete SLUG...'
+  puts '  cloudapp recover SLUG...'
+  puts '  cloudapp rename SLUG NAME'
+  puts '  cloudapp private [SLUG...]'
+  puts '  cloudapp public [SLUG...]'
+  puts '  cloudapp home'
+  puts '  cloudapp help'
+  puts
+  exit 0
+end
+
+CONFIG_FILE = ENV['HOME'] + '/.cloudapp-cli'
+
+def load_config
+  require 'yaml'
+  YAML.load_file(CONFIG_FILE) rescue abort 'Please set up your user account first.'
+end
+
+def save_config(config)
+  require 'yaml'
+  File.open(CONFIG_FILE, 'w+') do |f|
+    f.write(YAML.dump(config))
+  end
+end
+
+case ARGV.first
+when 'help', nil
+  usage
+when 'home'
+  exec 'open', 'http://my.cl.ly/'
+when 'config'
+  if ARGV[1] and ARGV[2]
+    save_config(:username => ARGV[1], :password => ARGV[2])
+    puts 'User account set.'
+  else
+    load_config.each do |k, v|
+      puts "#{k}: #{v}"
+    end
+  end
+  exit 0
+end
+
+config = load_config
+
+
+require 'cloudapp_api'
+
+@client = CloudApp::Client.new
+@client.authenticate config[:username], config[:password]
+begin
+  CloudApp::Account.find
+rescue SocketError
+  abort 'Wooops, an error occured, check your network settings.'
+rescue CloudApp::GenericError
+  abort 'Wooops, an error occured, check your credentials.'
+end
+
+def slug(drop)
+  drop.url.split(/\//).last if drop
+end
+
+def args?(n=2)
+  usage if ARGV.length < n
+end
+
+
+begin
+  case ARGV.first
+  when 'list'
+    CloudApp::Drop.all.each do |drop|
+      puts "#{slug(drop)}\t#{drop.content_url}"
+    end
+  when 'stats'
+    CloudApp::Account.stats.each do |key, value|
+      puts "#{key}\t#{value}"
+    end
+  when 'upload'
+    p = ARGV.delete('-p')
+    args?
+    urls = []
+    ARGV[1..-1].each do |file|
+      drop = @client.upload file, :private => (not p.nil?)
+      urls << drop.url
+      puts "uploaded #{file} as #{drop.url}"
+    end
+    # Copy it to your (Mac's) clipboard.
+    `echo '#{urls.join(', ')}' | tr -d "\n" | pbcopy`
+  when 'private'
+    if ARGV[1]
+      ARGV[1..-1].each do |slug|
+        drop = @client.privacy slug, true
+        puts "#{drop.content_url} changed to private"
+      end
+    else
+      CloudApp::Account.update :private_items => true
+      puts 'all drops changed to private'
+    end
+  when 'public'
+    if ARGV[1]
+      ARGV[1..-1].each do |slug|
+        drop = @client.privacy slug, false
+        puts "#{drop.content_url} changed to public"
+      end
+    else
+      CloudApp::Account.update :private_items => false
+      puts 'all drops changed to public'
+    end
+  when 'delete'
+    args?
+    ARGV[1..-1].each do |slug|
+      drop = @client.delete slug
+      puts "deleted #{drop.content_url}"
+    end
+  when 'recover'
+    args?
+    ARGV[1..-1].each do |slug|
+      drop = @client.recover slug
+      puts "recovered #{drop.content_url}"
+    end
+  when 'rename'
+    args? 3
+    drop = @client.rename ARGV[1], ARGV[2]
+    puts "#{ARGV[1]} renamed to #{ARGV[2]}"
+  when 'download'
+    require 'httparty'
+    args?
+    ARGV[1..-1].each do |slug|
+      drop = @client.drop slug
+      File.open(drop.name, 'w') do |f|
+        f << HTTParty.get("#{drop.url}/#{drop.name}")
+      end
+      puts "downloaded #{drop.name}"
+    end
+  else
+    puts "unable to execute #{ARGV.first}\n\n"
+    usage
+  end
+rescue SocketError
+  abort 'Wooops, an error occured, check your network settings.'
+rescue CloudApp::ResponseError
+  abort "Not possble to execute #{ARGV.first} on #{ARGV[1]}."
+rescue => e
+  abort "Report this as a bug:\n" + e.to_s
+end
