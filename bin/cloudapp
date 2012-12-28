@@ -61,7 +61,7 @@
 
 # Delete a drop:
 
-#   cloudapp delete dZ69
+#   cloudapp remove dZ69
 
 # Recover a drop:
 
@@ -82,11 +82,11 @@ def usage
   puts '  cloudapp config [USERNAME] [PASSWORD]'
   puts
   puts 'Example usage:'
-  puts '  cloudapp list'
+  puts '  cloudapp [list|ls]'
   puts '  cloudapp stats'
   puts '  cloudapp upload [-p] FILE...'
   puts '  cloudapp download SLUG...'
-  puts '  cloudapp delete SLUG...'
+  puts '  cloudapp [remove|rm] SLUG...'
   puts '  cloudapp recover SLUG...'
   puts '  cloudapp rename SLUG NAME'
   puts '  cloudapp private [SLUG...]'
@@ -154,7 +154,7 @@ end
 
 begin
   case ARGV.first
-  when 'list'
+  when /^list|ls$/
     CloudApp::Drop.all.each do |drop|
       puts "#{slug(drop)}\t#{drop.content_url}"
     end
@@ -193,7 +193,7 @@ begin
       CloudApp::Account.update :private_items => false
       puts 'all drops changed to public'
     end
-  when 'delete'
+  when /^remove|rm$/
     args?
     ARGV[1..-1].each do |slug|
       drop = @client.delete slug
@@ -220,8 +220,16 @@ begin
       puts "downloaded #{drop.name}"
     end
   else
-    puts "unable to execute #{ARGV.first}\n\n"
-    usage
+    p = ARGV.delete('-p')
+    args? 1
+    urls = []
+    ARGV[0..-1].each do |file|
+      drop = @client.upload file, :private => (not p.nil?)
+      urls << drop.url
+      puts "#{drop.url}"
+    end
+    # Copy it to your (Mac's) clipboard.
+    `echo '#{urls.join(', ')}' | tr -d "\n" | pbcopy`
   end
 rescue SocketError
   abort 'Wooops, an error occured, check your network settings.'
