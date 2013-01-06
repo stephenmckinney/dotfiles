@@ -15,9 +15,8 @@ fi
 #
 # The following concerns are handled thru Prezto and other dotfiles not here:
 #   * PATH for Homebrew (~/.zshenv)
-#   * PATH for Homebrew'd Python's `install-scripts` (~/prezto/module/python)
-#   * PATH for RVM (~/prezto/module/ruby)
-#   * Loading RVM into a shell session for Pow, etc. (~/.zshenv)
+#   * rbenv init (~/.zprezto/module/ruby/)
+#   * PATH for Homebrew'd Python's `install-scripts` (~/.zprezto/module/python/)
 #
 #################################################
 
@@ -56,7 +55,7 @@ alias aliasgrep='alias | grep $(echo $1)'
 # Most used commands according to history-stat
 # Bundler
 alias b='bundle'
-alias bi='bundle install --binstubs'
+alias bi='bundle install'
 alias bo='bundle outdated'
 # Git
 alias g='git'
@@ -81,7 +80,7 @@ alias postgresstart=' open -a Postgres'
 #alias postgresstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start &'
 #alias postgresstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 
-# ps
+# ps | grep
 alias psgrep='ps -e -o pid,command | grep $(echo $1 | sed "s/^\(.\)/[\1]/g")'
 
 # Mac OS X
@@ -94,6 +93,9 @@ alias mongodbstart=' mongo: mongod --dbpath=/usr/local/var/mongodb -vv'
 
 # Misc.
 alias gf='fg'            # I often screw this up.
+
+# Put Bundler binstubs at the front of $PATH
+PATH=.bundle/binstubs:$PATH
 
 # Use .localrc for settings specific to one system
 [[ -f ~/.localrc ]] && . ~/.localrc

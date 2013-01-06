@@ -40,8 +40,6 @@ task :install do
 
   fix_osx_zsh          if /darwin/ =~ RUBY_PLATFORM
 
-  activate_rvm_bundler if /darwin/ =~ RUBY_PLATFORM
-
   success_msg("installed")
 end
 
@@ -83,14 +81,6 @@ def fix_osx_zsh
     system("sudo chmod ugo-x /usr/libexec/path_helper")
     puts
   end
-end
-
-def activate_rvm_bundler
-  puts "======================================================"
-  puts "Activating RVM-Bundler binstubs integration"
-  puts "======================================================"
-  system("chmod +x $rvm_path/hooks/after_cd_bundler")
-  puts
 end
 
 def success_msg(action)

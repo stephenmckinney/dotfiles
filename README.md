@@ -1,6 +1,6 @@
 # my dotfiles
 
-Configures ack, gem, git, irb, iterm2, pry, rails, rspec, rvm,
+Configures ack, gem, git, irb, iterm2, pry, rails, rspec, rbenv,
 tmux, zsh with a focus on Ruby and Rails development. Solarized **ALL** the
 things.
 
@@ -21,15 +21,22 @@ anyone interested in tmux + zsh + vim as a Ruby and Rails IDE on OS X. See
 
 Install [Homebrew](http://mxcl.github.com/homebrew/), then:
 
-    brew install zsh git mercurial hub coreutils fasd tmux reattach-to-user-namespace wget tree ack the_silver_searcher irssi
+    brew update
+    brew install zsh coreutils fasd wget tree \
+    git mercurial hub \
+    tmux reattach-to-user-namespace \
+    ack the_silver_searcher
 
 #### Rubies & Pythons
 
-Install [RVM](http://beginrescueend.com/) and [Homebrew'd Python](https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python).
+* Rubies: `brew install rbenv ruby-build`
+* Pythons: See [Homebrew and Python](https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python).
 
 #### Gems
 
-    gem install pry pry-doc pry-nav awesome_print tmuxinator pomo
+    gem install bundler rails pry pry-doc pry-nav \
+    awesome_print tmuxinator pomo \
+    pasteboard imgur2 cloudapp_api
 
 
 > **Preventing RSI:**
@@ -93,19 +100,6 @@ These are installed by following the above.
 #### Pry
 * [Pry-nav](https://github.com/nixme/pry-nav) teaches Pry about step, next, and continue to create a simple debugger
 * [Awesome Print](https://github.com/michaeldv/awesome_print) pretty prints Ruby objects in full color with proper indentation
-
-### ri/rdoc Documentation
-
-In order to conserve space, RVM does not automatically generate and
-install each Ruby's ri / rdoc documentation.
-
-Provided you have not cleaned up the extracted sources for all currently
-installed Rubies by executing 'rvm cleanup all' then you can install the
-docs for **all** currently installed Rubies by executing:
-
-    rvm all do rvm docs generate all
-
-See [RVM docs](https://rvm.io/rubies/docs) for further details.
 
 ## Moar
 

@@ -110,4 +110,3 @@ if [[ -d "$TMPDIR" ]]; then
   fi
 fi
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
