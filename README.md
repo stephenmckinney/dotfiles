@@ -10,7 +10,7 @@ anyone interested in tmux + zsh + vim as a Ruby and Rails IDE on OS X. See
 
 ## Install
 
-    git clone git://github.com/stephenmckinney/dotfiles ~/.dotfiles
+    git clone --recursive git://github.com/stephenmckinney/dotfiles ~/.dotfiles
     cd ~/.dotfiles && rake install
 
 > Zsh troubles? See [Prezto](https://github.com/stephenmckinney/prezto).
@@ -35,7 +35,7 @@ Install [Homebrew](http://mxcl.github.com/homebrew/), then:
 #### Gems
 
     gem install bundler rails pry pry-doc pry-nav \
-    awesome_print tmuxinator pomo \
+    awesome_print pomo \
     pasteboard imgur2 cloudapp_api
 
 

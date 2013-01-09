@@ -43,6 +43,14 @@ task :install do
   success_msg("installed")
 end
 
+desc "Update Tmuxifier"
+task :update_tmuxifier do
+  Dir.chdir(File.join(ENV['HOME'], '.tmuxifier')) do
+    system %Q{git pull origin master}
+    puts "Tmuxifier updated."
+  end
+end
+
 def replace_file(file)
   system %Q{rm -rf "$HOME/.#{file.sub('.erb', '')}"}
   link_file(file)
