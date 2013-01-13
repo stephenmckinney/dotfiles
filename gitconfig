@@ -90,6 +90,9 @@
   llf = fsck --lost-found
   lme = log --author='Steve McKinney'
 
+  # show
+  sh = show HEAD
+
   # remote
   re  = remote
   rel = remote --verbose
