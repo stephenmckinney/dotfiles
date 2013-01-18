@@ -51,6 +51,12 @@ task :update_tmuxifier do
   end
 end
 
+desc "Import iTerm2 settings into dotfiles"
+task :import_iterm do
+  iterm_settings = File.join(ENV['HOME'], 'Library', 'Preferences', 'com.googlecode.iterm2.plist')
+  system %Q{cp #{iterm_settings} ./iterm2/.}
+end
+
 def replace_file(file)
   system %Q{rm -rf "$HOME/.#{file.sub('.erb', '')}"}
   link_file(file)
