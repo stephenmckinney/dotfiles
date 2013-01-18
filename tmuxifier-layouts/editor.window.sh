@@ -7,7 +7,7 @@
 new_window "editor"
 
 # Split window into 3 panes.
-split_v 20
+split_v 15
 split_h 40
 
 # Run commands
