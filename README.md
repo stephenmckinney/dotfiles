@@ -23,7 +23,7 @@ Install [Homebrew](http://mxcl.github.com/homebrew/), then:
 
     brew update
     brew install zsh coreutils fasd wget tree \
-    git mercurial hub \
+    git mercurial hub gist \
     tmux reattach-to-user-namespace \
     ack the_silver_searcher
 
