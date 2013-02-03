@@ -48,15 +48,15 @@
   rium = rebase --interactive upstream/master
 
   # commit
-  c      = commit -v
-  ca     = commit --all -v
-  cm     = commit --message
-  cam    = commit --all --message
+  c      = commit --verbose
+  cm     = commit --verbose --message
+  ca     = commit --verbose --all
+  cam    = commit --verbose --all --message
   camend = commit --amend --reuse-message HEAD
-  cundo  = reset --soft "HEAD^"
+  camendm= commit --amend --verbose
   cp     = cherry-pick
   # verbose alternatives
-  undo-last-commit  = reset --soft "HEAD^"
+  undo-last-commit = reset --soft "HEAD^"
 
   #stash
   ss = stash save
@@ -66,6 +66,7 @@
 
   # diff
   d    = diff          # Diff working dir to index
+  dw   = diff -w       # Diff ignore whitespace
   ds   = diff --staged # Diff index to HEAD
   dc   = diff --staged # Diff index to HEAD
   dh   = diff HEAD     # Diff working dir and index to HEAD
