@@ -37,11 +37,15 @@
 
 # Upload files:
 
+#   cloudapp drumandbass.ogg cheatsheet.png
+
+# Or more vebosely:
+
 #   cloudapp upload drumandbass.ogg cheatsheet.png
 
-# Upload a file as private:
+# Upload a file as public:
 
-#   cloudapp upload -p topsecret.pdf
+#   cloudapp -p topsecret.pdf
 
 # Download a drop to current directory:
 
@@ -82,6 +86,7 @@ def usage
   puts '  cloudapp config [USERNAME] [PASSWORD]'
   puts
   puts 'Example usage:'
+  puts '  cloudapp [-p] FILE...'
   puts '  cloudapp [list|ls]'
   puts '  cloudapp stats'
   puts '  cloudapp upload [-p] FILE...'
@@ -220,11 +225,12 @@ begin
       puts "downloaded #{drop.name}"
     end
   else
+    # -p is for public
     p = ARGV.delete('-p')
     args? 1
     urls = []
     ARGV[0..-1].each do |file|
-      drop = @client.upload file, :private => (not p.nil?)
+      drop = @client.upload file, :private => (p.nil?)
       urls << drop.url
       puts "#{drop.url}"
     end
