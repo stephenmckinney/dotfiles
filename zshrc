@@ -99,6 +99,9 @@ export TMUXIFIER_LAYOUT_PATH="$HOME/.tmuxifier-layouts"
 [[ -s "$HOME/.tmuxifier/init.sh" ]] && source "$HOME/.tmuxifier/init.sh"
 alias mux='tmuxifier load-session'
 
+# Git + Hub
+eval "$(hub alias -s)"
+
 # Put Bundler binstubs at the front of $PATH
 PATH=.bundle/binstubs:$PATH
 
