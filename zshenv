@@ -88,6 +88,7 @@ unset path_file
 path=(
   ~/.bin
   /usr/local/{bin,sbin}
+  /usr/local/heroku/bin
   /usr/local/mysql/{bin,sbin}
   /usr/{bin,sbin}
   /{bin,sbin}
