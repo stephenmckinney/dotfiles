@@ -8,35 +8,53 @@ These are my personal dotfiles, but it is also a good starting point for
 anyone interested in tmux + zsh + vim as a Ruby and Rails IDE on OS X. See
 [vimfiles](https://github.com/stephenmckinney/vimfiles) for more.
 
-## Install
+## Install dotfiles
 
-    git clone --recursive git://github.com/stephenmckinney/dotfiles ~/.dotfiles
-    cd ~/.dotfiles && rake install
+```shell
+git clone --recursive git://github.com/stephenmckinney/dotfiles ~/.dotfiles
+cd ~/.dotfiles && rake install
+```
 
 > Zsh troubles? See [Prezto](https://github.com/stephenmckinney/prezto).
 
-### Install Requirements and Dependencies on Mac OS X
+## Install Requirements and Dependencies on Mac OS X
 
-#### Brews
+### Brews
 
 Install [Homebrew](http://mxcl.github.com/homebrew/), then:
 
-    brew update
-    brew install zsh coreutils fasd wget tree \
-    git mercurial hub gist \
-    tmux reattach-to-user-namespace \
-    ack the_silver_searcher
+```shell
+brew update
+brew install zsh \
+git mercurial hub gist \
+tmux reattach-to-user-namespace \
+coreutils fasd wget tree \
+ack the_silver_searcher
+```
 
-#### Rubies & Pythons
+### Rubies & Pythons
 
 * Rubies: `brew install rbenv ruby-build`
 * Pythons: See [Homebrew and Python](https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python).
 
-#### Gems
+### RubyGems
 
-    gem install bundler rails pry pry-doc pry-nav \
-    awesome_print pomo \
-    pasteboard imgur2 cloudapp_api
+```shell
+gem install bundler rails pry pry-doc pry-nav \
+awesome_print pomo \
+pasteboard imgur2 cloudapp_api
+```
+
+### Heroku Toolbelt
+
+Install [Heroku Toolbelt](https://toolbelt.heroku.com/).
+
+### iTerm2 Preferences
+
+* Open Preferences.
+* In **General** tab, check **Load preferences from a user-defined folder or URL**.
+* Paste `/Users/smckinney/.dotfiles/iterm2` into the text field.
+* Import Solarized Dark and Solarized Light itermcolors.
 
 
 > **Preventing RSI:**
@@ -59,7 +77,7 @@ Install [Homebrew](http://mxcl.github.com/homebrew/), then:
 > plus that other key.
 
 
-### Install Dependencies on Linux
+## Install Dependencies on Linux
 
 TBD
 
@@ -78,13 +96,6 @@ These are installed by following the above.
 * [Git](http://git-scm.com/)
 
 ### Optional
-
-#### iTerm2
-
-* Open Preferences.
-* In **General** tab, check **Load preferences from a user-defined folder or URL**.
-* Paste `/Users/smckinney/.dotfiles/iterm2` into the text field.
-* Import Solarized Dark and Solarized Light itermcolors.
 
 #### Zsh
 * My [fork](https://github.com/stephenmckinney/prezto) of [Prezto](https://github.com/sorin-ionescu/prezto)
