@@ -4,12 +4,13 @@
 # follow symlinks
 --follow
 # custom filetypes
---type-set=cucumber=.feature
---type-set=doc=.markdown,.md,.mdown,.rdoc,.rst
---type-set=erb=.erb
---type-set=rb=.rb
---type-set=scss=.scss
 --type-set=coffee=.coffee
+--type-set=cucumber=.feature
+--type-set=md=.markdown,.md,.mkd,.mdown
+--type-set=erb=.erb
+--type-set=less=.less
+--type-set=rb=.rb
+--type-set=scss=.scss,.sass
 # ignore
 --nosql
 # ignore - Rails
