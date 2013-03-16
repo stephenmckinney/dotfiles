@@ -57,24 +57,12 @@ fi
 # Paths
 #
 
-typeset -gU cdpath fpath mailpath manpath path
+typeset -gU cdpath fpath mailpath path
 
 # Set the the list of directories that cd searches.
 # cdpath=(
 #   $cdpath
 # )
-
-# Set the list of directories that man searches for manuals.
-manpath=(
-  /usr/local/share/man
-  /usr/share/man
-  $manpath
-)
-
-for path_file in /etc/manpaths.d/*(.N); do
-  manpath+=($(<$path_file))
-done
-unset path_file
 
 # Set the list of directories that Zsh searches for programs.
 path=(
