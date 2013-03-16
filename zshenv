@@ -58,19 +58,11 @@ fi
 #
 
 typeset -gU cdpath fpath mailpath manpath path
-typeset -gUT INFOPATH infopath
 
 # Set the the list of directories that cd searches.
 # cdpath=(
 #   $cdpath
 # )
-
-# Set the list of directories that info searches for manuals.
-infopath=(
-  /usr/local/share/info
-  /usr/share/info
-  $infopath
-)
 
 # Set the list of directories that man searches for manuals.
 manpath=(
