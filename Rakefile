@@ -38,8 +38,6 @@ task :install do
 
   install_prezto
 
-  fix_osx_zsh          if /darwin/ =~ RUBY_PLATFORM
-
   success_msg("installed")
 end
 
@@ -83,16 +81,6 @@ def install_prezto
     system("cd ~/.zprezto")
     system("git checkout my-customizations-and-theme")
     system("chsh -s /bin/zsh")
-    puts
-  end
-end
-
-def fix_osx_zsh
-  unless File.exist?(File.join(ENV['HOME'], '.zprezto'))
-    puts "======================================================"
-    puts "Fixing OS X's Zsh Funkiness"
-    puts "======================================================"
-    system("sudo chmod ugo-x /usr/libexec/path_helper")
     puts
   end
 end
