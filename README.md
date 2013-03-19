@@ -28,7 +28,7 @@ brew update
 brew install zsh \
 git mercurial hub gist \
 tmux reattach-to-user-namespace \
-coreutils fasd wget tree \
+coreutils fasd wget tree trash \
 ack the_silver_searcher
 ```
 
