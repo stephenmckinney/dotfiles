@@ -46,15 +46,8 @@ path=(
   /usr/local/{bin,sbin}
   /usr/local/heroku/bin
   /usr/local/mysql/{bin,sbin}
-  /usr/{bin,sbin}
-  /{bin,sbin}
   $path
 )
-
-for path_file in /etc/paths.d/*(.N); do
-  path+=($(<$path_file))
-done
-unset path_file
 
 #
 # Less
