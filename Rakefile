@@ -12,7 +12,7 @@ task :install, [:server] do |t, args|
   replace_all = false
   Dir['*'].each do |file|
     if args.server
-      next unless %w[bash_aliases.erb editrc gitconfig inputrc irbrc].include? file
+      next unless %w[bash_aliases.erb editrc inputrc irbrc].include? file
     else
       next if %w[bash_aliases.erb Rakefile README.md LICENSE iterm2].include? file
     end
