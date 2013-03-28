@@ -12,7 +12,7 @@ alias lu='lt -u'         # List sorted by date, most recent last, show access ti
 alias sl='ls'            # I often screw this up.
 
 # List files after changing directories
-function chpwd { l }
+function cd() { builtin cd $@ && l; }
 
 alias gf='fg'            # I often screw this up.
 
