@@ -37,14 +37,6 @@ ack the_silver_searcher
 * Rubies: `brew install rbenv ruby-build`
 * Pythons: See [Homebrew and Python](https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python).
 
-### RubyGems
-
-```shell
-gem install bundler rails pry pry-doc pry-nav \
-awesome_print pomo \
-pasteboard imgur2 cloudapp_api
-```
-
 ### Heroku Toolbelt
 
 Install [Heroku Toolbelt](https://toolbelt.heroku.com/).
