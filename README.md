@@ -69,10 +69,6 @@ Install [Heroku Toolbelt](https://toolbelt.heroku.com/).
 > plus that other key.
 
 
-## Install Dependencies on Linux
-
-TBD
-
 ## Stay Updated
 
 Merge updates from prezto/sorin/master and rebase changes.
