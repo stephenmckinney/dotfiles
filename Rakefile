@@ -9,36 +9,19 @@ task :install, [:server] do |t, args|
 
   @erb_data = {:server => args.server}
 
-  replace_all = false
+  default_blacklist = %w[bash_aliases.erb Rakefile README.md LICENSE iterm2]
+  server_whitelist  = %w[bash_aliases.erb editrc inputrc irbrc]
   Dir['*'].each do |file|
-    if args.server
-      next unless %w[bash_aliases.erb editrc inputrc irbrc].include? file
-    else
-      next if %w[bash_aliases.erb Rakefile README.md LICENSE iterm2].include? file
-    end
+    next if !args.server && default_blacklist.include?(file)
+    next if args.server  && !server_whitelist.include?(file)
 
-    if File.exist?(File.join(ENV['HOME'], ".#{file.sub('.erb', '')}"))
-      if File.identical? file, File.join(ENV['HOME'], ".#{file.sub('.erb', '')}")
-        puts "identical ~/.#{file.sub('.erb', '')}"
-      elsif replace_all
-        replace_file(file)
-      else
-        print "overwrite ~/.#{file.sub('.erb', '')}? [ynaq] "
-        case $stdin.gets.chomp
-        when 'a'
-          replace_all = true
-          replace_file(file)
-        when 'y'
-          replace_file(file)
-        when 'q'
-          exit
-        else
-          puts "skipping ~/.#{file.sub('.erb', '')}"
-        end
-      end
-    else
-      link_file(file)
-    end
+    symlink = if file == "default-gems"
+                File.join(ENV['RBENV_ROOT'], "#{file.sub('.erb', '')}")
+              else
+                File.join(ENV['HOME'], ".#{file.sub('.erb', '')}")
+              end
+
+    install_file(file, symlink)
   end
   puts
 
@@ -61,20 +44,40 @@ task :import_iterm do
   system %Q{cp #{iterm_settings} ./iterm2/.}
 end
 
-def replace_file(file)
-  system %Q{rm -rf "$HOME/.#{file.sub('.erb', '')}"}
-  link_file(file)
+def install_file(file, symlink)
+  if File.exist? symlink
+    if File.identical? file, symlink
+      puts "identical #{symlink}"
+    else
+      print "overwrite #{symlink}? [ynaq] "
+      case $stdin.gets.chomp
+      when 'y'
+        replace_file(file, symlink)
+      when 'q'
+        exit
+      else
+        puts "skipping #{symlink}"
+      end
+    end
+  else
+    link_file(file, symlink)
+  end
 end
 
-def link_file(file)
+def replace_file(file, symlink)
+  system %Q{rm -rf "#{symlink}"}
+  link_file(file, symlink)
+end
+
+def link_file(file, symlink)
   if file =~ /.erb$/
-    puts "generating ~/.#{file.sub('.erb', '')}"
-    File.open(File.join(ENV['HOME'], ".#{file.sub('.erb', '')}"), 'w') do |new_file|
+    puts "generating #{symlink}"
+    File.open(symlink, 'w') do |new_file|
       new_file.write ERB.new(File.read(file)).result(binding)
     end
   else
-    puts "linking ~/.#{file}"
-    system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
+    puts "linking #{symlink}"
+    system %Q{ln -s "$PWD/#{file}" "#{symlink}"}
   end
 end
 
