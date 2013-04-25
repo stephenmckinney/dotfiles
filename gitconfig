@@ -59,9 +59,11 @@
   undo-last-commit = reset --soft "HEAD^"
 
   #stash
-  ss = stash save
-  sp = stash pop
+  st = stash save
   sl = stash list
+  ss = stash show -p
+  sp = stash pop
+  sd = stash drop
   sc = stash clear
 
   # diff
