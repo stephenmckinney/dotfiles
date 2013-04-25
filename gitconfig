@@ -104,6 +104,9 @@
   rem = remote rename
   rep = remote prune origin
 
+  # ctags
+  ctags = !.git/hooks/ctags
+
 [color]
   ui = auto
 [core]
@@ -119,3 +122,5 @@
   whitespace = nowarn
 [heroku]
   account = personal
+[init]
+  templatedir = ~/.git_template
