@@ -1,19 +1,25 @@
+# use color, even if piping to a another program
 --color
+# sort files
+--sort-files
 # only search with case sensitivity if there is mixed case
 --smart-case
 # follow symlinks
 --follow
+# stop reading a file after NUM matches.
+--max-count=100
 # custom filetypes
---type-set=coffee=.coffee
---type-set=cucumber=.feature
---type-set=md=.markdown,.md,.mkd,.mdown
---type-set=erb=.erb
---type-set=less=.less
---type-set=rb=.rb
---type-set=scss=.scss,.sass
-# ignore
+--type-set=coffee:ext:coffee
+--type-set=cucumber:ext:feature
+--type-set=md:ext:markdown,md,mkd,mdown
+--type-set=erb:ext:erb
+--type-set=less:ext:less
+--type-set=rb:ext:rb,rake
+--type-set=scss:ext:scss,sass
+--type-add=css:ext:scss,sass
+# ignores
 --nosql
-# ignore - Rails
+# ignores - Rails
 #   FYI: .sqlite3, .log, files in 'script' and 'bin' are not Ack types so don't need to be ignored
 --ignore-dir=.bundle
 --ignore-dir=db/migrate
