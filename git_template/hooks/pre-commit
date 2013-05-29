@@ -2,4 +2,4 @@
 
 set -e
 [ ! -f Gemfile ] || git diff --exit-code --cached -- Gemfile >/dev/null || bundle check
-exec "$(git --exec-path)/../../share/git-core/templates/hooks/pre-commit.sample"
+#exec "$(git --exec-path)/../../share/git-core/templates/hooks/pre-commit.sample"
