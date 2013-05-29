@@ -14,15 +14,19 @@
 --type-set=md:ext:markdown,md,mkd,mdown
 --type-set=erb:ext:erb
 --type-set=less:ext:less
+--type-set=log:ext:log
 --type-set=rb:ext:rb,rake
 --type-set=scss:ext:scss,sass
 --type-add=css:ext:scss,sass
 # ignores
+--nolog
 --nosql
+--noxml
+--noyaml
 # ignores - Rails
-#   FYI: .sqlite3, .log, files in 'script' and 'bin' are not Ack types so don't need to be ignored
 --ignore-dir=.bundle
 --ignore-dir=db/migrate
+--ignore-dir=log
 --ignore-dir=public/cache
 --ignore-dir=public/stylesheets
 --ignore-dir=public/system
