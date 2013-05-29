@@ -20,6 +20,7 @@
 
   # Configure irb
   IRB.conf[:PROMPT_MODE]  = :SIMPLE
+  IRB.conf[:AUTO_INDENT] = true
   IRB.conf[:SAVE_HISTORY] = 10000
   IRB.conf[:EVAL_HISTORY] = 10000
   IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
@@ -38,18 +39,45 @@
     end
   end
 
-  # Add Chorus-specific helpers
-  if (ENV['RAILS_ENV'] || defined? Rails) && (ENV['PWD'].split('/').last == 'sbn')
-    class Chorus
-      class << self
-        def sbn_network() Community.find_by_domain('sbnation.com') end
-        def polygon_network() Community.find_by_domain('polygon.com') end
-        def verge_network() Community.find_by_domain('theverge.com') end
-
-        def sbn_community() Community.find_by_domain('sbnation.com') end
-        def polygon_community() Community.find_by_domain('polygon.com') end
-        def verge_community() Community.find_by_domain('theverge.com') end
+  # Add Rails helpers
+  if (ENV['RAILS_ENV'] || defined? Rails)
+    class Object
+      def change_log(stream)
+        ActiveRecord::Base.connection.instance_variable_set :@logger, Logger.new(stream)
+        # Shit didn't work for me on Rails 2.3
+        #ActiveRecord::Base.logger = Logger.new(stream)
+        #ActiveRecord::Base.clear_active_connections!
       end
+
+      def show_log
+        change_log(STDOUT)
+      end
+
+      def hide_log
+        change_log(nil)
+      end
+
+      def show_session(session)
+        Marshal.load(Base64.decode64(session))
+      end
+
+      def find_me
+        User.find_by_username('stephenmckinney')
+      end
+    end
+  end
+
+  # Add Chorus-specific helpers
+  if (ENV['RAILS_ENV'] || defined? Rails) && ENV['PWD'].split('/').last == 'sbn'
+    class Object
+      #def sbn_network() Community.find_by_domain('sbnation.com') end
+      #def polygon_network() Community.find_by_domain('polygon.com') end
+      #def verge_network() Community.find_by_domain('theverge.com') end
+
+      def find_sbn() Community.find_by_domain('sbnation.com') end
+      def find_polygon() Community.find_by_domain('polygon.com') end
+      def find_verge() Community.find_by_domain('theverge.com') end
+      def current_community() Community.find_by_domain('theverge.com') end
     end
   end
 #end
