@@ -54,7 +54,7 @@
   cam    = commit --verbose --all --message
   camend = commit --amend --reuse-message HEAD
   camendm= commit --amend --verbose
-  cp     = cherry-pick
+  cp     = cherry-pick -sex
   # verbose alternatives
   undo-last-commit = reset --soft "HEAD^"
 
