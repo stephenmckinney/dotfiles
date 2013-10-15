@@ -44,6 +44,7 @@ typeset -gU cdpath fpath mailpath path
 path=(
   ~/.bin
   /usr/local/{bin,sbin}
+  /usr/local/share/npm/bin
   /usr/local/heroku/bin
   /usr/local/mysql/{bin,sbin}
   $path
