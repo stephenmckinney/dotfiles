@@ -59,12 +59,12 @@
   undo-last-commit = reset --soft "HEAD^"
 
   #stash
-  st = stash save
-  sl = stash list
-  ss = stash show -p
-  sp = stash pop
-  sd = stash drop
-  sc = stash clear
+  sl  = stash list
+  ss  = stash show
+  ssp = stash show -p
+  sp  = stash pop
+  sd  = stash drop
+  sc  = stash clear
 
   # diff
   d    = diff          # Diff working dir to index
