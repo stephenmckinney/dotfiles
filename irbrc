@@ -1,69 +1,45 @@
 #!/usr/bin/ruby
 
-# Load handy gems
-require 'rubygems' # ruby 1.8.7 compatible
-require 'irb/completion'
-require 'irb/ext/save-history'
-
 begin
-  require 'awesome_print' # Awesome Print pretty prints Ruby objects in full color
-  #AwesomePrint.irb!
-rescue LoadError => err
-  warn "Couldn't load 'awesome_print': #{err}"
-end
+  require 'pry'
+  Pry.start
+  exit
+rescue LoadError => e
+  warn "=> Unable to load pry...so let's load irb"
 
-# Configure irb
-IRB.conf[:PROMPT_MODE]  = :SIMPLE
-IRB.conf[:AUTO_INDENT] = true
-IRB.conf[:SAVE_HISTORY] = 10000
-IRB.conf[:EVAL_HISTORY] = 10000
-IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
+  # Load handy gems
+  require 'irb/completion'
+  require 'irb/ext/save-history'
 
-# Add introspection method
-class Object
-  def ls_methods
-    case self.class
-    when Class
-      self.public_methods.sort - Object.public_methods
-    when Module
-      self.public_methods.sort - Module.public_methods
-    else
-      self.public_methods.sort - Object.new.public_methods
-    end
+  begin
+    require 'awesome_print' # Awesome Print pretty prints Ruby objects in full color
+    #AwesomePrint.irb!
+  rescue LoadError => err
+    warn "Couldn't load 'awesome_print': #{err}"
   end
-end
 
-# Add Rails helpers
-if (ENV['RAILS_ENV'] || defined? Rails)
+  # Configure irb
+  IRB.conf[:PROMPT_MODE]  = :SIMPLE
+  IRB.conf[:AUTO_INDENT] = true
+  IRB.conf[:SAVE_HISTORY] = 10000
+  IRB.conf[:EVAL_HISTORY] = 10000
+  IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
+
+  # Add introspection methods
   class Object
-    def change_log(stream)
-      ActiveRecord::Base.logger = Logger.new(stream)
-    end
-
-    def show_log
-      change_log(STDOUT)
-    end
-
-    def hide_log
-      change_log(nil)
-    end
-
-    def show_session(session)
-      Marshal.load(Base64.decode64(session))
-    end
-
-    def find_me
-      @dat_me ||= User.find_by_username('stephenmckinney')
+    def ls_methods
+      case self.class
+      when Class
+        self.public_methods.sort - Object.public_methods
+      when Module
+        self.public_methods.sort - Module.public_methods
+      else
+        self.public_methods.sort - Object.new.public_methods
+      end
     end
   end
-end
 
-# Add Chorus-specific helpers
-if (ENV['RAILS_ENV'] || defined? Rails) && ENV['PWD'].split('/').last == 'sbn'
-  class Object
-    def find_sbn() @dat_sbn ||= Community.find_by_domain('sbnation.com') end
-    def find_polygon() @dat_poly ||= Community.find_by_domain('polygon.com') end
-    def find_verge() @dat_verge ||= Community.find_by_domain('theverge.com') end
-    def current_community() @dat_curr ||= find_verge end
-  end
+  # Add Rails helpers
+  load File.dirname(__FILE__) + '/.railsrc'
+
 end

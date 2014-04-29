@@ -126,3 +126,7 @@ module CodeRay
     end
   end
 end
+
+# === Rails support ===
+load File.dirname(__FILE__) + '/.railsrc'
+
