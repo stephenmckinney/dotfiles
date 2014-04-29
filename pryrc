@@ -8,9 +8,10 @@ Pry.config.history.file = "~/.irb_history"
 
 # === Pry-nav/Pry-debugger support ===
 # Pry-nav/Pry-debugger teaches Pry about step, next, and continue to create a simple debugger.
-Pry.commands.alias_command 'c', 'continue'
-Pry.commands.alias_command 's', 'step'
-Pry.commands.alias_command 'n', 'next'
+# Disbled in favor of better debuggers
+#Pry.commands.alias_command 'c', 'continue'
+#Pry.commands.alias_command 's', 'step'
+#Pry.commands.alias_command 'n', 'next'
 
 # === Awesome Print support ===
 # Taken from: https://github.com/skwp/dotfiles/blob/master/irb/pryrc
