@@ -37,11 +37,7 @@ end
 if (ENV['RAILS_ENV'] || defined? Rails)
   class Object
     def change_log(stream)
-      ActiveRecord::Base.connection.instance_variable_set :@logger, Logger.new(stream)
-      nil
-      # Shit didn't work for me on Rails 2.3
-      #ActiveRecord::Base.logger = Logger.new(stream)
-      #ActiveRecord::Base.clear_active_connections!
+      ActiveRecord::Base.logger = Logger.new(stream)
     end
 
     def show_log
