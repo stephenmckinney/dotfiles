@@ -41,13 +41,13 @@ function chpwd { l }
 
 # fasd
 alias j='fasd_cd -d'         # cd AKA jump to directory
-alias jj='fasd_cd -d -i'     # cd with interactive selection
-alias v='fasd -f -e vim'     # open file in vim
-alias vv='fasd -f -i -e vim' # open file in vim with interactive selection
-alias f='fasd -f'            # file
-alias ff='fasd -sif'         # interactive file selection
-alias d='fasd -d'            # directory
-alias dd='fasd -sid'         # interactive directory selection
+#alias jj='fasd_cd -d -i'     # cd with interactive selection
+#alias v='fasd -f -e vim'     # open file in vim
+#alias vv='fasd -f -i -e vim' # open file in vim with interactive selection
+#alias f='fasd -f'            # file
+#alias ff='fasd -sif'         # interactive file selection
+#alias d='fasd -d'            # directory
+#alias dd='fasd -sid'         # interactive directory selection
 
 # meta alias
 alias aliasgrep='alias | grep $(echo $1)'
