@@ -52,6 +52,9 @@ alias dd='fasd -sid'         # interactive directory selection
 # meta alias
 alias aliasgrep='alias | grep $(echo $1)'
 
+# fixes Bower for prezto
+alias bower='noglob bower'
+
 # Most used commands according to history-stat
 # Bundler
 alias b='bundle'
