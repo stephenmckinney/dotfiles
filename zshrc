@@ -56,14 +56,18 @@ alias aliasgrep='alias | grep $(echo $1)'
 alias bower='noglob bower'
 
 # Most used commands according to history-stat
+
 # Bundler
 alias b='bundle'
 alias bi='bundle install'
 alias bo='bundle outdated'
+# Foreman
+alias f='foreman start'
 # Git
 alias g='git'
 # Rails - other alias `ror*`
 alias r='rails'
+alias s='rails s'
 # Vim
 alias vi='vim'
 
