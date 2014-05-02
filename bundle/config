@@ -1,2 +1,2 @@
 --- 
-BUNDLE_BIN: .bundle/binstubs
+BUNDLE_BIN: bin

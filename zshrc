@@ -110,7 +110,7 @@ alias mux='tmuxifier load-session'
 eval "$(hub alias -s)"
 
 # Put Bundler binstubs at the front of $PATH
-PATH=.bundle/binstubs:$PATH
+PATH=./bin:$PATH
 
 # Use .localrc for settings specific to one system
 [[ -f ~/.localrc ]] && . ~/.localrc
