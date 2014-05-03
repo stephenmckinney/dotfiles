@@ -52,9 +52,6 @@ alias j='fasd_cd -d'         # cd AKA jump to directory
 # meta alias
 alias aliasgrep='alias | grep $(echo $1)'
 
-# fixes Bower for prezto
-alias bower='noglob bower'
-
 # Most used commands according to history-stat
 
 # Bundler
