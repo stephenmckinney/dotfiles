@@ -1,11 +1,11 @@
 #!/usr/bin/ruby
 
-begin
-  require 'pry'
-  Pry.start
-  exit
-rescue LoadError => e
-  warn "=> Unable to load pry...so let's load irb"
+# begin
+#   require 'pry'
+#   Pry.start
+#   exit
+# rescue LoadError => e
+#   warn "=> Unable to load pry...so let's load irb"
 
   # Load handy gems
   require 'irb/completion'
@@ -40,6 +40,6 @@ rescue LoadError => e
   end
 
   # Add Rails helpers
-  load File.dirname(__FILE__) + '/.railsrc'
+  # load File.dirname(__FILE__) + '/.railsrc'
 
-end
+# end
