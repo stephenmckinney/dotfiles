@@ -17,6 +17,13 @@ cd ~/.dotfiles && rake install
 
 > Zsh troubles? See [Prezto](https://github.com/stephenmckinney/prezto).
 
+## Random stuff to grab from previous computer
+
+* copy over `~/.localrc`.
+* copy over `~/.zhistory` to aid `fasd`.
+* generate and add new ssh keys for git/github. remove the keys from the
+  previous computer.
+
 ## Install Requirements and Dependencies on Mac OS X
 
 ### Brews
@@ -46,7 +53,9 @@ Install [Heroku Toolbelt](https://toolbelt.heroku.com/).
 * Open Preferences.
 * In **General** tab, check **Load preferences from a user-defined folder or URL**.
 * Paste `/Users/smckinney/.dotfiles/iterm2` into the text field.
-* Import Solarized Dark and Solarized Light itermcolors.
+* Import Solarized Dark and Solarized Light itermcolors (this should be
+  handled in the previous step).
+* Import fonts from https://github.com/powerline/fonts
 
 
 > **Preventing RSI:**
@@ -55,11 +64,12 @@ Install [Heroku Toolbelt](https://toolbelt.heroku.com/).
 >
 > Just do this...you'll thank me later.
 >
-> * Download and install [KeyRemap4MacBook](http://pqrs.org/macosx/keyremap4macbook/pckeyboardhack.html)
-> * Open the Keyboard preference pane. Click on **Modifier Keys** in the
+> * Download and install
+>   [Karabiner](https://pqrs.org/osx/karabiner/index.html.en)
+> * Open the OS X Keyboard preference pane. Click on **Modifier Keys** in the
 > bottom right corner and **remap Caps Lock to Control**.
 > (*Note: You have to do this remapping separately for each keyboard, or else it won't work on any peripherally attached keyboard.*)
-> * Open the KeyRemap4MacBook Preferences and find the drop-down for
+> * Open the Karabiner Preferences and find the drop-down for
 > **Change Control_L Key (Left Control)**. Expand this drop-down and
 > check the box for **Control_L to Control_L (+ When you type Control_L only, send Escape)**.
 >
