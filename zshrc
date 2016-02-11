@@ -122,7 +122,7 @@ alias gf='fg'            # I often screw this up.
 
 # Tmuxifier
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmuxifier-layouts"
-[[ -s "$HOME/.tmuxifier/init.sh" ]] && source "$HOME/.tmuxifier/init.sh"
+# [[ -s "$HOME/.tmuxifier/init.sh" ]] && source "$HOME/.tmuxifier/init.sh"
 alias mux='tmuxifier load-session'
 
 # Git + Hub
