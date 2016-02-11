@@ -73,15 +73,19 @@ alias aliasgrep='alias | grep $(echo $1)'
 
 # Bundler
 alias b='bundle'
+alias be='bundle exec'
 alias bi='bundle install'
 alias bo='bundle outdated'
 # Foreman
-alias f='foreman start'
+alias f='bundle exec foreman start'
 # Git
 alias g='git'
 # Rails - other alias `ror*`
 alias r='rails'
 alias s='rails s'
+alias spring='nocorrect spring'
+# Rubocop
+alias ru='bundle exec rubocop'
 # Vim
 alias vi='vim'
 
@@ -97,7 +101,8 @@ alias memcachedstart='memcached -p 11211 &'
 #alias mysqlstop='mysqladmin -u root shutdown'
 
 # Postgresql
-alias postgresstart=' open -a Postgres'
+#alias postgresstart=' open -a Postgres'
+alias postgresstart='postgres -D /usr/local/var/postgres &'
 #alias postgresstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start &'
 #alias postgresstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 
