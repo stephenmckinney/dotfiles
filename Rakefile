@@ -9,8 +9,11 @@ task :install, [:server] do |t, args|
 
   @erb_data = {:server => args.server}
 
-  default_blacklist = %w[bash_aliases.erb Rakefile README.md LICENSE iterm2]
+  # Things NOT TO symlink on OS X
+  default_blacklist = %w[bash_aliases.erb default-gems Rakefile README.md LICENSE iterm2]
+  # The ONLY things to symnlink on Linux server account
   server_whitelist  = %w[bash_aliases.erb editrc inputrc irbrc]
+
   Dir['*'].each do |file|
     next if !args.server && default_blacklist.include?(file)
     next if args.server  && !server_whitelist.include?(file)
