@@ -29,7 +29,7 @@ brew install zsh \
 git mercurial hub gist \
 tmux reattach-to-user-namespace \
 coreutils fasd wget tree trash \
-ack the_silver_searcher
+vim ctags ack the_silver_searcher
 ```
 
 ### Rubies & Pythons
