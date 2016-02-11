@@ -44,6 +44,7 @@ typeset -gU cdpath fpath mailpath path
 path=(
   ~/.bin
   ~/.tmuxifier/bin
+  ./bin
   /usr/local/{bin,sbin}
   /usr/local/share/npm/bin
   /usr/local/heroku/bin
