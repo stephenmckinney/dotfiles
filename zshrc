@@ -126,7 +126,8 @@ export TMUXIFIER_LAYOUT_PATH="$HOME/.tmuxifier-layouts"
 alias mux='tmuxifier load-session'
 
 # Git + Hub
-eval "$(hub alias -s)"
+# FIXME: Disabled due to broken git zsh completion
+# eval "$(hub alias -s)"
 
 # Put Bundler binstubs at the front of $PATH
 PATH=./bin:$PATH
