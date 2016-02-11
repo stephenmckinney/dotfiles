@@ -4,5 +4,5 @@
 :bulk_threshold: 1000
 :backtrace: false
 :benchmark: false
-install: --no-rdoc --ri
-update: --no-rdoc --ri
+install: --no-rdoc --no-ri
+update: --no-rdoc --no-ri
