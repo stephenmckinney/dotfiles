@@ -27,7 +27,7 @@ Install [Homebrew](http://mxcl.github.com/homebrew/), then:
 brew update
 brew install zsh \
 git mercurial hub gist \
-tmux reattach-to-user-namespace \
+tmux \
 coreutils fasd wget tree trash \
 vim ctags ack the_silver_searcher
 ```
