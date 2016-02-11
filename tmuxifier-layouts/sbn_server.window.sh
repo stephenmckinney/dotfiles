@@ -10,8 +10,8 @@ new_window "server"
 split_h 50
 
 # Paste text
-send_keys "foreman start" 1
-send_keys "script/server --perform_caching" 2
+send_keys "bundle exec foreman start" 1
+send_keys "rails server --perform_caching" 2
 
 # Set active pane.
-select_pane 2
+select_pane 1
