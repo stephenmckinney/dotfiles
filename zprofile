@@ -90,6 +90,9 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
+
 # Go lang support
 export GOPATH=$HOME/go_code
 
+# Spring fuck you!
+export DISABLE_SPRING=1
