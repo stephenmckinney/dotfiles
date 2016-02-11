@@ -114,8 +114,8 @@ alias show_hidden='defaults write com.apple.finder AppleShowAllFiles NO && killa
 alias hide_hidden='defaults write com.apple.finder AppleShowAllFiles YES && killall Finder'
 
 # MondoDB
-alias mongodbstart=' mongo: mongod --dbpath=/usr/local/var/mongodb -vv'
-#alias mongodbstart='mongod run --config /usr/local/etc/mongod.conf'
+# alias mongodbstart=' mongo: mongod --dbpath=/usr/local/var/mongodb -vv'
+# alias mongodbstart='mongod run --config /usr/local/etc/mongod.conf'
 
 # Misc.
 alias gf='fg'            # I often screw this up.
