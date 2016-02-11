@@ -8,13 +8,9 @@ new_window "editor"
 
 # Split window into 3 panes.
 split_v 15
-split_h 40
 
 # Run commands
 run_cmd "vim ." 1
-
-# Paste text
-send_keys "rorc" 2
 
 # Set active pane.
 select_pane 1
