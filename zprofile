@@ -44,6 +44,7 @@ typeset -gU cdpath fpath mailpath path
 path=(
   ~/.bin
   ~/.tmuxifier/bin
+  ~/go_code
   ./bin
   /usr/local/{bin,sbin}
   /usr/local/share/npm/bin
@@ -89,4 +90,6 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
+# Go lang support
+export GOPATH=$HOME/go_code
 
