@@ -18,11 +18,7 @@ task :install, [:server] do |t, args|
     next if !args.server && default_blacklist.include?(file)
     next if args.server  && !server_whitelist.include?(file)
 
-    symlink = if file == "default-gems"
-                File.join(ENV['RBENV_ROOT'], "#{file.sub('.erb', '')}")
-              else
-                File.join(ENV['HOME'], ".#{file.sub('.erb', '')}")
-              end
+    symlink = File.join(ENV['HOME'], ".#{file.sub('.erb', '')}")
 
     install_file(file, symlink)
   end
