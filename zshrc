@@ -86,6 +86,8 @@ alias s='rails s'
 alias spring='nocorrect spring'
 # Rubocop
 alias ru='bundle exec rubocop'
+# Vagrant
+alias v='vagrant'
 # Vim
 alias vi='vim'
 
