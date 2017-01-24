@@ -10,7 +10,7 @@ task :install, [:server] do |t, args|
   @erb_data = {:server => args.server}
 
   # Things NOT TO symlink on OS X
-  default_blacklist = %w[bash_aliases.erb default-gems Rakefile README.md LICENSE iterm2]
+  default_blacklist = %w[bash_aliases.erb config default-gems Rakefile README.md LICENSE iterm2]
   # The ONLY things to symnlink on Linux server account
   server_whitelist  = %w[bash_aliases.erb editrc inputrc irbrc]
 
@@ -21,6 +21,19 @@ task :install, [:server] do |t, args|
     symlink = File.join(ENV['HOME'], ".#{file.sub('.erb', '')}")
 
     install_file(file, symlink)
+  end
+  puts
+
+  # Manually install karabiner config dir,
+  # so we don't overwrite other files/dirs in ~/.config/
+  Dir['config/*'].each do |file|
+    base_dir = File.join(ENV['HOME'], ".config")
+    system %Q{mkir -p #{base_dir}}
+
+    symlink = File.join(base_dir, 'karabiner')
+    dir =     'config/karabiner'
+
+    install_file(dir, symlink)
   end
   puts
 
