@@ -64,8 +64,10 @@ Install [Heroku Toolbelt](https://toolbelt.heroku.com/).
 >
 > Just do this...you'll thank me later.
 >
-> * Download and install
->   [Karabiner](https://pqrs.org/osx/karabiner/index.html.en)
+> * Download and install forked [wwwjfy/Karabiner-Elements](https://github.com/wwwjfy/Karabiner-Elements/releases),
+>   until [Karabiner-Elements ](https://github.com/tekezo/Karabiner-Elements) is updated for dual-key stuff on
+>   Mac OS X Seirra.
+>
 > * Open the OS X Keyboard preference pane. Click on **Modifier Keys** in the
 > bottom right corner and **remap Caps Lock to Control**.
 > (*Note: You have to do this remapping separately for each keyboard, or else it won't work on any peripherally attached keyboard.*)
