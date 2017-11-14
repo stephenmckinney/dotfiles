@@ -80,6 +80,8 @@ alias bo='bundle outdated'
 alias f='bundle exec foreman start'
 # Git
 alias g='git'
+alias gbpurgedryrun='git branch --merged | grep -v "\*" | grep -v "master"'
+alias gbpurge='git branch --merged | grep -v "\*" | grep -v "master" | xargs -n 1 git branch -d'
 # Rails - other alias `ror*`
 alias r='rails'
 alias s='rails s'

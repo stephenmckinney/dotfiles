@@ -47,9 +47,8 @@ path=(
   ~/go_code
   ./bin
   /usr/local/{bin,sbin}
-  /usr/local/share/npm/bin
   /usr/local/heroku/bin
-  /usr/local/mysql/{bin,sbin}
+  /usr/local/opt/mysql@5.6/bin
   $path
 )
 
