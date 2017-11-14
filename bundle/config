@@ -1,9 +1,7 @@
 ---
 BUNDLE_PATH: ".bundle"
-BUNDLE_BUILD__MYSQL: "--with-mysql-config=/usr/local/Cellar/mysql/5.7.11/bin/mysql_config"
+BUNDLE_BUILD__MYSQL: "--with-mysql-config=/usr/local/Cellar/mysql/5.7.19/bin/mysql_config"
 BUNDLE_GEM__COC: '0'
 BUNDLE_GEM__MIT: '0'
 BUNDLE_GEM__TEST: minitest
 BUNDLE_DISABLE_SHARED_GEMS: '1'
-BUNDLE_BUILD__EVENTMACHINE: "--with-cppflags=-I/usr/local/opt/openssl/include --with-ldflags=-L/usr/local/opt/openssl/lib"
-BUNDLE_BUILD__LIBV8: "--with-system-v8"
