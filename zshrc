@@ -76,6 +76,10 @@ alias b='bundle'
 alias be='bundle exec'
 alias bi='bundle install'
 alias bo='bundle outdated'
+# Docker
+alias d='docker'
+alias dc='docker-compose'
+alias dcr='docker-compose run --rm'
 # Foreman
 alias f='bundle exec foreman start'
 # Git
@@ -83,8 +87,7 @@ alias g='git'
 alias gbpurgedryrun='git branch --merged | grep -v "\*" | grep -v "master"'
 alias gbpurge='git branch --merged | grep -v "\*" | grep -v "master" | xargs -n 1 git branch -d'
 # Rails - other alias `ror*`
-alias r='rails'
-alias s='rails s'
+alias r='bin/rails'
 alias spring='nocorrect spring'
 # Rubocop
 alias ru='bundle exec rubocop'
