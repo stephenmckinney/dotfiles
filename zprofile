@@ -46,9 +46,11 @@ path=(
   ~/.tmuxifier/bin
   ~/go_code
   ./bin
+  /usr/local/opt/python/libexec/bin
+  ~/Library/Python/3.7/bin
   /usr/local/{bin,sbin}
   /usr/local/heroku/bin
-  /usr/local/opt/mysql@5.6/bin
+  /usr/local/opt/mysql@5.7/bin
   $path
 )
 

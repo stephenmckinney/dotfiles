@@ -42,7 +42,7 @@ vim ctags ack the_silver_searcher
 ### Rubies & Pythons
 
 * Rubies: `brew install rbenv ruby-build`
-* Pythons: See [Homebrew and Python](https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python).
+* Pythons: See [Homebrew and Python](https://docs.brew.sh/Homebrew-and-Python).
 
 ### Heroku Toolbelt
 
