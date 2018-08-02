@@ -57,13 +57,13 @@ function chpwd { l }
 
 # fasd
 alias j='fasd_cd -d'         # cd AKA jump to directory
-#alias jj='fasd_cd -d -i'     # cd with interactive selection
-#alias v='fasd -f -e vim'     # open file in vim
-#alias vv='fasd -f -i -e vim' # open file in vim with interactive selection
-#alias f='fasd -f'            # file
-#alias ff='fasd -sif'         # interactive file selection
-#alias d='fasd -d'            # directory
-#alias dd='fasd -sid'         # interactive directory selection
+# alias jj='fasd_cd -d -i'     # cd with interactive selection
+# alias v='fasd -f -e vim'     # open file in vim
+# alias vv='fasd -f -i -e vim' # open file in vim with interactive selection
+# alias f='fasd -f'            # file
+# alias ff='fasd -sif'         # interactive file selection
+# alias d='fasd -d'            # directory
+# alias dd='fasd -sid'         # interactive directory selection
 
 # meta alias
 alias aliasgrep='alias | grep $(echo $1)'
@@ -75,26 +75,31 @@ alias b='bundle'
 alias be='bundle exec'
 alias bi='bundle install'
 alias bo='bundle outdated'
+
 # Docker
 alias d='docker'
 alias dc='docker-compose'
 alias dcr='docker-compose run --rm app'
 alias docker-rm-all-including-images='docker stop $(docker ps -a -q); docker rm $(docker ps -a -q) --force; docker rmi $(docker images -a -q) --force; docker volume rm $(docker volume ls -q); docker network rm $(docker network ls -q)'
 alias docker-rm-all='docker stop $(docker ps -a -q); docker rm $(docker ps -a -q); docker volume rm $(docker volume ls -q); docker network rm $(docker network ls -q)'
+
 # Foreman
 alias f='bundle exec foreman start'
+
 # Git
 alias g='git'
 alias gbpurgedryrun='git branch --merged | grep -v "\*" | grep -v "master"'
 alias gbpurge='git branch --merged | grep -v "\*" | grep -v "master" | xargs -n 1 git branch -d'
+
 # Rails - other alias `ror*`
 alias r='bin/rails'
 alias spring='nocorrect spring'
+
 # Rubocop
 alias ru='bundle exec rubocop'
-# Vagrant
-alias v='vagrant'
+
 # Vim
+alias v='vim'
 alias vi='vim'
 
 # Edit dotfiles
@@ -105,14 +110,14 @@ alias eprezto='vim ~/.zprezto'
 alias memcachedstart='memcached -p 11211 &'
 
 # MySQL
-#alias mysqlstart='mysqld_safe &'
-#alias mysqlstop='mysqladmin -u root shutdown'
+# alias mysqlstart='mysqld_safe &'
+# alias mysqlstop='mysqladmin -u root shutdown'
 
 # Postgresql
-#alias postgresstart=' open -a Postgres'
+# alias postgresstart=' open -a Postgres'
 alias postgresstart='postgres -D /usr/local/var/postgres &'
-#alias postgresstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start &'
-#alias postgresstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+# alias postgresstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start &'
+# alias postgresstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 
 # ps | grep
 alias psgrep='ps -e -o pid,command | grep $(echo $1 | sed "s/^\(.\)/[\1]/g")'
@@ -142,4 +147,3 @@ alias mux='tmuxifier load-session'
 
 # Use .localrc for settings specific to one system
 [[ -f ~/.localrc ]] && . ~/.localrc
-
