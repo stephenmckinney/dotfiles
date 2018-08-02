@@ -33,7 +33,6 @@ fi
 # The following concerns are handled thru Prezto and other dotfiles not here:
 #   * PATH for Homebrew (~/.zprofile)
 #   * rbenv init (~/.zprezto/module/ruby/)
-#   * PATH for Homebrew'd Python's `install-scripts` (~/.zprezto/module/python/)
 #
 #################################################
 
@@ -79,7 +78,9 @@ alias bo='bundle outdated'
 # Docker
 alias d='docker'
 alias dc='docker-compose'
-alias dcr='docker-compose run --rm'
+alias dcr='docker-compose run --rm app'
+alias docker-rm-all-including-images='docker stop $(docker ps -a -q); docker rm $(docker ps -a -q) --force; docker rmi $(docker images -a -q) --force; docker volume rm $(docker volume ls -q); docker network rm $(docker network ls -q)'
+alias docker-rm-all='docker stop $(docker ps -a -q); docker rm $(docker ps -a -q); docker volume rm $(docker volume ls -q); docker network rm $(docker network ls -q)'
 # Foreman
 alias f='bundle exec foreman start'
 # Git
@@ -137,7 +138,7 @@ alias mux='tmuxifier load-session'
 # eval "$(hub alias -s)"
 
 # Put Bundler binstubs at the front of $PATH
-PATH=./bin:$PATH
+# PATH=./bin:$PATH
 
 # Use .localrc for settings specific to one system
 [[ -f ~/.localrc ]] && . ~/.localrc
