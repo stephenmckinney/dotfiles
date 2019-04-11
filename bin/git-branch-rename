@@ -1,0 +1,16 @@
+#!/bin/sh
+
+old=$1
+new=$2
+
+test -z $old && echo "old branch name required." 1>&2 && exit 1
+test -z $new && echo "new branch name required." 1>&2 && exit 1
+
+# unset upstream config
+git branch --unset-upstream $old
+# rename local branch
+git branch --move $old $new
+# delete old remote branch
+git push origin -d $old
+# push new branch upstream
+git push --set-upstream origin $new
