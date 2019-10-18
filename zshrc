@@ -138,6 +138,8 @@ alias psgrep='ps -e -o pid,command | grep $(echo $1 | sed "s/^\(.\)/[\1]/g")'
 # Mac OS X
 alias show_hidden='defaults write com.apple.finder AppleShowAllFiles NO && killall Finder'
 alias hide_hidden='defaults write com.apple.finder AppleShowAllFiles YES && killall Finder'
+# Lock the screen (when going AFK)
+alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
 
 # MondoDB
 # alias mongodbstart=' mongo: mongod --dbpath=/usr/local/var/mongodb -vv'
