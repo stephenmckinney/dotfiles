@@ -55,6 +55,12 @@ alias sl='ls'            # I often screw this up.
 # List files after changing directories
 function chpwd { l }
 
+# New utilities Aug 31, 2018
+alias cat='bat --theme=TwoDark'
+alias help='tldr'
+alias ping='prettyping --nolegend'
+alias noise='play -c 2 -n synth brownnoise' # brew install sox
+
 # fasd
 alias j='fasd_cd -d'         # cd AKA jump to directory
 # alias jj='fasd_cd -d -i'     # cd with interactive selection
