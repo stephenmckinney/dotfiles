@@ -62,14 +62,15 @@ alias ping='prettyping --nolegend'
 alias noise='play -c 2 -n synth brownnoise' # brew install sox
 
 # fasd
+alias a='fasd -a'            # any
 alias j='fasd_cd -d'         # cd AKA jump to directory
-# alias jj='fasd_cd -d -i'     # cd with interactive selection
+alias jj='fasd_cd -d -i'     # cd with interactive selection
 # alias v='fasd -f -e vim'     # open file in vim
 # alias vv='fasd -f -i -e vim' # open file in vim with interactive selection
-# alias f='fasd -f'            # file
-# alias ff='fasd -sif'         # interactive file selection
-# alias d='fasd -d'            # directory
-# alias dd='fasd -sid'         # interactive directory selection
+alias f='fasd -f'            # file
+alias ff='fasd -sif'         # interactive file selection
+alias d='fasd -d'            # directory
+alias dd='fasd -sid'         # interactive directory selection
 
 # meta alias
 alias aliasgrep='alias | grep $(echo $1)'
@@ -83,14 +84,13 @@ alias bi='bundle install'
 alias bo='bundle outdated'
 
 # Docker
-alias d='docker'
 alias dc='docker-compose'
 alias dcr='docker-compose run --rm app'
 alias docker-rm-all-including-images='docker stop $(docker ps -a -q); docker rm $(docker ps -a -q) --force; docker rmi $(docker images -a -q) --force; docker volume rm $(docker volume ls -q); docker network rm $(docker network ls -q)'
 alias docker-rm-all='docker stop $(docker ps -a -q); docker rm $(docker ps -a -q); docker volume rm $(docker volume ls -q); docker network rm $(docker network ls -q)'
 
 # Foreman
-alias f='bundle exec foreman start'
+# alias f='bundle exec foreman start'
 
 # Git
 alias g='git'
