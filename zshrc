@@ -100,6 +100,10 @@ alias g='git'
 alias gbpurgedryrun='git branch --merged | grep -v "\*" | grep -v "master"'
 alias gbpurge='git branch --merged | grep -v "\*" | grep -v "master" | xargs -n 1 git branch -d'
 
+# Kubernetes
+alias k='kubectl'
+alias h='helm'
+
 # Rails - other alias `ror*`
 alias r='bin/rails'
 alias spring='nocorrect spring'
@@ -146,6 +150,9 @@ alias gf='fg'            # I often screw this up.
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmuxifier-layouts"
 # [[ -s "$HOME/.tmuxifier/init.sh" ]] && source "$HOME/.tmuxifier/init.sh"
 alias mux='tmuxifier load-session'
+
+# Kubernetes
+export KUBECONFIG=~/.kube/config
 
 # Git + Hub
 # FIXME: Disabled due to broken git zsh completion
