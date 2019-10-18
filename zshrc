@@ -85,9 +85,12 @@ alias bo='bundle outdated'
 
 # Docker
 alias dc='docker-compose'
+alias dcn='NODE_ENV=localdev docker-compose'
 alias dcr='docker-compose run --rm app'
-alias docker-rm-all-including-images='docker stop $(docker ps -a -q); docker rm $(docker ps -a -q) --force; docker rmi $(docker images -a -q) --force; docker volume rm $(docker volume ls -q); docker network rm $(docker network ls -q)'
-alias docker-rm-all='docker stop $(docker ps -a -q); docker rm $(docker ps -a -q); docker volume rm $(docker volume ls -q); docker network rm $(docker network ls -q)'
+alias dcnr='NODE_ENV=localdev docker-compose run --rm app'
+alias docker-rm-all-not-just-this-dir-including-images='docker stop $(docker ps -a -q); docker rm $(docker ps -a -q) --force; docker rmi $(docker images -a -q) --force; docker volume rm $(docker volume ls -q); docker network rm $(docker network ls -q)'
+alias docker-rm-all-not-just-this-dir='docker stop $(docker ps -a -q); docker rm $(docker ps -a -q); docker volume rm $(docker volume ls -q); docker network rm $(docker network ls -q)'
+alias docker-install-ssh-exec='bash <(curl -s https://raw.githubusercontent.com/voxmedia/docker_base_images/master/bin/start-docker-ssh-exec)'
 
 # Foreman
 # alias f='bundle exec foreman start'
