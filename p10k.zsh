@@ -171,6 +171,15 @@ fi
     typeset -g POWERLEVEL9K_EMPTY_LINE_RIGHT_PROMPT_FIRST_SEGMENT_START_SYMBOL='%{%}'
   fi
 
+  # Solarized-defined colors
+  typeset -g POWERLEVEL9K_COLOR_BLUE=004
+  typeset -g POWERLEVEL9K_COLOR_CYAN=006
+  typeset -g POWERLEVEL9K_COLOR_GRAY=000
+  typeset -g POWERLEVEL9K_COLOR_GREEN=002
+  typeset -g POWERLEVEL9K_COLOR_ORANGE=202
+  typeset -g POWERLEVEL9K_COLOR_RED=001
+  typeset -g POWERLEVEL9K_COLOR_YELLOW=003
+
   #################################[ os_icon: os identifier ]##################################
   # OS identifier color.
   typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=
@@ -179,9 +188,10 @@ fi
 
   ################################[ prompt_char: prompt symbol ]################################
   # Green prompt symbol if the last command succeeded.
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS}_FOREGROUND='black'
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS}_FOREGROUND=${POWERLEVEL9K_COLOR_GRAY}
   # Red prompt symbol if the last command failed.
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS}_FOREGROUND='red'
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS}_FOREGROUND=${POWERLEVEL9K_COLOR_RED}
+
   # Default prompt symbol.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIINS_CONTENT_EXPANSION='❯'
   # Prompt symbol in command vi mode.
@@ -192,7 +202,7 @@ fi
 
   ##################################[ dir: current directory ]##################################
   # Default current directory color.
-  typeset -g POWERLEVEL9K_DIR_FOREGROUND='cyan'
+  typeset -g POWERLEVEL9K_DIR_FOREGROUND=${POWERLEVEL9K_COLOR_CYAN}
   # If directory is too long, shorten some of its segments to the shortest possible unique
   # prefix. The shortened directory can be tab-completed to the original.
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
@@ -202,7 +212,7 @@ fi
   typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=103
   # Color of the anchor directory segments. Anchor segments are never shortened. The first
   # segment is always an anchor.
-  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND='cyan'
+  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=${POWERLEVEL9K_COLOR_CYAN}
   # Display anchor directory segments in bold.
   typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=true
   # Don't shorten directories that contain any of these files. They are anchors.
@@ -303,38 +313,38 @@ fi
   # https://github.com/romkatv/gitstatus/blob/master/gitstatus.plugin.zsh.
   local vcs=''
   # If on a branch...
-  vcs+='${${VCS_STATUS_LOCAL_BRANCH:+%202F'${(g::)POWERLEVEL9K_VCS_BRANCH_ICON}
+  vcs+='${${VCS_STATUS_LOCAL_BRANCH:+%${POWERLEVEL9K_COLOR_ORANGE}F'${(g::)POWERLEVEL9K_VCS_BRANCH_ICON}
   # If local branch name is at most 32 characters long, show it in full.
   # This is the equivalent of POWERLEVEL9K_VCS_SHORTEN_MIN_LENGTH=32.
   vcs+='${${${$(($#VCS_STATUS_LOCAL_BRANCH<=32)):#0}:+${VCS_STATUS_LOCAL_BRANCH//\%/%%}}'
   # If local branch name is over 32 characters long, show the first 12 … the last 12. The same as
   # POWERLEVEL9K_VCS_SHORTEN_LENGTH=12 with POWERLEVEL9K_VCS_SHORTEN_STRATEGY=truncate_middle.
-  vcs+=':-${VCS_STATUS_LOCAL_BRANCH[1,12]//\%/%%}%28F…%202F${VCS_STATUS_LOCAL_BRANCH[-12,-1]//\%/%%}}}'
+  vcs+=':-${VCS_STATUS_LOCAL_BRANCH[1,12]//\%/%%}%28F…%${POWERLEVEL9K_COLOR_ORANGE}F${VCS_STATUS_LOCAL_BRANCH[-12,-1]//\%/%%}}}'
   # '@72f5c8a' if not on a branch.
-  vcs+=':-%f@%202F${VCS_STATUS_COMMIT[1,8]}}'
+  vcs+=':-%f@%${POWERLEVEL9K_COLOR_ORANGE}F${VCS_STATUS_COMMIT[1,8]}}'
   # ':master' if the tracking branch name differs from local branch.
-  vcs+='${${VCS_STATUS_REMOTE_BRANCH:#$VCS_STATUS_LOCAL_BRANCH}:+%f:%202F${VCS_STATUS_REMOTE_BRANCH//\%/%%}}'
+  vcs+='${${VCS_STATUS_REMOTE_BRANCH:#$VCS_STATUS_LOCAL_BRANCH}:+%f:%${POWERLEVEL9K_COLOR_ORANGE}F${VCS_STATUS_REMOTE_BRANCH//\%/%%}}'
   # '#tag' if on a tag.
-  vcs+='${VCS_STATUS_TAG:+%f#%202F${VCS_STATUS_TAG//\%/%%}}'
+  vcs+='${VCS_STATUS_TAG:+%f#%${POWERLEVEL9K_COLOR_ORANGE}F${VCS_STATUS_TAG//\%/%%}}'
   # ⇣42 if behind the remote.
-  vcs+='${${VCS_STATUS_COMMITS_BEHIND:#0}:+ %002F⇣${VCS_STATUS_COMMITS_BEHIND}}'
+  vcs+='${${VCS_STATUS_COMMITS_BEHIND:#0}:+ %${POWERLEVEL9K_COLOR_GREEN}F⇣${VCS_STATUS_COMMITS_BEHIND}}'
   # ⇡42 if ahead of the remote; no leading space if also behind the remote: ⇣42⇡42.
   # If you want '⇣42 ⇡42' instead, replace '${${(M)VCS_STATUS_COMMITS_BEHIND:#0}:+ }' with ' '.
-  vcs+='${${VCS_STATUS_COMMITS_AHEAD:#0}:+${${(M)VCS_STATUS_COMMITS_BEHIND:#0}:+ }%002F⇡${VCS_STATUS_COMMITS_AHEAD}}'
+  vcs+='${${VCS_STATUS_COMMITS_AHEAD:#0}:+${${(M)VCS_STATUS_COMMITS_BEHIND:#0}:+ }%${POWERLEVEL9K_COLOR_GREEN}F⇡${VCS_STATUS_COMMITS_AHEAD}}'
   # *42 if have stashes.
-  vcs+='${${VCS_STATUS_STASHES:#0}:+ %002F*${VCS_STATUS_STASHES}}'
+  vcs+='${${VCS_STATUS_STASHES:#0}:+ %${POWERLEVEL9K_COLOR_GREEN}F*${VCS_STATUS_STASHES}}'
   # 'merge' if the repo is in an unusual state.
-  vcs+='${VCS_STATUS_ACTION:+ %001F${VCS_STATUS_ACTION//\%/%%}}'
+  vcs+='${VCS_STATUS_ACTION:+ %${POWERLEVEL9K_COLOR_RED}F${VCS_STATUS_ACTION//\%/%%}}'
   # ~42 if have merge conflicts.
-  vcs+='${${VCS_STATUS_NUM_CONFLICTED:#0}:+ %001F~${VCS_STATUS_NUM_CONFLICTED}}'
+  vcs+='${${VCS_STATUS_NUM_CONFLICTED:#0}:+ %${POWERLEVEL9K_COLOR_RED}F~${VCS_STATUS_NUM_CONFLICTED}}'
   # +42 if have staged changes.
-  vcs+='${${VCS_STATUS_NUM_STAGED:#0}:+ %003F+${VCS_STATUS_NUM_STAGED}}'
+  vcs+='${${VCS_STATUS_NUM_STAGED:#0}:+ %${POWERLEVEL9K_COLOR_YELLOW}F+${VCS_STATUS_NUM_STAGED}}'
   # !42 if have unstaged changes.
-  vcs+='${${VCS_STATUS_NUM_UNSTAGED:#0}:+ %003F!${VCS_STATUS_NUM_UNSTAGED}}'
+  vcs+='${${VCS_STATUS_NUM_UNSTAGED:#0}:+ %${POWERLEVEL9K_COLOR_YELLOW}F!${VCS_STATUS_NUM_UNSTAGED}}'
   # ?42 if have untracked files. It's really a question mark, your font isn't broken.
   # See POWERLEVEL9K_VCS_UNTRACKED_ICON below if you want to use a different icon.
   # Remove the next line if you don't want to see untracked files at all.
-  vcs+='${${VCS_STATUS_NUM_UNTRACKED:#0}:+ %004F'${(g::)POWERLEVEL9K_VCS_UNTRACKED_ICON}'${VCS_STATUS_NUM_UNTRACKED}}'
+  vcs+='${${VCS_STATUS_NUM_UNTRACKED:#0}:+ %${POWERLEVEL9K_COLOR_BLUE}F'${(g::)POWERLEVEL9K_VCS_UNTRACKED_ICON}'${VCS_STATUS_NUM_UNTRACKED}}'
   # If P9K_CONTENT is not empty, leave it unchanged. It's either "loading" or from vcs_info.
   vcs="\${P9K_CONTENT:-$vcs}"
   # Disable the default Git status formatting.
@@ -347,7 +357,7 @@ fi
   typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED,UNTRACKED,CONFLICTED,COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=-1
 
   # Icon color.
-  typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_COLOR=202
+  typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_COLOR=${POWERLEVEL9K_COLOR_ORANGE}
   # Custom icon.
   # typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
