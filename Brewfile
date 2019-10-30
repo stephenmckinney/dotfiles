@@ -1,3 +1,5 @@
+# See https://remysharp.com/2018/08/23/cli-improved for usage of:
+#   tldr ncdu fd diff-so-fancy htop prettyping bat
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
