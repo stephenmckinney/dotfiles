@@ -21,6 +21,7 @@ brew "hub"
 brew "jq"
 brew "kubernetes-cli"
 brew "kubernetes-helm"
+brew "mas"
 brew "ncdu"
 brew "node"
 brew "postgresql"
@@ -36,7 +37,41 @@ brew "vim"
 brew "wget"
 brew "zsh"
 brew "voxmedia/private/vox-cli", args: ["HEAD"]
+cask "1password"
+cask "alfred"
+cask "atom"
+cask "boom"
+cask "captain"
+cask "docker"
+cask "dockstation"
+cask "dropbox"
+cask "evernote"
+cask "fantastical"
+cask "firefox"
+cask "flux"
 cask "font-sourcecodepro-nerd-font"
+cask "goofy"
+cask "google-chrome"
 cask "insomnia"
+cask "iterm2"
+cask "karabiner-elements"
+cask "kitematic"
 cask "launchrocket"
+cask "mailplane"
+cask "omnifocus"
+cask "omnigraffle"
+cask "psequel"
 cask "quicklook-json"
+cask "sequel-pro"
+cask "viscosity"
+cask "vlc"
+cask "zoomus"
+mas "Bear", id: 1091189122
+mas "Caffeine", id: 411246225
+mas "DaisyDisk", id: 411643860
+mas "Dash", id: 458034879
+mas "Day One", id: 1055511498
+mas "Moom", id: 419330170
+mas "Slack", id: 803453959
+mas "Things", id: 904280696
+mas "Xcode", id: 497799835
