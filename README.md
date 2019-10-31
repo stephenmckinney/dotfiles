@@ -1,7 +1,10 @@
 # my dotfiles
 
-tmux + zsh + [vim](https://github.com/stephenmckinney/vimfiles) with a focus
-on Ruby and Rails development on OS X. Solarized **ALL** the things.
+Configures tmux + zsh with a focus on Ruby and Rails development
+on OS X. Solarized **ALL** the things.
+
+The goal is to use tmux + zsh + vim as a Ruby and Rails IDE on OS X. See
+[vimfiles](https://github.com/stephenmckinney/vimfiles).
 
 ## First...
 
