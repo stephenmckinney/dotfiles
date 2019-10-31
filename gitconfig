@@ -110,8 +110,10 @@
   cmd = vim -f -c \"Gdiff\" \"$MERGED\"
 [merge]
   tool = fugitive
+# 'simple' - in centralized workflow (e.g. Github), work like 'upstream' with an added
+# safety to refuse to push if the upstream branch’s name is different from the local one.
 [push]
-  default = upstream
+  default = simple
 [apply]
   whitespace = nowarn
 [heroku]
