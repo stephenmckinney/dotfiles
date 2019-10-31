@@ -44,6 +44,7 @@ cask "alfred"
 cask "atom"
 cask "boom"
 cask "captain"
+cask "dash"
 cask "docker"
 cask "dockstation"
 cask "dropbox"
@@ -68,10 +69,9 @@ cask "sequel-pro"
 cask "viscosity"
 cask "vlc"
 cask "zoomus"
+mas "Amphetamine", id: 937984704
 mas "Bear", id: 1091189122
-mas "Caffeine", id: 411246225
 mas "DaisyDisk", id: 411643860
-mas "Dash", id: 458034879
 mas "Day One", id: 1055511498
 mas "Moom", id: 419330170
 mas "Slack", id: 803453959
