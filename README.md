@@ -15,7 +15,7 @@ on Ruby and Rails development on OS X. Solarized **ALL** the things.
 ### Install dotfiles
 
 ```shell
-git clone --recursive git://github.com/stephenmckinney/dotfiles ~/.dotfiles
+git clone --recursive git@github.com:stephenmckinney/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles && rake install
 ```
 
