@@ -108,10 +108,7 @@ def install_prezto
   msg 'Installing Prezto...'
 
   unless File.exist?(File.join(ENV['HOME'], '.zprezto'))
-    system('git clone --recursive git://github.com/stephenmckinney/prezto ~/.zprezto')
-    system('cd ~/.zprezto')
-    # TODO: do we still need this?
-    # system('git checkout my-customizations-and-theme')
+    system('git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"')
     system('chsh -s /bin/zsh')
   else
     msg 'Skipping...Prezto already installed'
