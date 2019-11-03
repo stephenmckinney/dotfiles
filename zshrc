@@ -30,9 +30,9 @@ fi
 #################################################
 # Customize to your needs...
 #
-# The following concerns are handled thru Prezto and other dotfiles not here:
-#   * PATH for Homebrew (~/.zprofile)
-#   * rbenv init (~/.zprezto/module/ruby/)
+# The following are configured NOT in .zshrc:
+#   * Homebrew - /usr/local/bin added to PATH in .zprofile
+#   * fasd - initialized in .zprezto/modules/fasd/init.zsh
 #
 #################################################
 
@@ -62,15 +62,15 @@ alias ping='prettyping --nolegend'
 alias noise='play -c 2 -n synth brownnoise' # brew install sox
 
 # fasd
-alias a='fasd -a'            # any
-alias j='fasd_cd -d'         # cd AKA jump to directory
-alias jj='fasd_cd -d -i'     # cd with interactive selection
+# alias a='fasd -a'            # any
+# alias j='fasd_cd -d'         # cd AKA jump to directory
+# alias jj='fasd_cd -d -i'     # cd with interactive selection
 # alias v='fasd -f -e vim'     # open file in vim
 # alias vv='fasd -f -i -e vim' # open file in vim with interactive selection
-alias f='fasd -f'            # file
-alias ff='fasd -sif'         # interactive file selection
-alias d='fasd -d'            # directory
-alias dd='fasd -sid'         # interactive directory selection
+# alias f='fasd -f'            # file
+# alias ff='fasd -sif'         # interactive file selection
+# alias d='fasd -d'            # directory
+# alias dd='fasd -sid'         # interactive directory selection
 
 # meta alias
 alias aliasgrep='alias | grep $(echo $1)'
@@ -163,8 +163,12 @@ export KUBECONFIG=~/.kube/config
 # Put Bundler binstubs at the front of $PATH
 # PATH=./bin:$PATH
 
-# Use .localrc for settings specific to one system
-[[ -f ~/.localrc ]] && . ~/.localrc
+# rbenv
+eval "$(rbenv init - --no-rehash zsh)"
 
+# p10k
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
+# Use .localrc for settings specific to one system
+[[ -f ~/.localrc ]] && . ~/.localrc
