@@ -45,14 +45,9 @@ typeset -gU cdpath fpath mailpath path
 path=(
   ~/.bin
   ~/.tmuxifier/bin
-  ~/go_code
   ./bin
   /usr/local/opt/python/libexec/bin
-  ~/Library/Python/3.7/bin
   /usr/local/{bin,sbin}
-  /usr/local/heroku/bin
-  /usr/local/opt/mysql@5.7/bin
-  /Applications/Visual Studio Code.app/Contents/Resources/app/bin
   $path
 )
 
