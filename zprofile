@@ -75,13 +75,3 @@ export LESS='-F -g -i -M -R -S -X -z-4'
 if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
-
-#
-# Misc.
-#
-
-# Go lang support
-export GOPATH=$HOME/go_code
-
-# Spring fuck you!
-export DISABLE_SPRING=1

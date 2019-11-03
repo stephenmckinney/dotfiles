@@ -75,7 +75,11 @@ alias noise='play -c 2 -n synth brownnoise' # brew install sox
 # meta alias
 alias aliasgrep='alias | grep $(echo $1)'
 
+#################################################
+#
 # Most used commands according to history-stat
+#
+#################################################
 
 # Bundler
 alias b='bundle'
@@ -104,9 +108,8 @@ alias gbpurge='git branch --merged | grep -v "\*" | grep -v "master" | xargs -n 
 alias k='kubectl'
 alias h='helm'
 
-# Rails - other alias `ror*`
+# Rails
 alias r='bin/rails'
-alias spring='nocorrect spring'
 
 # Rubocop
 alias ru='bundle exec rubocop'
@@ -120,7 +123,7 @@ alias edots='vim ~/.dotfiles'
 alias eprezto='vim ~/.zprezto'
 
 # Memcached
-alias memcachedstart='memcached -p 11211 &'
+# alias memcachedstart='memcached -p 11211 &'
 
 # MySQL
 # alias mysqlstart='mysqld_safe &'
@@ -128,7 +131,7 @@ alias memcachedstart='memcached -p 11211 &'
 
 # Postgresql
 # alias postgresstart=' open -a Postgres'
-alias postgresstart='postgres -D /usr/local/var/postgres &'
+# alias postgresstart='postgres -D /usr/local/var/postgres &'
 # alias postgresstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start &'
 # alias postgresstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 
@@ -148,13 +151,14 @@ alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 # Misc.
 alias gf='fg'            # I often screw this up.
 
-# Tmuxifier
-export TMUXIFIER_LAYOUT_PATH="$HOME/.tmuxifier-layouts"
-eval "$(tmuxifier init -)"
-alias mux='tmuxifier load-session'
+#################################################
+#
+# Enable/configure other utils
+#
+#################################################
 
-# Kubernetes
-export KUBECONFIG=~/.kube/config
+# fzf
+export FZF_DEFAULT_COMMAND='fd --type f'
 
 # Git + Hub
 # Remove git's zsh completion in favor of zsh's built-in git completion.
@@ -166,11 +170,21 @@ if [[ -f /usr/local/share/zsh/site-functions/_git ]]; then
 fi
 eval "$(hub alias -s)"
 
-# Put Bundler binstubs at the front of $PATH
-# PATH=./bin:$PATH
+# Kubernetes
+export KUBECONFIG=~/.kube/config
 
 # rbenv
 eval "$(rbenv init - --no-rehash zsh)"
+
+# Rails
+export DISABLE_SPRING=1
+# Put Bundler binstubs at the front of $PATH
+# PATH=./bin:$PATH
+
+# Tmuxifier
+export TMUXIFIER_LAYOUT_PATH="$HOME/.tmuxifier-layouts"
+eval "$(tmuxifier init -)"
+alias mux='tmuxifier load-session'
 
 # p10k
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
