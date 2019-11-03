@@ -158,6 +158,9 @@ alias gf='fg'            # I often screw this up.
 #################################################
 
 # fzf
+# Enable auto-completion (after /usr/local/opt/fzf/install)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Use `fd` for find, to respect .gitignore
 export FZF_DEFAULT_COMMAND='fd --type f'
 
 # Git + Hub
