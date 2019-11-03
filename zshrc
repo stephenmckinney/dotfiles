@@ -157,8 +157,14 @@ alias mux='tmuxifier load-session'
 export KUBECONFIG=~/.kube/config
 
 # Git + Hub
-# FIXME: Disabled due to broken git zsh completion
-# eval "$(hub alias -s)"
+# Remove git's zsh completion in favor of zsh's built-in git completion.
+# This enables git completion to be extended by hub.
+# See: https://github.com/Homebrew/homebrew-core/issues/33275
+if [[ -f /usr/local/share/zsh/site-functions/_git ]]; then
+  echo "removing homebrew installed git zsh completion..."
+  rm  -f /usr/local/share/zsh/site-functions/_git
+fi
+eval "$(hub alias -s)"
 
 # Put Bundler binstubs at the front of $PATH
 # PATH=./bin:$PATH
