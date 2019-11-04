@@ -158,10 +158,41 @@ alias gf='fg'            # I often screw this up.
 #################################################
 
 # fzf
-# Enable auto-completion (after /usr/local/opt/fzf/install)
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+_gen_fzf_default_opts() {
+  local base03="234"
+  local base02="235"
+  local base01="240"
+  local base00="241"
+  local base0="244"
+  local base1="245"
+  local base2="254"
+  local base3="230"
+  local yellow="136"
+  local orange="166"
+  local red="160"
+  local magenta="125"
+  local violet="61"
+  local blue="33"
+  local cyan="37"
+  local green="64"
+
+  # Solarized Dark color scheme for fzf
+  export FZF_DEFAULT_OPTS="
+    --color 16,hl:$cyan,hl+:$blue,fg+:$base2
+    --color pointer:$orange,marker:$magenta
+    --color prompt:$cyan,info:$yellow,spinner:$yellow
+  "
+}
+_gen_fzf_default_opts
 # Use `fd` for find, to respect .gitignore
 export FZF_DEFAULT_COMMAND='fd --type f'
+# Enable fzf auto-completion
+# * assumes /usr/local/opt/fzf/install was used to install
+# * CTRL-T will trigger context-aware fuzzy completion, instead of **<TAB>
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_COMPLETION_TRIGGER=''
+bindkey '^T' fzf-completion
+bindkey '^I' $fzf_default_completion
 
 # Git + Hub
 # Remove git's zsh completion in favor of zsh's built-in git completion.
