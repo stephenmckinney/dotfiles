@@ -194,16 +194,6 @@ export FZF_COMPLETION_TRIGGER=''
 bindkey '^T' fzf-completion
 bindkey '^I' $fzf_default_completion
 
-# Git + Hub
-# Remove git's zsh completion in favor of zsh's built-in git completion.
-# This enables git completion to be extended by hub.
-# See: https://github.com/Homebrew/homebrew-core/issues/33275
-if [[ -f /usr/local/share/zsh/site-functions/_git ]]; then
-  echo "removing homebrew installed git zsh completion..."
-  rm  -f /usr/local/share/zsh/site-functions/_git
-fi
-eval "$(hub alias -s)"
-
 # Kubernetes
 export KUBECONFIG=~/.kube/config
 
