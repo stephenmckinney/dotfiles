@@ -106,6 +106,8 @@
 
 [color]
   ui = auto
+[commit]
+  verbose = true
 [core]
   excludesfile = $HOME/.gitignore
   editor = vim -f

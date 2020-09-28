@@ -1,5 +1,6 @@
-# See https://remysharp.com/2018/08/23/cli-improved for usage of:
+# The jury is still out on whether I prefer these cli tools:
 #   tldr ncdu fd diff-so-fancy htop prettyping bat
+# See https://remysharp.com/2018/08/23/cli-improved
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
@@ -15,11 +16,11 @@ brew "openssl"
 brew "fasd"
 brew "fd"
 brew "fzf"
+brew "gh"
 brew "gist"
 brew "git"
 brew "htop"
 brew "httpie"
-brew "hub"
 brew "jq"
 brew "kubernetes-cli"
 brew "kubernetes-helm"
