@@ -104,9 +104,12 @@ alias g='git'
 alias gbpurgedryrun='git branch --merged | grep -v "\*" | grep -v "master"'
 alias gbpurge='git branch --merged | grep -v "\*" | grep -v "master" | xargs -n 1 git branch -d'
 
+# Heroku
+alias h='heroku'
+
 # Kubernetes
 alias k='kubectl'
-alias h='helm'
+# alias h='helm'
 
 # Rails
 alias r='bin/rails'
@@ -115,7 +118,7 @@ alias r='bin/rails'
 alias ru='bundle exec rubocop'
 
 # Vim
-alias v='vim'
+alias v='vim .'
 alias vi='vim'
 
 # Edit dotfiles
@@ -204,6 +207,13 @@ eval "$(rbenv init - --no-rehash zsh)"
 export DISABLE_SPRING=1
 # Put Bundler binstubs at the front of $PATH
 # PATH=./bin:$PATH
+
+# Slack CLI
+alias slack-meeting='slack status edit --text "In meetings" --emoji :virtual-meeting: && slack presence active && slack snooze start'
+alias slack-lunch='slack status edit --text "lunch [back at $(date -v +30M +"%l:%M %p")]" --emoji :taco: && slack presence away && slack snooze end'
+alias slack-focus='slack status edit --text "Heads down, Slack delayed" --emoji :heads-down: && slack presence active && slack snooze start'
+alias slack-back='slack status clear && slack presence active && slack snooze end'
+# alias slack-PERSON='slack chat send "hey <https://docs.google.com/TKTK|FILENAME>" @PERSON'
 
 # Tmuxifier
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmuxifier-layouts"
