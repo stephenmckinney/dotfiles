@@ -49,6 +49,34 @@ task :import_iterm do
   msg 'Success!'
 end
 
+desc "Install git hooks e.g. `rake install_git_hooks\['~/code/work/sbn','Ruby,JavaScript'\]`"
+task :install_git_hooks, [:dir, :languages] do |t, args|
+  puts "Executing with arguments: #{args}"
+  print 'continue? [yn] '
+  exit if $stdin.gets.chomp != 'y'
+
+  Dir.each_child('git_hooks') do |file|
+    # e.g. git_hooks/ctags
+    source = File.join('git_hooks', file)
+    # e.g. ~/code/foo/.git/hooks/ctags
+    destination = File.join(args.dir, '.git', 'hooks', "#{file.sub('.erb', '')}")
+
+    if source =~ /.erb$/
+      @erb_data = { languages: args.languages || '-JavaScript,SQL' }
+      puts "Writing erb: #{source} to #{destination}"
+      File.open(destination, 'w') do |new_file|
+        new_file.write ERB.new(File.read(source)).result(binding)
+      end
+    else
+      command = %Q{cp #{source} #{destination}}
+      puts command
+      system command
+    end
+  end
+
+  puts 'Success!'
+end
+
 def create_or_replace_symlink(file, symlink)
   if File.exist? symlink
     if File.identical? file, symlink
