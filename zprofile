@@ -2,14 +2,14 @@
 # Executes commands at login pre-zshrc.
 #
 # Authors:
-#   Steve McKinney <stevemckinney@gmail.com>
+#   Steve McKinney <steve.mckinney@gmail.com>
 #
 
 #
 # Browser
 #
 
-if [[ "$OSTYPE" == darwin* ]]; then
+if [[ -z "$BROWSER" && "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
 
@@ -17,9 +17,15 @@ fi
 # Editors
 #
 
-export EDITOR='vim'
-export VISUAL='vim'
-export PAGER='less'
+if [[ -z "$EDITOR" ]]; then
+  export EDITOR='vim'
+fi
+if [[ -z "$VISUAL" ]]; then
+  export VISUAL='vim'
+fi
+if [[ -z "$PAGER" ]]; then
+  export PAGER='less'
+fi
 
 #
 # Language
@@ -57,9 +63,8 @@ path=(
 
 # Set the default Less options.
 # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
-# Remove -X and -F (exit if the content fits on one screen) to enable it.
+# Remove -X to enable it.
 # Options:
-# -F or --quit-if-one-screen
 # -g or --hilite-search
 # -i or --ignore-case
 # -M or --LONG-PROMPT - Verbose prompt at bottom.
@@ -68,10 +73,12 @@ path=(
 # -w or --hilite-unread - Temporarily  highlights the first "new" line after a forward movement of a full page.
 # -X or --no-init - Disables sending the termcap initialization and deinitialization strings to the terminal.
 # -[z]n or --window=n - For example, if the screen is 24 lines, -z-4 sets the scrolling window to 20 lines.
-export LESS='-F -g -i -M -R -S -X -z-4'
+if [[ -z "$LESS" ]]; then
+  export LESS='-g -i -M -R -S -w -X -z-4'
+fi
 
 # Set the Less input preprocessor.
 # Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
-if (( $#commands[(i)lesspipe(|.sh)] )); then
+if [[ -z "$LESSOPEN" ]] && (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
