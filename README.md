@@ -17,6 +17,8 @@ The goal is to use tmux + zsh + vim as a Ruby and Rails IDE on OS X. See
 
 ### Install dotfiles
 
+Installs dotfiles, prezto, and iTerm preferences.
+
 ```shell
 git clone --recursive git@github.com:stephenmckinney/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles && rake install
@@ -24,17 +26,21 @@ cd ~/.dotfiles && rake install
 
 ### Install brews
 
-Install [Homebrew](http://mxcl.github.com/homebrew/), then:
+Installs brews, casks (e.g. iTerm), and mas (e.g. Slack)
 
-```shell
-brew update && brew bundle
-```
+* Install [Homebrew](https://brew.sh/)
+* Check install: `brew doctor`
+* Check Brewfile
+* Install all brews, casks, and mas in Brewfile:
+  ```shell
+  brew update && brew bundle
+  ```
 
 ### Setup iTerm2
 
 * Open Preferences.
-* In **General** tab, check **Load preferences from a user-defined folder or URL**.
-* Paste `/Users/smckinney/.dotfiles/iterm2` into the text field (this should import
+* In **General** tab, under **Preferences** tab, check **Load preferences from a custom folder or URL**.
+* Paste `~/.dotfiles/iterm2` into the text field (this should import
   of Solarized Dark and Solarized Light
   [itermcolors](https://iterm2colorschemes.com).
 

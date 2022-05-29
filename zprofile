@@ -53,7 +53,7 @@ path=(
   ~/.tmuxifier/bin
   ./bin
   /usr/local/opt/python/libexec/bin
-  /usr/local/{bin,sbin}
+  /opt/homebrew/{bin,sbin}
   $path
 )
 
