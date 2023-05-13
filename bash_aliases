@@ -24,6 +24,3 @@ alias psgrep='ps -e -o pid,command | grep $(echo $1 | sed "s/^\(.\)/[\1]/g")'
 
 # Git
 alias g='git'
-
-# Rails
-alias rorc='cd /home/sbn/current; bundle exec rails c <%= @erb_data[:server] %>'
