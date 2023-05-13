@@ -21,7 +21,7 @@ Installs dotfiles, prezto, and iTerm preferences.
 
 ```shell
 git clone --recursive git@github.com:stephenmckinney/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles && rake install
+cd ~/.dotfiles && ./install.sh
 ```
 
 ### Install brews
