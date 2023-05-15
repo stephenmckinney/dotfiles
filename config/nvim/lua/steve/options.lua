@@ -1,6 +1,3 @@
--- Set mapleader before plugins are required, to ensure plugins that rely on mapleader use the correct key
-vim.g.mapleader = ','
-
 --------------------------------------------------------------------------------
 -- User Interface
 --  Display line numbers.
