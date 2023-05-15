@@ -16,7 +16,7 @@ remote_shell=false
 remote_shell_allowlist=("base_aliases" "editrc" "inputrc" "irbrc")
 
 # denylist of files to always skip
-denylist=("Brewfile" "Rakefile" "README.md" "install.sh" "iterm2")
+denylist=("Brewfile" "Brewfile.lock.json" "Rakefile" "README.md" "install.sh" "iterm2")
 
 # check for --dry-run and --remote-shell arguments
 for arg in "$@"
