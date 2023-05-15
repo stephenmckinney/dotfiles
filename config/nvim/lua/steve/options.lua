@@ -37,13 +37,11 @@ vim.opt.foldenable=false -- Start with all folds open
 -- Undo
 -- Keep a history of up to 1000 changes that persist even after closing and
 -- reopening Vim.
+-- This state data is stored in the session state directory ~/.local/state/nvim/
 --------------------------------------------------------------------------------
 vim.opt.undofile=true -- Enable persistent undo history
 vim.opt.undolevels=1000  -- Maximum number of changes that can be undone
 vim.opt.undoreload=10000 -- Maximum number of lines to save for undo on a buffer reload
-vim.opt.undodir=vim.fn.expand('~/.config/nvim/undo') -- Directory for undo files
-vim.opt.directory=vim.fn.expand('~/.config/nvim/swp') -- Directory for swap files
-vim.opt.backupdir=vim.fn.expand('~/.config/nvim/backup') -- Directory for backup files
 
 --------------------------------------------------------------------------------
 -- Splits
