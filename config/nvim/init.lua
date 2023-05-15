@@ -22,3 +22,4 @@ require('lazy').setup('steve.plugins')
 
 -- Set configs
 require 'steve.options'
+require 'steve.keymaps'
