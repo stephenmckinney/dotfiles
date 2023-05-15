@@ -1,64 +1,64 @@
--- Set mapleader before plugins are required, otherwise wrong leader will be used
+-- Set mapleader before plugins are required, to ensure plugins that rely on mapleader use the correct key
 vim.g.mapleader = ','
 
 --------------------------------------------------------------------------------
---UI
---  Dispaly line numbers and matching parans/brackets.
+-- User Interface
+--  Display line numbers.
+--  Highlight matching parentheses/brackets.
 --------------------------------------------------------------------------------
-vim.opt.number=true -- Display line numbers
-vim.opt.showmatch=true -- When a bracket is inserted, briefly jump to the match
+vim.opt.number=true -- Enable line numbers
+vim.opt.showmatch=true -- Highlight matching brackets on input
 
 --------------------------------------------------------------------------------
 -- Indentation
---  Soft tabs, 2 spaces, and auto-indent.
+--  Use soft tabs (spaces instead of tabs).
+--  Set indentation to 2 spaces.
 --------------------------------------------------------------------------------
-vim.opt.tabstop=2 -- Number of spaces that a <Tab> in the file counts for
-vim.opt.softtabstop=2 -- Number of spaces <Tab> or <BS> counts while editing
-vim.opt.shiftwidth=2 -- Number of spaces to use for each step of (auto)indent
-vim.opt.expandtab=true -- In Insert mode: Use spaces to insert a <Tab>
-vim.opt.autoindent=true -- Copy indent from current line when starting a new line
+vim.opt.tabstop=2 -- Each tab character is equivalent to 2 spaces
+vim.opt.softtabstop=2 -- A tab or backspace inserts/deletes 2 spaces
+vim.opt.shiftwidth=2 -- Indent/outdent by 2 spaces
+vim.opt.expandtab=true -- Convert tabs to spaces
+vim.opt.autoindent=true -- New lines inherit indentation of previous line
 
 --------------------------------------------------------------------------------
 -- Wrap and Scroll
---  Don't wrap long lines.
---  Keep the cursor 8 lines from the top/bottom and 15 cols from the left/right.
+--  Avoid wrapping long lines.
+--  Maintain a margin of 8 lines from top/bottom and 15 columns from left/right.
 --------------------------------------------------------------------------------
-vim.opt.wrap=false
-vim.opt.scrolloff=8
-vim.opt.sidescrolloff=15
+vim.opt.wrap=false -- Disable line wrapping
+vim.opt.scrolloff=8 -- Keep at least 8 lines visible above/below the cursor
+vim.opt.sidescrolloff=15 -- Keep at least 15 columns visible left/right of the cursor
 
 --------------------------------------------------------------------------------
 -- Folding
---  Fold based on indent but don't enable it on load.
+--  Use indentation to determine folds, but keep them open by default.
 --------------------------------------------------------------------------------
-vim.opt.foldmethod='indent'
-vim.opt.foldenable=false
+vim.opt.foldmethod='indent' -- Use indentation level as fold marker
+vim.opt.foldenable=false -- Start with all folds open
 
 --------------------------------------------------------------------------------
 -- Undo
---  Persist up to 1K chnages, even on reload, in a consistent directory.
+-- Keep a history of up to 1000 changes that persist even after closing and
+-- reopening Vim.
 --------------------------------------------------------------------------------
--- undo file, containing the undo trees of the file edited
--- swap file, containing the unsaved changes
--- backup file, make a backup before overwriting a file
-vim.opt.undofile=true
-vim.opt.undolevels=1000  -- Max number of changes that can be undone
-vim.opt.undoreload=10000 -- Max number lines to save for undo on a buffer reload
-vim.opt.undodir='~/.config/nvim/undo'
-vim.opt.directory='~/.config/nvim/swp'
-vim.opt.backupdir='~/.config/nvim/backup'
+vim.opt.undofile=true -- Enable persistent undo history
+vim.opt.undolevels=1000  -- Maximum number of changes that can be undone
+vim.opt.undoreload=10000 -- Maximum number of lines to save for undo on a buffer reload
+vim.opt.undodir='~/.config/nvim/undo' -- Directory for undo files
+vim.opt.directory='~/.config/nvim/swp' -- Directory for swap files
+vim.opt.backupdir='~/.config/nvim/backup' -- Directory for backup files
 
------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 -- Splits
---  Open vertical splits to the right and automatically make them the same size
------------------------------------------------------------------------
-vim.opt.splitright=true
-vim.opt.equalalways=true
+--  Open vertical splits to the right and balance their sizes automatically.
+--------------------------------------------------------------------------------
+vim.opt.splitright=true -- Open vertical splits to the right of the current window
+vim.opt.equalalways=true -- Always balance window sizes when opening/closing windows
 
------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 -- Search
---  Ignore case in search patterns, but override the 'ignorecase' option if the search
---  pattern contains uppercase characters
------------------------------------------------------------------------
-vim.opt.ignorecase=true
-vim.opt.smartcase=true
+--  Make search case-insensitive by default, but case-sensitive if the pattern
+--  contains uppercase letters.
+--------------------------------------------------------------------------------
+vim.opt.ignorecase=true -- Ignore case when searching
+vim.opt.smartcase=true -- Make search case-sensitive if pattern contains uppercase letters
