@@ -41,9 +41,9 @@ vim.opt.foldenable=false -- Start with all folds open
 vim.opt.undofile=true -- Enable persistent undo history
 vim.opt.undolevels=1000  -- Maximum number of changes that can be undone
 vim.opt.undoreload=10000 -- Maximum number of lines to save for undo on a buffer reload
-vim.opt.undodir='~/.config/nvim/undo' -- Directory for undo files
-vim.opt.directory='~/.config/nvim/swp' -- Directory for swap files
-vim.opt.backupdir='~/.config/nvim/backup' -- Directory for backup files
+vim.opt.undodir=vim.fn.expand('~/.config/nvim/undo') -- Directory for undo files
+vim.opt.directory=vim.fn.expand('~/.config/nvim/swp') -- Directory for swap files
+vim.opt.backupdir=vim.fn.expand('~/.config/nvim/backup') -- Directory for backup files
 
 --------------------------------------------------------------------------------
 -- Splits
