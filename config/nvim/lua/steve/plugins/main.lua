@@ -1,13 +1,24 @@
 return {
   -- fuzzy finder
+  -- TODO add treesitter
   {
     'nvim-telescope/telescope.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    version = '0.1.x',
+    dependencies = {
+      { 'nvim-lua/plenary.nvim' },
+      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    },
     cmd = 'Telescope',
-    version = false,
+    config = function()
+      require('telescope').setup {}
+      require('telescope').load_extension('fzf')
+    end,
     keys = {
-      { '<leader>t', '<cmd>Telescope find_files<cr>', desc = 'Find Files (root dir)' },
-      { '<leader>b', '<cmd>Telescope buffers<cr>', desc = 'Buffers' }
+      { '<leader>t', '<cmd>Telescope find_files<cr>', desc = 'Find files' },
+      { '<leader>b', '<cmd>Telescope buffers<cr>', desc = 'Find open buffers' },
+      { '<leader>f', '<cmd>Telescope live_grep<cr>', desc = 'Live Grep search in current directory' },
+      { '<leader>F', '<cmd>Telescope grep_string<cr>', desc = 'Grep search for the string under your cursor or selection in current directory' },
+      { '<leader>h', '<cmd>Telescope help_tags<cr>', desc = 'Find help tags' },
     }
   },
 
@@ -21,6 +32,7 @@ return {
     end,
     keys = {
       { '<leader>d', '<cmd>NvimTreeToggle<cr>', desc = 'Toggle File Explorer' },
+      { '<leader>D', '<cmd>NvimTreeFindFile<cr>', desc = 'Find current file in File Explorer' },
     },
   },
 
