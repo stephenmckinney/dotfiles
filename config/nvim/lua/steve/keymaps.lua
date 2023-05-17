@@ -7,6 +7,9 @@ end
 map('v', '>', '>gv', 'Indent (maintain selection)')
 map('v', '<', '<gv', 'Outdent (maintain selection)')
 
+--------------------------------------------------------------------------------
+-- Windows
+--------------------------------------------------------------------------------
 -- Window navigation
 map('n', '<C-j>', '<C-w>j', 'Move cursor to window below current one')
 map('n', '<C-k>', '<C-w>k', 'Move cursor to window above current one')
@@ -16,6 +19,8 @@ map('n', '<C-h>', '<C-w>h', 'Move cursor to window right of current one')
 -- Split windows
 map('n', '<leader>v', '<C-w>v<C-w>l', 'Split window vertically')
 map('n', '<leader>h', '<C-w>s<C-w>j', 'Split window horizontally')
+map('n', '<leader>=', '<C-w>=', 'Adjust viewports to the same size')
+map('n', '<leader>o', '<C-w>o', 'Close all but current window')
 
 --------------------------------------------------------------------------------
 -- Search
