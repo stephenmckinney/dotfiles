@@ -36,12 +36,6 @@ return {
     },
   },
 
-  -- handy keymaps
-  { 'tpope/vim-unimpaired', enabled = false },
-
-  -- enable repeating supported plugin maps with '.'
-  { 'tpope/vim-repeat' },
-
   -- git
   -- TODO intall and set up tpope/vim-rhubarb to enable GBrowse
   {
@@ -72,31 +66,51 @@ return {
   },
 
   -- pairs
-  { 'echasnovski/mini.pairs',
+  {
+    'echasnovski/mini.pairs',
     version = false,
+    event = 'VeryLazy',
     config = function()
       require('mini.pairs').setup {}
     end
   },
   -- surround
-  { 'echasnovski/mini.surround',
+  {
+    'echasnovski/mini.surround',
     version = false,
+    event = 'VeryLazy',
     config = function()
       require('mini.surround').setup {}
     end
   },
   -- comment
-	{ 'echasnovski/mini.comment',
+	{
+    'echasnovski/mini.comment',
     version = false,
+    event = 'VeryLazy',
     config = function()
       require('mini.comment').setup {}
     end
   },
   -- Extend a/i textobjects
-  { 'echasnovski/mini.ai',
+  {
+    'echasnovski/mini.ai',
     version = false,
+    event = 'VeryLazy',
     config = function()
       require('mini.ai').setup {}
     end
+  },
+  -- handy keymaps
+  { 'tpope/vim-unimpaired', enabled = false },
+  -- enable repeating supported plugin maps with '.'
+  {
+    'tpope/vim-repeat',
+    event = 'VeryLazy',
+  },
+  -- end structures e.g. Ruby, lua, shell, vimscript, etc.
+  {
+    'tpope/vim-endwise',
+    event = 'VeryLazy',
   },
 }
