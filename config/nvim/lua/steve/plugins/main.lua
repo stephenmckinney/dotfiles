@@ -42,6 +42,35 @@ return {
   -- enable repeating supported plugin maps with '.'
   { 'tpope/vim-repeat' },
 
+  -- git
+  -- TODO intall and set up tpope/vim-rhubarb to enable GBrowse
+  {
+    'tpope/vim-fugitive',
+    cmd = 'Git',
+    keys = {
+      -- xmap <leader>dg :diffget<CR>\|:diffupdate<CR>
+      -- { '<leader>dg', ':diffget<CR>\|:diffupdate<CR>', mode = 'x', desc = 'diffget' }
+      -- xmap <leader>dp :diffput<CR>\|:diffupdate<CR>
+      { '<leader>gB', '<cmd>Git blame<cr>', desc = 'git blame' },
+      -- nmap <leader>gh :GBrowse<CR>
+      -- nmap <leader>gc :Git commit<CR>
+      { '<leader>gd', '<cmd>Gvdiffsplit<cr>', desc = 'git diff' },
+      { '<leader>gs', '<cmd>Git<cr>', desc = 'git status (window)' },
+      { '<leader>gr', '<cmd>Gread<cr>', desc = 'git checkout (restore working tree file)' },
+      { '<leader>gw', '<cmd>Gwrite<cr>', desc = 'git add (stage file)' },
+   }
+  },
+
+  {
+    'f-person/git-blame.nvim',
+    init = function()
+      vim.g.gitblame_enabled = 0
+    end,
+    keys = {
+      { '<leader>gb', '<cmd>GitBlameToggle<cr>', desc = 'git blame (inline)' },
+    }
+  },
+
   -- pairs
   { 'echasnovski/mini.pairs',
     version = false,
