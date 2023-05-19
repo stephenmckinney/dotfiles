@@ -1,6 +1,11 @@
-local function map(m, k, v, d, s)
-  if s == nil then s = true end
-  vim.keymap.set(m, k, v, { noremap = true, desc = d, silent = s })
+local function map(mode, lhs, rhs, desc, overrides)
+  opts = { noremap = true, desc = desc, silent = true }
+  overrides = overrides or {}
+  for k, v in pairs(overrides) do
+    opts[k] = v
+  end
+
+  vim.keymap.set(mode, lhs, rhs, opts)
 end
 
 -- Maintain selection after indent
@@ -28,9 +33,9 @@ map('n', '<leader>o', '<C-w>o', 'Close all but current window')
 map('n', '<cr>', ':noh<cr>', 'Stop highlighting search')
 
 -- search prompt
-map('n', '/', '/\\v', 'Search very-magically', false)
-map('v', '/', '/\\v', 'Use search in visual mode', false)
+map('n', '/', '/\\v', 'Search very-magically', { silent = false })
+map('v', '/', '/\\v', 'Use search in visual mode', { silent = false })
 
--- Search and replace prompt
-map('n', 's', ':%s/\\v/g<left><left>', 'Search and replace', false)
-map('n', 'S', ':%s/\\<<C-r><C-w>\\>//g<Left><Left>', 'Search and replace the word under the cursor', false)
+-- Search and replace (substite) prompt. Quick search and replace 'q' vs Spectre and Telescope 's'
+map('n', 'q', ':%s/\\v/g<left><left>', 'Search and replace', { silent = false })
+map('n', 'Q', ':%s/\\<<C-r><C-w>\\>//g<Left><Left>', 'Search and replace the word under the cursor', { silent = false })
