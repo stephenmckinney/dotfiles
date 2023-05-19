@@ -13,6 +13,12 @@ return {
     build = ':TSUpdate',
     event = { 'BufReadPost', 'BufNewFile' },
     dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' }, -- for mini.ai
+    keys = {
+      { '<leader>i', desc = 'Init incremental selection' },
+      { 'gi', desc = 'Increment selection', mode = 'x' },
+      { 'gd', desc = 'Decrement selection', mode = 'x' },
+      { 'gs', desc = 'Increment scope selection', mode = 'x' },
+    },
     config = function()
       require('nvim-treesitter.configs').setup {
         highlight = { enable = true },
@@ -20,10 +26,12 @@ return {
         incremental_selection = {
           enable = true,
           keymaps = {
+            -- mode = normal
             init_selection = '<leader>i',
-            node_incremental = '<leader>i',
-            scope_incremental = false,
-            node_decremental = '<bs>',
+            -- mode = visual (x)
+            node_incremental = 'gi',
+            node_decremental = 'gd',
+            scope_incremental = 'gs',
           },
         },
         ensure_installed = {
