@@ -12,6 +12,10 @@ end
 map('v', '>', '>gv', 'Indent (maintain selection)')
 map('v', '<', '<gv', 'Outdent (maintain selection)')
 
+-- Up/down by display lines. If [count] e.g. 3j, then up/down linewise.
+map("n", "j", "v:count == 0 ? 'gj' : 'j'", 'up motion', { expr = true })
+map("n", "k", "v:count == 0 ? 'gk' : 'k'", 'down motion', { expr = true })
+
 --------------------------------------------------------------------------------
 -- Windows
 --------------------------------------------------------------------------------
