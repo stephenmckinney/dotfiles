@@ -114,8 +114,8 @@ return {
     keys = {
       -- xmap <leader>dg :diffget<CR>\|:diffupdate<CR>
       -- xmap <leader>dp :diffput<CR>\|:diffupdate<CR>
-      { '<leader>dg', '<cmd>diffget<CR>|:diffupdate<CR>', mode = 'x', desc = 'diffget' },
-      { '<leader>dp', '<cmd>diffput<CR>|:diffupdate<CR>', mode = 'x', desc = 'diffput' },
+      { '<leader>dg', '<cmd>diffget<CR>\\|:diffupdate<CR>', mode = 'x', desc = 'diffget' },
+      { '<leader>dp', '<cmd>diffput<CR>\\|:diffupdate<CR>', mode = 'x', desc = 'diffput' },
       { '<leader>gB', '<cmd>Git blame<cr>', desc = 'git blame (fugitive)' },
       -- nmap <leader>gh :GBrowse<CR>
       -- nmap <leader>gc :Git commit<CR>
