@@ -25,7 +25,10 @@ return {
         ensure_installed = {
           'bash',
           'c',
+          'css',
+          'diff',
           'html',
+          'go',
           'graphql',
           'javascript',
           'json',
@@ -38,6 +41,8 @@ return {
           'query',
           'regex',
           -- 'ruby,', -- broken
+          'scss',
+          'sql',
           'tsx',
           'typescript',
           'vim',
