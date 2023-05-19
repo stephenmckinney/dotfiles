@@ -12,7 +12,12 @@ return {
     version = false,
     build = ':TSUpdate',
     event = { 'BufReadPost', 'BufNewFile' },
-    dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' }, -- for mini.ai
+    dependencies = {
+      -- Syntax aware text-objects, select, move, swap, and peek support e.g. mini.ai.
+      { 'nvim-treesitter/nvim-treesitter-textobjects' },
+      -- Treesitter aware way to wisely add "end" in Ruby, Vimscript, Lua, etc.
+      { 'RRethy/nvim-treesitter-endwise' },
+    },
     keys = {
       { '<leader>i', desc = 'Init incremental selection' },
       { 'gi', desc = 'Increment selection', mode = 'x' },
@@ -23,6 +28,7 @@ return {
       require('nvim-treesitter.configs').setup {
         highlight = { enable = true },
         indent = { enable = true },
+        endwise = { enable = true },
         incremental_selection = {
           enable = true,
           keymaps = {
@@ -237,11 +243,6 @@ return {
   -- enable repeating supported plugin maps with '.'
   {
     'tpope/vim-repeat',
-    event = 'VeryLazy',
-  },
-  -- end structures e.g. Ruby, lua, shell, vimscript, etc.
-  {
-    'tpope/vim-endwise',
     event = 'VeryLazy',
   },
   -- Narrow Region
