@@ -83,8 +83,8 @@ return {
       { '<leader>sm', '<cmd>Telescope marks<cr>', desc = 'Lists vim marks and their value' },
       { '<leader>sM', '<cmd>Telescope man_pages<cr>', desc = 'Lists manpage entries, opens them in a help window on <cr>' },
       { '<leader>so', '<cmd>Telescope oldfiles<cr>', desc = 'Lists previously open files' },
-      { '<leader>sr', '<cmd>Telescope registers<cr>', desc = 'Lists vim registers, pastes the contents of the register on <cr>' },
-      { '<leader>sR', '<cmd>Telescope resume<cr>', desc = 'Lists the results incl. multi-selections of the previous picker' },
+      { '<leader>sr', '<cmd>Telescope resume<cr>', desc = 'Lists the results incl. multi-selections of the previous picker' },
+      { '<leader>sR', '<cmd>Telescope registers<cr>', desc = 'Lists vim registers, pastes the contents of the register on <cr>' },
       { '<leader>ss', '<cmd>Telescope search_history<cr>', desc = 'Lists searches that were executed recently, and reruns them on <cr>' },
       -- search vim
       { '<leader>svc', '<cmd>Telescope colorscheme<cr>', desc = 'Lists available colorschemes and applies them on <cr>' },
@@ -117,17 +117,15 @@ return {
     'tpope/vim-fugitive',
     cmd = 'Git',
     keys = {
-      -- xmap <leader>dg :diffget<CR>\|:diffupdate<CR>
-      -- xmap <leader>dp :diffput<CR>\|:diffupdate<CR>
       { '<leader>dg', '<cmd>diffget<CR>\\|:diffupdate<CR>', mode = 'x', desc = 'diffget' },
       { '<leader>dp', '<cmd>diffput<CR>\\|:diffupdate<CR>', mode = 'x', desc = 'diffput' },
       { '<leader>gB', '<cmd>Git blame<cr>', desc = 'git blame (fugitive)' },
-      -- nmap <leader>gh :GBrowse<CR>
-      -- nmap <leader>gc :Git commit<CR>
       { '<leader>gd', '<cmd>Gvdiffsplit<cr>', desc = 'git diff' },
       { '<leader>gs', '<cmd>Git<cr>', desc = 'git status (fugitive)' },
       { '<leader>gr', '<cmd>Gread<cr>', desc = 'Gread | git checkout (restore working tree file)' },
       { '<leader>gw', '<cmd>Gwrite<cr>', desc = 'Gwrite | git add (stage file)' },
+      -- nmap <leader>gh :GBrowse<CR>
+      -- nmap <leader>gc :Git commit<CR>
    }
   },
 
