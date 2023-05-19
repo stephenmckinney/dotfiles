@@ -96,7 +96,6 @@ return {
       { '<leader>sM', '<cmd>Telescope man_pages<cr>', desc = 'Lists manpage entries, opens them in a help window on <cr>' },
       { '<leader>so', '<cmd>Telescope oldfiles<cr>', desc = 'Lists previously open files' },
       { '<leader>sr', '<cmd>Telescope resume<cr>', desc = 'Lists the results incl. multi-selections of the previous picker' },
-      { '<leader>sR', '<cmd>Telescope registers<cr>', desc = 'Lists vim registers, pastes the contents of the register on <cr>' },
       { '<leader>ss', '<cmd>Telescope search_history<cr>', desc = 'Lists searches that were executed recently, and reruns them on <cr>' },
       -- search vim
       { '<leader>svc', '<cmd>Telescope colorscheme<cr>', desc = 'Lists available colorschemes and applies them on <cr>' },
@@ -107,6 +106,36 @@ return {
       { '<leader>gl', '<cmd>Telescope git_commits<CR>', desc = 'git log' },
       { '<leader>gS', '<cmd>Telescope git_status<CR>', desc = 'git status (telescope)' },
     }
+  },
+
+  -- Search/replace in multiple files
+  {
+    'nvim-pack/nvim-spectre',
+    config = function()
+      require('spectre').setup {
+        highlight = {
+          replace = '@text.danger'
+        },
+        mapping = {
+          ['run_current_replace'] = {
+            map = '<leader>r',
+            cmd = "<cmd>lua require('spectre.actions').run_current_replace()<CR>",
+            desc = 'replace current line'
+          },
+          ['run_replace'] = {
+            map = '<leader>R',
+            cmd = "<cmd>lua require('spectre.actions').run_replace()<CR>",
+            desc = 'replace all'
+          },
+        }
+      }
+    end,
+    keys = {
+      { '<leader>r', '<cmd>lua require("spectre").open()<CR>', desc = "Open search and replace (Spectre)" },
+      { '<leader>rw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', desc = "Search and replace current word under cursor (Spectre)" },
+      { '<leader>rw', '<esc><cmd>lua require("spectre").open_visual()<CR>', mode = 'x', desc = "Search and replace currently selection (Spectre)" },
+      { '<leader>rc', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', desc = "Search and replace on current file (Spectre)" },
+    },
   },
 
   -- file explorer
