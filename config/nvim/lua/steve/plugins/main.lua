@@ -1,6 +1,10 @@
 return {
-  -- TODO lukas-reineke/indent-blankline.nvim or echasnovski/mini.indentscope
   -- TODO /coding/treesitter, coding/lsp, coding/core, editor, ui
+  -- TODO lukas-reineke/indent-blankline.nvim or echasnovski/mini.indentscope
+  -- TODO mini-align
+  -- TODO mini-splitjoin
+  -- TODO mini-trailspace
+
 
   -- treesitter
   {
@@ -139,7 +143,7 @@ return {
     }
   },
 
-  -- pairs
+  -- Autopairs
   {
     'echasnovski/mini.pairs',
     version = false,
@@ -148,7 +152,7 @@ return {
       require('mini.pairs').setup {}
     end
   },
-  -- surround
+  -- Surround actions
   {
     'echasnovski/mini.surround',
     version = false,
@@ -157,7 +161,7 @@ return {
       require('mini.surround').setup {}
     end
   },
-  -- comment
+  -- Comment lines
 	{
     'echasnovski/mini.comment',
     version = false,
