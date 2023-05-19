@@ -32,6 +32,5 @@ map('n', '/', '/\\v', 'Search very-magically', false)
 map('v', '/', '/\\v', 'Use search in visual mode', false)
 
 -- Search and replace prompt
-map('n', '<leader>s', ':%s/\\v/g<left><left>', 'Search and replace', false)
-map('v', '<leader>s', ':s/\\v/g<left><left>', 'Search and replace for all lines within visual selection', false)
-map('n', '<leader>S', ':%s/\\<<C-r><C-w>\\>//g<Left><Left>', 'Search and replace the word under the cursor', false)
+map('n', 's', ':%s/\\v/g<left><left>', 'Search and replace', false)
+map('n', 'S', ':%s/\\<<C-r><C-w>\\>//g<Left><Left>', 'Search and replace the word under the cursor', false)
