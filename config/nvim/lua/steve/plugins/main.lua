@@ -1,6 +1,54 @@
 return {
+  -- TODO lukas-reineke/indent-blankline.nvim or echasnovski/mini.indentscope
+  -- TODO /coding/treesitter, coding/lsp, coding/core, editor, ui
+
+  -- treesitter
+  {
+    'nvim-treesitter/nvim-treesitter',
+    version = false,
+    build = ':TSUpdate',
+    event = { 'BufReadPost', 'BufNewFile' },
+    dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' }, -- for mini.ai
+    config = function()
+      require('nvim-treesitter.configs').setup {
+        highlight = { enable = true },
+        indent = { enable = true },
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = '<C-space>',
+            node_incremental = '<C-space>',
+            scope_incremental = false,
+            node_decremental = '<bs>',
+          },
+        },
+        ensure_installed = {
+          'bash',
+          'c',
+          'html',
+          'graphql',
+          'javascript',
+          'json',
+          'lua',
+          'luadoc',
+          'luap',
+          'markdown',
+          'markdown_inline',
+          'python',
+          'query',
+          'regex',
+          -- 'ruby,', -- broken
+          'tsx',
+          'typescript',
+          'vim',
+          'vimdoc',
+          'yaml',
+        },
+      }
+    end,
+  },
+ 
   -- fuzzy finder
-  -- TODO add treesitter
   {
     'nvim-telescope/telescope.nvim',
     version = '0.1.x',
