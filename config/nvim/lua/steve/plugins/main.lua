@@ -187,4 +187,6 @@ return {
     'tpope/vim-endwise',
     event = 'VeryLazy',
   },
+  -- Narrow Region
+  { 'chrisbra/NrrwRgn', event = 'VeryLazy' }
 }
