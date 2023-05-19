@@ -216,8 +216,24 @@ return {
       require('mini.ai').setup {}
     end
   },
-  -- handy keymaps
-  { 'tpope/vim-unimpaired', enabled = false },
+  -- Move any selection in any direction
+  {
+    'echasnovski/mini.move',
+    version = false,
+    event = 'VeryLazy',
+    config = function()
+      require('mini.move').setup {}
+    end
+  },
+  -- Go forward/backward with square brackets
+  {
+    'echasnovski/mini.bracketed',
+    version = false,
+    event = 'VeryLazy',
+    config = function()
+      require('mini.bracketed').setup {}
+    end
+  },
   -- enable repeating supported plugin maps with '.'
   {
     'tpope/vim-repeat',
@@ -229,5 +245,8 @@ return {
     event = 'VeryLazy',
   },
   -- Narrow Region
-  { 'chrisbra/NrrwRgn', event = 'VeryLazy' }
+  {
+    'chrisbra/NrrwRgn',
+    event = 'VeryLazy'
+  },
 }
