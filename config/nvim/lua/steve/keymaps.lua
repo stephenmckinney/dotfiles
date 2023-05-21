@@ -41,5 +41,5 @@ map('n', '/', '/\\v', 'Search very-magically', { silent = false })
 map('v', '/', '/\\v', 'Use search in visual mode', { silent = false })
 
 -- Search and replace (substite) prompt. Quick search and replace 'q' vs Spectre and Telescope 's'
-map('n', 'q', ':%s/\\v/g<left><left>', 'Search and replace', { silent = false })
-map('n', 'Q', ':%s/\\<<C-r><C-w>\\>//g<Left><Left>', 'Search and replace the word under the cursor', { silent = false })
+map('n', 'q', ':%s/\\v/g<left><left>', 'Search and replace (vim substite)', { silent = false })
+map('n', 'Q', ':%s/\\<<C-r><C-w>\\>//g<Left><Left>', 'Search and replace the word under the cursor (vim substite)', { silent = false })
