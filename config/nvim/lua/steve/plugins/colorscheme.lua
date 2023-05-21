@@ -36,7 +36,7 @@ return {
   },
 
   -- nightfox
-  { 
+  {
     'EdenEast/nightfox.nvim',
     name = 'nightfox',
     lazy = false, -- set to false to load this during startup if it is your main colorscheme
@@ -48,7 +48,7 @@ return {
   },
 
   -- rose-pine
-  { 
+  {
     'rose-pine/neovim',
     name = 'rose-pine',
     lazy = true, -- set to false to load this during startup if it is your main colorscheme

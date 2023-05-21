@@ -1,5 +1,5 @@
 local function map(mode, lhs, rhs, desc, overrides)
-  opts = { noremap = true, desc = desc, silent = true }
+  local opts = { noremap = true, desc = desc, silent = true }
   overrides = overrides or {}
   for k, v in pairs(overrides) do
     opts[k] = v
