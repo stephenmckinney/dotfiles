@@ -40,8 +40,8 @@ return {
       { '<leader>t', '<cmd>Telescope find_files<cr>', desc = 'Find files' },
       { '<leader>b', '<cmd>Telescope buffers<cr>', desc = 'Find open buffers' },
       -- quick grep
-      { '<leader>a', '<cmd>Telescope grep_string<cr>', desc = 'Grep search for the string under your cursor or selection in current directory' },
-      { '<leader>A', '<cmd>Telescope live_grep<cr>', desc = 'Live Grep search in current directory' },
+      { '<leader>a', '<cmd>Telescope live_grep<cr>', desc = 'Live Grep search in current directory' },
+      { '<leader>A', '<cmd>Telescope grep_string<cr>', desc = 'Grep search for the string under your cursor or selection in current directory' },
       -- 'search' leaders
       { '<leader>sa', '<cmd>Telescope autocommands<cr>', desc = 'Lists vim autocommands and goes to their declaration on <cr>' },
       { '<leader>sb', '<cmd>Telescope current_buffer_fuzzy_find<cr>', desc = 'Live fuzzy search inside of the currently open buffer' },
@@ -62,7 +62,7 @@ return {
       -- git
       { '<leader>gl', '<cmd>Telescope git_commits<CR>', desc = 'git log' },
       { '<leader>gS', '<cmd>Telescope git_status<CR>', desc = 'git status (telescope)' },
-    }
+    },
   },
 
   -- Search/replace in multiple files
