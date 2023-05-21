@@ -20,6 +20,8 @@ return {
     event = "InsertEnter",
     dependencies = {
       -- Auto-completion sources
+      -- LSP
+      "hrsh7th/cmp-nvim-lsp",
       -- Buffer
       "hrsh7th/cmp-buffer",
       -- Path
@@ -75,6 +77,7 @@ return {
           ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected (including implicit) item.
         }),
         sources = cmp.config.sources({
+          { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'buffer' },
           { name = 'path' },
