@@ -30,8 +30,12 @@ vim.opt.sidescrolloff=15 -- Keep at least 15 columns visible left/right of the c
 -- Folding
 --  Use indentation to determine folds, but keep them open by default.
 --------------------------------------------------------------------------------
-vim.opt.foldmethod='indent' -- Use indentation level as fold marker
-vim.opt.foldenable=false -- Start with all folds open
+vim.opt.foldenable = true
+vim.opt.foldlevel = 99 -- Start with all folds open
+vim.opt.foldcolumn = '4' -- Display folds in sidebar
+-- folding with treesitter
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 --------------------------------------------------------------------------------
 -- Undo

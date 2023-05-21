@@ -32,7 +32,28 @@ return {
     },
     cmd = 'Telescope',
     config = function()
-      require('telescope').setup {}
+      -- Fixes folds not working when file is opened in Telescope
+      -- See: https://github.com/nvim-treesitter/nvim-treesitter/issues/4754
+      local function stopinsert(callback)
+        return function(prompt_bufnr)
+          vim.cmd.stopinsert()
+          vim.schedule(function() callback(prompt_bufnr) end)
+        end
+      end
+      local actions = require('telescope.actions')
+
+      require('telescope').setup {
+        defaults = {
+          mappings = {
+            i = {
+              ["<CR>"]  = stopinsert(actions.select_default),
+              ["<C-x>"] = stopinsert(actions.select_horizontal),
+              ["<C-v>"] = stopinsert(actions.select_vertical),
+              ["<C-t>"] = stopinsert(actions.select_tab)
+            }
+          }
+        },
+      }
       require('telescope').load_extension('fzf')
     end,
     keys = {
