@@ -45,7 +45,7 @@ return {
       require("mason-lspconfig").setup {
         ensure_installed = { 'lua_ls'}
       }
-      require'lspconfig'.lua_ls.setup {
+      require('lspconfig').lua_ls.setup {
         settings = {
           Lua = {
             diagnostics = {
@@ -55,6 +55,28 @@ return {
         },
       }
     end
+  },
+
+  -- null-ls
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "williamboman/mason.nvim",
+      "jay-babu/mason-null-ls.nvim",
+    },
+    config = function()
+      require("mason").setup()
+      require("mason-null-ls").setup {
+        ensure_installed = { "stylua" }
+      }
+      local null_ls = require("null-ls")
+      null_ls.setup {
+        sources = {
+          null_ls.builtins.formatting.stylua,
+        }
+      }
+    end,
   },
 
   -- mason
