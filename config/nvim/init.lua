@@ -33,3 +33,4 @@ require("lazy").setup("steve.plugins", {
 -- 'steve.keymaps' contains custom key mappings.
 require("steve.options")
 require("steve.keymaps")
+require("steve.autocmds")

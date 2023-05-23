@@ -26,7 +26,15 @@ return {
       { "<leader>dp", "<cmd>diffput<CR>\\|:diffupdate<CR>", mode = "x", desc = "diffput" },
       { "<leader>gB", "<cmd>Git blame<cr>", desc = "git blame (fugitive)" },
       { "<leader>gd", "<cmd>Gvdiffsplit<cr>", desc = "git diff" },
-      { "<leader>gs", "<cmd>Git<cr>", desc = "git status (fugitive)" },
+      {
+        "<leader>gs",
+        function()
+          local lines = vim.opt.lines:get() * 2 / 3
+          vim.cmd("Git")
+          vim.api.nvim_win_set_height(0, lines)
+        end,
+        desc = "git status (fugitive)",
+      },
       { "<leader>gr", "<cmd>Gread<cr>", desc = "Gread | git checkout (restore working tree file)" },
       { "<leader>gw", "<cmd>Gwrite<cr>", desc = "Gwrite | git add (stage file)" },
       -- nmap <leader>gh :GBrowse<CR>
