@@ -41,8 +41,15 @@ return {
     lazy = false, -- If this is your main colorscheme, set to false to load during startup.
     priority = 1000, -- Ensure this plugin loads before all other start plugins.
     config = function()
-      require("nightfox").setup({})
-      vim.cmd("colorscheme terafox") -- nightfox, dayfox, dawnfox, duskfox, nordfox, terafox, carbonfox
+      require("nightfox").setup({
+        groups = {
+          all = {
+            TelescopeBorder = { fg = "palette.fg3" },
+          },
+        },
+      })
+      -- Available flavors: nightfox, dayfox, dawnfox, duskfox, nordfox, terafox, carbonfox
+      vim.cmd("colorscheme terafox")
     end,
   },
 
