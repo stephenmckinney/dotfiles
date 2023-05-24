@@ -9,6 +9,7 @@
 return {
 
   -- File Explorer
+  -- The nvim-tree plugin provides a sidebar for browsing the file system.
   {
     "nvim-tree/nvim-tree.lua",
     version = "*",
@@ -22,16 +23,18 @@ return {
   },
 
   -- Fuzzy Finder
+  -- Telescope is a highly customizable fuzzy finder plugin that helps to locate files, buffers, or lines of code.
   {
     "nvim-telescope/telescope.nvim",
     version = "0.1.x",
     dependencies = {
+      -- This plugin allows Telescope to use the fzf fuzzy finder.
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     cmd = "Telescope",
     config = function()
       -- Fixes a bug where folds don't work when a file is opened in Telescope
-      -- See: https://github.com/nvim-treesitter/nvim-treesitter/issues/4754
+      -- This issue has been discussed at https://github.com/nvim-treesitter/nvim-treesitter/issues/4754
       local function stopinsert(callback)
         return function(prompt_bufnr)
           vim.cmd.stopinsert()
@@ -87,6 +90,7 @@ return {
   },
 
   -- Search/Replace in Multiple Files
+  -- nvim-spectre provides powerful search and replace capabilities across multiple files.
   {
     "nvim-pack/nvim-spectre",
     config = function()
