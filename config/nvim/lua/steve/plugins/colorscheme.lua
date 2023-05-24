@@ -80,8 +80,8 @@ return {
   },
 
   -- Nord
-  -- Dimmed pastel themes for a eye-comfortable, but yet colorful ambiance.
-  -- Note: No itermcolors, but similar to onenord.
+  -- A dimmed pastel theme that provides an eye-comfortable, yet colorful ambiance.
+  -- It doesn't have itermcolors, but it's similar to onenord.
   {
     "shaunsingh/nord.nvim",
     name = "nord",
@@ -91,15 +91,14 @@ return {
       vim.g.nord_cursorline_transparent = true
       vim.g.nord_uniform_diff_background = true
 
-      -- Load the colorscheme
       -- require("nord").set()
       -- vim.cmd("colorscheme nord")
     end,
   },
 
   -- One Dark
-  -- Combines the Nord and Atom One Dark color palettes to add more vibrance to the Nord theme.
-  -- Note: No itermcolors, but similar to onenord.
+  -- This theme combines the Nord and Atom One Dark color palettes to add more vibrance to the Nord theme.
+  -- It doesn't have itermcolors, but it's similar to onenord.
   {
     "navarasu/onedark.nvim",
     name = "onedark",
@@ -113,7 +112,7 @@ return {
   },
 
   -- Material
-  -- Material Design look and feel.
+  -- Material Design theme that gives your Neovim a modern, clean aesthetic.
   {
     "marko-cerovac/material.nvim",
     name = "material",
