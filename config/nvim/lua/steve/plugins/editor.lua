@@ -79,7 +79,6 @@ return {
       { "<leader>sr", "<cmd>Telescope resume<cr>", desc = "Lists the results incl. multi-selections of the previous picker" },
       { "<leader>ss", "<cmd>Telescope search_history<cr>", desc = "Lists searches that were executed recently, and reruns them on <cr>" },
       -- search vim
-      { "<leader>svc", "<cmd>Telescope colorscheme enable_preview=true<cr>", desc = "Lists available colorschemes and applies them on <cr>" },
       { "<leader>svh", "<cmd>Telescope highlights<cr>", desc = "Lists all available highlights" },
       { "<leader>svo", "<cmd>Telescope vim_options<cr>", desc = "Lists vim options, allows you to edit the current value on <cr>" },
       { "<leader>svf", "<cmd>Telescope filetypes<cr>", desc = "Lists all available filetypes" },

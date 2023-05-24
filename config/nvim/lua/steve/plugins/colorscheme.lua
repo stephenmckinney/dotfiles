@@ -7,7 +7,7 @@
 -- * Each theme must support lualine for statusline customization.
 -- * Each theme must include itermcolors for consistency across terminal sessions.
 --------------------------------------------------------------------------------
-return {
+local colorschemes = {
   -- Catppuccin
   -- A visually soothing coffee-themed colorscheme.
   {
@@ -123,3 +123,16 @@ return {
     end,
   },
 }
+
+-- Set all colorschemes to lazy-load on key map for builtin.colorscheme picker, so that they can be hotswapped.
+-- Unless the lazy key is already set, e.g. our main colorscheme.
+for _, entry in ipairs(colorschemes) do
+  if entry.lazy == nil then
+    entry.lazy = true
+    entry.keys = {
+      { "<leader>svc", "<cmd>Telescope colorscheme enable_preview=true<cr>", desc = "Lists available colorschemes and applies them on <cr>" },
+    }
+  end
+end
+
+return colorschemes
