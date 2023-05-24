@@ -1,51 +1,70 @@
--- TODO keep SuperTab?
+--------------------------------------------------------------------------------
+-- Completion Configuration
+--
+-- Setup for automatic code completion. The following sources are used:
+-- * LSP (Language Server Protocol): Context-aware suggestions using language servers.
+-- * Snippets: Code snippets for faster and easier coding.
+-- * Buffer: Suggestions from the currently open buffers.
+-- * Path: File and directory path completion.
+--------------------------------------------------------------------------------
+
+-- TODO: Consider whether to keep SuperTab or not.
 return {
-  -- snippets
+  -- Snippet Management
+  -- LuaSnip is used for snippets and is configured to use friendly-snippets.
   {
     "L3MON4D3/LuaSnip",
     version = "1.*",
-    build = "make install_jsregexp",
-    dependencies = { "rafamadriz/friendly-snippets" },
+    build = "make install_jsregexp", -- Build step for LuaSnip.
+    dependencies = { "rafamadriz/friendly-snippets" }, -- Use friendly-snippets for our snippets.
     config = function()
+      -- Lazy load snippets from friendly-snippets.
       require("luasnip.loaders.from_vscode").lazy_load()
     end,
-    keys = {},
+    keys = {}, -- No special keybindings set for snippets.
   },
 
-  -- auto completion
+  -- Auto-completion using nvim-cmp
+  -- nvim-cmp is a completion framework that supports multiple sources such as LSP, buffer, path and snippets.
   {
     "hrsh7th/nvim-cmp",
     version = false,
-    event = "InsertEnter",
+    event = "InsertEnter", -- Auto completion is triggered when insert mode is entered.
     dependencies = {
-      -- Auto-completion sources
-      -- LSP
-      "hrsh7th/cmp-nvim-lsp",
-      -- Buffer
-      "hrsh7th/cmp-buffer",
-      -- Path
-      "hrsh7th/cmp-path",
-      -- Snippets
-      "saadparwaiz1/cmp_luasnip",
+      -- Sources for auto completion:
+      "hrsh7th/cmp-nvim-lsp", -- LSP (Language Server Protocol) source.
+      "hrsh7th/cmp-buffer", -- Buffer source.
+      "hrsh7th/cmp-path", -- Path source.
+      "saadparwaiz1/cmp_luasnip", -- Snippets source.
     },
     config = function()
       local luasnip = require("luasnip")
       local cmp = require("cmp")
 
+      -- Function to check if there are words before the cursor in the current line.
       local has_words_before = function()
         unpack = unpack or table.unpack
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
         return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
       end
 
+      -- Setting up nvim-cmp with custom mappings and sources.
       cmp.setup({
+        -- Configure snippets for nvim-cmp.
         snippet = {
           expand = function(args)
             luasnip.lsp_expand(args.body)
           end,
         },
+        -- Mappings for nvim-cmp.
+        -- These are designed to mimic the functionality of SuperTab.
         mapping = cmp.mapping.preset.insert({
-          -- -- SuperTab-like mappings
+          -- SuperTab like mapping
+          -- On pressing <Tab>:
+          -- If the completion menu is visible, select the next item.
+          -- If a snippet is expandable or jumpable at the cursor, trigger the action.
+          -- If there is a word before the cursor, complete it.
+          -- If none of the above apply, insert a Tab character.
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
@@ -66,20 +85,22 @@ return {
               fallback()
             end
           end, { "i", "s" }),
-          -- regurlar mappings
-          ["<C-j>"] = cmp.mapping.select_next_item(),
-          ["<C-k>"] = cmp.mapping.select_prev_item(),
+          -- The remaining mappings have specific functions within nvim-cmp:
+          -- * <C-b> and <C-f> scroll through the documentation (in chunks of 4 lines).
+          -- * <C-Space> triggers the completion function.
+          -- * <CR> confirms the selection, including the current implicit selection.
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
-          ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected (including implicit) item.
+          ["<CR>"] = cmp.mapping.confirm({ select = true }),
         }),
+        -- Set up completion sources.
         sources = cmp.config.sources({
-          { name = "nvim_lsp" },
-          { name = "luasnip" },
-          { name = "buffer" },
-          { name = "path" },
+          { name = "nvim_lsp" }, -- LSP-based completion
+          { name = "luasnip" }, -- Snippet-based completion
+          { name = "buffer" }, -- Completion from current buffer
+          { name = "path" }, -- File path completion
         }),
       })
     end,
