@@ -8,7 +8,6 @@
 return {
 
   -- TODO mini-align
-  -- TODO mini-splitjoin
   -- TODO mini-trailspace
   -- TODO intall and set up tpope/vim-rhubarb to enable GBrowse
   -- TODO lukas-reineke/indent-blankline.nvim or echasnovski/mini.indentscope
@@ -123,6 +122,19 @@ return {
       require("mini.bracketed").setup({})
     end,
   },
+  -- Split and join arguments
+  {
+    "echasnovski/mini.splitjoin",
+    version = false,
+    event = "VeryLazy",
+    config = function()
+      require("mini.splitjoin").setup({
+        mappings = {
+          toggle = "gs",
+        },
+      })
+    end,
+  },
   -- enable repeating supported plugin maps with '.'
   {
     "tpope/vim-repeat",
@@ -132,5 +144,18 @@ return {
   {
     "chrisbra/NrrwRgn",
     event = "VeryLazy",
+  },
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 500
+    end,
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
   },
 }
