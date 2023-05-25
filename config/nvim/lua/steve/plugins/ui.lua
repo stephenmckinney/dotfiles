@@ -26,13 +26,31 @@ return {
       require("statuscol").setup({
         segments = {
           -- fold column
-          { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+          {
+            text = { builtin.foldfunc },
+          },
           -- diagnostic signs
-          { sign = { name = { "Diagnostic" }, maxwidth = 2, auto = true }, click = "v:lua.ScSa" },
+          {
+            sign = {
+              name = { "Diagnostic" },
+              maxwidth = 2,
+              auto = true
+            },
+          },
           -- numbers
-          { text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
+          {
+            text = { builtin.lnumfunc, " " },
+          },
           -- a sign segment that is only 1 cell wide that shows all other signs
-          { sign = { name = { ".*" }, maxwidth = 2, colwidth = 1, auto = true, wrap = true }, click = "v:lua.ScSa" },
+          {
+            sign = {
+              name = { ".*" },
+              maxwidth = 2,
+              colwidth = 1,
+              auto = true,
+              wrap = true
+            },
+          },
         },
       })
     end,
