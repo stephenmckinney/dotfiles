@@ -40,7 +40,7 @@ map("n", "<cr>", ":noh<cr>", "Stop highlighting search")
 map("n", "/", "/\\v", "Search very-magically", { silent = false })
 map("v", "/", "/\\v", "Use search in visual mode", { silent = false })
 
--- Search and replace (substitute) prompt. Quick search and replace 'q' vs Spectre and Telescope 's'
+-- Search and replace (substitute) prompt.
 -- stylua: ignore start
 map(
   "n",

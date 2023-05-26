@@ -107,7 +107,8 @@ return {
       { "<leader>st", "<cmd>Telescope current_buffer_tags<cr>", desc = "Lists all of the tags for the currently open buffer, with a preview" },
       { "<leader>sT", "<cmd>Telescope tags<cr>", desc = "Lists tags in current directory with tag location file preview (run ctags -R)" },
       -- git
-      { "<leader>gl", "<cmd>Telescope git_commits<CR>", desc = "git log (telescope)" },
+      { "<leader>gl", "<cmd>Telescope git_bcommits<CR>", desc = "git log on current buffer (telescope)" },
+      { "<leader>gL", "<cmd>Telescope git_commits<CR>", desc = "git log on current directory (telescope)" },
       { "<leader>gS", "<cmd>Telescope git_status<CR>", desc = "git status (telescope)" },
       -- Meh?
       -- { "<leader>foo", "<cmd>Telescope loclist<cr>", desc = "Lists items from the current window's location list" },

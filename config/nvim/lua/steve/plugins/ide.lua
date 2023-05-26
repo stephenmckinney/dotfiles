@@ -35,6 +35,7 @@ return {
       },
       { "<leader>gr", "<cmd>Gread<cr>", desc = "Gread | git checkout (restore working tree file)" },
       { "<leader>gw", "<cmd>Gwrite<cr>", desc = "Gwrite | git add (stage file)" },
+      { "<leader>gc", "<cmd>Git commit<cr>", desc = "git commit" },
     },
   },
 
