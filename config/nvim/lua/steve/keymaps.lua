@@ -5,19 +5,16 @@
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
--- Helper functions
+-- Helpers
 --------------------------------------------------------------------------------
 -- Map keys with default options.
+--
 -- desc - Description of the mapping.
--- overrides - An optional table of keymap options that will override the default options.
-local function map(mode, lhs, rhs, desc, overrides)
-  local opts = { noremap = true, desc = desc, silent = true }
-  overrides = overrides or {}
-  for k, v in pairs(overrides) do
-    opts[k] = v
-  end
+-- opts - An optional table of keymap options that will override the default options.
+local function map(mode, lhs, rhs, desc, opts)
+  local defaults = { noremap = true, desc = desc, silent = true }
 
-  vim.keymap.set(mode, lhs, rhs, opts)
+  vim.keymap.set(mode, lhs, rhs, vim.tbl_extend("force", defaults, opts or {}))
 end
 
 --------------------------------------------------------------------------------
