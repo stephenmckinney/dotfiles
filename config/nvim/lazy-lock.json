@@ -24,6 +24,8 @@
   "mini.pairs": { "branch": "main", "commit": "963b800d0524eadd297199207011b98684205ada" },
   "mini.splitjoin": { "branch": "main", "commit": "7d22e5f8d2f212c1aea94dd3b010d19a73edd6d0" },
   "mini.surround": { "branch": "main", "commit": "ea2e9c4cdbddc826dc6eeac69b035f8220f65de5" },
+  "neotest": { "branch": "master", "commit": "6435a367a57f267039c4c69a723cec09ae61b17e" },
+  "neotest-vim-test": { "branch": "master", "commit": "75c4228882ae4883b11bfce9b8383e637eb44192" },
   "nightfox": { "branch": "main", "commit": "77aa7458d2b725c2d9ff55a18befe1b891ac473e" },
   "nord": { "branch": "master", "commit": "fab04b2dd4b64f4b1763b9250a8824d0b5194b8f" },
   "null-ls.nvim": { "branch": "main", "commit": "77e53bc3bac34cc273be8ed9eb9ab78bcf67fa48" },
@@ -46,5 +48,6 @@
   "tokyonight": { "branch": "main", "commit": "90b711c052bb3cd9692922e16bcf3861344ecf75" },
   "vim-fugitive": { "branch": "master", "commit": "5f0d280b517cacb16f59316659966c7ca5e2bea2" },
   "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
+  "vim-test": { "branch": "master", "commit": "08250c56f11cb3460c8a02c8fdb80c8d39c92173" },
   "which-key.nvim": { "branch": "main", "commit": "e271c28118998c93a14d189af3395812a1aa646c" }
 }
