@@ -20,8 +20,8 @@ return {
     "tpope/vim-fugitive",
     cmd = "Git",
     keys = {
-      { "<leader>dg", "<cmd>diffget<CR>\\|:diffupdate<CR>", mode = "x", desc = "diffget" },
-      { "<leader>dp", "<cmd>diffput<CR>\\|:diffupdate<CR>", mode = "x", desc = "diffput" },
+      { "<leader>dg", ":diffget<bar>diffudpate<cr>", mode = "x", desc = "diffget" },
+      { "<leader>dp", ":diffput<bar>diffupdate<cr>", mode = "x", desc = "diffput" },
       { "<leader>gB", "<cmd>Git blame<cr>", desc = "git blame (fugitive)" },
       { "<leader>gd", "<cmd>Gvdiffsplit<cr>", desc = "git diff" },
       {
