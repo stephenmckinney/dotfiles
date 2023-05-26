@@ -13,14 +13,9 @@ return {
     end,
   },
   {
-    "lewis6991/gitsigns.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    config = function()
-      require("gitsigns").setup()
-    end,
-  },
-  {
     "luukvbaal/statuscol.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = { "lewis6991/gitsigns.nvim" },
     config = function()
       local builtin = require("statuscol.builtin")
       require("statuscol").setup({
@@ -34,7 +29,7 @@ return {
             sign = {
               name = { "Diagnostic" },
               maxwidth = 2,
-              auto = true
+              auto = true,
             },
           },
           -- numbers
@@ -48,9 +43,21 @@ return {
               maxwidth = 2,
               colwidth = 1,
               auto = true,
-              wrap = true
+              wrap = true,
             },
           },
+        },
+      })
+
+      -- setup gitsigns
+      require("gitsigns").setup({
+        signs = {
+          add = { text = "▎" },
+          change = { text = "▎" },
+          delete = { text = "" },
+          topdelete = { text = "" },
+          changedelete = { text = "▎" },
+          untracked = { text = "▎" },
         },
       })
     end,

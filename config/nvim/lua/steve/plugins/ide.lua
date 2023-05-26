@@ -44,11 +44,13 @@ return {
   -- Inline git blame
   {
     "f-person/git-blame.nvim",
+    event = "VeryLazy",
     init = function()
-      vim.g.gitblame_enabled = 0
+      vim.g.gitblame_enabled = false
     end,
     keys = {
       { "<leader>gb", "<cmd>GitBlameToggle<cr>", desc = "git blame (inline)" },
+      { "<leader>gh", "<cmd>GitBlameOpenCommitURL<cr>", desc = "Open GitHub commit URL" },
     },
   },
 
