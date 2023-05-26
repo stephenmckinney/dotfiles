@@ -1,3 +1,15 @@
+--------------------------------------------------------------------------------
+-- Keymaps
+--
+-- For key mappings used to lazy-load plugins, see /plugins/*
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+-- Helper functions
+--------------------------------------------------------------------------------
+-- Map keys with default options.
+-- desc - Description of the mapping.
+-- overrides - An optional table of keymap options that will override the default options.
 local function map(mode, lhs, rhs, desc, overrides)
   local opts = { noremap = true, desc = desc, silent = true }
   overrides = overrides or {}
@@ -8,6 +20,9 @@ local function map(mode, lhs, rhs, desc, overrides)
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
+--------------------------------------------------------------------------------
+-- Basics
+--------------------------------------------------------------------------------
 -- Maintain selection after indent
 map("v", ">", ">gv", "Indent (maintain selection)")
 map("v", "<", "<gv", "Outdent (maintain selection)")
@@ -36,11 +51,11 @@ map("n", "<leader>o", "<C-w>o", "Close all but current window")
 --------------------------------------------------------------------------------
 map("n", "<cr>", ":noh<cr>", "Stop highlighting search")
 
--- search prompt
+-- Search prompt
 map("n", "/", "/\\v", "Search very-magically", { silent = false })
 map("v", "/", "/\\v", "Use search in visual mode", { silent = false })
 
--- Search and replace (substitute) prompt.
+-- Search and replace (substitute) prompt
 -- stylua: ignore start
 map(
   "n",

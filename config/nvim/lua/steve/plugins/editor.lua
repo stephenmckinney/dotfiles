@@ -58,6 +58,7 @@ return {
         },
       })
       require("telescope").load_extension("fzf")
+
       -- Set letters that match search to a bright color
       vim.api.nvim_set_hl(0, "TelescopeMatching", { link = "Number" })
     end,
@@ -71,9 +72,10 @@ return {
         "<leader>f",
         function()
           require("telescope.builtin").grep_string({
+            -- No: path_display = { "smart" }, because path display will not be uniform
+            -- No: only_sort_text = true, because ! on filename does not work !json
             search = "",
             word_match = "-w",
-            -- path_display = { "smart" },
             prompt_title = "Fuzzy Search (fzf)",
           })
         end,
@@ -84,7 +86,6 @@ return {
         function()
           require("telescope.builtin").grep_string({
             word_match = "-w",
-            -- path_display = { "smart" },
           })
         end,
         desc = "Search for word/selection, then fuzzy search (rg -> fzf)",
