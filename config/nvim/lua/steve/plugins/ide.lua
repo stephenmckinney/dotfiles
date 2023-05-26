@@ -9,7 +9,6 @@ return {
 
   -- TODO mini-align
   -- TODO mini-trailspace
-  -- TODO intall and set up tpope/vim-rhubarb to enable GBrowse
   -- TODO lukas-reineke/indent-blankline.nvim or echasnovski/mini.indentscope
 
   ------------------------------------------------------------------------------
@@ -36,8 +35,6 @@ return {
       },
       { "<leader>gr", "<cmd>Gread<cr>", desc = "Gread | git checkout (restore working tree file)" },
       { "<leader>gw", "<cmd>Gwrite<cr>", desc = "Gwrite | git add (stage file)" },
-      -- nmap <leader>gh :GBrowse<CR>
-      -- nmap <leader>gc :Git commit<CR>
     },
   },
 
