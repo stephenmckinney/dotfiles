@@ -9,7 +9,7 @@ return {
 
   -- TODO mini-align
   -- TODO mini-trailspace
-  -- TODO lukas-reineke/indent-blankline.nvim or echasnovski/mini.indentscope
+  -- TODO lukas-reineke/indent-blankline.nvim
 
   ------------------------------------------------------------------------------
   -- Git
@@ -134,13 +134,25 @@ return {
       })
     end,
   },
-  -- TODO kill animation, do we want this if all we need are indent objects
   {
     "echasnovski/mini.indentscope",
     version = false,
     event = "VeryLazy",
     config = function()
-      require("mini.indentscope").setup({})
+      local indentscope = require("mini.indentscope")
+      indentscope.setup({
+        -- no animation
+        animation = indentscope.gen_animation.none(),
+        -- use cursor row to calculate indent scope
+        options = {
+          indent_at_cursor = false,
+        },
+        -- no motion key mappings
+        mappings = {
+          goto_top = "",
+          goto_bottom = "",
+        },
+      })
     end,
   },
   -- enable repeating supported plugin maps with '.'

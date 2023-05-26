@@ -41,11 +41,11 @@ return {
           enable = true,
           keymaps = {
             -- mode = normal
-            init_selection = "<leader>i",
+            init_selection = "<C-space>",
             -- mode = visual (x)
-            node_incremental = "gi",
-            node_decremental = "gd",
-            scope_incremental = "gs",
+            node_incremental = "<C-space>",
+            scope_incremental = false,
+            node_decremental = "<bs>",
           },
         },
         ensure_installed = {
