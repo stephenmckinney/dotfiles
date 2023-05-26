@@ -22,7 +22,7 @@ end
 vim.api.nvim_create_autocmd("BufEnter", {
   group = augroup("fugitive"),
   callback = function()
-    local lines = vim.opt.lines:get() * 2 / 3
+    local lines = math.ceil(vim.opt.lines:get() * 2 / 3)
     if vim.bo.filetype == "fugitive" then
       vim.api.nvim_win_set_height(0, lines)
     end
