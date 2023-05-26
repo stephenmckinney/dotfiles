@@ -40,12 +40,19 @@ map("n", "<cr>", ":noh<cr>", "Stop highlighting search")
 map("n", "/", "/\\v", "Search very-magically", { silent = false })
 map("v", "/", "/\\v", "Use search in visual mode", { silent = false })
 
--- Search and replace (substite) prompt. Quick search and replace 'q' vs Spectre and Telescope 's'
-map("n", "q", ":%s/\\v/g<left><left>", "Search and replace (vim substite)", { silent = false })
+-- Search and replace (substitute) prompt. Quick search and replace 'q' vs Spectre and Telescope 's'
+-- stylua: ignore start
 map(
   "n",
-  "Q",
+  "gs",
+  ":%s/\\v/g<left><left>",
+  "Search and replace (vim substitute)",
+  { silent = false }
+)
+map(
+  "n",
+  "gS",
   ":%s/\\<<C-r><C-w>\\>//g<Left><Left>",
-  "Search and replace the word under the cursor (vim substite)",
+  "Search and replace word under cursor (vim substitute)",
   { silent = false }
 )

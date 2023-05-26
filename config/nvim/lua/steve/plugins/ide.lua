@@ -129,7 +129,7 @@ return {
     config = function()
       require("mini.splitjoin").setup({
         mappings = {
-          toggle = "gs",
+          toggle = "gj",
         },
       })
     end,

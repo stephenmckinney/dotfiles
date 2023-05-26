@@ -26,13 +26,13 @@ return {
       -- implementation
       { "gi", "<cmd>Telescope lsp_implementations<cr>", desc = "Goto Implementation" },
       -- references
-      { "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
+      { "gr", "<cmd>Telescope lsp_references<cr>", desc = "Goto References" },
       -- hover
       { "K", vim.lsp.buf.hover, desc = "Hover" },
       -- workspace diagnostics
-      { "ga", "<cmd>Telescope diagnostics<cr>", desc = "Workspace diagnostics" },
+      { "ga", "<cmd>Telescope diagnostics<cr>", desc = "Goto Workspace diagnostics" },
       -- signature_help
-      { "gK", vim.lsp.buf.signature_help, desc = "Signature Help" },
+      { "gK", vim.lsp.buf.signature_help, desc = "Goto Signature Help" },
       { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help" },
       { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" } },
     },
