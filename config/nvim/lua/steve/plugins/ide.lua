@@ -134,6 +134,15 @@ return {
       })
     end,
   },
+  -- TODO kill animation, do we want this if all we need are indent objects
+  {
+    "echasnovski/mini.indentscope",
+    version = false,
+    event = "VeryLazy",
+    config = function()
+      require("mini.indentscope").setup({})
+    end,
+  },
   -- enable repeating supported plugin maps with '.'
   {
     "tpope/vim-repeat",

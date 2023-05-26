@@ -7,10 +7,10 @@ return {
     end,
   },
   {
-    "NvChad/nvim-colorizer.lua",
-    cmd = { "ColorizerAttachToBuffer", "ColorizerToggle" },
+    "akinsho/bufferline.nvim",
+    event = "VeryLazy",
     config = function()
-      require("colorizer").setup()
+      require("bufferline").setup()
     end,
   },
   {
@@ -61,6 +61,13 @@ return {
           untracked = { text = "▎" },
         },
       })
+    end,
+  },
+  {
+    "NvChad/nvim-colorizer.lua",
+    cmd = { "ColorizerAttachToBuffer", "ColorizerToggle" },
+    config = function()
+      require("colorizer").setup()
     end,
   },
 }
