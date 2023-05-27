@@ -3,14 +3,38 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     config = function()
-      require("lualine").setup({})
+      require("lualine").setup({
+        options = {
+          disabled_filetypes = {
+            "NvimTree",
+            "neotest-summary",
+          },
+        },
+      })
     end,
   },
   {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
     config = function()
-      require("bufferline").setup()
+      require("bufferline").setup({
+        options = {
+          offsets = {
+            {
+              filetype = "NvimTree",
+              text = "File Explorer",
+              highlight = "Directory",
+              separator = true, -- use a "true" to enable the default
+            },
+            {
+              filetype = "neotest-summary",
+              text = "Test Summary",
+              highlight = "Directory",
+              separator = true, -- use a "true" to enable the default
+            },
+          },
+        },
+      })
     end,
   },
   {
