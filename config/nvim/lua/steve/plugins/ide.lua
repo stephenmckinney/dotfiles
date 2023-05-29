@@ -19,11 +19,14 @@ return {
   {
     "tpope/vim-fugitive",
     cmd = "Git",
+    -- stylua: ignore
     keys = {
-      { "<leader>dg", ":diffget<bar>diffudpate<cr>", mode = "x", desc = "diffget" },
-      { "<leader>dp", ":diffput<bar>diffupdate<cr>", mode = "x", desc = "diffput" },
-      { "<leader>gB", "<cmd>Git blame<cr>", desc = "git blame (fugitive)" },
-      { "<leader>gd", "<cmd>Gvdiffsplit<cr>", desc = "git diff" },
+      -- git
+      { "<leader>gB", "<cmd>Git blame<cr>",   desc = "`git blame` (Fugitive)" },
+      { "<leader>gc", "<cmd>Git commit<cr>",  desc = "`git commit`" },
+      { "<leader>gd", "<cmd>Gvdiffsplit<cr>", desc = "`git diff`" },
+      { "<leader>gr", "<cmd>Gread<cr>",       desc = "Gread | `git checkout` (restore working tree file)" },
+      { "<leader>gw", "<cmd>Gwrite<cr>",      desc = "Gwrite | `git add` (stage file)" },
       {
         "<leader>gs",
         function()
@@ -31,11 +34,11 @@ return {
           vim.cmd("Git")
           vim.api.nvim_win_set_height(0, lines)
         end,
-        desc = "git status (fugitive)",
+        desc = "`git status` (Fugitive)",
       },
-      { "<leader>gr", "<cmd>Gread<cr>", desc = "Gread | git checkout (restore working tree file)" },
-      { "<leader>gw", "<cmd>Gwrite<cr>", desc = "Gwrite | git add (stage file)" },
-      { "<leader>gc", "<cmd>Git commit<cr>", desc = "git commit" },
+      -- diff
+      { "<leader>dg", ":diffget<bar>diffudpate<cr>", mode = "x", desc = "diffget" },
+      { "<leader>dp", ":diffput<bar>diffupdate<cr>", mode = "x", desc = "diffput" },
     },
   },
 
@@ -46,8 +49,9 @@ return {
     init = function()
       vim.g.gitblame_enabled = false
     end,
+    -- stylua: ignore
     keys = {
-      { "<leader>gb", "<cmd>GitBlameToggle<cr>", desc = "git blame (inline)" },
+      { "<leader>gb", "<cmd>GitBlameToggle<cr>",        desc = "`git blame` (inline)" },
       { "<leader>gh", "<cmd>GitBlameOpenCommitURL<cr>", desc = "Open GitHub commit URL" },
     },
   },
@@ -201,10 +205,14 @@ return {
       vim.o.timeout = true
       vim.o.timeoutlen = 500
     end,
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    },
+    config = function()
+      local wk = require("which-key")
+
+      wk.register({
+        ["<leader>g"] = { name = "+git" },
+        ["<leader>s"] = { name = "+search" },
+      })
+    end,
+  },
   },
 }

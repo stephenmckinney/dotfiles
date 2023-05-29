@@ -26,11 +26,11 @@ return {
       -- Treesitter aware way to wisely add "end" in Ruby, Vimscript, Lua, etc.
       { "RRethy/nvim-treesitter-endwise" },
     },
+    -- stylua: ignore
     keys = {
-      { "<leader>i", desc = "Init incremental selection" },
-      { "gi", desc = "Increment selection", mode = "x" },
-      { "gd", desc = "Decrement selection", mode = "x" },
-      { "gs", desc = "Increment scope selection", mode = "x" },
+      { "<C-space>",        desc = "Init incremental selection" },
+      { "<C-space>",        desc = "Increment selection", mode = "x" },
+      { "<bs>",             desc = "Decrement selection", mode = "x" },
     },
     config = function()
       require("nvim-treesitter.configs").setup({

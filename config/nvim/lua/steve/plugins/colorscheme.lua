@@ -130,7 +130,7 @@ for _, entry in ipairs(colorschemes) do
   if entry.lazy == nil then
     entry.lazy = true
     entry.keys = {
-      { "<leader>sC", "<cmd>Telescope colorscheme enable_preview=true<cr>", desc = "Lists available colorschemes and applies them on <cr>" },
+      { "<leader>sc", "<cmd>Telescope colorscheme enable_preview=true<cr>", desc = "List colorschemes, apply them on <cr>" },
     }
   end
 end
