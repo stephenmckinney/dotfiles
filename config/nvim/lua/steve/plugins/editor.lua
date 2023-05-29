@@ -73,9 +73,12 @@ return {
         function()
           require("telescope.builtin").grep_string({
             -- No: path_display = { "smart" }, because path display will not be uniform
-            -- No: only_sort_text = true, because ! on filename does not work !json
+            -- Yes: only_sort_text = true,
+            --   Pro: e.g. search for "editor", will not prioritize files named "editor.lua"
+            --   Con: you can no longer exclude by filename e.g. "editor !json"
             search = "",
             word_match = "-w",
+            only_sort_text = true,
             prompt_title = "Fuzzy Search (fzf)",
           })
         end,
