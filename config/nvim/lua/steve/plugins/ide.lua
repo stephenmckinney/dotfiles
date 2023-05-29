@@ -145,6 +145,15 @@ return {
       })
     end,
   },
+  -- Align text interactively
+  {
+    "echasnovski/mini.align",
+    version = false,
+    event = "VeryLazy",
+    config = function()
+      require("mini.align").setup({})
+    end,
+  },
   -- Go forward/backward with square brackets
   {
     "echasnovski/mini.bracketed",
@@ -214,5 +223,9 @@ return {
       })
     end,
   },
+  -- copilot
+  {
+    "github/copilot.vim",
+    event = "VeryLazy",
   },
 }
