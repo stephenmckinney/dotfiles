@@ -112,6 +112,15 @@ return {
       { "<leader>ss", "<cmd>Telescope search_history<cr>", desc = "Lists searches that were executed recently, and reruns them on <cr>" },
       { "<leader>st", "<cmd>Telescope current_buffer_tags<cr>", desc = "Lists all of the tags for the currently open buffer, with a preview" },
       { "<leader>sT", "<cmd>Telescope tags<cr>", desc = "Lists tags in current directory with tag location file preview (run ctags -R)" },
+      {
+        "<leader>sv",
+        function()
+          require("telescope.builtin").find_files({
+            cwd = vim.fn.expand("$HOME/.dotfiles/config/nvim/"),
+          })
+        end,
+        desc = "Find nvim config files",
+      },
       -- git
       { "<leader>gl", "<cmd>Telescope git_bcommits<CR>", desc = "git log on current buffer (telescope)" },
       { "<leader>gL", "<cmd>Telescope git_commits<CR>", desc = "git log on current directory (telescope)" },
