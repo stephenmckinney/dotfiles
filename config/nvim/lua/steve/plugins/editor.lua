@@ -65,7 +65,7 @@ return {
     keys = {
       -- quick find
       { "<leader>t", "<cmd>Telescope find_files<cr>", desc = "Find files" },
-      { "<leader>b", "<cmd>Telescope buffers<cr>", desc = "List open buffers" },
+      { "<leader>b", "<cmd>Telescope buffers sort_lastused=true ignore_current_buffer=true<cr>", desc = "List open buffers" },
       -- quick grep
       { "<leader>a", "<cmd>Telescope live_grep<cr>", desc = "Search for a string (rg)" },
       {
