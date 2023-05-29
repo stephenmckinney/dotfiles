@@ -16,6 +16,10 @@ return {
   {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
+    keys = {
+      { "<tab>", "<cmd>BufferLineCycleNext<cr>", desc = "Navigate to next buffer" },
+      { "<S-tab>", "<cmd>BufferLineCyclePrev<cr>", desc = "Navigate to previous buffer" },
+    },
     config = function()
       require("bufferline").setup({
         options = {
