@@ -56,14 +56,14 @@ map("v", "/", "/\\v", "Use search in visual mode", { silent = false })
 -- stylua: ignore start
 map(
   "n",
-  "gs",
+  "s",
   ":%s/\\v/g<left><left>",
   "Search and replace (vim substitute)",
   { silent = false }
 )
 map(
   "n",
-  "gS",
+  "S",
   ":%s/\\<<C-r><C-w>\\>//g<Left><Left>",
   "Search and replace word under cursor (vim substitute)",
   { silent = false }
