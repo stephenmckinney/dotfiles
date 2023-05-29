@@ -8,7 +8,6 @@
 -- * Path: File and directory path completion.
 --------------------------------------------------------------------------------
 
--- TODO: Consider whether to keep SuperTab or not.
 return {
   -- Snippet Management
   -- LuaSnip is used for snippets and is configured to use friendly-snippets.
@@ -68,7 +67,7 @@ return {
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
-            elseif luasnip.expand_or_locally_jumpable() then
+            elseif luasnip.expand_or_jumpable() then
               luasnip.expand_or_jump()
             elseif has_words_before() then
               cmp.complete()
@@ -86,14 +85,21 @@ return {
             end
           end, { "i", "s" }),
           -- The remaining mappings have specific functions within nvim-cmp:
-          -- * <C-b> and <C-f> scroll through the documentation (in chunks of 4 lines).
+          -- * <C-u> and <C-d> scroll through the documentation (in chunks of 4 lines).
           -- * <C-Space> triggers the completion function.
+          -- * <C-e> aborts/closes completion.
           -- * <CR> confirms the selection, including the current implicit selection.
-          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
+          ["<C-u>"] = cmp.mapping.scroll_docs(4),
+          ["<C-d>"] = cmp.mapping.scroll_docs(-4),
           ["<C-Space>"] = cmp.mapping.complete(),
-          ["<C-e>"] = cmp.mapping.abort(),
-          ["<CR>"] = cmp.mapping.confirm({ select = true }),
+          ["<C-e>"] = cmp.mapping({
+            i = cmp.mapping.abort(),
+            c = cmp.mapping.close(),
+          }),
+          ["<CR>"] = cmp.mapping.confirm({
+            behavior = cmp.ConfirmBehavior.Insert,
+            select = true,
+          }),
         }),
         -- Set up completion sources.
         sources = cmp.config.sources({
