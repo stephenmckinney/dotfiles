@@ -3,13 +3,13 @@
 --
 -- Requirements:
 -- * Robust Git support
+-- * Running tests
 -- * Editing super powers
 --------------------------------------------------------------------------------
 return {
 
   -- TODO mini-align
   -- TODO mini-trailspace
-  -- TODO lukas-reineke/indent-blankline.nvim
 
   ------------------------------------------------------------------------------
   -- Git
@@ -92,29 +92,23 @@ return {
 
   -- Autopairs
   {
-    "echasnovski/mini.pairs",
-    version = false,
+    "windwp/nvim-autopairs",
     event = "VeryLazy",
     config = function()
-      require("mini.pairs").setup({})
+      require("nvim-autopairs").setup({})
     end,
   },
   -- Surround actions
   {
-    "echasnovski/mini.surround",
-    version = false,
+    "tpope/vim-surround",
     event = "VeryLazy",
-    config = function()
-      require("mini.surround").setup({})
-    end,
   },
   -- Comment lines
   {
-    "echasnovski/mini.comment",
-    version = false,
+    "numToStr/Comment.nvim",
     event = "VeryLazy",
     config = function()
-      require("mini.comment").setup({})
+      require("Comment").setup({})
     end,
   },
   -- Extend a/i textobjects
