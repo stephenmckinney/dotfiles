@@ -31,7 +31,7 @@ return {
       -- hover
       { "K", vim.lsp.buf.hover, desc = "Hover" },
       -- workspace diagnostics
-      { "ga", "<cmd>Telescope diagnostics<cr>", desc = "Goto Workspace diagnostics" },
+      { "gw", "<cmd>Telescope diagnostics<cr>", desc = "Goto Workspace diagnostics" },
       -- signature_help
       { "gK", vim.lsp.buf.signature_help, desc = "Goto Signature Help" },
       { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help" },
