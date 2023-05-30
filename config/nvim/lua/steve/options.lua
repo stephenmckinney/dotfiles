@@ -4,6 +4,7 @@
 --  Highlight matching parentheses/brackets.
 --------------------------------------------------------------------------------
 vim.opt.number = true -- Enable line numbers
+vim.opt.relativenumber = true -- Enable relative line numbers
 vim.opt.showmatch = true -- Highlight matching brackets on input
 
 --------------------------------------------------------------------------------
