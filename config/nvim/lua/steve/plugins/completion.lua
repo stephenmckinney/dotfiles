@@ -35,6 +35,7 @@ return {
       "hrsh7th/cmp-buffer", -- Buffer source.
       "hrsh7th/cmp-path", -- Path source.
       "saadparwaiz1/cmp_luasnip", -- Snippets source.
+      "folke/neodev.nvim", -- nvim lua api completion. Automatically configures lua_ls LSP.
     },
     config = function()
       local luasnip = require("luasnip")

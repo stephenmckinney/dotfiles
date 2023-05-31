@@ -15,7 +15,7 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      { "folke/neodev.nvim", opts = {} },
+      -- LSP package manager
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
     },
@@ -77,6 +77,7 @@ return {
     "jose-elias-alvarez/null-ls.nvim",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
+      -- null-ls package manager
       "williamboman/mason.nvim",
       "jay-babu/mason-null-ls.nvim",
     },
@@ -118,7 +119,7 @@ return {
     end,
   },
 
-  -- mason
+  -- Neovim package manager
   {
     "williamboman/mason.nvim",
     build = ":MasonUpdate", -- :MasonUpdate updates registry contents
