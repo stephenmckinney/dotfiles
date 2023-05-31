@@ -1,10 +1,11 @@
 --------------------------------------------------------------------------------
 -- User Interface
---  Display line numbers.
+--  Display relative line numbers, line numbers, and cursor line
 --  Highlight matching parentheses/brackets.
 --------------------------------------------------------------------------------
 vim.opt.number = true -- Enable line numbers
 vim.opt.relativenumber = true -- Enable relative line numbers
+vim.opt.cursorline = true -- Highlight the text line of the cursor
 vim.opt.showmatch = true -- Highlight matching brackets on input
 
 --------------------------------------------------------------------------------
