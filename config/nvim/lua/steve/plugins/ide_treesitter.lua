@@ -66,7 +66,7 @@ return {
           "python",
           "query",
           "regex",
-          -- 'ruby,', -- broken
+          "ruby,",
           "scss",
           "sql",
           "tsx",
