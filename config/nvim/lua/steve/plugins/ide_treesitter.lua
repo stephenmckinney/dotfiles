@@ -34,9 +34,9 @@ return {
     },
     config = function()
       require("nvim-treesitter.configs").setup({
+        -- modules available in nvim-treesitter
         highlight = { enable = true },
         indent = { enable = true },
-        endwise = { enable = true },
         incremental_selection = {
           enable = true,
           keymaps = {
@@ -48,9 +48,12 @@ return {
             node_decremental = "<bs>",
           },
         },
+        -- external modules
+        endwise = { enable = true },
         ensure_installed = {
           "bash",
           "c",
+          "comment",
           "css",
           "diff",
           "html",
