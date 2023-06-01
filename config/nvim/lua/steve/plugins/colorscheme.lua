@@ -81,7 +81,6 @@ local colorschemes = {
 
   -- Nord
   -- A dimmed pastel theme that provides an eye-comfortable, yet colorful ambiance.
-  -- It doesn't have itermcolors, but it's similar to onenord.
   {
     "shaunsingh/nord.nvim",
     name = "nord",
@@ -93,6 +92,18 @@ local colorschemes = {
 
       -- require("nord").set()
       -- vim.cmd("colorscheme nord")
+    end,
+  },
+
+  -- Material
+  -- Material Design theme that gives your Neovim a modern, clean aesthetic.
+  {
+    "marko-cerovac/material.nvim",
+    name = "material",
+    config = function()
+      -- Available themes: default, palenight, ocean, lighter, darker, default-community, palenight-community, ocean-community, lighter-community, darker-community
+      vim.g.material_theme_style = "ocean"
+      -- vim.cmd("colorscheme material")
     end,
   },
 
@@ -108,18 +119,6 @@ local colorschemes = {
         style = "cool",
       })
       -- vim.cmd("colorscheme onedark")
-    end,
-  },
-
-  -- Material
-  -- Material Design theme that gives your Neovim a modern, clean aesthetic.
-  {
-    "marko-cerovac/material.nvim",
-    name = "material",
-    config = function()
-      -- Available themes: default, palenight, ocean, lighter, darker, default-community, palenight-community, ocean-community, lighter-community, darker-community
-      vim.g.material_theme_style = "ocean"
-      -- vim.cmd("colorscheme material")
     end,
   },
 }

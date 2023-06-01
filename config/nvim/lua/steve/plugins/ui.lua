@@ -96,13 +96,6 @@ return {
     end,
   },
   {
-    "NvChad/nvim-colorizer.lua",
-    cmd = { "ColorizerAttachToBuffer", "ColorizerToggle" },
-    config = function()
-      require("colorizer").setup()
-    end,
-  },
-  {
     "lukas-reineke/indent-blankline.nvim",
     config = function()
       require("indent_blankline").setup()
