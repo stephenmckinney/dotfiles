@@ -25,6 +25,15 @@ return {
       { "nvim-treesitter/nvim-treesitter-textobjects" },
       -- Treesitter aware way to wisely add "end" in Ruby, Vimscript, Lua, etc.
       { "RRethy/nvim-treesitter-endwise" },
+      -- View treesitter information.
+      { "nvim-treesitter/playground" },
+      -- Show current code context.
+      {
+        "nvim-treesitter/nvim-treesitter-context",
+        config = function()
+          require("treesitter-context").setup({})
+        end,
+      },
     },
     -- stylua: ignore
     keys = {
