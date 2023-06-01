@@ -18,6 +18,8 @@ return {
       -- LSP package manager
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
+      -- nvim lua api completion. Automatically configures lua_ls LSP.
+      { "folke/neodev.nvim", opts = {} },
     },
     keys = {
       -- definition
@@ -46,12 +48,11 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = { "lua_ls" },
       })
+
+      -- Lua LSP
       require("lspconfig").lua_ls.setup({
         settings = {
           Lua = {
-            diagnostics = {
-              globals = { "vim" },
-            },
             format = {
               enable = false,
             },
