@@ -13,38 +13,38 @@ return {
       })
     end,
   },
-  {
-    "akinsho/bufferline.nvim",
-    event = "VeryLazy",
-    keys = {
-      { "<tab>", "<cmd>BufferLineCycleNext<cr>", desc = "Navigate to next buffer" },
-      { "<S-tab>", "<cmd>BufferLineCyclePrev<cr>", desc = "Navigate to previous buffer" },
-    },
-    config = function()
-      require("bufferline").setup({
-        options = {
-          separator_style = "slope", -- slant, slope, thick, thin
-          show_buffer_close_icons = false,
-          show_close_icon = false,
-          always_show_bufferline = false,
-          offsets = {
-            {
-              filetype = "NvimTree",
-              text = "File Explorer",
-              highlight = "Directory",
-              separator = true, -- use a "true" to enable the default
-            },
-            {
-              filetype = "neotest-summary",
-              text = "Test Summary",
-              highlight = "Directory",
-              separator = true, -- use a "true" to enable the default
-            },
-          },
-        },
-      })
-    end,
-  },
+  -- {
+  --   "akinsho/bufferline.nvim",
+  --   event = "VeryLazy",
+  --   keys = {
+  --     { "<tab>", "<cmd>BufferLineCycleNext<cr>", desc = "Navigate to next buffer" },
+  --     { "<S-tab>", "<cmd>BufferLineCyclePrev<cr>", desc = "Navigate to previous buffer" },
+  --   },
+  --   config = function()
+  --     require("bufferline").setup({
+  --       options = {
+  --         separator_style = "slope", -- slant, slope, thick, thin
+  --         show_buffer_close_icons = false,
+  --         show_close_icon = false,
+  --         always_show_bufferline = false,
+  --         offsets = {
+  --           {
+  --             filetype = "NvimTree",
+  --             text = "File Explorer",
+  --             highlight = "Directory",
+  --             separator = true, -- use a "true" to enable the default
+  --           },
+  --           {
+  --             filetype = "neotest-summary",
+  --             text = "Test Summary",
+  --             highlight = "Directory",
+  --             separator = true, -- use a "true" to enable the default
+  --           },
+  --         },
+  --       },
+  --     })
+  --   end,
+  -- },
   {
     "luukvbaal/statuscol.nvim",
     event = { "BufReadPre", "BufNewFile" },
