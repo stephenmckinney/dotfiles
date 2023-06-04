@@ -78,7 +78,7 @@ return {
           "python",
           "query",
           "regex",
-          "ruby,",
+          "ruby",
           "scss",
           "sql",
           "tsx",
