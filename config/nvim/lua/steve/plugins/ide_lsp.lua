@@ -42,23 +42,44 @@ return {
     config = function()
       -- Set up in the following order:
       -- 1. mason
-      -- 2. mason-lspconfig
-      -- 3. Setup servers via lspconfig
       require("mason").setup()
+
+      -- 2. mason-lspconfig
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls" },
+        ensure_installed = {
+          "lua_ls", -- lua
+          "solargraph", -- ruby
+          "tsserver", -- typescript, javascript
+          "html", -- html
+          "cssls", -- css
+          "jsonls", -- json
+        },
       })
 
-      -- Lua LSP
-      require("lspconfig").lua_ls.setup({
+      -- 3. Setup servers via lspconfig
+      local lspconfig = require("lspconfig")
+
+      -- Lua
+      lspconfig.lua_ls.setup({
         settings = {
           Lua = {
-            format = {
-              enable = false,
-            },
+            format = { enable = false },
           },
         },
       })
+
+      -- Ruby
+      lspconfig.solargraph.setup({
+        init_options = { formatting = false },
+      })
+
+      -- TypeScript, JavaScript
+      lspconfig.tsserver.setup({})
+
+      -- HTML, CSS, JSON
+      lspconfig.html.setup({})
+      lspconfig.cssls.setup({})
+      lspconfig.jsonls.setup({})
 
       local icons = {
         Error = " ",
@@ -101,6 +122,7 @@ return {
       local null_ls = require("null-ls")
       null_ls.setup({
         sources = {
+          -- lua
           null_ls.builtins.formatting.stylua,
         },
         on_attach = function(client, bufnr)
