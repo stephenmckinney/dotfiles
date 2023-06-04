@@ -151,7 +151,12 @@ return {
     "NvChad/nvim-colorizer.lua",
     cmd = { "ColorizerAttachToBuffer", "ColorizerToggle" },
     config = function()
-      require("colorizer").setup()
+      require("colorizer").setup({
+        user_default_options = {
+          -- disable name codes e.g. blue, red 
+          names = false,
+        },
+      })
     end,
   },
 }
