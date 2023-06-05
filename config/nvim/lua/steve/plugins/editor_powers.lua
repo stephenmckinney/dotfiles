@@ -140,8 +140,15 @@ return {
       local wk = require("which-key")
 
       wk.register({
-        ["<leader>g"] = { name = "+git" },
-        ["<leader>s"] = { name = "+search" },
+        ["<leader>"] = {
+          g = {
+            name = "+git",
+          },
+          s = {
+            name = "+search",
+          },
+        },
+        g = "+go/got to",
       })
     end,
   },
@@ -153,7 +160,7 @@ return {
     config = function()
       require("colorizer").setup({
         user_default_options = {
-          -- disable name codes e.g. blue, red 
+          -- disable name codes e.g. blue, red
           names = false,
         },
       })
