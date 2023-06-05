@@ -7,13 +7,12 @@ return {
     config = function()
       require("nvim-tree").setup({
         on_attach = function(bufnr)
-          local api = require("nvim-tree.api")
-
           -- Key mapping options
           local function opts(desc)
             return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
           end
 
+          local api = require("nvim-tree.api")
           -- Key mappings
           vim.keymap.set("n", "-", api.tree.change_root_to_parent, opts("Up"))
           vim.keymap.set("n", ".", api.node.run.cmd, opts("Run Command"))
@@ -54,6 +53,15 @@ return {
     keys = {
       { "<leader>d", "<cmd>NvimTreeToggle<cr>", desc = "Toggle File Explorer" },
       { "<leader>D", "<cmd>NvimTreeFindFile<cr>", desc = "Find current file in File Explorer" },
+      -- edit nvim config files
+      {
+        "<leader>ev",
+        function()
+          vim.cmd("tabnew")
+          vim.cmd("NvimTreeOpen ~/.config/nvim/")
+        end,
+        desc = "Edt nvim config files",
+      },
     },
   },
 }

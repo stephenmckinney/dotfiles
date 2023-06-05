@@ -44,6 +44,11 @@ map("n", "<leader>=", "<C-w>=", "Adjust viewports to the same size")
 map("n", "<leader>o", "<C-w>o", "Close all but current window")
 
 --------------------------------------------------------------------------------
+-- Tabs
+--------------------------------------------------------------------------------
+vim.api.nvim_create_user_command("T", "tabnew", {})
+
+--------------------------------------------------------------------------------
 -- Search
 --------------------------------------------------------------------------------
 map("n", "<cr>", ":noh<cr>", "Stop highlighting search")
@@ -53,7 +58,6 @@ map("n", "/", "/\\v", "Search very-magically", { silent = false })
 map("v", "/", "/\\v", "Use search in visual mode", { silent = false })
 
 -- Search and replace (substitute) prompt
--- stylua: ignore start
 map("n", "gs", ":%s/\\v", "Go: substitute", { silent = false })
 map("v", "gs", ":s/\\v", "Go: subsitute", { silent = false })
 map("n", "gS", ":%s/\\<<C-r><C-w>\\>//g<Left><Left>", "Go: substitute", { silent = false })
