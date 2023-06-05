@@ -1,12 +1,10 @@
 [user]
   name = Steve McKinney
   email = steve.mckinney@gmail.com
+[includeIf "gitdir:~/code/work/"]
+  path = ~/.gitconfig-work
 [github]
   user = stephenmckinney
-[includeIf "gitdir:~/"]
-  path = .gitconfig-personal
-[includeIf "gitdir:~/code/work/"]
-  path = .gitconfig-work
 
 [alias]
   # blame
