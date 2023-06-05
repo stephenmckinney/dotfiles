@@ -40,6 +40,8 @@ fi
 unsetopt beep
 
 # The 'ls' family overrides.
+export LS_COLORS="$(vivid generate nightfox-terafox)"
+alias ls='gls --color'
 alias l='ls -lh'         # List human readable sizes.
 alias ll='ls -1A'        # List in one column.
 alias lr='l -R'          # List recursively.
