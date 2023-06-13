@@ -61,6 +61,36 @@ return {
     end,
   },
 
+  {
+    "johmsalas/text-case.nvim",
+    event = "VeryLazy",
+    config = function()
+      -- Key mapping options
+      local function opts(desc)
+        return { desc = desc, noremap = true, silent = true }
+      end
+
+      local textcase = require("textcase")
+      -- stylua: ignore start
+      vim.keymap.set("n", "gtc", function() textcase.operator('to_camel_case') end, opts("camelCase"))
+      vim.keymap.set("n", "gtd", function() textcase.operator('to_dash_case') end, opts("dash-case"))
+      vim.keymap.set("n", "gtj", function() textcase.operator('to_pascal_case') end, opts("JavaCase"))
+      vim.keymap.set("n", "gtn", function() textcase.operator('to_constant_case') end, opts("CONSTANT_CASE"))
+      vim.keymap.set("n", "gtp", function() textcase.operator('to_phrase_case') end, opts("Phrase case"))
+      vim.keymap.set("n", "gts", function() textcase.operator('to_snake_case') end, opts("snake_case"))
+      vim.keymap.set("n", "gtt", function() textcase.operator('to_title_case') end, opts("Title Case"))
+
+      vim.keymap.set("n", "gtC", function() textcase.lsp_rename('to_camel_case') end, opts("camelCase - lsp"))
+      vim.keymap.set("n", "gtD", function() textcase.lsp_rename('to_dash_case') end, opts("dash-case - lsp"))
+      vim.keymap.set("n", "gtJ", function() textcase.lsp_rename('to_pascal_case') end, opts("JavaCase - lsp"))
+      vim.keymap.set("n", "gtN", function() textcase.lsp_rename('to_constant_case') end, opts("CONSTANT_CASE - lsp"))
+      vim.keymap.set("n", "gtP", function() textcase.lsp_rename('to_phrase_case') end, opts("Phrase case - lsp"))
+      vim.keymap.set("n", "gtS", function() textcase.lsp_rename('to_snake_case') end, opts("snake_case - lsp"))
+      vim.keymap.set("n", "gtT", function() textcase.lsp_rename('to_title_case') end, opts("Title Case - lsp"))
+      -- stylua: ignore stop
+    end,
+  },
+
   -- Narrow Region
   {
     "chrisbra/NrrwRgn",
@@ -141,14 +171,14 @@ return {
 
       wk.register({
         ["<leader>"] = {
-          g = {
-            name = "+git",
-          },
-          s = {
-            name = "+search",
-          },
+          e = { name = "+edit" },
+          g = { name = "+git" },
+          s = { name = "+search" },
         },
-        g = "+go/got to",
+        g = {
+          name = "+go/got to",
+          t = { name = "textcase" },
+        },
       })
     end,
   },
