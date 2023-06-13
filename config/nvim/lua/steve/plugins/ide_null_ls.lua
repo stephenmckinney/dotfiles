@@ -11,11 +11,9 @@ return {
     config = function()
       -- Set up in the following order:
       -- 1. mason
-      require("mason").setup()
-
       -- 2. mason-null-ls
       require("mason-null-ls").setup({
-        ensure_installed = { "stylua" },
+        ensure_installed = { "stylua", "prettier", "markdownlint" },
       })
 
       -- 3. Setup non-LSP sources to hook into its LSP client
@@ -33,8 +31,11 @@ return {
       local null_ls = require("null-ls")
       null_ls.setup({
         sources = {
+          -- formatting
+          null_ls.builtins.formatting.prettier.with({ disabled_filetypes = { "markdown" } }), -- javascript, typescript, html, css, json, yaml, graphql
           null_ls.builtins.formatting.stylua, -- lua
-          null_ls.builtins.formatting.prettier, -- javascript, typescript, html, css, json, yaml, markdown, graphql
+          -- diagnostics
+          null_ls.builtins.diagnostics.markdownlint, -- markdown
         },
         on_attach = function(client, bufnr)
           local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

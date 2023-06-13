@@ -38,8 +38,6 @@ return {
     config = function()
       -- Set up in the following order:
       -- 1. mason
-      require("mason").setup()
-
       -- 2. mason-lspconfig
       require("mason-lspconfig").setup({
         ensure_installed = {
@@ -94,5 +92,8 @@ return {
   {
     "williamboman/mason.nvim",
     build = ":MasonUpdate", -- :MasonUpdate updates registry contents
+    config = function()
+      require("mason").setup({})
+    end,
   },
 }
