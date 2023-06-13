@@ -58,9 +58,18 @@ return {
         "<leader>ev",
         function()
           vim.cmd("tabnew")
-          vim.cmd("NvimTreeOpen ~/.config/nvim/")
+          vim.cmd("NvimTreeOpen ~/.dotfiles/config/nvim/")
         end,
         desc = "Edt nvim config files",
+      },
+      -- edit dotfiles
+      {
+        "<leader>ed",
+        function()
+          vim.cmd("tabnew")
+          vim.cmd("NvimTreeOpen ~/.dotfiles/")
+        end,
+        desc = "Edit dotfiles",
       },
     },
   },

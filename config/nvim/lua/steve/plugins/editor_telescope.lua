@@ -77,6 +77,15 @@ return {
       -- 'search' leaders
       { "<leader>sa", "<cmd>Telescope autocommands<cr>",              desc = "List autocommands, go to their declaration on <cr>" },
       { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Fuzzy search currently open buffer" },
+      {
+        "<leader>sd",
+        function()
+          require("telescope.builtin").find_files({
+            cwd = vim.fn.expand("$HOME/.dotfiles/"),
+          })
+        end,
+        desc = "Find dotfiles",
+      },
       { "<leader>sf", "<cmd>Telescope filetypes<cr>",                 desc = "List filetypes" },
       { "<leader>sh", "<cmd>Telescope help_tags<cr>",                 desc = "List help tags" },
       { "<leader>sH", "<cmd>Telescope highlights<cr>",                desc = "List highlights" },
