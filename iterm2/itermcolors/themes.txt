@@ -1,0 +1,18 @@
+https://raw.githubusercontent.com/catppuccin/iterm/main/colors/catppuccin-frappe.itermcolors
+https://raw.githubusercontent.com/catppuccin/iterm/main/colors/catppuccin-latte.itermcolors
+https://raw.githubusercontent.com/catppuccin/iterm/main/colors/catppuccin-macchiato.itermcolors
+https://raw.githubusercontent.com/catppuccin/iterm/main/colors/catppuccin-mocha.itermcolors
+https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/iterm/tokyonight_day.itermcolors 
+https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/iterm/tokyonight_moon.itermcolors 
+https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/iterm/tokyonight_night.itermcolors 
+https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/iterm/tokyonight_storm.itermcolors 
+https://raw.githubusercontent.com/rose-pine/iterm/main/rose-pine-dawn.itermcolors
+https://raw.githubusercontent.com/rose-pine/iterm/main/rose-pine-moon.itermcolors
+https://raw.githubusercontent.com/rose-pine/iterm/main/rose-pine.itermcolors
+https://raw.githubusercontent.com/EdenEast/nightfox.nvim/main/extra/carbonfox/nightfox_iterm.itermcolors nightfox-carbonfox.itermcolors
+https://raw.githubusercontent.com/EdenEast/nightfox.nvim/main/extra/dawnfox/nightfox_iterm.itermcolors nightfox-dawnfox.itermcolors
+https://raw.githubusercontent.com/EdenEast/nightfox.nvim/main/extra/dayfox/nightfox_iterm.itermcolors nightfox-dayfox.itermcolors
+https://raw.githubusercontent.com/EdenEast/nightfox.nvim/main/extra/duskfox/nightfox_iterm.itermcolors nightfox-duskfox.itermcolors
+https://raw.githubusercontent.com/EdenEast/nightfox.nvim/main/extra/nightfox/nightfox_iterm.itermcolors nightfox-nightfox.itermcolors
+https://raw.githubusercontent.com/EdenEast/nightfox.nvim/main/extra/nordfox/nightfox_iterm.itermcolors nightfox-nordfox.itermcolors
+https://raw.githubusercontent.com/EdenEast/nightfox.nvim/main/extra/terafox/nightfox_iterm.itermcolors nightfox-terafox.itermcolors
