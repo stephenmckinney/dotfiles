@@ -1,12 +1,10 @@
 [user]
   name = Steve McKinney
   email = steve.mckinney@gmail.com
+[includeIf "gitdir:~/code/work/"]
+  path = ~/.gitconfig-work
 [github]
   user = stephenmckinney
-[includeIf "gitdir:~/"]
-  path = .gitconfig-personal
-[includeIf "gitdir:~/code/work/"]
-  path = .gitconfig-work
 
 [alias]
   # blame
@@ -24,7 +22,7 @@
   co  = checkout
   cob = checkout -b
   co0 = checkout HEAD -- 
-  com = checkout master
+  com = checkout main
   # fetch
   f   = fetch
   fm  = pull
@@ -32,7 +30,7 @@
   fu  = fetch upstream
   # merge
   m   = merge
-  mom = merge origin/master
+  mom = merge origin/main
   # push
   p   = push
   pa  = push --all
@@ -43,8 +41,8 @@
   rc  = rebase --continue
   ri  = rebase --interactive
   rs  = rebase --skip
-  rom = rebase origin/master
-  riom = rebase --interactive origin/master
+  rom = rebase origin/main
+  riom = rebase --interactive origin/main
 
   # commit
   c      = commit --verbose

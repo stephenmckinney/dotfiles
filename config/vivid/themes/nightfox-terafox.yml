@@ -1,0 +1,149 @@
+colors:
+  black_base: '2F3239'
+  black_bright: '4e5157'
+  black_dim: '282a30'
+  red_base: 'e85c51'
+  red_bright: 'eb746b'
+  red_dim: 'c54e45'
+  green_base: '7aa4a1'
+  green_bright: '8eb2af'
+  green_dim: '688b89'
+  yellow_base: 'fda47f'
+  yellow_bright: 'fdb292'
+  yellow_dim: 'd78b6c'
+  blue_base: '5a93aa'
+  blue_bright: '73a3b7'
+  blue_dim: '4d7d90'
+  magenta_base: 'ad5c7c'
+  magenta_bright: 'b97490'
+  magenta_dim: '934e69'
+  cyan_base: 'a1cdd8'
+  cyan_bright: 'afd4de'
+  cyan_dim: '89aeb8'
+  white_base: 'ebebeb'
+  white_bright: 'eeeeee'
+  white_dim: 'c8c8c8'
+  orange_base: 'ff8349'
+  orange_bright: 'ff9664'
+  orange_dim: 'd96f3e'
+  pink_base: 'cb7985'
+  pink_bright: 'd38d97'
+  pink_dim: 'ad6771'
+
+  bg0: '0f1c1e' # Dark bg (status line and float)
+  bg1: '152528' # Default bg
+  bg2: '1d3337' # Lighter bg (colorcolm folds)
+  bg3: '254147' # Lighter bg (cursor line)
+  bg4: '2d4f56' # Conceal, border fg
+
+  fg0: 'eaeeee' # Lighter fg
+  fg1: 'e6eaea' # Default fg
+  fg2: 'cbd9d8' # Darker fg (status line)
+  fg3: '587b7b' # Darker fg (line numbers, fold colums)
+
+  sel0: '293e40' # Popup bg, visual selection bg
+  sel1: '425e5e' # Popup sel bg, search bg
+
+core:
+  normal_text:
+    foreground: fg1
+
+  regular_file:
+    foreground: fg1
+
+  reset_to_normal:
+    foreground: fg1
+
+  directory:
+    foreground: blue_dim
+
+  symlink:
+    foreground: pink_base
+
+  multi_hard_link: {}
+
+  fifo:
+    foreground: orange_base
+    background: bg4
+
+  socket:
+    foreground: pink_base
+    background: bg4
+
+  door:
+    foreground: pink_base
+    background: bg4
+
+  block_device:
+    foreground: yellow_base
+    background: bg4
+
+  character_device:
+    foreground: yellow_base
+    background: bg4
+
+  broken_symlink:
+    foreground: red_base
+
+  missing_symlink_target:
+    background: red_dim
+
+  setuid: {}
+
+  setgid: {}
+
+  file_with_capability: {}
+
+  sticky_other_writable: {}
+
+  other_writable: {}
+
+  sticky: {}
+
+  executable_file:
+    foreground: red_base
+
+text:
+  special:
+    foreground: bg1
+    background: yellow_dim
+
+  todo:
+    foreground: orange_base
+
+  licenses:
+    foreground: fg3
+
+  configuration:
+    foreground: green_base
+
+  other:
+    foreground: orange_base
+
+markup:
+  web:
+    foreground: orange_base
+  other:
+    foreground: orange_base
+
+programming:
+  source:
+    foreground: cyan_bright
+
+  tooling:
+    foreground: green_base
+
+media:
+  foreground: magenta_base
+
+office:
+  foreground: magenta_base
+
+archives:
+  foreground: fg3
+
+executable:
+  foreground: red_base
+
+unimportant:
+  foreground: fg3

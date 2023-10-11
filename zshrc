@@ -40,6 +40,8 @@ fi
 unsetopt beep
 
 # The 'ls' family overrides.
+export LS_COLORS="$(vivid generate nightfox-terafox)"
+alias ls='gls --color'
 alias l='ls -lh'         # List human readable sizes.
 alias ll='ls -1A'        # List in one column.
 alias lr='l -R'          # List recursively.
@@ -200,10 +202,17 @@ bindkey '^I' $fzf_default_completion
 # Kubernetes
 export KUBECONFIG=~/.kube/config
 
+# npm
+# Set up NPM_TOKEN if .npmrc exists
+if [ -f ~/.npmrc ]; then
+  export NPM_TOKEN=`sed -n -e '/_authToken/ s/.*\= *//p' ~/.npmrc`
+fi
+
 # nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # rbenv
 eval "$(rbenv init - --no-rehash zsh)"

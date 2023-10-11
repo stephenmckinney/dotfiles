@@ -16,7 +16,7 @@ remote_shell=false
 remote_shell_allowlist=("base_aliases" "editrc" "inputrc" "irbrc")
 
 # denylist of files to always skip
-denylist=("Brewfile" "Rakefile" "README.md" "install.sh" "iterm2")
+denylist=("Brewfile" "Brewfile.lock.json" "Rakefile" "README.md" "install.sh" "iterm2" "stylua.toml")
 
 # check for --dry-run and --remote-shell arguments
 for arg in "$@"
@@ -62,6 +62,13 @@ for src_file in "$src_dir"/*; do
 
   # if the current file is the "config" directory, handle it specially
   if [[ $base_file == "config" && -d $src_file ]]; then
+    # mkdir if it doesn't exist
+    if [ ! -d "$dest_dir/.$base_file" ]; then
+      echo "mkdir -p \"$dest_dir/.$base_file\""
+      if ! $dry_run; then
+        mkdir -p "$dest_dir/.$base_file"
+      fi
+    fi
     for config_file in "$src_file"/*; do
       config_base_file=$(basename "$config_file")
       if [[ ! -e "$dest_dir/.$base_file/$config_base_file" ]]; then
