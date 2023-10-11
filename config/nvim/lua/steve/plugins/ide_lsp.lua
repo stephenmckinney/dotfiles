@@ -63,8 +63,10 @@ return {
       })
 
       -- Ruby
+      -- use solargraph for autocompletion, but not formatting or diagnostics
       lspconfig.solargraph.setup({
         init_options = { formatting = false },
+        settings = { solargraph = { diagnostics = false } },
       })
 
       -- TypeScript, JavaScript
