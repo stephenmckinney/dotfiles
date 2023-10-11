@@ -59,6 +59,8 @@ return {
         },
         -- external modules
         endwise = { enable = true },
+
+        -- A list of parser that should always be installed
         ensure_installed = {
           "bash",
           "c",
