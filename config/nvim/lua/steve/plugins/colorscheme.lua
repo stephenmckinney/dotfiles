@@ -24,12 +24,15 @@ local colorschemes = {
   {
     "folke/tokyonight.nvim",
     name = "tokyonight",
+    lazy = false, -- If this is your main colorscheme, set to false to load during startup.
+    priority = 1000, -- Ensure this plugin loads before all other start plugins.
     config = function()
       require("tokyonight").setup({
         -- Available styles: storm, moon, night, day
-        style = "storm",
+        style = "night",
+        sidebars = { "qf", "help", "NvimTree", "neotest-summary" },
       })
-      -- vim.cmd("colorscheme tokyonight")
+      vim.cmd("colorscheme tokyonight")
     end,
   },
 
@@ -38,8 +41,6 @@ local colorschemes = {
   {
     "EdenEast/nightfox.nvim",
     name = "nightfox",
-    lazy = false, -- If this is your main colorscheme, set to false to load during startup.
-    priority = 1000, -- Ensure this plugin loads before all other start plugins.
     config = function()
       require("nightfox").setup({
         groups = {
@@ -49,7 +50,7 @@ local colorschemes = {
         },
       })
       -- Available flavors: nightfox, dayfox, dawnfox, duskfox, nordfox, terafox, carbonfox
-      vim.cmd("colorscheme terafox")
+      -- vim.cmd("colorscheme terafox")
     end,
   },
 
