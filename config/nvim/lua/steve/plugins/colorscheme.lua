@@ -15,7 +15,24 @@ local colorschemes = {
     name = "catppuccin",
     config = function()
       -- Available flavors: catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
-      -- vim.cmd("colorscheme catppuccin-macchiato")
+      require("catppuccin").setup({
+        flavour = "mocha",
+        background = {
+          integrations = {
+            cmp = true,
+            gitsigns = true,
+            mason = true,
+            neotest = true,
+            notify = false,
+            nvimtree = true,
+            telescope = true,
+            treesitter = true,
+            treesitter_context = true,
+            which_key = true,
+          },
+        },
+      })
+      -- vim.cmd("colorscheme catppuccin")
     end,
   },
 
@@ -63,7 +80,7 @@ local colorschemes = {
       require("rose-pine").setup({
         -- Available variants: auto, main, moon, dawn
         variant = "auto",
-        dark_variant = "moon",
+        dark_variant = "main",
       })
       -- vim.cmd("colorscheme rose-pine")
     end,
