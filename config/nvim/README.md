@@ -42,7 +42,8 @@
   - Formatting
 
 - Testing
-	- `neotest`
+
+  - `neotest`
 
 - Completion
 
@@ -50,16 +51,19 @@
   - Snippets `luasnip`
 
 - Git integration
-	- `vim-fugitive`
-	- `git-blame`
+
+  - `vim-fugitive`
+  - `git-blame`
 
 - AI
-	- `copilot`
+
+  - `copilot`
 
 - UI
   - Status column `statuscol`, `gitsigns`, `indent-blankline`
   - `lualine`
 
-TODO:
+## TODO
+
 - [ ] how to integrate CoPilot
 - [ ] bring all the goodies from my old vimfiles
