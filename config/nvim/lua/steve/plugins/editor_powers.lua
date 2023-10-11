@@ -72,21 +72,21 @@ return {
 
       local textcase = require("textcase")
       -- stylua: ignore start
-      vim.keymap.set("n", "gtc", function() textcase.operator('to_camel_case') end, opts("camelCase"))
-      vim.keymap.set("n", "gtd", function() textcase.operator('to_dash_case') end, opts("dash-case"))
-      vim.keymap.set("n", "gtj", function() textcase.operator('to_pascal_case') end, opts("JavaCase"))
-      vim.keymap.set("n", "gtn", function() textcase.operator('to_constant_case') end, opts("CONSTANT_CASE"))
-      vim.keymap.set("n", "gtp", function() textcase.operator('to_phrase_case') end, opts("Phrase case"))
-      vim.keymap.set("n", "gts", function() textcase.operator('to_snake_case') end, opts("snake_case"))
-      vim.keymap.set("n", "gtt", function() textcase.operator('to_title_case') end, opts("Title Case"))
+      vim.keymap.set("n", "guc", function() textcase.operator('to_camel_case') end, opts("camelCase"))
+      vim.keymap.set("n", "gud", function() textcase.operator('to_dash_case') end, opts("dash-case"))
+      vim.keymap.set("n", "guj", function() textcase.operator('to_pascal_case') end, opts("JavaCase"))
+      vim.keymap.set("n", "gun", function() textcase.operator('to_constant_case') end, opts("CONSTANT_CASE"))
+      vim.keymap.set("n", "gup", function() textcase.operator('to_phrase_case') end, opts("Phrase case"))
+      vim.keymap.set("n", "gus", function() textcase.operator('to_snake_case') end, opts("snake_case"))
+      vim.keymap.set("n", "gut", function() textcase.operator('to_title_case') end, opts("Title Case"))
 
-      vim.keymap.set("n", "gtC", function() textcase.lsp_rename('to_camel_case') end, opts("camelCase - lsp"))
-      vim.keymap.set("n", "gtD", function() textcase.lsp_rename('to_dash_case') end, opts("dash-case - lsp"))
-      vim.keymap.set("n", "gtJ", function() textcase.lsp_rename('to_pascal_case') end, opts("JavaCase - lsp"))
-      vim.keymap.set("n", "gtN", function() textcase.lsp_rename('to_constant_case') end, opts("CONSTANT_CASE - lsp"))
-      vim.keymap.set("n", "gtP", function() textcase.lsp_rename('to_phrase_case') end, opts("Phrase case - lsp"))
-      vim.keymap.set("n", "gtS", function() textcase.lsp_rename('to_snake_case') end, opts("snake_case - lsp"))
-      vim.keymap.set("n", "gtT", function() textcase.lsp_rename('to_title_case') end, opts("Title Case - lsp"))
+      vim.keymap.set("n", "guC", function() textcase.lsp_rename('to_camel_case') end, opts("camelCase - lsp"))
+      vim.keymap.set("n", "guD", function() textcase.lsp_rename('to_dash_case') end, opts("dash-case - lsp"))
+      vim.keymap.set("n", "guJ", function() textcase.lsp_rename('to_pascal_case') end, opts("JavaCase - lsp"))
+      vim.keymap.set("n", "guN", function() textcase.lsp_rename('to_constant_case') end, opts("CONSTANT_CASE - lsp"))
+      vim.keymap.set("n", "guP", function() textcase.lsp_rename('to_phrase_case') end, opts("Phrase case - lsp"))
+      vim.keymap.set("n", "guS", function() textcase.lsp_rename('to_snake_case') end, opts("snake_case - lsp"))
+      vim.keymap.set("n", "guT", function() textcase.lsp_rename('to_title_case') end, opts("Title Case - lsp"))
       -- stylua: ignore stop
     end,
   },
@@ -105,8 +105,6 @@ return {
     config = function()
       local indentscope = require("mini.indentscope")
       indentscope.setup({
-        -- no animation
-        animation = indentscope.gen_animation.none(),
         -- use cursor row to calculate indent scope
         options = {
           indent_at_cursor = false,
@@ -177,7 +175,7 @@ return {
         },
         g = {
           name = "+go/got to",
-          t = { name = "textcase" },
+          u = { name = "+textcase" },
         },
       })
     end,
