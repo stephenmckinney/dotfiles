@@ -60,4 +60,4 @@ map("v", "/", "/\\v", "Use search in visual mode", { silent = false })
 -- Search and replace (substitute) prompt
 map("n", "gs", ":%s/\\v", "Go: substitute", { silent = false })
 map("v", "gs", ":s/\\v", "Go: subsitute", { silent = false })
-map("n", "gS", ":%s/\\<<C-r><C-w>\\>//g<Left><Left>", "Go: substitute", { silent = false })
+map("n", "gS", ":%s/\\<<C-r><C-w>\\>//g<Left><Left>", "Go: substitute, word under cursor", { silent = false })
