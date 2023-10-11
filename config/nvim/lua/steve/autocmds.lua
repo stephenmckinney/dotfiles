@@ -73,12 +73,17 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- wrap and check for spell in text filetypes
+-- Set local options for "text" files
 vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("wrap_spell"),
-  pattern = { "gitcommit", "markdown" },
+  group = augroup("text_file_options"),
+  pattern = { "gitcommit", "markdown", "text", "txt" },
   callback = function()
+    -- wrap and check for spell
     vim.opt_local.wrap = true
     vim.opt_local.spell = true
+    -- set indention
+    vim.opt_local.sw = 2
+    vim.opt_local.sts = 2
+    vim.opt_local.ts = 2
   end,
 })
