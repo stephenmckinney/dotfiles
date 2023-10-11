@@ -37,7 +37,8 @@ return {
       require("telescope").load_extension("fzf")
 
       -- Set letters that match search to a bright color
-      vim.api.nvim_set_hl(0, "TelescopeMatching", { link = "Number" })
+      -- Colorscheme tweak for nightfox
+      -- vim.api.nvim_set_hl(0, "TelescopeMatching", { link = "Number" })
     end,
     -- stylua: ignore
     keys = {

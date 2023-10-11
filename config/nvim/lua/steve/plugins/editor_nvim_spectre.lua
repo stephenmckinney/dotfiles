@@ -5,6 +5,7 @@ return {
     "nvim-pack/nvim-spectre",
     config = function()
       require("spectre").setup({
+        -- colorscheme tweak for nightfox
         highlight = {
           replace = "@text.warning",
         },
