@@ -63,3 +63,11 @@ vim.opt.equalalways = true -- Always balance window sizes when opening/closing w
 --------------------------------------------------------------------------------
 vim.opt.ignorecase = true -- Ignore case when searching
 vim.opt.smartcase = true -- Make search case-sensitive if pattern contains uppercase letters
+
+--------------------------------------------------------------------------------
+-- Command-line completion
+--  "list:longest", first list all matching completions and select the longest
+--  common part. After pressing the Tab key again, "list:full", list all
+--  matching completions and select the first one in the list.
+--------------------------------------------------------------------------------
+vim.opt.wildmode = "list:longest,list:full"
