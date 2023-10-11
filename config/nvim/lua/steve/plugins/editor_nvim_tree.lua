@@ -71,6 +71,26 @@ return {
         end,
         desc = "Edit dotfiles",
       },
+      -- edit gitconfig
+      {
+        "<leader>eg",
+        function()
+          vim.cmd("tabnew")
+          vim.cmd("e ~/.gitconfig")
+          vim.cmd("vsplit")
+          vim.cmd("e ~/.gitconfig-work")
+        end,
+        desc = "Edit gitconfig",
+      },
+      -- edit tmux config
+      {
+        "<leader>et",
+        function()
+          vim.cmd("tabnew")
+          vim.cmd("e ~/.tmux.conf")
+        end,
+        desc = "Edit tmux config",
+      },
     },
   },
 }
