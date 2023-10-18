@@ -122,12 +122,30 @@ return {
       })
     end,
   },
+
+  -- Add indentation guides.
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     opts = {},
     config = function()
-      require("ibl").setup()
+      require("ibl").setup({
+        -- disable scope highlighting
+        scope = {
+          enabled = false,
+        },
+        -- Symbol priority. Increase to display on top of more symbols.
+        indent = {
+          priority = 1,
+        },
+        exclude = {
+          filetypes = {
+            "help",
+            "lazy",
+            "mason",
+          },
+        },
+      })
     end,
   },
 }
