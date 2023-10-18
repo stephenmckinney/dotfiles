@@ -75,6 +75,10 @@ return {
               fallback()
             end
           end, { "i", "s" }),
+          -- On pressing <S-Tab>:
+          -- If the completion menu is visible, select the prev item.
+          -- If a snippet is jumpable at the cursor, trigger the action.
+          -- If none of the above apply, insert a Tab character.
           ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
