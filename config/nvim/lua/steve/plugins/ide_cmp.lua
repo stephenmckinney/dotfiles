@@ -103,6 +103,7 @@ return {
         }),
         -- Set up completion sources.
         sources = cmp.config.sources({
+          { name = "copilot" }, -- Copilot completion
           { name = "nvim_lsp" }, -- LSP-based completion
           { name = "luasnip" }, -- Snippet-based completion
           { name = "buffer" }, -- Completion from current buffer

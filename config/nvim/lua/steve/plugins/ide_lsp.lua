@@ -33,7 +33,7 @@ return {
       -- signature_help
       { "gK", vim.lsp.buf.signature_help, desc = "Goto Signature Help" },
       { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help" },
-      { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" } },
+      { "<leader>ka", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" } },
     },
     config = function()
       -- Set up in the following order:
