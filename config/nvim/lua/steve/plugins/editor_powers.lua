@@ -97,27 +97,6 @@ return {
     event = "VeryLazy",
   },
 
-  -- Visualize current indent scope. Add scope-related motions and textobjects.
-  {
-    "echasnovski/mini.indentscope",
-    version = false,
-    event = "VeryLazy",
-    config = function()
-      local indentscope = require("mini.indentscope")
-      indentscope.setup({
-        -- use cursor row to calculate indent scope
-        options = {
-          indent_at_cursor = false,
-        },
-        -- no motion key mappings
-        mappings = {
-          goto_top = "",
-          goto_bottom = "",
-        },
-      })
-    end,
-  },
-
   -- Move any selection in any direction
   {
     "echasnovski/mini.move",
