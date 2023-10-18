@@ -1,0 +1,9 @@
+{
+  "diagnostics": {
+    "globals": ["vim"],
+    "disable": ["missing-fields"]
+  },
+  "workspace": {
+    "checkThirdParty": false
+  }
+}
