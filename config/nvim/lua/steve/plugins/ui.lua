@@ -15,38 +15,8 @@ return {
       })
     end,
   },
-  -- {
-  --   "akinsho/bufferline.nvim",
-  --   event = "VeryLazy",
-  --   keys = {
-  --     { "<tab>", "<cmd>BufferLineCycleNext<cr>", desc = "Navigate to next buffer" },
-  --     { "<S-tab>", "<cmd>BufferLineCyclePrev<cr>", desc = "Navigate to previous buffer" },
-  --   },
-  --   config = function()
-  --     require("bufferline").setup({
-  --       options = {
-  --         separator_style = "slope", -- slant, slope, thick, thin
-  --         show_buffer_close_icons = false,
-  --         show_close_icon = false,
-  --         always_show_bufferline = false,
-  --         offsets = {
-  --           {
-  --             filetype = "NvimTree",
-  --             text = "File Explorer",
-  --             highlight = "Directory",
-  --             separator = true, -- use a "true" to enable the default
-  --           },
-  --           {
-  --             filetype = "neotest-summary",
-  --             text = "Test Summary",
-  --             highlight = "Directory",
-  --             separator = true, -- use a "true" to enable the default
-  --           },
-  --         },
-  --       },
-  --     })
-  --   end,
-  -- },
+
+  -- Configurable status column with gitsigns and diagnostic signs.
   {
     "luukvbaal/statuscol.nvim",
     event = { "BufReadPre", "BufNewFile" },
@@ -59,6 +29,20 @@ return {
           {
             text = { builtin.foldfunc },
           },
+          -- numbers
+          {
+            text = { builtin.lnumfunc, " " },
+          },
+          -- gitsigns
+          {
+            sign = {
+              namespace = {
+                "gitsigns",
+              },
+              colwidth = 1,
+              wrap = true,
+            },
+          },
           -- diagnostic signs
           {
             sign = {
@@ -66,10 +50,6 @@ return {
               maxwidth = 2,
               auto = true,
             },
-          },
-          -- numbers
-          {
-            text = { builtin.lnumfunc, " " },
           },
           -- a sign segment that is only 1 cell wide that shows all other signs
           {
@@ -94,6 +74,7 @@ return {
           changedelete = { text = "▎" },
           untracked = { text = "▎" },
         },
+        signcolumn = true,
       })
     end,
   },
