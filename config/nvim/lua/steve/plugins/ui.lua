@@ -107,6 +107,7 @@ return {
   -- Add indentation guides.
   {
     "lukas-reineke/indent-blankline.nvim",
+    event = "VeryLazy",
     main = "ibl",
     opts = {},
     config = function()

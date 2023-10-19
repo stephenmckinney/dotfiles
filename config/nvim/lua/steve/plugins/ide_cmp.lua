@@ -23,6 +23,26 @@ return {
     keys = {}, -- No special keybindings set for snippets.
   },
 
+  -- Copilot
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    build = ":Copilot auth",
+    config = function()
+      require("copilot").setup({
+        -- disable suggestion and panel modules, so that they can't interfere with completions properly appearing in copilot-cmp
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+        filetypes = {
+          javascript = true,
+          ruby = true,
+          typescript = true,
+        },
+      })
+    end,
+  },
+
   -- Auto-completion using nvim-cmp
   -- nvim-cmp is a completion framework that supports multiple sources such as LSP, buffer, path and snippets.
   {
@@ -35,8 +55,16 @@ return {
       "hrsh7th/cmp-buffer", -- Buffer source.
       "hrsh7th/cmp-path", -- Path source.
       "saadparwaiz1/cmp_luasnip", -- Snippets source.
+      -- Copilot source
+      {
+        "zbirenbaum/copilot-cmp",
+        config = function()
+          require("copilot_cmp").setup()
+        end,
+      },
     },
     config = function()
+      require("copilot_cmp").setup()
       local luasnip = require("luasnip")
       local cmp = require("cmp")
 

@@ -33,8 +33,10 @@ return {
   {
     "f-person/git-blame.nvim",
     event = "VeryLazy",
-    init = function()
-      vim.g.gitblame_enabled = false
+    config = function()
+      require('gitblame').setup {
+        enabled = false,
+      }
     end,
     -- stylua: ignore
     keys = {
