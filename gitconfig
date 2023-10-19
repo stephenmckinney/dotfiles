@@ -125,3 +125,5 @@
   account = personal
 [credential]
   helper = osxkeychain
+[init]
+	defaultBranch = main
