@@ -22,7 +22,18 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("steve.plugins", {
-  -- disable change notification
+  -- It's recommended to leave version=false for now, since a lot the plugin that support versioning,
+  -- have outdated releases, which may break your Neovim install.
+  defaults = {
+    lazy = false,
+    version = false,
+  },
+  -- automatically check and notify for plugin updates
+  checker = {
+    enabled = true,
+    notify = true,
+  },
+  -- disable notifications when config file changes are found
   change_detection = {
     notify = false,
   },
