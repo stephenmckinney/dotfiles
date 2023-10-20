@@ -7,9 +7,7 @@ return {
   {
     "windwp/nvim-autopairs",
     event = "VeryLazy",
-    config = function()
-      require("nvim-autopairs").setup({})
-    end,
+    config = true,
   },
 
   -- Surround actions
@@ -22,9 +20,7 @@ return {
   {
     "numToStr/Comment.nvim",
     event = "VeryLazy",
-    config = function()
-      require("Comment").setup()
-    end,
+    config = true,
   },
 
   -- Extend a/i textobjects
@@ -32,9 +28,7 @@ return {
     "echasnovski/mini.ai",
     version = false,
     event = "VeryLazy",
-    config = function()
-      require("mini.ai").setup({})
-    end,
+    config = true,
   },
 
   -- Align text interactively
@@ -42,9 +36,7 @@ return {
     "echasnovski/mini.align",
     version = false,
     event = "VeryLazy",
-    config = function()
-      require("mini.align").setup({})
-    end,
+    config = true,
   },
 
   -- Split and join arguments
@@ -52,13 +44,11 @@ return {
     "echasnovski/mini.splitjoin",
     version = false,
     event = "VeryLazy",
-    config = function()
-      require("mini.splitjoin").setup({
-        mappings = {
-          toggle = "gj",
-        },
-      })
-    end,
+    opts = {
+      mappings = {
+        toggle = "gj",
+      },
+    },
   },
 
   {
@@ -102,21 +92,19 @@ return {
     "echasnovski/mini.move",
     version = false,
     event = "VeryLazy",
-    config = function()
-      require("mini.move").setup({
-        mappings = {
-          left = "<S-left>",
-          right = "<S-right>",
-          down = "<S-down>",
-          up = "<S-up>",
+    opts = {
+      mappings = {
+        left = "<S-left>",
+        right = "<S-right>",
+        down = "<S-down>",
+        up = "<S-up>",
 
-          line_left = "<S-left>",
-          line_right = "<S-right>",
-          line_down = "<S-down>",
-          line_up = "<S-up>",
-        },
-      })
-    end,
+        line_left = "<S-left>",
+        line_right = "<S-right>",
+        line_down = "<S-down>",
+        line_up = "<S-up>",
+      },
+    },
   },
 
   -- Go forward/backward with square brackets
@@ -124,9 +112,7 @@ return {
     "echasnovski/mini.bracketed",
     version = false,
     event = "VeryLazy",
-    config = function()
-      require("mini.bracketed").setup({})
-    end,
+    config = true,
   },
 
   -- enable repeating supported plugin maps with '.'
@@ -148,9 +134,27 @@ return {
 
       wk.register({
         ["<leader>"] = {
+          c = { name = "+chatGPT" },
           e = { name = "+edit" },
           g = { name = "+git" },
           s = { name = "+search" },
+          -- ["g"] = { name = "+goto" },
+          -- ["gs"] = { name = "+surround" },
+          -- ["]"] = { name = "+next" },
+          -- ["["] = { name = "+prev" },
+          -- ["<leader><tab>"] = { name = "+tabs" },
+          -- ["<leader>b"] = { name = "+buffer" },
+          -- ["<leader>c"] = { name = "+code" },
+          -- ["<leader>f"] = { name = "+file/find" },
+          -- ["<leader>g"] = { name = "+git" },
+          -- ["<leader>gh"] = { name = "+hunks" },
+          -- ["<leader>q"] = { name = "+quit/session" },
+          -- ["<leader>s"] = { name = "+search" },
+          -- ["<leader>u"] = { name = "+ui" },
+          -- ["<leader>w"] = { name = "+windows" },
+          -- ["<leader>x"] = { name = "+diagnostics/quickfix" },
+          -- ["<leader>t"] = { name = "+test" },
+          x = { name = "+debug" },
         },
         g = {
           name = "+go/got to",
@@ -164,13 +168,12 @@ return {
   {
     "NvChad/nvim-colorizer.lua",
     cmd = { "ColorizerAttachToBuffer", "ColorizerToggle" },
-    config = function()
-      require("colorizer").setup({
-        user_default_options = {
-          -- disable name codes e.g. blue, red
-          names = false,
-        },
-      })
-    end,
+    opts = {
+      user_default_options = {
+        -- disable name codes e.g. blue, red
+        names = false,
+      },
+    },
+    main = "colorizer",
   },
 }

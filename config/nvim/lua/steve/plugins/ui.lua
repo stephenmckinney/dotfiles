@@ -2,18 +2,16 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
-    config = function()
-      require("lualine").setup({
-        options = {
-          theme = "tokyonight",
-          disabled_filetypes = {
-            "NvimTree",
-            "neotest-summary",
-            "help",
-          },
+    opts = {
+      options = {
+        theme = "tokyonight",
+        disabled_filetypes = {
+          "NvimTree",
+          "neotest-summary",
+          "help",
         },
-      })
-    end,
+      },
+    },
   },
 
   -- Configurable status column with gitsigns and diagnostic signs.
@@ -74,7 +72,6 @@ return {
           changedelete = { text = "▎" },
           untracked = { text = "▎" },
         },
-        signcolumn = true,
       })
     end,
   },
@@ -84,22 +81,25 @@ return {
     "echasnovski/mini.indentscope",
     version = false,
     event = "VeryLazy",
-    config = function()
-      local indentscope = require("mini.indentscope")
-      indentscope.setup({
-        -- Symbol priority. Increase to display on top of more symbols.
-        draw = {
-          priority = 2,
+    opts = {
+      symbol = "│",
+      -- place cursor on function header to get scope of its body
+      options = { try_as_border = true },
+      -- no motion key mappings
+      mappings = { goto_top = "", goto_bottom = "" },
+    },
+    -- disable for help, plugin managers, etc.
+    init = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
+          "help",
+          "lazy",
+          "mason",
+          "NvimTree",
         },
-        -- use cursor row to calculate indent scope
-        options = {
-          indent_at_cursor = false,
-        },
-        -- no motion key mappings
-        mappings = {
-          goto_top = "",
-          goto_bottom = "",
-        },
+        callback = function()
+          vim.b.miniindentscope_disable = true
+        end,
       })
     end,
   },
@@ -108,26 +108,22 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "VeryLazy",
+    opts = {
+      -- disable scope highlighting
+      scope = { enabled = false },
+      indent = {
+        char = "│",
+        tab_char = "│",
+      },
+      exclude = {
+        filetypes = {
+          "help",
+          "lazy",
+          "mason",
+          "NvimTree",
+        },
+      },
+    },
     main = "ibl",
-    opts = {},
-    config = function()
-      require("ibl").setup({
-        -- disable scope highlighting
-        scope = {
-          enabled = false,
-        },
-        -- Symbol priority. Increase to display on top of more symbols.
-        indent = {
-          priority = 1,
-        },
-        exclude = {
-          filetypes = {
-            "help",
-            "lazy",
-            "mason",
-          },
-        },
-      })
-    end,
   },
 }
