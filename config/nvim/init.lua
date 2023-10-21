@@ -28,11 +28,6 @@ require("lazy").setup("steve.plugins", {
     lazy = false,
     version = false,
   },
-  -- automatically check and notify for plugin updates
-  checker = {
-    enabled = true,
-    notify = true,
-  },
   -- disable notifications when config file changes are found
   change_detection = {
     notify = false,
