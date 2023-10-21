@@ -71,3 +71,5 @@ vim.opt.smartcase = true -- Make search case-sensitive if pattern contains upper
 --  matching completions and select the first one in the list.
 --------------------------------------------------------------------------------
 vim.opt.wildmode = "list:longest,list:full"
+
+vim.cmd("colorscheme tokyonight")

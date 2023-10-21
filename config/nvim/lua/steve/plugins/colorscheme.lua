@@ -10,80 +10,67 @@
 local colorschemes = {
   -- Catppuccin
   -- A visually soothing coffee-themed colorscheme.
+  -- Available flavors: catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    config = function()
-      -- Available flavors: catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
-      require("catppuccin").setup({
-        flavour = "mocha",
-        background = {
-          integrations = {
-            cmp = true,
-            gitsigns = true,
-            mason = true,
-            neotest = true,
-            notify = false,
-            nvimtree = true,
-            telescope = true,
-            treesitter = true,
-            treesitter_context = true,
-            which_key = true,
-          },
+    opts = {
+      flavour = "mocha",
+      background = {
+        integrations = {
+          cmp = true,
+          gitsigns = true,
+          mason = true,
+          neotest = true,
+          notify = false,
+          nvimtree = true,
+          telescope = true,
+          treesitter = true,
+          treesitter_context = true,
+          which_key = true,
         },
-      })
-      -- vim.cmd("colorscheme catppuccin")
-    end,
+      },
+    },
   },
 
   -- Tokyo Night
   -- A clean, dark theme inspired by Tokyo at night.
+  -- Available styles: storm, moon, night, day
   {
     "folke/tokyonight.nvim",
     name = "tokyonight",
-    lazy = false, -- If this is your main colorscheme, set to false to load during startup.
-    priority = 1000, -- Ensure this plugin loads before all other start plugins.
-    config = function()
-      require("tokyonight").setup({
-        -- Available styles: storm, moon, night, day
-        style = "night",
-        sidebars = { "qf", "help", "NvimTree", "neotest-summary" },
-      })
-      vim.cmd("colorscheme tokyonight")
-    end,
+    opts = {
+      style = "night",
+      sidebars = { "qf", "help", "NvimTree", "neotest-summary" },
+    },
   },
 
   -- Nightfox
   -- A dark colorscheme with vibrant pops of color.
+  -- Available flavors: nightfox, dayfox, dawnfox, duskfox, nordfox, terafox, carbonfox
+  -- vim.cmd("colorscheme terafox")
   {
     "EdenEast/nightfox.nvim",
     name = "nightfox",
-    config = function()
-      require("nightfox").setup({
-        groups = {
-          all = {
-            TelescopeBorder = { fg = "palette.fg3" },
-          },
+    opts = {
+      groups = {
+        all = {
+          TelescopeBorder = { fg = "palette.fg3" },
         },
-      })
-      -- Available flavors: nightfox, dayfox, dawnfox, duskfox, nordfox, terafox, carbonfox
-      -- vim.cmd("colorscheme terafox")
-    end,
+      },
+    },
   },
 
   -- Rose Pine
   -- Soft pastel themes inspired by a peaceful forest.
+  -- Available variants: auto, main, moon, dawn
   {
     "rose-pine/neovim",
     name = "rose-pine",
-    config = function()
-      require("rose-pine").setup({
-        -- Available variants: auto, main, moon, dawn
-        variant = "auto",
-        dark_variant = "main",
-      })
-      -- vim.cmd("colorscheme rose-pine")
-    end,
+    opts = {
+      variant = "auto",
+      dark_variant = "main",
+    },
   },
 
   -- One Nord
@@ -91,10 +78,7 @@ local colorschemes = {
   {
     "rmehri01/onenord.nvim",
     name = "openord",
-    config = function()
-      -- require("onenord").setup({})
-      -- vim.cmd("colorscheme onenord")
-    end,
+    config = true,
   },
 
   -- Nord
@@ -109,42 +93,40 @@ local colorschemes = {
       vim.g.nord_uniform_diff_background = true
 
       -- require("nord").set()
-      -- vim.cmd("colorscheme nord")
     end,
   },
 
   -- Material
   -- Material Design theme that gives your Neovim a modern, clean aesthetic.
+  -- Available themes: default, palenight, ocean, lighter, darker, default-community, palenight-community, ocean-community, lighter-community, darker-community
   {
     "marko-cerovac/material.nvim",
     name = "material",
     config = function()
-      -- Available themes: default, palenight, ocean, lighter, darker, default-community, palenight-community, ocean-community, lighter-community, darker-community
       vim.g.material_theme_style = "ocean"
-      -- vim.cmd("colorscheme material")
     end,
   },
 
   -- One Dark
   -- This theme combines the Nord and Atom One Dark color palettes to add more vibrance to the Nord theme.
   -- It doesn't have itermcolors, but it's similar to onenord.
+  -- Available styles: dark, darker, cool, deep, warm, warmer, light
   {
     "navarasu/onedark.nvim",
     name = "onedark",
-    config = function()
-      require("onedark").setup({
-        -- Available styles: dark, darker, cool, deep, warm, warmer, light
-        style = "cool",
-      })
-      -- vim.cmd("colorscheme onedark")
-    end,
+    opts = {
+      style = "cool",
+    },
   },
 }
 
 -- Set all colorschemes to lazy-load on key map for builtin.colorscheme picker, so that they can be hotswapped.
--- Unless the lazy key is already set, e.g. our main colorscheme.
+-- Unless the name key is our main colorscheme.
 for _, entry in ipairs(colorschemes) do
-  if entry.lazy == nil then
+  if entry.name == "tokyonight" then
+    entry.lazy = false -- If this is your main colorscheme, set to false to load during startup.
+    entry.priority = 1000 -- Ensure this plugin loads before all other start plugins.
+  else
     entry.lazy = true
     entry.keys = {
       { "<leader>sc", "<cmd>Telescope colorscheme enable_preview=true<cr>", desc = "List colorschemes, apply them on <cr>" },
