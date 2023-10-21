@@ -3,7 +3,6 @@
 --
 -- * mason.nvim is a Neovim plugin that allows you to easily manage external editor tooling such as LSP servers, DAP servers, linters, and formatters through a single interface.
 -- * lspconfig: A set of common configurations for language servers.  Each language server provides rich language-specific features like autocompletion, go-to-definition, find-references, and more.
--- * null-ls: Treat external tools (like linters, formatters, or any command-line program) as virtual language servers, thus integrating their functionality into NeoVim's LSP ecosystem.
 --------------------------------------------------------------------------------
 return {
   -- lspconfig
@@ -54,19 +53,23 @@ return {
       local lspconfig = require("lspconfig")
 
       -- Lua
+      -- use lua_ls for autocompletion,
+      -- enable diagnostics, disable formatting
       lspconfig.lua_ls.setup({
         settings = {
           Lua = {
+            diagnostics = { enable = true },
             format = { enable = false },
           },
         },
       })
 
       -- Ruby
-      -- use solargraph for autocompletion, but not formatting or diagnostics
+      -- use solargraph for autocompletion,
+      -- enable diagnostics, disable formatting
       lspconfig.solargraph.setup({
+        settings = { solargraph = { diagnostics = true } },
         init_options = { formatting = false },
-        settings = { solargraph = { diagnostics = false } },
       })
 
       -- TypeScript, JavaScript
@@ -94,8 +97,6 @@ return {
   {
     "williamboman/mason.nvim",
     build = ":MasonUpdate", -- :MasonUpdate updates registry contents
-    config = function()
-      require("mason").setup({})
-    end,
+    config = true,
   },
 }
