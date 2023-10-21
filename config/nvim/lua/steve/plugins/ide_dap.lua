@@ -1,0 +1,122 @@
+return {
+  -- nvim-dap
+  {
+    "mfussenegger/nvim-dap",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+
+      -- fancy UI for the debugger
+      {
+        "rcarriga/nvim-dap-ui",
+        -- stylua: ignore start
+        keys = {
+          { "<leader>xu", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
+          { "<leader>xe", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} },
+        },
+        -- stylua: ignore end
+        config = function()
+          -- setup dap config by VsCode launch.json file
+          -- require("dap.ext.vscode").load_launchjs()
+          local dap = require("dap")
+          local dapui = require("dapui")
+          dapui.setup({})
+          dap.listeners.after.event_initialized["dapui_config"] = function()
+            dapui.open({})
+          end
+          dap.listeners.before.event_terminated["dapui_config"] = function()
+            dapui.close({})
+          end
+          dap.listeners.before.event_exited["dapui_config"] = function()
+            dapui.close({})
+          end
+        end,
+      },
+
+      -- virtual text for the debugger
+      {
+        "theHamsta/nvim-dap-virtual-text",
+        opts = {},
+      },
+
+      -- mason.nvim integration
+      {
+        "jay-babu/mason-nvim-dap.nvim",
+        dependencies = { "mason.nvim" },
+        cmd = { "DapInstall", "DapUninstall" },
+        opts = {
+          -- Makes a best effort to setup the various debuggers with
+          -- reasonable debug configurations
+          automatic_installation = true,
+
+          -- You can provide additional configuration to the handlers,
+          -- see mason-nvim-dap README for more information
+          handlers = {},
+
+          -- You'll need to check that you have the required things installed
+          -- online, please don't ask me how to install them :)
+          ensure_installed = {
+            -- Update this to ensure that you have the debuggers for the langs you want
+            "js-debug-adapter",
+          },
+        },
+      },
+    },
+    -- stylua: ignore start
+    keys = {
+      { "<leader>xB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
+      { "<leader>xb", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
+      { "<leader>xc", function() require("dap").continue() end, desc = "Continue" },
+      { "<leader>xC", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
+      { "<leader>xg", function() require("dap").goto_() end, desc = "Go to line (no execute)" },
+      { "<leader>xi", function() require("dap").step_into() end, desc = "Step Into" },
+      { "<leader>xj", function() require("dap").down() end, desc = "Down" },
+      { "<leader>xk", function() require("dap").up() end, desc = "Up" },
+      { "<leader>xl", function() require("dap").run_last() end, desc = "Run Last" },
+      { "<leader>xo", function() require("dap").step_out() end, desc = "Step Out" },
+      { "<leader>xO", function() require("dap").step_over() end, desc = "Step Over" },
+      { "<leader>xp", function() require("dap").pause() end, desc = "Pause" },
+      { "<leader>xr", function() require("dap").repl.toggle() end, desc = "Toggle REPL" },
+      { "<leader>xs", function() require("dap").session() end, desc = "Session" },
+      { "<leader>xt", function() require("dap").terminate() end, desc = "Terminate" },
+      { "<leader>xw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
+    },
+    -- stylua: ignore end
+
+    config = function()
+      local dap = require("dap")
+
+      dap.adapters["pwa-node"] = {
+        type = "server",
+        host = "localhost",
+        port = "${port}",
+        executable = {
+          command = "node",
+          -- 💀 Make sure to update this path to point to your installation
+          args = {
+            require("mason-registry").get_package("js-debug-adapter"):get_install_path() .. "/js-debug/src/dapDebugServer.js",
+            "${port}",
+          },
+        },
+      }
+
+      for _, language in ipairs({ "typescript", "javascript", "typescriptreact", "javascriptreact" }) do
+        dap.configurations[language] = {
+          {
+            type = "pwa-node",
+            request = "launch",
+            name = "Launch file",
+            program = "${file}",
+            cwd = "${workspaceFolder}",
+          },
+          {
+            type = "pwa-node",
+            request = "attach",
+            name = "Attach",
+            port = "9229",
+            cwd = "${workspaceFolder}",
+          },
+        }
+      end
+    end,
+  },
+}
