@@ -3,14 +3,12 @@
 return {
   {
     "nvim-pack/nvim-spectre",
-    config = function()
-      require("spectre").setup({
-        -- colorscheme tweak for nightfox
-        highlight = {
-          replace = "@text.warning",
-        },
-      })
-    end,
+    opts = {
+      -- colorscheme tweak for nightfox
+      highlight = {
+        replace = "@text.warning",
+      },
+    },
     -- stylua: ignore
     keys = {
       -- Search and Replace all files in current directory
