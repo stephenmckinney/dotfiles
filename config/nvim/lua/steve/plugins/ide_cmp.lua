@@ -13,7 +13,6 @@ return {
   -- LuaSnip is used for snippets and is configured to use friendly-snippets.
   {
     "L3MON4D3/LuaSnip",
-    version = "1.*",
     build = "make install_jsregexp", -- Build step for LuaSnip.
     dependencies = { "rafamadriz/friendly-snippets" }, -- Use friendly-snippets for our snippets.
     config = function()
@@ -21,24 +20,6 @@ return {
       require("luasnip.loaders.from_vscode").lazy_load()
     end,
     keys = {}, -- No special keybindings set for snippets.
-  },
-
-  -- Copilot
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    build = ":Copilot auth",
-    opts = {
-      -- disable suggestion and panel modules, so that they can't interfere with completions properly appearing in copilot-cmp
-      suggestion = { enabled = false },
-      panel = { enabled = false },
-      filetypes = {
-        javascript = true,
-        ruby = true,
-        typescript = true,
-      },
-    },
   },
 
   -- Auto-completion using nvim-cmp
@@ -53,15 +34,9 @@ return {
       "hrsh7th/cmp-buffer", -- Buffer source.
       "hrsh7th/cmp-path", -- Path source.
       "saadparwaiz1/cmp_luasnip", -- Snippets source.
-      -- Copilot source
-      {
-        "zbirenbaum/copilot-cmp",
-        name = "copilot_cmp",
-        config = true,
-      },
     },
     config = function()
-      require("copilot_cmp").setup()
+      -- require("copilot_cmp").setup()
       local luasnip = require("luasnip")
       local cmp = require("cmp")
 
@@ -120,7 +95,7 @@ return {
           -- * <CR> confirms the selection, including the current implicit selection.
           ["<C-u>"] = cmp.mapping.scroll_docs(4),
           ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-Space>"] = cmp.mapping.complete(),
+          -- ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping({
             i = cmp.mapping.abort(),
             c = cmp.mapping.close(),
@@ -132,7 +107,6 @@ return {
         }),
         -- Set up completion sources.
         sources = cmp.config.sources({
-          { name = "copilot" }, -- Copilot completion
           { name = "nvim_lsp" }, -- LSP-based completion
           { name = "luasnip" }, -- Snippet-based completion
           { name = "buffer" }, -- Completion from current buffer
