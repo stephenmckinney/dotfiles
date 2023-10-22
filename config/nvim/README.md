@@ -37,9 +37,13 @@
   - Code Action
   - Signature Help
 
-- `null-ls`
+- Formatting
 
-  - Formatting
+  - `Conform`
+
+- Linting
+
+  - `nvim-lint`
 
 - Testing
 
@@ -58,12 +62,13 @@
 - AI
 
   - `copilot`
+  - `chatgpt`
 
 - UI
-  - Status column `statuscol`, `gitsigns`, `indent-blankline`
-  - `lualine`
+  - Indentation `indent-blankline`, `mini.indentsope`
+  - Status column `statuscol`, `gitsigns`,
+  - Status line `lualine`
 
 ## TODO
 
-- [ ] how to integrate CoPilot
 - [ ] bring all the goodies from my old vimfiles

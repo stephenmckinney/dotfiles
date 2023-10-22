@@ -1,4 +1,5 @@
 return {
+  -- Configurable statusline using lua.
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
