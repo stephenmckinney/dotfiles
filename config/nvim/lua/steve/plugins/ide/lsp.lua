@@ -26,8 +26,9 @@ return {
       { "gy", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true }) end, desc = "Goto T[y]pe Definition" },
       { "K", vim.lsp.buf.hover, desc = "Hover" },
       { "gK", vim.lsp.buf.signature_help, desc = "Signature Help" },
+      -- TODO: fix, conflicts with copilot keybindings
+      -- { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help" },
       { "gw", "<cmd>Telescope diagnostics<cr>", desc = "Goto Workspace diagnostics" },
-      { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help" },
       { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }},
       {
         "<leader>cA",
