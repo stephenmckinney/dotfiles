@@ -1,4 +1,11 @@
 --------------------------------------------------------------------------------
+-- Options
+--
+-- Vim has a number of internal variables and switches which can be set to
+-- achieve special effects.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
 -- User Interface
 --  Display relative line numbers, line numbers, and cursor line
 --  Highlight matching parentheses/brackets.

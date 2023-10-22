@@ -1,5 +1,8 @@
 --------------------------------------------------------------------------------
--- Autocmds
+-- Automatic commands
+--
+-- Commands to be executed automatically when reading or writing
+-- a file, when entering or leaving a buffer or window, and when exiting Vim.
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
@@ -14,9 +17,43 @@ local function augroup(name)
 end
 
 --------------------------------------------------------------------------------
--- autocmd
+-- Autocmds
 --------------------------------------------------------------------------------
 
+--------------------------------------------------------------------------------
+-- Options
+--------------------------------------------------------------------------------
+-- Set local options for "text" files
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("text_file_options"),
+  pattern = { "gitcommit", "markdown", "text", "txt" },
+  callback = function()
+    -- wrap and check for spell
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+    -- set indention
+    vim.opt_local.sw = 2
+    vim.opt_local.sts = 2
+    vim.opt_local.ts = 2
+  end,
+})
+
+-- Disable comment continuation options for all filetypes
+--   Disable automatic comment continuation when:
+--   * auto-wrapping a line
+--   * after hitting <Enter> in Insert mode
+--   * after hitting 'o' or 'O' in Normal mode
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("comment_continuation"),
+  pattern = { "*" },
+  callback = function()
+    vim.opt.formatoptions = vim.opt.formatoptions - { "c", "r", "o" }
+  end,
+})
+
+--------------------------------------------------------------------------------
+-- UI
+--------------------------------------------------------------------------------
 -- If the current buffer's filetype is "fugitive"
 -- then set the height of the current window to 2/3 of screen size.
 vim.api.nvim_create_autocmd("BufEnter", {
@@ -45,18 +82,9 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
   end,
 })
 
--- go to last loc when opening a buffer
-vim.api.nvim_create_autocmd("BufReadPost", {
-  group = augroup("last_loc"),
-  callback = function()
-    local mark = vim.api.nvim_buf_get_mark(0, '"')
-    local lcount = vim.api.nvim_buf_line_count(0)
-    if mark[1] > 0 and mark[1] <= lcount then
-      pcall(vim.api.nvim_win_set_cursor, 0, mark)
-    end
-  end,
-})
-
+--------------------------------------------------------------------------------
+-- Keymaps
+--------------------------------------------------------------------------------
 -- close some filetypes with <q>
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("close_with_q"),
@@ -73,30 +101,17 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- Set local options for "text" files
-vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("text_file_options"),
-  pattern = { "gitcommit", "markdown", "text", "txt" },
+--------------------------------------------------------------------------------
+-- Auto-do-a-thing
+--------------------------------------------------------------------------------
+-- go to last loc when opening a buffer
+vim.api.nvim_create_autocmd("BufReadPost", {
+  group = augroup("last_loc"),
   callback = function()
-    -- wrap and check for spell
-    vim.opt_local.wrap = true
-    vim.opt_local.spell = true
-    -- set indention
-    vim.opt_local.sw = 2
-    vim.opt_local.sts = 2
-    vim.opt_local.ts = 2
-  end,
-})
-
--- Comment Continuation
---   Disable automatic comment continuation when:
---   * auto-wrapping a line
---   * after hitting <Enter> in Insert mode
---   * after hitting 'o' or 'O' in Normal mode
-vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("comment_continuation"),
-  pattern = { "*" },
-  callback = function()
-    vim.opt.formatoptions = vim.opt.formatoptions - { "c", "r", "o" }
+    local mark = vim.api.nvim_buf_get_mark(0, '"')
+    local lcount = vim.api.nvim_buf_line_count(0)
+    if mark[1] > 0 and mark[1] <= lcount then
+      pcall(vim.api.nvim_win_set_cursor, 0, mark)
+    end
   end,
 })
