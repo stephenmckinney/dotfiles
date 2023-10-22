@@ -13,5 +13,8 @@ return {
       vim.api.nvim_set_keymap("i", "<C-d>", [[copilot#Next()]], { silent = true, expr = true, script = true })
       vim.api.nvim_set_keymap("i", "<C-Space>", [[copilot#Suggest()]], { silent = true, expr = true, script = true })
     end,
+    keys = {
+      { "<leader>ip", "<cmd>Copilot status<cr>", desc = "Co[p]ilot Status" },
+    },
   },
 }

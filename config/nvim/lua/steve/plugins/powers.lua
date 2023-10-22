@@ -143,6 +143,9 @@ return {
         ["["] = { name = "+prev" },
         -- TODO: choose other keymaps for chatGPT
         ["<leader>c"] = { name = "+code" },
+        ["<leader>i"] = { name = "+info" },
+        ["<leader>iz"] = { "<cmd>Lazy<cr>", "La[z]y" },
+        ["<leader>ih"] = { "<cmd>Checkhealth<cr>", "Health" },
         ["<leader>e"] = { name = "+edit" },
         ["<leader>g"] = { name = "+git" },
         ["<leader>s"] = { name = "+search" },

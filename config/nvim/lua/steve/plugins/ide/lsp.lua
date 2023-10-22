@@ -18,7 +18,7 @@ return {
     },
     -- stylua: ignore
     keys = {
-      { "<leader>cl", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
+      { "<leader>il", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
       { "gd", function() require("telescope.builtin").lsp_definitions({ reuse_win = true }) end, desc = "Goto Definition"},
       { "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
       { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
@@ -108,5 +108,9 @@ return {
     "williamboman/mason.nvim",
     build = ":MasonUpdate", -- :MasonUpdate updates registry contents
     config = true,
+    cmd = "Mason",
+    keys = {
+      { "<leader>im", "<cmd>Mason<cr>", desc = "Mason" },
+    },
   },
 }
