@@ -20,15 +20,6 @@ vim.opt.expandtab = true -- Convert tabs to spaces
 vim.opt.autoindent = true -- New lines inherit indentation of previous line
 
 --------------------------------------------------------------------------------
--- Formtting Text
---   Don't insert the current comment leader when:
---   * auto-wrapping a line
---   * after hitting <Enter> in Insert mode
---   * after hitting 'o' or 'O' in Normal mode
---------------------------------------------------------------------------------
-vim.opt.formatoptions:remove("cro") -- Disable automatic comment continuation
-
---------------------------------------------------------------------------------
 -- Wrap and Scroll
 --  Avoid wrapping long lines.
 --  Maintain a margin of 8 lines from top/bottom and 15 columns from left/right.

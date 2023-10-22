@@ -87,3 +87,16 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.ts = 2
   end,
 })
+
+-- Comment Continuation
+--   Disable automatic comment continuation when:
+--   * auto-wrapping a line
+--   * after hitting <Enter> in Insert mode
+--   * after hitting 'o' or 'O' in Normal mode
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("comment_continuation"),
+  pattern = { "*" },
+  callback = function()
+    vim.opt.formatoptions = vim.opt.formatoptions - { "c", "r", "o" }
+  end,
+})
