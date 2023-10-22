@@ -99,6 +99,7 @@ return {
           "NvimTree",
         },
         callback = function()
+          ---@diagnostic disable-next-line: inject-field
           vim.b.miniindentscope_disable = true
         end,
       })
