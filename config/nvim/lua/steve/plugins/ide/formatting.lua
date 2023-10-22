@@ -30,5 +30,19 @@ return {
         lsp_fallback = true,
       },
     },
+    keys = {
+      { "<leader>ic", "<cmd>ConformInfo<cr>", desc = "Conform Info" },
+      {
+        "<leader>cf",
+        function()
+          require("conform").format({
+            timeout_ms = 500,
+            lsp_fallback = true,
+          })
+        end,
+        desc = "Format",
+        mode = { "n", "v" },
+      },
+    },
   },
 }
