@@ -30,12 +30,15 @@ require("lazy").setup({
   -- It's recommended to leave version=false for now, since a lot the plugin that support versioning,
   -- have outdated releases, which may break your Neovim install.
   defaults = {
-    lazy = false,
     version = false,
   },
-  -- disable notifications when config file changes are found
+  -- disable config change notifications
   change_detection = {
     notify = false,
+  },
+  -- load colorscheme while installing new plugins during startup
+  install = {
+    colorscheme = { "default" },
   },
 })
 
