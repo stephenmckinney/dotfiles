@@ -141,7 +141,6 @@ return {
         ["gu"] = { name = "+textcase" },
         ["]"] = { name = "+next" },
         ["["] = { name = "+prev" },
-        -- TODO: choose other keymaps for chatGPT
         ["<leader>c"] = { name = "+code" },
         ["<leader>i"] = { name = "+info" },
         ["<leader>iz"] = { "<cmd>Lazy<cr>", "La[z]y" },
@@ -150,17 +149,12 @@ return {
         ["<leader>g"] = { name = "+git" },
         ["<leader>s"] = { name = "+search" },
         ["<leader>x"] = { name = "+debug" },
+        -- TODO: choose other keymaps for chatGPT
+        ["<leader>z"] = { name = "+chatGPT" },
         -- ["<leader>r"] = { name = "+diagnostics/quickfix" },
         -- ["<leader>t"] = { name = "+test" },
 
-        -- ["gs"] = { name = "+surround" },
-        -- ["<leader><tab>"] = { name = "+tabs" },
-        -- ["<leader>b"] = { name = "+buffer" },
-        -- ["<leader>f"] = { name = "+file/find" },
-        -- ["<leader>gh"] = { name = "+hunks" },
-        -- ["<leader>q"] = { name = "+quit/session" },
         -- ["<leader>u"] = { name = "+ui" },
-        -- ["<leader>w"] = { name = "+windows" },
       })
     end,
   },
