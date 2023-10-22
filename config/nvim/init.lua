@@ -21,7 +21,12 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
-require("lazy").setup("steve.plugins", {
+require("lazy").setup({
+  spec = {
+    { import = "steve.plugins" },
+    { import = "steve.plugins.editor" },
+    { import = "steve.plugins.ide" },
+  },
   -- It's recommended to leave version=false for now, since a lot the plugin that support versioning,
   -- have outdated releases, which may break your Neovim install.
   defaults = {
@@ -34,9 +39,7 @@ require("lazy").setup("steve.plugins", {
   },
 })
 
--- Load the custom configuration modules for NeoVim options and keymaps.
--- 'steve.options' contains settings for various Vim options.
--- 'steve.keymaps' contains custom key mappings.
+-- Load custom Neovim options, keymaps, and autocmds.
 require("steve.options")
 require("steve.keymaps")
 require("steve.autocmds")

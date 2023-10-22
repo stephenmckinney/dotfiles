@@ -62,6 +62,8 @@ return {
 
       local textcase = require("textcase")
       -- stylua: ignore start
+      vim.keymap.set("n", "gul", function() textcase.operator('to_lower_case') end, opts("lower case"))
+      vim.keymap.set("n", "guu", function() textcase.operator('to_upper_case') end, opts("UPPER CASE"))
       vim.keymap.set("n", "guc", function() textcase.operator('to_camel_case') end, opts("camelCase"))
       vim.keymap.set("n", "gud", function() textcase.operator('to_dash_case') end, opts("dash-case"))
       vim.keymap.set("n", "guj", function() textcase.operator('to_pascal_case') end, opts("JavaCase"))
@@ -70,6 +72,8 @@ return {
       vim.keymap.set("n", "gus", function() textcase.operator('to_snake_case') end, opts("snake_case"))
       vim.keymap.set("n", "gut", function() textcase.operator('to_title_case') end, opts("Title Case"))
 
+      vim.keymap.set("n", "guL", function() textcase.lsp_rename('to_lower_case') end, opts("lower case - lsp"))
+      vim.keymap.set("n", "guU", function() textcase.lsp_rename('to_upper_case') end, opts("UPPER CASE - lsp"))
       vim.keymap.set("n", "guC", function() textcase.lsp_rename('to_camel_case') end, opts("camelCase - lsp"))
       vim.keymap.set("n", "guD", function() textcase.lsp_rename('to_dash_case') end, opts("dash-case - lsp"))
       vim.keymap.set("n", "guJ", function() textcase.lsp_rename('to_pascal_case') end, opts("JavaCase - lsp"))
@@ -133,31 +137,27 @@ return {
       local wk = require("which-key")
 
       wk.register({
-        ["<leader>"] = {
-          c = { name = "+chatGPT" },
-          e = { name = "+edit" },
-          g = { name = "+git" },
-          s = { name = "+search" },
-          -- ["g"] = { name = "+goto" },
-          -- ["gs"] = { name = "+surround" },
-          -- ["]"] = { name = "+next" },
-          -- ["["] = { name = "+prev" },
-          -- ["<leader><tab>"] = { name = "+tabs" },
-          -- ["<leader>b"] = { name = "+buffer" },
-          -- ["<leader>c"] = { name = "+code" },
-          -- ["<leader>f"] = { name = "+file/find" },
-          -- ["<leader>gh"] = { name = "+hunks" },
-          -- ["<leader>q"] = { name = "+quit/session" },
-          -- ["<leader>u"] = { name = "+ui" },
-          -- ["<leader>w"] = { name = "+windows" },
-          -- ["<leader>x"] = { name = "+diagnostics/quickfix" },
-          -- ["<leader>t"] = { name = "+test" },
-          x = { name = "+debug" },
-        },
-        g = {
-          name = "+go/got to",
-          u = { name = "+textcase" },
-        },
+        ["g"] = { name = "+goto" },
+        ["gu"] = { name = "+textcase" },
+        ["]"] = { name = "+next" },
+        ["["] = { name = "+prev" },
+        -- TODO: choose other keymaps for chatGPT
+        ["<leader>c"] = { name = "+code" },
+        ["<leader>e"] = { name = "+edit" },
+        ["<leader>g"] = { name = "+git" },
+        ["<leader>s"] = { name = "+search" },
+        ["<leader>x"] = { name = "+debug" },
+        -- ["<leader>r"] = { name = "+diagnostics/quickfix" },
+        -- ["<leader>t"] = { name = "+test" },
+
+        -- ["gs"] = { name = "+surround" },
+        -- ["<leader><tab>"] = { name = "+tabs" },
+        -- ["<leader>b"] = { name = "+buffer" },
+        -- ["<leader>f"] = { name = "+file/find" },
+        -- ["<leader>gh"] = { name = "+hunks" },
+        -- ["<leader>q"] = { name = "+quit/session" },
+        -- ["<leader>u"] = { name = "+ui" },
+        -- ["<leader>w"] = { name = "+windows" },
       })
     end,
   },

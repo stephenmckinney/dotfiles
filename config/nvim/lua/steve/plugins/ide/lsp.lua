@@ -16,23 +16,33 @@ return {
       -- nvim lua api completion. Automatically configures lua_ls LSP.
       { "folke/neodev.nvim", opts = {} },
     },
+    -- stylua: ignore
     keys = {
-      -- definition
-      { "gd", "<cmd>Telescope lsp_definitions<cr>", desc = "Goto Definition" },
-      -- declaration
+      { "<leader>cl", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
+      { "gd", function() require("telescope.builtin").lsp_definitions({ reuse_win = true }) end, desc = "Goto Definition"},
+      { "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
       { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
-      -- implementation
-      { "gi", "<cmd>Telescope lsp_implementations<cr>", desc = "Goto Implementation" },
-      -- references
-      { "gr", "<cmd>Telescope lsp_references<cr>", desc = "Goto References" },
-      -- hover
+      { "gI", function() require("telescope.builtin").lsp_implementations({ reuse_win = true }) end, desc = "Goto Implementation" },
+      { "gy", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true }) end, desc = "Goto T[y]pe Definition" },
       { "K", vim.lsp.buf.hover, desc = "Hover" },
-      -- workspace diagnostics
+      { "gK", vim.lsp.buf.signature_help, desc = "Signature Help" },
       { "gw", "<cmd>Telescope diagnostics<cr>", desc = "Goto Workspace diagnostics" },
-      -- signature_help
-      { "gK", vim.lsp.buf.signature_help, desc = "Goto Signature Help" },
       { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help" },
-      { "<leader>ka", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" } },
+      { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }},
+      {
+        "<leader>cA",
+        function()
+          vim.lsp.buf.code_action({
+            context = {
+              only = {
+                "source",
+              },
+              diagnostics = {},
+            },
+          })
+        end,
+        desc = "Source Action",
+      }
     },
     config = function()
       -- Set up in the following order:
