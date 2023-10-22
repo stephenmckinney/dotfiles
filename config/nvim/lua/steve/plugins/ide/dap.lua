@@ -8,12 +8,11 @@ return {
       -- fancy UI for the debugger
       {
         "rcarriga/nvim-dap-ui",
-        -- stylua: ignore start
+        -- stylua: ignore
         keys = {
           { "<leader>xu", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
           { "<leader>xe", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} },
         },
-        -- stylua: ignore end
         config = function()
           -- setup dap config by VsCode launch.json file
           -- require("dap.ext.vscode").load_launchjs()
@@ -61,7 +60,7 @@ return {
         },
       },
     },
-    -- stylua: ignore start
+    -- stylua: ignore
     keys = {
       { "<leader>xB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
       { "<leader>xb", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
@@ -80,7 +79,6 @@ return {
       { "<leader>xt", function() require("dap").terminate() end, desc = "Terminate" },
       { "<leader>xw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
     },
-    -- stylua: ignore end
 
     config = function()
       local dap = require("dap")
