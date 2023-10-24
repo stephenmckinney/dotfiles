@@ -10,6 +10,12 @@ return {
     config = function()
       local wk = require("which-key")
 
+      wk.setup({
+        triggers_blacklist = {
+          n = { "'" },
+        },
+      })
+
       wk.register({
         ["g"] = { name = "+goto" },
         ["gu"] = { name = "+textcase" },

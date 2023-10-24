@@ -112,7 +112,7 @@ return {
     },
   },
 
-  -- Go forward/backward with square brackets
+  -- Go forward/backward with square brackets, similar to vim-unimpaired
   {
     "echasnovski/mini.bracketed",
     version = false,
