@@ -30,9 +30,7 @@ return {
       -- Show current code context.
       {
         "nvim-treesitter/nvim-treesitter-context",
-        config = function()
-          require("treesitter-context").setup({})
-        end,
+        opts = { max_lines = 3 },
       },
     },
     -- stylua: ignore
