@@ -36,6 +36,7 @@ map("n", "<C-j>", "<C-w>j", "Move cursor to window below current one")
 map("n", "<C-k>", "<C-w>k", "Move cursor to window above current one")
 map("n", "<C-l>", "<C-w>l", "Move cursor to window left of current one")
 map("n", "<C-h>", "<C-w>h", "Move cursor to window right of current one")
+map("n", "<C-x>", "<C-w>x", "E[x]change current window with the next one")
 
 -- Split windows
 map("n", "<leader>v", "<C-w>v<C-w>l", "Split window vertically")
