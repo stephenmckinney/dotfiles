@@ -1,4 +1,17 @@
 .DS_Store
-Brewfile.lock.json
 /bundle/cache
+# Fish
+/config/fish/completions/*
+/config/fish/conf.d/*
+/config/fish/functions/*
+# Don't ignore fish prompt
+!/config/fish/functions/fish_prompt.fish
+/config/fish/themes/*
+# Don't ignore tokyonight theme and theme.sh
+!/config/fish/themes/themes.sh
+!/config/fish/themes/themes.txt
+!/config/fish/themes/tokyonight-*.theme
+# Karabiner
 /config/karabiner/automatic_backups/*
+# Brew
+Brewfile.lock.json
