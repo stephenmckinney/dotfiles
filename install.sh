@@ -124,3 +124,19 @@ else
     chsh -s /bin/zsh
   fi
 fi
+
+# FISHER - install fisher
+# Check if fish is available
+if command -v fish >/dev/null 2>&1; then
+  # Check if Fisher is already installed by trying to run it within a fish shell
+  if fish -c 'type fisher' >/dev/null 2>&1; then
+    echo "Fisher is already installed. Skipping installation."
+  else
+    echo "Fisher is not installed. Installing..."
+    # Install Fisher
+    fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source; and fisher install jorgebucaran/fisher"
+    echo "Fisher installed successfully."
+  fi
+else
+  echo "Fish shell is not installed. Please install Fish first."
+fi
