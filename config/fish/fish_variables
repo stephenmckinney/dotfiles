@@ -3,13 +3,15 @@
 SETUVAR VIRTUAL_ENV_DISABLE_PROMPT:true
 SETUVAR __fish_initialized:3400
 SETUVAR _fisher_catppuccin_2F_fish_files:\x7e/\x2econfig/fish/themes/Catppuccin\x20Frappe\x2etheme\x1e\x7e/\x2econfig/fish/themes/Catppuccin\x20Latte\x2etheme\x1e\x7e/\x2econfig/fish/themes/Catppuccin\x20Macchiato\x2etheme\x1e\x7e/\x2econfig/fish/themes/Catppuccin\x20Mocha\x2etheme
+SETUVAR _fisher_gregorias_2F_fasd_2E_fish_files:\x7e/\x2econfig/fish/functions/__fasd_print_completion\x2efish\x1e\x7e/\x2econfig/fish/functions/fasd_cd\x2efish\x1e\x7e/\x2econfig/fish/functions/fasd_setup\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/__fasd_run\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/aliases\x2efish\x1e\x7e/\x2econfig/fish/completions/fasd\x2efish
 SETUVAR _fisher_ilancosman_2F_tide_40_v6_files:\x7e/\x2econfig/fish/functions/_tide_1_line_prompt\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_2_line_prompt\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_cache_variables\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_detect_os\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_find_and_remove\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_fish_colorize\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_aws\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_character\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_cmd_duration\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_context\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_crystal\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_direnv\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_distrobox\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_docker\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_elixir\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_gcloud\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_git\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_go\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_java\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_jobs\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_kubectl\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_nix_shell\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_node\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_os\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_php\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_private_mode\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_pulumi\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_python\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_ruby\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_rustc\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_shlvl\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_status\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_terraform\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_time\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_toolbox\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_item_vi_mode\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_parent_dirs\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_print_item\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_pwd\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_remove_unusable_items\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_sub_bug\x2dreport\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_sub_configure\x2efish\x1e\x7e/\x2econfig/fish/functions/_tide_sub_reload\x2efish\x1e\x7e/\x2econfig/fish/functions/fish_mode_prompt\x2efish\x1e\x7e/\x2econfig/fish/functions/fish_prompt\x2efish\x1e\x7e/\x2econfig/fish/functions/tide\x1e\x7e/\x2econfig/fish/functions/tide\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/_tide_init\x2efish\x1e\x7e/\x2econfig/fish/completions/tide\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1erose\x2dpine/fish\x1ecatppuccin/fish\x1eilancosman/tide\x40v6
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1erose\x2dpine/fish\x1ecatppuccin/fish\x1eilancosman/tide\x40v6\x1egregorias/fasd\x2efish
 SETUVAR _fisher_rose_2D_pine_2F_fish_files:\x7e/\x2econfig/fish/themes/Ros\u00e9\x20Pine\x20Dawn\x2etheme\x1e\x7e/\x2econfig/fish/themes/Ros\u00e9\x20Pine\x20Moon\x2etheme\x1e\x7e/\x2econfig/fish/themes/Ros\u00e9\x20Pine\x2etheme
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR _tide_left_items:vi_mode\x1eos\x1epwd\x1egit
-SETUVAR _tide_prompt_20408:\x1b\x5bm\x0f\x1b\x5bm\x0f\x1b\x5b30m\x1b\x5b97m\x1b\x5b40m\x20\uf179\x20\x1b\x5b90m\ue0b1\x1b\x5b40m\x20\x40PWD\x40\x20\x1b\x5b90m\ue0b1\x1b\x5b40m\x20\x1b\x5b92m\uf1d3\x20\x1b\x5b37m\x1b\x5b92mmain\x1b\x5b91m\x1b\x5b92m\x20\u21e16\x1b\x5b92m\x1b\x5b91m\x1b\x5b93m\x20\x2b1\x1b\x5b93m\x20\x219\x1b\x5b94m\x20\x3f5\x20\x1b\x5bm\x0f\x1b\x5bm\x0f\x1b\x5b30m\ue0b0\x1e\x1b\x5bm\x0f\x1b\x5bm\x0f\x1b\x5b30m\ue0b2\x1b\x5b32m\x1b\x5b40m\x20\u2714\x20\x1b\x5bm\x0f\x1b\x5bm\x0f\x1b\x5b30m
+SETUVAR _tide_prompt_64329:\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b30m\x1b\x5b36m\x1b\x5b40m\x20I\x20\x1b\x5b90m\ue0b1\x1b\x5b97m\x1b\x5b40m\x20\uf179\x20\x1b\x5b90m\ue0b1\x1b\x5b40m\x20\x40PWD\x40\x20\x1b\x5b90m\ue0b1\x1b\x5b40m\x20\x1b\x5b92m\uf1d3\x20\x1b\x5b37m\x1b\x5b92mmain\x1b\x5b91m\x1b\x5b92m\x20\u21e19\x1b\x5b92m\x1b\x5b91m\x1b\x5b93m\x1b\x5b93m\x20\x2110\x1b\x5b94m\x20\x3f8\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b30m\ue0b0\x1e\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b30m\ue0b2\x1b\x5b32m\x1b\x5b40m\x20\u2714\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b30m
+SETUVAR _tide_prompt_65765:\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b30m\x1b\x5b37m\x1b\x5b40m\x20D\x20\x1b\x5b90m\ue0b1\x1b\x5b97m\x1b\x5b40m\x20\uf179\x20\x1b\x5b90m\ue0b1\x1b\x5b40m\x20\x40PWD\x40\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b30m\ue0b0\x1e\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b30m\ue0b2\x1b\x5b32m\x1b\x5b40m\x20\u2714\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b30m
 SETUVAR _tide_right_items:status\x1ecmd_duration\x1econtext\x1ejobs\x1enode\x1epython\x1ejava\x1eruby\x1ekubectl
 SETUVAR fish_color_autosuggestion:969896
 SETUVAR fish_color_cancel:\x2d\x2dreverse
@@ -36,7 +38,7 @@ SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrbl
 SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
-SETUVAR fish_key_bindings:fish_default_key_bindings
+SETUVAR fish_key_bindings:fish_vi_key_bindings
 SETUVAR fish_pager_color_background:\x1d
 SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:B3A06D
@@ -50,7 +52,6 @@ SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR fish_user_paths:/opt/homebrew/bin
 SETUVAR tide_aws_bg_color:black
 SETUVAR tide_aws_color:yellow
 SETUVAR tide_aws_icon:\uf270
