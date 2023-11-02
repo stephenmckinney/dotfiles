@@ -35,8 +35,8 @@ return {
     },
     -- stylua: ignore
     keys = {
-      { "<C-space>",        desc = "Init incremental selection" },
-      { "<C-space>",        desc = "Increment selection", mode = "x" },
+      -- { "<C-space>",        desc = "Init incremental selection" },
+      -- { "<C-space>",        desc = "Increment selection", mode = "x" },
       { "<bs>",             desc = "Decrement selection", mode = "x" },
     },
     config = function()
@@ -48,9 +48,9 @@ return {
           enable = true,
           keymaps = {
             -- mode = normal
-            init_selection = "<C-space>",
+            -- init_selection = "<C-space>",
             -- mode = visual (x)
-            node_incremental = "<C-space>",
+            -- node_incremental = "<C-space>",
             scope_incremental = false,
             node_decremental = "<bs>",
           },
