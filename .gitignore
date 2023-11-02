@@ -3,25 +3,9 @@
 /config/karabiner/automatic_backups/*
 Brewfile.lock.json
 
-# Ignore fisher
-/config/fish/completions/fisher.fish
-/config/fish/functions/fisher.fish
+# Ignore fish variables
+config/fish/fish_variables
 
-# Ignore fisher installed plugins
-# tide
-/config/fish/completions/tide.fish
-/config/fish/conf.d/_tide_init.fish
-/config/fish/functions/_tide_*.fish
-/config/fish/functions/tide.fish
-/config/fish/functions/tide/*
-# fasd
-/config/fish/completions/fasd.fish
-/config/fish/conf.d/__fasd_run.fish
-/config/fish/conf.d/aliases.fish
-/config/fish/functions/*fasd*
-
-# Ignore fisher isntalled themes, except tokyonight theme and theme.sh
-/config/fish/themes/*
-!/config/fish/themes/themes.sh
-!/config/fish/themes/themes.txt
-!/config/fish/themes/tokyonight-*.theme
+# Ignore fisher plubins
+/config/fish/plugins/*
+!/config/fish/plugins/.keep
