@@ -84,17 +84,19 @@ return {
     },
     -- stylua: ignore
     keys = {
+      -- Fast access to common tasks
+      { "gB", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
+      { "gC", function() require("dap").continue() end, desc = "Continue" },
+      { "gi", function() require("dap").step_into() end, desc = "Step Into" },
+      { "go", function() require("dap").step_over() end, desc = "Step Over" },
+      { "gO", function() require("dap").step_out() end, desc = "Step Out" },
+      -- The rest
       { "<leader>xB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
-      { "<leader>xb", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
-      { "<leader>xc", function() require("dap").continue() end, desc = "Continue" },
       { "<leader>xC", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
       { "<leader>xg", function() require("dap").goto_() end, desc = "Go to line (no execute)" },
-      { "<leader>xi", function() require("dap").step_into() end, desc = "Step Into" },
       { "<leader>xj", function() require("dap").down() end, desc = "Down" },
       { "<leader>xk", function() require("dap").up() end, desc = "Up" },
       { "<leader>xl", function() require("dap").run_last() end, desc = "Run Last" },
-      { "<leader>xo", function() require("dap").step_out() end, desc = "Step Out" },
-      { "<leader>xO", function() require("dap").step_over() end, desc = "Step Over" },
       { "<leader>xp", function() require("dap").pause() end, desc = "Pause" },
       { "<leader>xr", function() require("dap").repl.toggle() end, desc = "Toggle REPL" },
       { "<leader>xs", function() require("dap").session() end, desc = "Session" },
