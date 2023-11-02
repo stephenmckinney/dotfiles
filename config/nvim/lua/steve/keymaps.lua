@@ -9,6 +9,7 @@
 --------------------------------------------------------------------------------
 -- Map keys with default options.
 --
+-- mode, lhs, rhs - see |nvim_set_keymap()|.
 -- desc - Description of the mapping.
 -- opts - An optional table of keymap options that will override the default options.
 local function map(mode, lhs, rhs, desc, opts)
