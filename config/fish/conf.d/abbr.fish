@@ -55,96 +55,61 @@ abbr gcamend "git commit --amend"
 abbr gcp     "git cherry-pick --edit -sx"
 # verbose alternatives
 abbr gundo-last-commit  "git reset --soft 'HEAD^'"
+abbr gbpurgedryrun 'git branch --merged | grep -v "\*" | grep -v "master"'
+abbr gbpurge 'git branch --merged | grep -v "\*" | grep -v "master" | xargs -n 1 git branch -d'
+
+
 # #stash
-# sl  = stash list
-# ss  = stash show
-# ssp = stash show -p
-# sp  = stash pop
-# sd  = stash drop
-# sc  = stash clear
-#
-# # diff
-# d    = diff          # Diff working dir to index
-# dw   = diff -w       # Diff ignore whitespace
-# ds   = diff --staged # Diff index to HEAD
-# dc   = diff --staged # Diff index to HEAD
-# dh   = diff HEAD     # Diff working dir and index to HEAD
-#
-# # hub
-# h = browse
-# hc = compare
-#
-# # index
-# s  = status
-# a  = add
-# ia = add
-# ir = reset
-# unstage = reset HEAD 
+abbr gsl  "git stash list"
+abbr gss  "git stash show"
+abbr gssp "git stash show -p"
+abbr gsp  "git stash pop"
+abbr gsd  "git stash drop"
+abbr gsc  "git stash clear"
 
-# # log
-# l   = log --topo-order --pretty=format:'%C(yellow)%h %C(cyan)%cn %C(blue)%cr%C(reset) %s'
-# ls  = log --topo-order --stat --pretty=format:'%C(bold)%C(yellow)Commit:%C(reset) %C(yellow)%H%C(red)%d%n%C(bold)%C(yellow)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)%C(yellow)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B'
-# ld  = log --topo-order --stat --patch --full-diff --pretty=format:'%C(bold)%C(yellow)Commit:%C(reset) %C(yellow)%H%C(red)%d%n%C(bold)%C(yellow)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)%C(yellow)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B'
-# lg  = log --topo-order --all --graph --pretty=format:'%C(yellow)%h%C(reset) %s %C(red)%d%C(reset)%n'
-# lga = log --topo-order --all --graph --pretty=format:'%C(yellow)%h %C(cyan)%cn%C(reset) %s %C(red)%d%C(reset)%n'
-# lm  = log --topo-order --pretty=format:'%s'
-# lh  = shortlog --summary --numbered
-# llf = fsck --lost-found
-# lme = log --author='Steve McKinney'
-#
-# # show
-# sh = show HEAD
-#
-# # remote
-# re  = remote
-# rel = remote --verbose
-# rea = remote add
-# rex = remote rm
-# rem = remote rename
-# rep = remote prune origin
+# diff
+abbr gd  "git diff"           # Diff working dir to index
+abbr gdw "git diff  -w"       # Diff ignore whitespace
+abbr gds "git diff  --staged" # Diff index to HEAD
+abbr gdh "git diff  HEAD"     # Diff working dir and index to HEAD
 
+# index
+abbr gs  "git status"
+abbr ga  "git add"
+abbr gia "git add"
+abbr gir "git reset"
+abbr gunstage "git reset HEAD "
 
+# log
+abbr gl   "git log --topo-order --pretty=format:'%C(yellow)%h %C(cyan)%cn %C(blue)%cr%C(reset) %s'"
+abbr gls  "git log --topo-order --stat --pretty=format:'%C(bold)%C(yellow)Commit:%C(reset) %C(yellow)%H%C(red)%d%n%C(bold)%C(yellow)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)%C(yellow)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B'"
+abbr gld  "git log --topo-order --stat --patch --full-diff --pretty=format:'%C(bold)%C(yellow)Commit:%C(reset) %C(yellow)%H%C(red)%d%n%C(bold)%C(yellow)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)%C(yellow)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B'"
+abbr glg  "git log --topo-order --all --graph --pretty=format:'%C(yellow)%h%C(reset) %s %C(red)%d%C(reset)%n'"
+abbr glga "git log --topo-order --all --graph --pretty=format:'%C(yellow)%h %C(cyan)%cn%C(reset) %s %C(red)%d%C(reset)%n'"
+abbr glm  "git log --topo-order --pretty=format:'%s'"
+abbr glh  "git shortlog --summary --numbered"
+abbr gllf "git fsck --lost-found"
+abbr glme "git log --author='Steve McKinney'"
 
+# show
+abbr gsh "git show HEAD"
 
-# # meta alias
+# remote
+abbr gre  "git remote"
+abbr grel "git remote --verbose"
+abbr grea "git remote add"
+abbr grex "git remote rm"
+abbr grem "git remote rename"
+abbr grep "git remote prune origin"
+
+# grepping stuff
 # alias aliasgrep='alias | grep $(echo $1)'
-#
-# # ps | grep
 # alias psgrep='ps -e -o pid,command | grep $(echo $1 | sed "s/^\(.\)/[\1]/g")'
-#
-#
-# alias gbpurgedryrun='git branch --merged | grep -v "\*" | grep -v "master"'
-# alias gbpurge='git branch --merged | grep -v "\*" | grep -v "master" | xargs -n 1 git branch -d'
-#
-# # Heroku
-# alias h='heroku'
-#
-# # Nvim
-# alias v='nvim .'
-# alias vi='nvim'
-#
-# # Edit dotfiles
-# alias edots='vim ~/.dotfiles'
-# alias eprezto='vim ~/.zprezto'
-#
-# # Mac OS X
-# alias show_hidden='defaults write com.apple.finder AppleShowAllFiles NO && killall Finder'
-# alias hide_hidden='defaults write com.apple.finder AppleShowAllFiles YES && killall Finder'
-# # Lock the screen (when going AFK)
-# alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
-#
-# # Misc.
-# alias gf='fg'            # I often screw this up.
-#
-# # Slack CLI
-# alias slack-meeting='slack status edit --text "In meetings" --emoji :virtual-meeting: && slack presence active && slack snooze start'
-# alias slack-lunch='slack status edit --text "lunch [back at $(date -v +30M +"%l:%M %p")]" --emoji :taco: && slack presence away && slack snooze end'
-# alias slack-focus='slack status edit --text "Heads down, Slack delayed" --emoji :heads-down: && slack presence active && slack snooze start'
-# alias slack-back='slack status clear && slack presence active && slack snooze end'
-# # alias slack-PERSON='slack chat send "hey <https://docs.google.com/TKTK|FILENAME>" @PERSON'
-#
-# # Edit dotfiles
-# alias edots='vim ~/.dotfiles'
-# alias eprezto='vim ~/.zprezto'
-#
-#
+
+# Heroku
+abbr h "heroku"
+
+# Edit dotfiles
+abbr edots "v ~/.dotfiles"
+abbr efish "v ~/.dotfiles/config/fish"
+abbr evim  "v ~/.dotfiles/config/nvim"
