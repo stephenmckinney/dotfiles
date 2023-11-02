@@ -18,7 +18,29 @@ return {
           -- require("dap.ext.vscode").load_launchjs()
           local dap = require("dap")
           local dapui = require("dapui")
-          dapui.setup({})
+          dapui.setup({
+            layouts = {
+              {
+                -- Sidebar bottom to top
+                elements = {
+                  { id = "breakpoints", size = 0.25 },
+                  { id = "stacks", size = 0.25 },
+                  { id = "scopes", size = 0.25 },
+                  { id = "watches", size = 0.25 },
+                },
+                size = 40,
+                position = "left", -- Can be "left" or "right"
+              },
+              {
+                elements = {
+                  "repl",
+                  "console",
+                },
+                size = 10,
+                position = "bottom", -- Can be "bottom" or "top"
+              },
+            },
+          })
           dap.listeners.after.event_initialized["dapui_config"] = function()
             dapui.open({})
           end
@@ -83,6 +105,24 @@ return {
     config = function()
       local dap = require("dap")
 
+      -- Highlight dap stopped line
+      vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
+
+      -- Load dap icons
+      local dap_icons = {
+        Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
+        Breakpoint = " ",
+        BreakpointCondition = " ",
+        BreakpointRejected = { " ", "DiagnosticError" },
+        LogPoint = ".>",
+      }
+
+      for name, sign in pairs(dap_icons) do
+        sign = type(sign) == "table" and sign or { sign }
+        vim.fn.sign_define("Dap" .. name, { text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] })
+      end
+
+      -- Setup javascript debug adapter
       dap.adapters["pwa-node"] = {
         type = "server",
         host = "localhost",
