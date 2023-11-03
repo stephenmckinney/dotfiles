@@ -5,6 +5,9 @@
 # * fzf
 # * bundler binstubs
 
+# Disable fish greeting
+set -g fish_greeting
+
 # Set language
 set -gx LANG "en_US.UTF-8"
 
