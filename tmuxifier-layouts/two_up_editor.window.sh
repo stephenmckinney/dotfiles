@@ -1,17 +1,13 @@
 # Set window root path. Default is `$session_root`.
 # Must be called before `new_window`.
-#window_root "~/Projects/server"
+#window_root "~/Projects/editor"
 
 # Create new window. If no argument is given, window name will be based on
 # layout file name.
-new_window "server"
+new_window "editor"
 
 # Split window into 2 panes.
-split_h 50
-
-# Paste text
-send_keys "bundle exec foreman start" 1
-send_keys "rails server --perform_caching" 2
+split_vl 6 
 
 # Set active pane.
 select_pane 1
