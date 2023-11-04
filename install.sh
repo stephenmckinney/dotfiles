@@ -128,6 +128,9 @@ fi
 # FISHER - install fisher
 # Check if fish is available
 if command -v fish >/dev/null 2>&1; then
+  echo 'chsh -s /opt/homebrew/bin/fish'
+  chsh -s /opt/homebrew/bin/fish
+
   # Check if Fisher is already installed by trying to run it within a fish shell
   if fish -c 'type fisher' >/dev/null 2>&1; then
     echo "Fisher is already installed. Skipping installation."
