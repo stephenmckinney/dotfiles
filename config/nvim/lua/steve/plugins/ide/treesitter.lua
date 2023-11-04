@@ -66,6 +66,7 @@ return {
           "css",
           "diff",
           "html",
+          "fish",
           "go",
           "graphql",
           "javascript",
