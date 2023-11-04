@@ -150,6 +150,19 @@ return {
           },
           {
             type = "pwa-node",
+            request = "launch",
+            name = "Launch file (ts-node)",
+            cwd = "${workspaceFolder}",
+            runtimeArgs = { "-r", "ts-node/register" },
+            program = "${workspaceFolder}/src/index.ts",
+            skipFiles = { "<node_internals>/**", "**/node_modules/**" },
+            resolveSourceMapLocations = {
+              "${workspaceFolder}/**",
+              "!**/node_modules/**",
+            },
+          },
+          {
+            type = "pwa-node",
             request = "attach",
             name = "Attach",
             port = "9229",
