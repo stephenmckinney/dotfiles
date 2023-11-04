@@ -14,6 +14,7 @@ vim.opt.number = true -- Enable line numbers
 vim.opt.relativenumber = true -- Enable relative line numbers
 vim.opt.cursorline = true -- Highlight the text line of the cursor
 vim.opt.showmatch = true -- Highlight matching brackets on input
+vim.opt.mouse = "" -- Disable mouse support
 
 --------------------------------------------------------------------------------
 -- Indentation
