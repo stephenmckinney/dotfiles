@@ -10,6 +10,8 @@
 	<false/>
 	<key>AllowClipboardAccess</key>
 	<true/>
+	<key>AlternateMouseScroll</key>
+	<false/>
 	<key>AnimateDimming</key>
 	<true/>
 	<key>AutoHideTmuxClientSession</key>
@@ -25,7 +27,7 @@
 	<key>CopyLastNewline</key>
 	<false/>
 	<key>CopySelection</key>
-	<true/>
+	<false/>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>Solarized Dark</key>
@@ -2205,6 +2207,10 @@
 	<key>DisableFullscreenTransparency</key>
 	<true/>
 	<key>EnableRendezvous</key>
+	<false/>
+	<key>EnterCopyModeAutomatically</key>
+	<false/>
+	<key>FixMouseWheel</key>
 	<false/>
 	<key>FocusFollowsMouse</key>
 	<false/>
