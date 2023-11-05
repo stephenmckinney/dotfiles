@@ -29,6 +29,9 @@ map("v", "<", "<gv", "Outdent (maintain selection)")
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", "up motion", { expr = true })
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", "down motion", { expr = true })
 
+-- Yank to clipboard
+map("v", "gy", '"+y', "Yank to clipboard")
+
 --------------------------------------------------------------------------------
 -- Windows
 --------------------------------------------------------------------------------
