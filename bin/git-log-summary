@@ -2,7 +2,7 @@
 
 # Git Repository Summary Script
 # Usage:
-#   Without arguments: Displays a summary of the current repository including project name, repository age, active days, commit count, file count, and list of authors with their contribution percentages.
+#   Without arguments: Displays a summary of the current repository including project name, repository age, active days, commit count, file count, and list of authors with their contribution percentages, committer email, and author email.
 #     Example: ./script.sh
 #   With commit hash argument: Displays a summary focused on the specified commit, excluding the file count.
 #     Example: ./script.sh <commit_hash>
@@ -47,18 +47,35 @@ file_count() {
 }
 
 #
-# list authors
+# list authors along with their emails
 #
 
 authors() {
-  git shortlog -n -s $commit | awk '
-  { args[NR] = $0; sum += $0 }
-  END {
-    for (i = 1; i <= NR; ++i) {
-      printf "%-30s %2.1f%%\n", args[i], 100 * args[i] / sum
+  {
+    git log --pretty='format:%an|%ae|%ce' $commit | awk -F '|' '
+    {
+      name_email=$1 "|" $2 "|" $3;
+      count[name_email]++
     }
+    END {
+      for (name_email in count) {
+        split(name_email, fields, "|");
+        printf "%-4d|%s|%s|%s|%s%2.1f%%\n", count[name_email], fields[1], fields[2], fields[3], fields[4], (count[name_email] * 100 / NR)
+      }
+    }
+    ' | sort -rn
   }
-  '
+}
+
+#
+# authors as a table with header
+#
+
+authors_table() {
+  {
+    printf "Count|Name|Author Email|Committer Email|Percentage\n"
+    authors
+  } | column -t -s '|'
 }
 
 #
@@ -72,6 +89,8 @@ repository_age() {
 # summary
 
 echo
+echo "Git Repository Summary"
+echo
 echo " project  : $project"
 echo " repo age :" $(repository_age)
 echo " active   :"  $(active_days) days
@@ -79,6 +98,8 @@ echo " commits  :" $(commit_count)
 if test "$commit" = ""; then
   echo " files    :" $(file_count)
 fi
-echo " authors  : "
-authors
+echo
+echo "Authors"
+echo
+authors_table
 echo
