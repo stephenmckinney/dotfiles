@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# Branch Renaming Script
+# Usage:
+#   Provide old branch name as the first argument and new branch name as the second argument to rename the branch locally and remotely.
+#   Exits with an error message if either branch name is not provided.
+#     Example: ./script.sh <old_branch_name> <new_branch_name>
+
 old=$1
 new=$2
 

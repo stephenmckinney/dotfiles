@@ -1,14 +1,11 @@
 #!/bin/bash
-# tmux resize script by percentage
-#
-# Options:
-# -p percentage (required): an integer of the percentage of the client width/height to set
-#                              window name, index, or id
-#
-# Example usage:
-#
-# Resize to 66% of client height
-# $ .tmux_resize.sh -p 66
+
+# Tmux Pane Splitting Script
+# Usage:
+#   Use the -p flag followed by a percentage to split the current tmux pane vertically, allocating the specified percentage of the window's height to the main pane.
+#   Ensure the percentage value is an integer, else the script will exit with an error message.
+#     Example: To Resize to 70% of client height
+#       ./script.sh -p 70
 
 pflag=
 while getopts l:p:t: name;

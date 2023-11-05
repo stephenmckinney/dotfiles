@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Git Effort Script
+# Usage:
+#   Without arguments: Computes and displays the effort (commit count and active days) for all files in the repository.
+#     Example: ./script.sh
+#   With "--above" argument: Filters to show only files with commit count above a specified number.
+#     Example: ./script.sh --above <n-commits>
+#   With file arguments: Computes and displays the effort for the specified files.
+#     Example: ./script.sh <file1> <file2> ...
+
 tmp=/tmp/.git-effort
 above='0'
 color=

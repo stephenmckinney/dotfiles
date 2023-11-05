@@ -1,5 +1,14 @@
 #!/bin/sh
 
+# Git Alias Manager
+# Usage:
+#   Without arguments: Lists all defined git aliases alphabetically.
+#     Example: ./script.sh
+#   With one argument: Searches and displays matching git aliases.
+#     Example: ./script.sh <search_string>
+#   With two arguments: Creates or updates a git alias with specified name and command.
+#     Example: ./script.sh <alias_name> <alias_command>
+
 case $# in
   0) git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /' | sort ;;
   1) git alias | grep -e "$1" ;;

@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# Git Repository Summary Script
+# Usage:
+#   Without arguments: Displays a summary of the current repository including project name, repository age, active days, commit count, file count, and list of authors with their contribution percentages.
+#     Example: ./script.sh
+#   With commit hash argument: Displays a summary focused on the specified commit, excluding the file count.
+#     Example: ./script.sh <commit_hash>
+
 commit=""
 test $# -ne 0 && commit=$@
 project=${PWD##*/}

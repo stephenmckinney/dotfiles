@@ -1,4 +1,9 @@
 #!/bin/sh
+# Git Tag Deletion Script
+# Usage:
+#   Provide a tag name as an argument to delete the specified tag locally and remotely.
+#   Exits with an error message if no tag name is provided.
+#     Example: ./script.sh <tag_name>
 
 tagname=$1
 test -z $tagname && echo "tag required." 1>&2 && exit 1

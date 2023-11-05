@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# Branch Deletion Script
+# Usage:
+#   Provide a branch name as an argument to delete it locally and remotely.
+#   Exits with an error message if no branch name is provided.
+#     Example: ./script.sh <branch_name>
+
 branch=$1
 test -z $branch && echo "branch required." 1>&2 && exit 1
 git branch -d $branch

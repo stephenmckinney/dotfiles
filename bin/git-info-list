@@ -1,5 +1,15 @@
 #!/bin/sh
 
+# Git Repository Overview Script
+# Usage:
+#   Run without arguments to display a summary of the repository including:
+#   - Remote URLs
+#   - Remote branches
+#   - Local branches
+#   - Most recent commit
+#   - Configuration settings from .git/config
+#     Example: ./script.sh
+
 get_config() {
   git config --list
 }

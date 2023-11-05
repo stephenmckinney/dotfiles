@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# User Contribution Summary Script
+# Usage:
+#   Provide a user name as an argument to display a summary of their contributions.
+#   Exits with an error message if no user name is provided or if the user did not contribute.
+#     Example: ./script.sh <user_name>
+
 user="$*"
 
 test -z "$user" && echo "user name required." 1>&2 && exit 1
