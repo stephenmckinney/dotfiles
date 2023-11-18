@@ -4,9 +4,9 @@ return {
   {
     "nvim-pack/nvim-spectre",
     opts = {
-      -- colorscheme tweak for nightfox
       highlight = {
-        replace = "@text.warning",
+        search = "DiffAdd", -- Highlight group used for search matches
+        replace = "DiffDelete", -- Highlight group used for replace matches
       },
     },
     -- stylua: ignore
