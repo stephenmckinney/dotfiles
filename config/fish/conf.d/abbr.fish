@@ -3,9 +3,6 @@ abbr cat "bat --theme=Dracula"
 abbr help "tldr"
 abbr ping "prettyping --nolegend"
 
-# Tmux
-abbr mux "tmuxifier load-session"
-
 # Neovim
 abbr v "nvim"
 

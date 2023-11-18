@@ -35,10 +35,6 @@ set -gx HOMEBREW_REPOSITORY "/opt/homebrew";
 ! set -q MANPATH; and set MANPATH ''; set -gx MANPATH "/opt/homebrew/share/man" $MANPATH;
 ! set -q INFOPATH; and set INFOPATH ''; set -gx INFOPATH "/opt/homebrew/share/info" $INFOPATH;
 
-# Setup tmuxifier
-eval (tmuxifier init - fish)
-set -gx TMUXIFIER_LAYOUT_PATH "$HOME/.tmuxifier-layouts"
-
 # Setup fasd
 fasd_setup
 
