@@ -6,11 +6,12 @@ return {
 
     lint.linters_by_ft = {
       javascript = { "eslint_d" },
+      sh = { "shellcheck" },
     }
 
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
       group = vim.api.nvim_create_augroup("steve_nvim_lint", { clear = true }),
-      pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
+      pattern = { "*.js", "*.jsx", "*.sh", "*.ts", "*.tsx" },
       callback = function()
         lint.try_lint()
       end,
