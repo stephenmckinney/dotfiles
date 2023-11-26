@@ -1,3 +1,5 @@
+local Util = require("steve.util")
+
 return {
   "mfussenegger/nvim-lint",
   event = { "BufReadPre", "BufNewFile" },
@@ -10,7 +12,7 @@ return {
     }
 
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-      group = vim.api.nvim_create_augroup("steve_nvim_lint", { clear = true }),
+      group = Util.augroup("nvim_lint"),
       pattern = { "*.js", "*.jsx", "*.sh", "*.ts", "*.tsx" },
       callback = function()
         lint.try_lint()

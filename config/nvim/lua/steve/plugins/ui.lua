@@ -1,3 +1,5 @@
+local Util = require("steve.util")
+
 return {
   -- Configurable statusline using lua.
   {
@@ -92,6 +94,7 @@ return {
     -- disable for help, plugin managers, etc.
     init = function()
       vim.api.nvim_create_autocmd("FileType", {
+        group = Util.augroup("miniindentscope_disable"),
         pattern = {
           "help",
           "lazy",
@@ -142,6 +145,7 @@ return {
     config = function(_, opts)
       require("illuminate").configure(opts)
 
+      -- map [[ and ]] to goto prev/next reference
       local function map(key, dir, buffer)
         vim.keymap.set("n", key, function()
           require("illuminate")["goto_" .. dir .. "_reference"](false)
@@ -153,6 +157,7 @@ return {
 
       -- also set it after loading ftplugins, since a lot overwrite [[ and ]]
       vim.api.nvim_create_autocmd("FileType", {
+        group = Util.augroup("vim_illuminate_keymaps"),
         callback = function()
           local buffer = vim.api.nvim_get_current_buf()
           map("]]", "next", buffer)

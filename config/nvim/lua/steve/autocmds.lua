@@ -5,27 +5,14 @@
 -- a file, when entering or leaving a buffer or window, and when exiting Vim.
 --------------------------------------------------------------------------------
 
---------------------------------------------------------------------------------
--- Helpers
---------------------------------------------------------------------------------
-
--- Function to create and return a namespaced autocommand group,
--- with `clear = true` option to clear existing group with the same name
-local function augroup(name)
-  local namespace = "steve_"
-  return vim.api.nvim_create_augroup(namespace .. name, { clear = true })
-end
-
---------------------------------------------------------------------------------
--- Autocmds
---------------------------------------------------------------------------------
+local Util = require("steve.util")
 
 --------------------------------------------------------------------------------
 -- Options
 --------------------------------------------------------------------------------
 -- Set local options for "text" files
 vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("text_file_options"),
+  group = Util.augroup("text_file_options"),
   pattern = { "gitcommit", "markdown", "text", "txt" },
   callback = function()
     -- wrap and check for spell
@@ -44,7 +31,7 @@ vim.api.nvim_create_autocmd("FileType", {
 --   * after hitting <Enter> in Insert mode
 --   * after hitting 'o' or 'O' in Normal mode
 vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("comment_continuation"),
+  group = Util.augroup("comment_continuation"),
   pattern = { "*" },
   callback = function()
     vim.opt.formatoptions = vim.opt.formatoptions - { "c", "r", "o" }
@@ -57,7 +44,7 @@ vim.api.nvim_create_autocmd("FileType", {
 -- If the current buffer's filetype is "fugitive"
 -- then set the height of the current window to 2/3 of screen size.
 vim.api.nvim_create_autocmd("BufEnter", {
-  group = augroup("fugitive"),
+  group = Util.augroup("fugitive"),
   callback = function()
     local lines = math.ceil(vim.opt.lines:get() * 2 / 3)
     if vim.bo.filetype == "fugitive" then
@@ -68,7 +55,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
-  group = augroup("highlight_yank"),
+  group = Util.augroup("highlight_yank"),
   callback = function()
     vim.highlight.on_yank()
   end,
@@ -76,7 +63,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- resize splits if window got resized
 vim.api.nvim_create_autocmd({ "VimResized" }, {
-  group = augroup("resize_splits"),
+  group = Util.augroup("resize_splits"),
   callback = function()
     vim.cmd("tabdo wincmd =")
   end,
@@ -87,7 +74,7 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
 --------------------------------------------------------------------------------
 -- close some filetypes with <q>
 vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("close_with_q"),
+  group = Util.augroup("close_with_q"),
   pattern = {
     "fugitive",
     "help",
@@ -106,7 +93,7 @@ vim.api.nvim_create_autocmd("FileType", {
 --------------------------------------------------------------------------------
 -- go to last loc when opening a buffer
 vim.api.nvim_create_autocmd("BufReadPost", {
-  group = augroup("last_loc"),
+  group = Util.augroup("last_loc"),
   callback = function()
     local mark = vim.api.nvim_buf_get_mark(0, '"')
     local lcount = vim.api.nvim_buf_line_count(0)
