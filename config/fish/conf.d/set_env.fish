@@ -40,3 +40,6 @@ fasd_setup
 
 # Disable spring in Rails
 set -gx DISABLE_SPRING 1
+
+# Set minitest reporter
+set -gx MINITEST_REPORTER "ProgressReporter"

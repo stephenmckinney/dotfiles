@@ -10,23 +10,25 @@ return {
       {
         "<leader>r",
         function()
-          require("neotest").run.run(vim.fn.expand("%"))
+          local neotest = require("neotest")
+          neotest.output_panel.open()
+          neotest.run.run(vim.fn.expand("%"))
         end,
         desc = "Neotest: Run current test file",
       },
       {
         "<leader>R",
         function()
-          require("neotest").summary.toggle()
+          require("neotest").run.run()
         end,
-        desc = "Neotest: Open summary window",
+        desc = "Neotest: Run nearest test",
       },
     },
     config = function()
       require("neotest").setup({
         adapters = {
           require("neotest-vim-test")({
-            allow_file_types = { "lua" },
+            allow_file_types = { "lua", "ruby" },
           }),
           require("neotest-jest")({
             jestCommand = "npm test --",
