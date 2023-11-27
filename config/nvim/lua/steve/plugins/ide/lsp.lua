@@ -4,6 +4,8 @@
 -- * mason.nvim is a Neovim plugin that allows you to easily manage external editor tooling such as LSP servers, DAP servers, linters, and formatters through a single interface.
 -- * lspconfig: A set of common configurations for language servers.  Each language server provides rich language-specific features like autocompletion, go-to-definition, find-references, and more.
 --------------------------------------------------------------------------------
+local Util = require("steve.util")
+
 return {
   -- lspconfig
   {
@@ -78,9 +80,21 @@ return {
       -- Ruby
       -- use solargraph for autocompletion,
       -- enable diagnostics, disable formatting
+      -- use rubocop/standardrb for formatting
       lspconfig.solargraph.setup({
         settings = { solargraph = { diagnostics = true } },
         init_options = { formatting = false },
+      })
+
+      vim.api.nvim_create_autocmd("FileType", {
+        group = Util.augroup("lsp_ruby_rubocop"),
+        pattern = "ruby",
+        callback = function()
+          vim.lsp.start({
+            name = "rubocop",
+            cmd = { "bundle", "exec", "rubocop", "--lsp" },
+          })
+        end,
       })
 
       -- TypeScript, JavaScript
