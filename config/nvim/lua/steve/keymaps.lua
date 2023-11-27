@@ -44,7 +44,7 @@ map("n", "<C-x>", "<C-w>x", "E[x]change current window with the next one")
 
 -- Split windows
 map("n", "<leader>v", "<C-w>v<C-w>l", "Split window vertically")
-map("n", "<leader>h", "<C-w>s<C-w>j", "Split window horizontally")
+map("n", "<leader>w", "<C-w>s<C-w>j", "Split window horizontally")
 map("n", "<leader>=", "<C-w>=", "Adjust viewports to the same size")
 map("n", "<leader>o", "<C-w>o", "Close all but current window")
 

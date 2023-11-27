@@ -26,7 +26,7 @@ return {
       { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
       { "gI", function() require("telescope.builtin").lsp_implementations({ reuse_win = true }) end, desc = "Goto Implementation" },
       { "gy", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true }) end, desc = "Goto T[y]pe Definition" },
-      { "K", vim.lsp.buf.hover, desc = "Hover" },
+      { "gk", vim.lsp.buf.hover, desc = "Hover" },
       { "gK", vim.lsp.buf.signature_help, desc = "Signature Help" },
       -- TODO: fix, conflicts with copilot keybindings
       -- { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help" },

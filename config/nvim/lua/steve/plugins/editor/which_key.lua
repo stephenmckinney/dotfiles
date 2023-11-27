@@ -22,6 +22,7 @@ return {
         ["]"] = { name = "+next" },
         ["["] = { name = "+prev" },
         ["<leader>c"] = { name = "+code" },
+        ["<leader>h"] = { name = "+harpoon" },
         ["<leader>i"] = { name = "+info" },
         ["<leader>iz"] = { "<cmd>Lazy<cr>", "La[z]y" },
         ["<leader>ih"] = { "<cmd>Checkhealth<cr>", "Health" },
