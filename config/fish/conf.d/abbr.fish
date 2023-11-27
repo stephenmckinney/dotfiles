@@ -6,6 +6,12 @@ abbr ping "prettyping --nolegend"
 # Neovim
 abbr v "nvim"
 
+# Bundler
+abbr b "bundle"
+abbr be "bundle exec"
+abbr bi "bundle install && bundle exec yard gems"
+abbr bu "bundle update && bundle exec yard gems"
+
 # Git
 abbr g "git"
 
