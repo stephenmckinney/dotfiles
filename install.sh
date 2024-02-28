@@ -129,31 +129,66 @@ function create_symlinks() {
 	done
 }
 
-function setup_fish_shell() {
-	printf "\nSetting up fish shell...\n"
-
+function install_fish_shell() {
+	printf "\ninstalling fish shell...\n"
+  # if fish is not available, install it
 	if command -v fish >/dev/null 2>&1; then
-		# If fish is available, set it as the default shell
-		echo "Setting fish as default shell..."
-		execute_and_echo chsh -s /opt/homebrew/bin/fish
-
-		# Check if Fisher is already installed by trying to run it within a fish shell
-		if fish -c 'type fisher' >/dev/null 2>&1; then
-			echo "Fisher is already installed. Skipping installation."
-		else
-			echo "Fisher is not installed. Installing..."
-			execute_and_echo fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source; and fisher install jorgebucaran/fisher"
-			echo "Fisher installed successfully."
-		fi
-	else
-		echo "Fish shell is not installed. Installing..."
+    echo "fish shell is already installed. skipping installation."
+  else
+		echo "fish shell is not installed. installing..."
 		execute_and_echo brew install fish
+    echo "fish installed successfully."
 	fi
 }
 
+function install_fisher() {
+	printf "\ninstalling fisher...\n"
+  # check if fisher is already installed by trying to run it within a fish shell
+  if fish -c 'type fisher' >/dev/null 2>&1; then
+    echo "fisher is already installed. skipping installation."
+  else
+    echo "fisher is not installed. installing..."
+    execute_and_echo fish -c "curl -sl https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source; and fisher install jorgebucaran/fisher"
+    echo "fisher installed successfully."
+  fi
+}
+
+function setup_fish_shell() {
+	printf "\nsetting up fish shell...\n"
+
+	if command -v fish >/dev/null 2>&1; then
+		# if fish is available, set it as the default shell
+		echo "setting fish as default shell..."
+		execute_and_echo chsh -s /opt/homebrew/bin/fish
+    echo "fish set as default shell."
+	else
+		echo "fish shell is not installed. unable to setup."
+	fi
+}
+
+function setup_fisher() {
+	printf "\nsetting up fish shell...\n"
+
+  # check if fisher is already installed by trying to run it within a fish shell
+  if fish -c 'type fisher' >/dev/null 2>&1; then
+    echo "installing fish plugins..."
+    execute_and_echo fisher install ilancosman/tide
+    execute_and_echo fisher install gregorias/fasd.fish
+    echo "fish plugins installed successfully."
+
+    echo "configuring tide..."
+    execute_and_echo tide configure --auto --style=classic --prompt_colors='16 colors' --show_time=no --classic_prompt_separators=angled --powerline_prompt_heads=sharp --powerline_prompt_tails=flat --powerline_prompt_style='one line' --prompt_spacing=sparse --icons='many icons' --transient=no
+    echo "tide configured successfully."
+  else
+    echo "fisher is not installed. unable to setup."
+  fi
+}
 ################################################################################
 # Main
 ################################################################################
 
 create_symlinks
+install_fish_shell
 setup_fish_shell
+install_fisher
+setup_fisher
