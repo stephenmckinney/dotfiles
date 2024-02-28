@@ -4,6 +4,7 @@ abbr help "tldr"
 abbr ping "prettyping --nolegend"
 
 # Neovim
+abbr n "nvim"
 abbr v "nvim"
 
 # Bundler

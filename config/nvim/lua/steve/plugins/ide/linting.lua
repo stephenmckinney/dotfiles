@@ -1,5 +1,10 @@
 local Util = require("steve.util")
 
+-- Linting for:
+-- - JavaScript
+-- - TypeScript
+-- - Shell
+
 return {
   "mfussenegger/nvim-lint",
   event = { "BufReadPre", "BufNewFile" },
