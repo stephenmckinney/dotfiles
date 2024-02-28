@@ -9,15 +9,17 @@
 
 ## IDE
 
-| Language      | Tree-sitter |            LSP            |  Formatting  | Testing  |
-| ------------- | :---------: | :-----------------------: | :----------: | :------: |
-| Ruby          |      x      |       `solargraph`        | `standardrb` |    x     |
-| JavaScript    |      x      |        `tsserver`         |  `prettier`  |  `jest`  |
-| TypeScript    |      x      |        `tsserver`         |  `prettier`  |    x     |
-| HTML/CSS/JSON |      x      | `html`, `cssls`, `jsonls` |  `prettier`  |   N/A    |
-| Markdown      |      x      |            No             |  `prettier`  |   N/A    |
-| Lua           |      x      |         `lua_ls`          |   `stylua`   | `busted` |
-| Python        |      x      |            No             |      No      |    No    |
+| Language      | Tree-sitter |            LSP            |   Linting    | Formatting | Testing  |
+| ------------- | :---------: | :-----------------------: | :----------: | :--------: | :------: |
+| Ruby          |      x      |       `solargraph`        | `solargraph` | `rubocop`  |    x     |
+| JavaScript    |      x      |        `tsserver`         |  `eslint_d`  | `prettier` |  `jest`  |
+| TypeScript    |      x      |        `tsserver`         |  `eslint_d`  | `prettier` |    x     |
+| HTML/CSS/JSON |      x      | `html`, `cssls`, `jsonls` |  `prettier`  | `prettier` |   N/A    |
+| Markdown      |      x      |            No             |  `prettier`  | `prettier` |   N/A    |
+| Lua           |      x      |         `lua_ls`          |   `stylua`   |  `stylua`  | `busted` |
+| Python        |      x      |            No             |      No      |     No     |    No    |
+| Shell         |      x      |            No             | `shellcheck` |     No     |   N/A    |
+| Go            |      x      |          `gopls`          |   `gopls`    |  `gopls`   |    No    |
 
 - Tree-sitter `nvim-treesitter`
 

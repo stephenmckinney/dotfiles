@@ -18,7 +18,6 @@ return {
         ["lua"] = { "stylua" },
         ["markdown"] = { "prettier" },
         ["markdown.mdx"] = { "prettier" },
-        ["ruby"] = { "standardrb" },
         ["scss"] = { "prettier" },
         ["typescript"] = { "prettier" },
         ["typescriptreact"] = { "prettier" },

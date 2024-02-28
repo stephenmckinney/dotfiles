@@ -59,6 +59,7 @@ return {
           "html", -- html
           "cssls", -- css
           "jsonls", -- json
+          "gopls", -- go
         },
       })
 
@@ -96,6 +97,9 @@ return {
           })
         end,
       })
+
+      -- Go
+      lspconfig.gopls.setup({})
 
       -- TypeScript, JavaScript
       lspconfig.tsserver.setup({})
