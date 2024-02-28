@@ -158,6 +158,14 @@ function setup_fish_shell() {
 
 	if command -v fish >/dev/null 2>&1; then
 		# if fish is available, set it as the default shell
+    echo "adding fish to /etc/shells..."
+    if ! grep -q "/opt/homebrew/bin/fish" /etc/shells; then
+      if [[ "$dry_run" != "true" ]]; then
+        echo "/opt/homebrew/bin/fish" | sudo tee -a /etc/shells
+      fi
+    fi
+    echo "fish added to /etc/shells."
+
 		echo "setting fish as default shell..."
 		execute_and_echo chsh -s /opt/homebrew/bin/fish
     echo "fish set as default shell."
