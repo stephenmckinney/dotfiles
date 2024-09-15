@@ -8,6 +8,9 @@ return {
       -- fancy UI for the debugger
       {
         "rcarriga/nvim-dap-ui",
+        dependencies = {
+          "nvim-neotest/nvim-nio",
+        },
         -- stylua: ignore
         keys = {
           { "<leader>xu", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
