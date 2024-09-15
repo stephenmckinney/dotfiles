@@ -185,7 +185,7 @@ function setup_fisher() {
     echo "fish plugins installed successfully."
 
     echo "configuring tide..."
-    execute_and_echo tide configure --auto --style=classic --prompt_colors='16 colors' --show_time=no --classic_prompt_separators=angled --powerline_prompt_heads=sharp --powerline_prompt_tails=flat --powerline_prompt_style='one line' --prompt_spacing=sparse --icons='many icons' --transient=no
+    execute_and_echo tide configure --auto --style=Classic --prompt_colors='16 colors' --show_time=No --classic_prompt_separators=Angled --powerline_prompt_heads=Sharp --powerline_prompt_tails=Flat --powerline_prompt_style='One line' --prompt_spacing=Sparse --icons='Many icons' --transient=No
     echo "tide configured successfully."
   else
     echo "fisher is not installed. unable to setup."
