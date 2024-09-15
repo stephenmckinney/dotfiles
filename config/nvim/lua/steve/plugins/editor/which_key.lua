@@ -2,6 +2,9 @@
 return {
   {
     "folke/which-key.nvim",
+    dependencies = {
+      { "echasnovski/mini.icons", version = false },
+    },
     event = "VeryLazy",
     init = function()
       vim.o.timeout = true
@@ -10,32 +13,26 @@ return {
     config = function()
       local wk = require("which-key")
 
-      wk.setup({
-        triggers_blacklist = {
-          n = { "'" },
-        },
-      })
-
-      wk.register({
-        ["g"] = { name = "+goto" },
-        ["gu"] = { name = "+textcase" },
-        ["]"] = { name = "+next" },
-        ["["] = { name = "+prev" },
-        ["<leader>c"] = { name = "+code" },
-        ["<leader>h"] = { name = "+harpoon" },
-        ["<leader>i"] = { name = "+info" },
-        ["<leader>iz"] = { "<cmd>Lazy<cr>", "La[z]y" },
-        ["<leader>ih"] = { "<cmd>Checkhealth<cr>", "Health" },
-        ["<leader>e"] = { name = "+edit" },
-        ["<leader>g"] = { name = "+git" },
-        ["<leader>s"] = { name = "+search" },
-        ["<leader>x"] = { name = "+debug" },
+      wk.add({
+        { "g", desc = "+goto" },
+        { "gu", desc = "+textcase" },
+        { "]", desc = "+next" },
+        { "[", desc = "+prev" },
+        { "<leader>c", desc = "+code" },
+        { "<leader>h", desc = "+harpoon" },
+        { "<leader>i", desc = "+info" },
+        { "<leader>iz", "<cmd>Lazy<cr>", desc = "La[z]y" },
+        { "<leader>ih", "<cmd>Checkhealth<cr>", desc = "Health" },
+        { "<leader>e", desc = "+edit" },
+        { "<leader>g", desc = "+git" },
+        { "<leader>s", desc = "+search" },
+        { "<leader>x", desc = "+debug" },
         -- TODO: choose other keymaps for chatGPT
-        ["<leader>z"] = { name = "+chatGPT" },
-        -- ["<leader>r"] = { name = "+diagnostics/quickfix" },
-        -- ["<leader>t"] = { name = "+test" },
+        { "<leader>z", desc = "+chatGPT" },
+        -- ["<leader>r"] = { desc = "+diagnostics/quickfix" },
+        -- ["<leader>t"] = { desc = "+test" },
 
-        -- ["<leader>u"] = { name = "+ui" },
+        -- ["<leader>u"] = { desc = "+ui" },
       })
     end,
   },
