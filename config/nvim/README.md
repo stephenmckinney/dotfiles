@@ -12,8 +12,8 @@
 | Language      | Tree-sitter |            LSP            |   Linting    | Formatting | Testing  |
 | ------------- | :---------: | :-----------------------: | :----------: | :--------: | :------: |
 | Ruby          |      x      |       `solargraph`        | `solargraph` | `rubocop`  |    x     |
-| JavaScript    |      x      |        `tsserver`         |  `eslint_d`  | `prettier` |  `jest`  |
-| TypeScript    |      x      |        `tsserver`         |  `eslint_d`  | `prettier` |    x     |
+| JavaScript    |      x      |          `ts_ls`          |  `eslint_d`  | `prettier` |  `jest`  |
+| TypeScript    |      x      |          `ts_ls`          |  `eslint_d`  | `prettier` |    x     |
 | HTML/CSS/JSON |      x      | `html`, `cssls`, `jsonls` |  `prettier`  | `prettier` |   N/A    |
 | Markdown      |      x      |            No             |  `prettier`  | `prettier` |   N/A    |
 | Lua           |      x      |         `lua_ls`          |   `stylua`   |  `stylua`  | `busted` |

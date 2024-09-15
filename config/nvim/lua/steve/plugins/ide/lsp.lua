@@ -55,7 +55,7 @@ return {
         ensure_installed = {
           "lua_ls", -- lua
           "solargraph", -- ruby
-          "tsserver", -- typescript, javascript
+          "ts_ls", -- typescript, javascript
           "html", -- html
           "cssls", -- css
           "jsonls", -- json
@@ -102,7 +102,7 @@ return {
       lspconfig.gopls.setup({})
 
       -- TypeScript, JavaScript
-      lspconfig.tsserver.setup({})
+      lspconfig.ts_ls.setup({})
 
       -- HTML, CSS, JSON
       lspconfig.html.setup({})
