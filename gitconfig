@@ -103,6 +103,9 @@
   rem = remote rename
   rep = remote prune origin
 
+[blame]
+    date = format:%Y-%m-%d
+
 [color]
   ui = auto
 [commit]
