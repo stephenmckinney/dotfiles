@@ -2,6 +2,7 @@ return {
   {
     "nvim-neotest/neotest",
     dependencies = {
+      "olimorris/neotest-rspec",
       "nvim-neotest/neotest-jest",
       "nvim-neotest/neotest-vim-test",
       "vim-test/vim-test",
@@ -27,6 +28,7 @@ return {
     config = function()
       require("neotest").setup({
         adapters = {
+          require("neotest-rspec"),
           require("neotest-vim-test")({
             allow_file_types = { "lua", "ruby" },
           }),

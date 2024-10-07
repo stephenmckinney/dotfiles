@@ -1,7 +1,5 @@
 # TODO from zsh
-# * node
 # * npm for work?
-# * nvm
 # * fzf
 # * bundler binstubs
 
@@ -34,6 +32,12 @@ set -gx HOMEBREW_CELLAR "/opt/homebrew/Cellar";
 set -gx HOMEBREW_REPOSITORY "/opt/homebrew";
 ! set -q MANPATH; and set MANPATH ''; set -gx MANPATH "/opt/homebrew/share/man" $MANPATH;
 ! set -q INFOPATH; and set INFOPATH ''; set -gx INFOPATH "/opt/homebrew/share/info" $INFOPATH;
+
+
+# Configure Access to the Private work NPM modules
+if test -f ~/.npmrc
+  set -gx NPM_TOKEN (sed -n -e '/_authToken/ s/.*= *//p' ~/.npmrc)
+end
 
 # Setup fasd
 fasd_setup
