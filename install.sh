@@ -182,6 +182,7 @@ function setup_fisher() {
     echo "installing fish plugins..."
     execute_and_echo fisher install ilancosman/tide
     execute_and_echo fisher install gregorias/fasd.fish
+    execute_and_echo fisher install edc/bass
     echo "fish plugins installed successfully."
 
     echo "configuring tide..."
