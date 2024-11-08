@@ -54,7 +54,7 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls", -- lua
-          "solargraph", -- ruby
+          "ruby_lsp", -- ruby
           "ts_ls", -- typescript, javascript
           "html", -- html
           "cssls", -- css
@@ -79,24 +79,9 @@ return {
       })
 
       -- Ruby
-      -- use solargraph for autocompletion,
-      -- enable diagnostics, disable formatting
-      -- use rubocop/standardrb for formatting
-      lspconfig.solargraph.setup({
-        settings = { solargraph = { diagnostics = true } },
-        init_options = { formatting = false },
-      })
-
-      vim.api.nvim_create_autocmd("FileType", {
-        group = Util.augroup("lsp_ruby_rubocop"),
-        pattern = "ruby",
-        callback = function()
-          vim.lsp.start({
-            name = "rubocop",
-            cmd = { "bundle", "exec", "rubocop", "--lsp" },
-          })
-        end,
-      })
+      -- use ruby_lsp for LSP (e.g. autocompletion, diagnostics)
+      -- use rubocop/standardrb for formatting (in formatting.lua)
+      lspconfig.ruby_lsp.setup({})
 
       -- Go
       lspconfig.gopls.setup({})
@@ -132,4 +117,6 @@ return {
       { "<leader>im", "<cmd>Mason<cr>", desc = "Mason" },
     },
   },
+
+  { "tpope/vim-rails" },
 }
