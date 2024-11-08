@@ -13,7 +13,6 @@ return {
 
     lint.linters_by_ft = {
       javascript = { "eslint_d" },
-      -- ruby = { "rubocop" },
       sh = { "shellcheck" },
     }
 
