@@ -132,4 +132,7 @@ return {
       { "<leader>im", "<cmd>Mason<cr>", desc = "Mason" },
     },
   },
+
+  -- TODO: move to a separate file
+  { "tpope/vim-rails" },
 }
