@@ -42,7 +42,7 @@ return {
       },
       -- The options you set here will be merged with the builtin formatters.
       formatters = {
-        rubocop = {
+        ruby = {
           command = { "bundle exec rubocop" },
         },
       },
