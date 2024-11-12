@@ -9,9 +9,10 @@ return {
       options = {
         theme = "tokyonight",
         disabled_filetypes = {
-          "NvimTree",
-          "neotest-summary",
+          "fugitive",
           "help",
+          "neotest-summary",
+          "NvimTree",
         },
       },
     },
@@ -96,6 +97,7 @@ return {
       vim.api.nvim_create_autocmd("FileType", {
         group = Util.augroup("miniindentscope_disable"),
         pattern = {
+          "fugitive",
           "help",
           "lazy",
           "mason",
@@ -122,6 +124,7 @@ return {
       },
       exclude = {
         filetypes = {
+          "fugitive",
           "help",
           "lazy",
           "mason",
@@ -140,6 +143,10 @@ return {
       large_file_cutoff = 2000,
       large_file_overrides = {
         providers = { "lsp" },
+      },
+      filetypes_denylist = {
+        "fugitive",
+        "NvimTree",
       },
     },
     config = function(_, opts)
