@@ -9,6 +9,11 @@ return {
     },
     config = function()
       require("nvim-tree").setup({
+        renderer = {
+          icons = {
+            git_placement = "after",
+          },
+        },
         on_attach = function(bufnr)
           -- Key mapping options
           local function opts(desc)
