@@ -59,8 +59,8 @@ return {
       })
     end,
     keys = {
-      { "<leader>d", "<cmd>NvimTreeToggle<cr>", desc = "Toggle File Explorer" },
-      { "<leader>D", "<cmd>NvimTreeFindFile<cr>", desc = "Find current file in File Explorer" },
+      { "<leader>d", "<cmd>NvimTreeFindFileToggle<cr>", desc = "Toggle File Explorer" },
+      { "<leader>D", "<cmd>NvimTreeFindFileToggle!<cr>", desc = "Toggle File Explorer and update root" },
       -- edit nvim config files
       {
         "<leader>ev",
