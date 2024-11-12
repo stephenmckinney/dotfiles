@@ -10,11 +10,12 @@
 
 return {
   -- Snippet Management
-  -- LuaSnip is used for snippets and is configured to use friendly-snippets.
+  -- LuaSnip is the snippet engine used for snippets.
+  -- friendly-snippet is a set of preconfigured snippets for different languages.
   {
     "L3MON4D3/LuaSnip",
-    build = "make install_jsregexp", -- Build step for LuaSnip.
-    dependencies = { "rafamadriz/friendly-snippets" }, -- Use friendly-snippets for our snippets.
+    build = "make install_jsregexp",
+    dependencies = { "rafamadriz/friendly-snippets" },
     config = function()
       -- Lazy load snippets from friendly-snippets.
       require("luasnip.loaders.from_vscode").lazy_load()
@@ -39,6 +40,7 @@ return {
       -- require("copilot_cmp").setup()
       local luasnip = require("luasnip")
       local cmp = require("cmp")
+      local lspkind = require("lspkind")
 
       -- Function to check if there are words before the cursor in the current line.
       local has_words_before = function()
@@ -112,6 +114,18 @@ return {
           { name = "buffer" }, -- Completion from current buffer
           { name = "path" }, -- File path completion
         }),
+        -- Add lspkind icons to completion items.
+        formatting = {
+          format = lspkind.cmp_format({
+            mode = 'symbol_text',
+            maxwidth = {
+              menu = 50, -- leading text (labelDetails)
+              abbr = 50, -- actual suggestion item
+            },
+            ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+            show_labelDetails = true, -- show labelDetails in menu. Disabled by default
+          })
+        },
       })
     end,
   },
