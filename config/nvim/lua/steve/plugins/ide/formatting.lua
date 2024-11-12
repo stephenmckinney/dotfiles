@@ -1,7 +1,9 @@
 return {
   {
     "stevearc/conform.nvim",
-    dependencies = { "mason.nvim" },
+    dependencies = {
+      "williamboman/mason.nvim",
+    },
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
     opts = {
@@ -17,35 +19,6 @@ return {
       log_level = vim.log.levels.ERROR,
       -- Conform will notify you when a formatter errors
       notify_on_error = true,
-      -- Formatters
-      formatters_by_ft = {
-        ["css"] = { "prettier" },
-        ["fish"] = { "fish_indent" },
-        ["graphql"] = { "prettier" },
-        ["handlebars"] = { "prettier" },
-        ["html"] = { "prettier" },
-        ["javascript"] = { "prettier" },
-        ["javascriptreact"] = { "prettier" },
-        ["json"] = { "prettier" },
-        ["jsonc"] = { "prettier" },
-        ["less"] = { "prettier" },
-        ["lua"] = { "stylua" },
-        ["markdown"] = { "prettier" },
-        ["markdown.mdx"] = { "prettier" },
-        ["ruby"] = { "rubocop" },
-        ["scss"] = { "prettier" },
-        ["sh"] = { "shfmt" },
-        ["typescript"] = { "prettier" },
-        ["typescriptreact"] = { "prettier" },
-        ["vue"] = { "prettier" },
-        ["yaml"] = { "prettier" },
-      },
-      -- The options you set here will be merged with the builtin formatters.
-      formatters = {
-        ruby = {
-          command = { "bundle exec rubocop" },
-        },
-      },
     },
     keys = {
       { "<leader>ic", "<cmd>ConformInfo<cr>", desc = "Conform Info" },
