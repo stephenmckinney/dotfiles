@@ -81,7 +81,7 @@ return {
         "lua_ls", -- lua
         "marksman", -- markdown
         "pyright", -- python
-        "solargraph", -- ruby
+        -- For ruby: gem install ruby-lsp
         "ts_ls", -- typescript, javascript
         "yamlls", -- yaml
         -- See:
@@ -144,27 +144,10 @@ return {
 
       --------------------------------------------------------------------------------
       -- Ruby
-      --
-      -- * use for autocompletion
-      -- * enable diagnostics
-      -- * disable formatting
       --------------------------------------------------------------------------------
-      lspconfig.solargraph.setup({
-        settings = { solargraph = { diagnostics = true } },
-        init_options = { formatting = false },
+      lspconfig.ruby_lsp.setup({
+        cmd = { vim.fn.expand("~/.rbenv/shims/ruby-lsp") },
       })
-
-      -- TODO: decide if this is necessary
-      -- vim.api.nvim_create_autocmd("FileType", {
-      --   group = Util.augroup("lsp_ruby_rubocop"),
-      --   pattern = "ruby",
-      --   callback = function()
-      --     vim.lsp.start({
-      --       name = "rubocop",
-      --       cmd = { "bundle", "exec", "rubocop", "--lsp" },
-      --     })
-      --   end,
-      -- })
 
       --------------------------------------------------------------------------------
       -- Diagnostic Signs
