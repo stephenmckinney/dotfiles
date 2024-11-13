@@ -27,9 +27,9 @@ return {
       require("statuscol").setup({
         segments = {
           -- fold column
-          {
-            text = { builtin.foldfunc },
-          },
+          -- {
+          --   text = { builtin.foldfunc },
+          -- },
           -- numbers
           {
             text = { builtin.lnumfunc, " " },
