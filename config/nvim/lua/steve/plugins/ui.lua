@@ -7,7 +7,6 @@ return {
     event = "VeryLazy",
     opts = {
       options = {
-        theme = "tokyonight",
         disabled_filetypes = {
           "fugitive",
           "help",
