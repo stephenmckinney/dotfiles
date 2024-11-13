@@ -113,10 +113,10 @@ return {
     event = "VeryLazy",
     opts = {
       symbol = "│",
-      -- place cursor on function header to get scope of its body
-      options = { try_as_border = true },
-      -- no motion key mappings
-      mappings = { goto_top = "", goto_bottom = "" },
+      -- Set indent option so that indent is set by cursor row/line not by column
+      options = { indent_at_cursor = false },
+      -- Delay (in ms) between event and start of drawing scope indicator
+      draw = { delay = 50 },
     },
     -- disable for help, plugin managers, etc.
     init = function()
@@ -141,6 +141,7 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "VeryLazy",
+    main = "ibl",
     opts = {
       -- disable scope highlighting
       scope = { enabled = false },
@@ -158,7 +159,6 @@ return {
         },
       },
     },
-    main = "ibl",
   },
 
   {
