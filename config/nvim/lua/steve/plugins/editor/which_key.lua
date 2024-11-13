@@ -22,7 +22,7 @@ return {
         { "<leader>h", desc = "+harpoon" },
         { "<leader>i", desc = "+info" },
         { "<leader>iz", "<cmd>Lazy<cr>", desc = "La[z]y" },
-        { "<leader>ih", "<cmd>Checkhealth<cr>", desc = "Health" },
+        { "<leader>ih", "<cmd>checkhealth<cr>", desc = "Health" },
         { "<leader>e", desc = "+edit" },
         { "<leader>g", desc = "+git" },
         { "<leader>s", desc = "+search" },
