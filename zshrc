@@ -60,7 +60,6 @@ function chpwd { l }
 alias cat='bat --theme=TwoDark'
 alias help='tldr'
 alias ping='prettyping --nolegend'
-alias noise='play -c 2 -n synth brownnoise' # brew install sox
 
 # fasd
 alias j='fasd_cd -d'         # cd AKA jump to directory
