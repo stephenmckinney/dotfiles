@@ -1,0 +1,118 @@
+#!/bin/bash
+
+# Usage: ./check_neovim.sh [--brews] [--gems] [--dry-run]
+
+################################################################################
+# Setup constants
+################################################################################
+
+# Initialize flags
+DRY_RUN=false
+CHECK_GEMS=false
+CHECK_BREWS=false
+
+# List of gems and brews
+GEMS=("neovim" "ruby-lsp" "rubocop")
+BREWS=("bat" "fd" "fzf" "bat" "ripgrep" "lazygit" "lua" "the_silver_searcher" "tree-sitter")
+
+################################################################################
+# Parse command line arguments
+################################################################################
+
+for arg in "$@"; do
+  case $arg in
+  --dry-run)
+    DRY_RUN=true
+    shift
+    ;;
+  --gems)
+    CHECK_GEMS=true
+    shift
+    ;;
+  --brews)
+    CHECK_BREWS=true
+    shift
+    ;;
+  *)
+    echo "Unknown option: $arg"
+    exit 1
+    ;;
+  esac
+done
+
+# Check if at least one of --gems or --brews is specified
+if [[ "$CHECK_GEMS" == false && "$CHECK_BREWS" == false ]]; then
+  echo "Error: You must specify at least one of --gems or --brews."
+  exit 1
+fi
+
+# Print dry-run message if enabled
+if [[ "$DRY_RUN" == true ]]; then
+  printf "\nDry run mode enabled. No changes will be made.\n"
+fi
+
+################################################################################
+# Functions
+################################################################################
+
+# Exectute and echo command:
+#   * Execute a command, unless in dry_run mode
+#   * Echo the command, always
+execute_and_echo() {
+  # Check if at least one argument is provided
+  if [ $# -eq 0 ]; then
+    echo "Error: No command provided to execute_and_echo"
+    return 1 # Exit the function with an error status
+  fi
+
+  # Combine all arguments into a single command string
+  local command
+  command=$(printf " %q" "$@")
+  command=${command:1} # remove leading space
+
+  # Echo the command
+  echo "$command"
+
+  # Execute the command if not in dry_run mode
+  if [[ "$DRY_RUN" != "true" ]]; then
+    "$@"
+  fi
+}
+
+# Check and install missing gems
+check_and_install_gems() {
+  printf "\nChecking Ruby gems...\n"
+  for gem in "${GEMS[@]}"; do
+    if gem list -i "$gem" &>/dev/null; then
+      echo "Gem '$gem' is already installed."
+    else
+      execute_and_echo gem install "$gem"
+    fi
+  done
+}
+
+# Check and install missing Homebrew packages
+check_and_install_brews() {
+  printf "\nChecking Homebrew packages...\n"
+  for brew in "${BREWS[@]}"; do
+    if brew list "$brew" &>/dev/null; then
+      echo "Brew '$brew' is already installed."
+    else
+      execute_and_echo brew install "$brew"
+    fi
+  done
+}
+
+################################################################################
+# Main
+################################################################################
+
+if [[ "$CHECK_GEMS" == true ]]; then
+  check_and_install_gems
+fi
+
+if [[ "$CHECK_BREWS" == true ]]; then
+  check_and_install_brews
+fi
+
+printf "\nAll specified gems and brews are checked.\n"
