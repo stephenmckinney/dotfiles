@@ -25,11 +25,11 @@ return {
         { "<leader>ih", "<cmd>checkhealth<cr>", desc = "Health" },
         { "<leader>e", desc = "+edit" },
         { "<leader>g", desc = "+git" },
+        { "<leader>q", desc = "+diagnostics/quickfix" },
         { "<leader>s", desc = "+search" },
         { "<leader>x", desc = "+debug" },
         -- TODO: choose other keymaps for chatGPT
         { "<leader>z", desc = "+chatGPT" },
-        -- ["<leader>r"] = { desc = "+diagnostics/quickfix" },
         -- ["<leader>t"] = { desc = "+test" },
 
         -- ["<leader>u"] = { desc = "+ui" },
