@@ -57,7 +57,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = Util.augroup("highlight_yank"),
   callback = function()
-    vim.highlight.on_yank()
+    (vim.hl or vim.highlight).on_yank()
   end,
 })
 
@@ -76,14 +76,19 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
 vim.api.nvim_create_autocmd("FileType", {
   group = Util.augroup("close_with_q"),
   pattern = {
-    "fugitive",
-    "help",
-    "qf",
-    "spectre_panel",
     "checkhealth",
-    "neotest-summary",
+    "fugitive",
+    "grug-far",
+    "help",
+    "lspinfo",
     "neotest-output",
     "neotest-output-panel",
+    "neotest-summary",
+    "notify",
+    "qf",
+    "spectre_panel",
+    "startuptime",
+    "tsplayground",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false

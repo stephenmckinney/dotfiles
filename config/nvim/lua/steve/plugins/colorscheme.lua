@@ -7,6 +7,11 @@
 -- * Each theme must support lualine for statusline customization.
 -- * Each theme must include itermcolors for consistency across terminal sessions.
 --------------------------------------------------------------------------------
+
+-- set colorscheme
+local colorscheme = "tokyonight"
+
+-- Define the colorschemes to be loaded by lazy.nvim.
 local colorschemes = {
   -- Catppuccin
   -- A visually soothing coffee-themed colorscheme.
@@ -16,19 +21,41 @@ local colorschemes = {
     name = "catppuccin",
     opts = {
       flavour = "mocha",
-      background = {
-        integrations = {
-          cmp = true,
-          gitsigns = true,
-          mason = true,
-          neotest = true,
-          notify = false,
-          nvimtree = true,
-          telescope = true,
-          treesitter = true,
-          treesitter_context = true,
-          which_key = true,
+      integrations = {
+        cmp = true,
+        dashboard = true,
+        gitsigns = true,
+        grug_far = true,
+        illuminate = true,
+        indent_blankline = { enabled = true },
+        lsp_trouble = true,
+        markdown = true,
+        mason = true,
+        mini = true,
+        native_lsp = {
+          enabled = true,
+          underlines = {
+            errors = { "undercurl" },
+            hints = { "undercurl" },
+            warnings = { "undercurl" },
+            information = { "undercurl" },
+          },
         },
+        neotest = true,
+        noice = true,
+        notify = false,
+        nvimtree = true,
+        semantic_tokens = true,
+        telescope = true,
+        treesitter = true,
+        treesitter_context = true,
+        which_key = true,
+      },
+    },
+    spec = {
+      {
+        "nvim-lualine/lualine.nvim",
+        opts = { options = { theme = "catppuccin" } },
       },
     },
   },
@@ -42,6 +69,12 @@ local colorschemes = {
     opts = {
       style = "night",
       sidebars = { "qf", "help", "NvimTree", "neotest-summary" },
+    },
+    spec = {
+      {
+        "nvim-lualine/lualine.nvim",
+        opts = { options = { theme = "tokyonight" } },
+      },
     },
   },
 
@@ -123,9 +156,12 @@ local colorschemes = {
 -- Set all colorschemes to lazy-load on key map for builtin.colorscheme picker, so that they can be hotswapped.
 -- Unless the name key is our main colorscheme.
 for _, entry in ipairs(colorschemes) do
-  if entry.name == "tokyonight" then
+  if entry.name == colorscheme then
     entry.lazy = false -- If this is your main colorscheme, set to false to load during startup.
     entry.priority = 1000 -- Ensure this plugin loads before all other start plugins.
+    entry.init = function()
+      vim.cmd("colorscheme " .. colorscheme)
+    end
   else
     entry.lazy = true
     entry.keys = {

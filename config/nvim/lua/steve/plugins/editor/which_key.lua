@@ -3,7 +3,7 @@ return {
   {
     "folke/which-key.nvim",
     dependencies = {
-      { "echasnovski/mini.icons", version = false },
+      { "nvim-tree/nvim-web-devicons" },
     },
     event = "VeryLazy",
     init = function()
@@ -14,24 +14,23 @@ return {
       local wk = require("which-key")
 
       wk.add({
-        { "g", desc = "+goto" },
-        { "gu", desc = "+textcase" },
-        { "]", desc = "+next" },
-        { "[", desc = "+prev" },
-        { "<leader>c", desc = "+code" },
-        { "<leader>h", desc = "+harpoon" },
-        { "<leader>i", desc = "+info" },
+        { "g", group = "goto" },
+        { "gu", group = "textcase" },
+        { "]", group = "next" },
+        { "[", group = "prev" },
+        { "<leader>c", group = "code" },
+        { "<leader>h", group = "harpoon" },
+        { "<leader>i", group = "info", icon = { cat = "extension", name = "info" } },
         { "<leader>iz", "<cmd>Lazy<cr>", desc = "La[z]y" },
-        { "<leader>ih", "<cmd>Checkhealth<cr>", desc = "Health" },
-        { "<leader>e", desc = "+edit" },
-        { "<leader>g", desc = "+git" },
-        { "<leader>s", desc = "+search" },
-        { "<leader>x", desc = "+debug" },
+        { "<leader>ih", "<cmd>checkhealth<cr>", desc = "Health" },
+        { "<leader>e", group = "edit", icon = { cat = "extension", name = "txt" } },
+        { "<leader>g", group = "git" },
+        { "<leader>q", group = "diagnostics/quickfix" },
+        { "<leader>s", group = "search" },
+        { "<leader>x", group = "debug" },
         -- TODO: choose other keymaps for chatGPT
         { "<leader>z", desc = "+chatGPT" },
-        -- ["<leader>r"] = { desc = "+diagnostics/quickfix" },
         -- ["<leader>t"] = { desc = "+test" },
-
         -- ["<leader>u"] = { desc = "+ui" },
       })
     end,

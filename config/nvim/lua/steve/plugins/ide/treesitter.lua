@@ -20,6 +20,7 @@ return {
     version = false,
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
+    main = 'nvim-treesitter.configs',
     dependencies = {
       -- Syntax aware text-objects, select, move, swap, and peek support e.g. mini.ai.
       { "nvim-treesitter/nvim-treesitter-textobjects" },
@@ -28,10 +29,7 @@ return {
       -- View treesitter information.
       { "nvim-treesitter/playground" },
       -- Show current code context.
-      {
-        "nvim-treesitter/nvim-treesitter-context",
-        opts = { max_lines = 3 },
-      },
+      { "nvim-treesitter/nvim-treesitter-context", opts = { max_lines = 3 }, },
     },
     -- stylua: ignore
     keys = {
@@ -39,56 +37,23 @@ return {
       { "<C-space>",        desc = "Increment selection", mode = "x" },
       { "<bs>",             desc = "Decrement selection", mode = "x" },
     },
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        -- modules available in nvim-treesitter
-        highlight = { enable = true },
-        indent = { enable = true },
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            -- mode = normal
-            init_selection = "<C-space>",
-            -- mode = visual (x)
-            node_incremental = "<C-space>",
-            scope_incremental = false,
-            node_decremental = "<bs>",
-          },
+    opts = {
+      -- enable nvim-treesitter internal modules
+      highlight = { enable = true },
+      indent = { enable = true },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          -- mode = normal
+          init_selection = "<C-space>",
+          -- mode = visual (x)
+          node_incremental = "<C-space>",
+          scope_incremental = false,
+          node_decremental = "<bs>",
         },
-        -- external modules
-        endwise = { enable = true },
-
-        -- A list of parser that should always be installed
-        ensure_installed = {
-          "bash",
-          "c",
-          "comment",
-          "css",
-          "diff",
-          "html",
-          "fish",
-          "go",
-          "graphql",
-          "javascript",
-          "json",
-          "lua",
-          "luadoc",
-          "luap",
-          "markdown",
-          "markdown_inline",
-          "python",
-          "query",
-          "regex",
-          "ruby",
-          "scss",
-          "sql",
-          "tsx",
-          "typescript",
-          "vim",
-          "vimdoc",
-          "yaml",
-        },
-      })
-    end,
+      },
+      -- enable external modules
+      endwise = { enable = true },
+    }
   },
 }

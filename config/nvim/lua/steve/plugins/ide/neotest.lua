@@ -7,26 +7,11 @@ return {
       "nvim-neotest/neotest-vim-test",
       "vim-test/vim-test",
     },
-    keys = {
-      {
-        "<leader>r",
-        function()
-          local neotest = require("neotest")
-          neotest.output_panel.open()
-          neotest.run.run(vim.fn.expand("%"))
-        end,
-        desc = "Neotest: Run current test file",
-      },
-      {
-        "<leader>R",
-        function()
-          require("neotest").run.run()
-        end,
-        desc = "Neotest: Run nearest test",
-      },
-    },
     config = function()
-      require("neotest").setup({
+      local neotest = require("neotest")
+      local wk = require("which-key")
+
+      neotest.setup({
         adapters = {
           require("neotest-rspec"),
           require("neotest-vim-test")({
@@ -40,6 +25,26 @@ return {
               return vim.fn.getcwd()
             end,
           }),
+        },
+      })
+
+      wk.add({
+        {
+          "<leader>r",
+          function()
+            neotest.output_panel.open()
+            neotest.run.run(vim.fn.expand("%"))
+          end,
+          desc = "Neotest: Run current test file",
+          icon = { cat = "extension", name = "test.jsx" },
+        },
+        {
+          "<leader>R",
+          function()
+            neotest.run.run()
+          end,
+          desc = "Neotest: Run nearest test",
+          icon = { cat = "extension", name = "test.jsx" },
         },
       })
     end,

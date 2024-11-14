@@ -4,8 +4,16 @@ return {
   {
     "nvim-tree/nvim-tree.lua",
     version = "*",
+    dependencies = {
+      { "nvim-tree/nvim-web-devicons" },
+    },
     config = function()
       require("nvim-tree").setup({
+        renderer = {
+          icons = {
+            git_placement = "after",
+          },
+        },
         on_attach = function(bufnr)
           -- Key mapping options
           local function opts(desc)
@@ -51,7 +59,7 @@ return {
       })
     end,
     keys = {
-      { "<leader>d", "<cmd>NvimTreeToggle<cr>", desc = "Toggle File Explorer" },
+      { "<leader>d", "<cmd>NvimTreeFindFileToggle<cr>", desc = "Toggle File Explorer" },
       { "<leader>D", "<cmd>NvimTreeFindFile<cr>", desc = "Find current file in File Explorer" },
       -- edit nvim config files
       {

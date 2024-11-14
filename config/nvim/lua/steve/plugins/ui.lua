@@ -7,11 +7,11 @@ return {
     event = "VeryLazy",
     opts = {
       options = {
-        theme = "tokyonight",
         disabled_filetypes = {
-          "NvimTree",
-          "neotest-summary",
+          "fugitive",
           "help",
+          "neotest-summary",
+          "NvimTree",
         },
       },
     },
@@ -27,9 +27,9 @@ return {
       require("statuscol").setup({
         segments = {
           -- fold column
-          {
-            text = { builtin.foldfunc },
-          },
+          -- {
+          --   text = { builtin.foldfunc },
+          -- },
           -- numbers
           {
             text = { builtin.lnumfunc, " " },
@@ -78,6 +78,32 @@ return {
       })
     end,
   },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+    opts = {
+      lsp = {
+        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+        override = {
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+          ["vim.lsp.util.stylize_markdown"] = true,
+          ["cmp.entry.get_documentation"] = true,
+        },
+      },
+      -- you can enable a preset for easier configuration
+      presets = {
+        bottom_search = true, -- use a classic bottom cmdline for search
+        command_palette = true, -- position the cmdline and popupmenu together
+        long_message_to_split = true, -- long messages will be sent to a split
+        inc_rename = false, -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = true, -- add a border to hover docs and signature help
+      },
+    },
+  },
 
   -- Visualize current indent scope. Add scope-related motions and textobjects.
   {
@@ -86,16 +112,17 @@ return {
     event = "VeryLazy",
     opts = {
       symbol = "│",
-      -- place cursor on function header to get scope of its body
-      options = { try_as_border = true },
-      -- no motion key mappings
-      mappings = { goto_top = "", goto_bottom = "" },
+      -- Set indent option so that indent is set by cursor row/line not by column
+      options = { indent_at_cursor = false },
+      -- Delay (in ms) between event and start of drawing scope indicator
+      draw = { delay = 50 },
     },
     -- disable for help, plugin managers, etc.
     init = function()
       vim.api.nvim_create_autocmd("FileType", {
         group = Util.augroup("miniindentscope_disable"),
         pattern = {
+          "fugitive",
           "help",
           "lazy",
           "mason",
@@ -113,6 +140,7 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "VeryLazy",
+    main = "ibl",
     opts = {
       -- disable scope highlighting
       scope = { enabled = false },
@@ -122,6 +150,7 @@ return {
       },
       exclude = {
         filetypes = {
+          "fugitive",
           "help",
           "lazy",
           "mason",
@@ -129,7 +158,6 @@ return {
         },
       },
     },
-    main = "ibl",
   },
 
   {
@@ -140,6 +168,10 @@ return {
       large_file_cutoff = 2000,
       large_file_overrides = {
         providers = { "lsp" },
+      },
+      filetypes_denylist = {
+        "fugitive",
+        "NvimTree",
       },
     },
     config = function(_, opts)
