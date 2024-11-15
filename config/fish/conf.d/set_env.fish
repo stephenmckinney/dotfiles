@@ -39,9 +39,6 @@ if test -f ~/.npmrc
   set -gx NPM_TOKEN (sed -n -e '/_authToken/ s/.*= *//p' ~/.npmrc)
 end
 
-# Setup fasd
-fasd_setup
-
 # Disable spring in Rails
 set -gx DISABLE_SPRING 1
 
