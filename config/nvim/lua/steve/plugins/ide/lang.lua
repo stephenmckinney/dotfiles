@@ -94,6 +94,7 @@ return {
         -- Linters
         "eslint_d", -- javascript
         "shellcheck", -- sh
+        "sqlfluff", -- sql
       },
       integrations = {
         ["mason-lspconfig"] = true,
@@ -182,11 +183,12 @@ return {
       lint.linters_by_ft = {
         javascript = { "eslint_d" },
         sh = { "shellcheck" },
+        sql = { "sqlfluff" },
       }
 
       vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
         group = Util.augroup("nvim_lint"),
-        pattern = { "*.js", "*.jsx", "*.sh", "*.ts", "*.tsx" },
+        pattern = { "*.js", "*.jsx", "*.sh", "*.sql", "*.ts", "*.tsx" },
         callback = function()
           lint.try_lint()
         end,
@@ -220,8 +222,10 @@ return {
         ["markdown"] = { "prettier" },
         ["markdown.mdx"] = { "prettier" },
         ["ruby"] = { "rubocop" },
+        -- ["ruby"] = { "rubyfmt" },
         ["scss"] = { "prettier" },
         ["sh"] = { "shfmt" },
+        ["sql"] = { "sqlfluff" },
         ["typescript"] = { "prettier" },
         ["typescriptreact"] = { "prettier" },
         ["vue"] = { "prettier" },
