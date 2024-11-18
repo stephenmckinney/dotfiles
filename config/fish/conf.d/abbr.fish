@@ -1,5 +1,5 @@
 # Still trying new utilities Aug 31, 2018
-abbr cat "bat --theme=Dracula"
+alias cat "bat --theme=Dracula"
 abbr help "tldr"
 abbr ping "prettyping --nolegend"
 
