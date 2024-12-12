@@ -31,8 +31,8 @@ return {
     event = "InsertEnter", -- Auto completion is triggered when insert mode is entered.
     dependencies = {
       -- Sources for auto completion:
-      "hrsh7th/cmp-nvim-lsp", -- LSP (Language Server Protocol) source.
       "hrsh7th/cmp-buffer", -- Buffer source.
+      "hrsh7th/cmp-nvim-lsp", -- LSP (Language Server Protocol) source.
       "hrsh7th/cmp-path", -- Path source.
       "saadparwaiz1/cmp_luasnip", -- Snippets source.
     },
@@ -109,22 +109,28 @@ return {
         }),
         -- Set up completion sources.
         sources = cmp.config.sources({
-          { name = "nvim_lsp" }, -- LSP-based completion
           { name = "luasnip" }, -- Snippet-based completion
+          { name = "nvim_lsp" }, -- LSP-based completion
           { name = "buffer" }, -- Completion from current buffer
           { name = "path" }, -- File path completion
         }),
         -- Add lspkind icons to completion items.
         formatting = {
           format = lspkind.cmp_format({
-            mode = 'symbol_text',
+            mode = "symbol",
+            menu = {
+              buffer = "(buffer)",
+              luasnip = "(luasnip)",
+              nvim_lsp = "(lsp)",
+              path = "(path)",
+            },
             maxwidth = {
               menu = 50, -- leading text (labelDetails)
               abbr = 50, -- actual suggestion item
             },
-            ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-            show_labelDetails = true, -- show labelDetails in menu. Disabled by default
-          })
+            ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+            show_labelDetails = false, -- show labelDetails in menu. Disabled by default
+          }),
         },
       })
     end,
