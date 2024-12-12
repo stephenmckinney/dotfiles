@@ -95,8 +95,8 @@ return {
           -- * <C-Space> triggers the completion function.
           -- * <C-e> aborts/closes completion.
           -- * <CR> confirms the selection, including the current implicit selection.
-          ["<C-u>"] = cmp.mapping.scroll_docs(4),
-          ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+          ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+          ["<C-d>"] = cmp.mapping.scroll_docs(4),
           -- ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping({
             i = cmp.mapping.abort(),
