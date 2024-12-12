@@ -10,4 +10,7 @@ return {
     "DBUIAddConnection",
     "DBUIFindBuffer",
   },
+  keys = {
+    { "<leader>cd", "<cmd>DBUI<cr>", desc = "Open DB UI" },
+  },
 }
