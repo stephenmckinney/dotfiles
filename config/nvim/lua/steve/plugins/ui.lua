@@ -78,6 +78,7 @@ return {
       })
     end,
   },
+  -- Completely replaces the UI for messages, cmdline and the popupmenu.
   {
     "folke/noice.nvim",
     event = "VeryLazy",
@@ -160,6 +161,8 @@ return {
     },
   },
 
+  -- auto-highligh other uses of the word under the cursor using either LSP,
+  -- Tree-sitter, or regex matching
   {
     "RRethy/vim-illuminate",
     event = "VeryLazy",
