@@ -15,10 +15,10 @@ return {
   {
     "L3MON4D3/LuaSnip",
     build = "make install_jsregexp",
-    dependencies = { "rafamadriz/friendly-snippets" },
+    dependencies = { "honza/vim-snippets" },
     config = function()
       -- Lazy load snippets from friendly-snippets.
-      require("luasnip.loaders.from_vscode").lazy_load()
+      require("luasnip.loaders.from_snipmate").lazy_load()
     end,
     keys = {}, -- No special keybindings set for snippets.
   },
