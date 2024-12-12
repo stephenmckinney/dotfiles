@@ -20,7 +20,7 @@ return {
     version = false,
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
-    main = 'nvim-treesitter.configs',
+    main = "nvim-treesitter.configs",
     dependencies = {
       -- Syntax aware text-objects, select, move, swap, and peek support e.g. mini.ai.
       { "nvim-treesitter/nvim-treesitter-textobjects" },
@@ -29,7 +29,7 @@ return {
       -- View treesitter information.
       { "nvim-treesitter/playground" },
       -- Show current code context.
-      { "nvim-treesitter/nvim-treesitter-context", opts = { max_lines = 3 }, },
+      { "nvim-treesitter/nvim-treesitter-context", opts = { max_lines = 0 } },
     },
     -- stylua: ignore
     keys = {
@@ -54,6 +54,6 @@ return {
       },
       -- enable external modules
       endwise = { enable = true },
-    }
+    },
   },
 }
