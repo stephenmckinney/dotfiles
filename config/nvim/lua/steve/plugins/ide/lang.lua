@@ -224,7 +224,7 @@ return {
         ["lua"] = { "stylua" },
         ["markdown"] = { "prettier" },
         ["markdown.mdx"] = { "prettier" },
-        ["ruby"] = { "rubocop" },
+        ["ruby"] = { "standardrb" },
         ["scss"] = { "prettier" },
         ["sh"] = { "shfmt" },
         ["sql"] = { "sqlfluff" },
@@ -236,7 +236,8 @@ return {
       -- The options you set here will be merged with the builtin formatters.
       formatters = {
         ruby = {
-          command = { "bundle exec rubocop" },
+          command = { "bundle" },
+          append_args = { "exec", "standard", "--lsp" },
         },
       },
     },
@@ -250,4 +251,7 @@ return {
     "folke/lazydev.nvim",
     ft = "lua", -- only load on lua files
   },
+  -- Ctags
+  -- Fugitive will set tags=.git/tags. Until we stop using Fugitive let's roll
+  -- with that.
 }
