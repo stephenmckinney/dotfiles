@@ -23,6 +23,7 @@ return {
         { "<leader>i", group = "info", icon = { cat = "extension", name = "info" } },
         { "<leader>iz", "<cmd>Lazy<cr>", desc = "La[z]y" },
         { "<leader>ih", "<cmd>checkhealth<cr>", desc = "Health" },
+        { "<leader>j", group = "jump", icon = { cat = "extension", name = "rb" } },
         { "<leader>e", group = "edit", icon = { cat = "extension", name = "txt" } },
         { "<leader>g", group = "git" },
         { "<leader>q", group = "diagnostics/quickfix" },

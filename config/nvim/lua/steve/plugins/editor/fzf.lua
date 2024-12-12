@@ -58,6 +58,17 @@ return {
       { "<leader>sr", "<cmd>FzfLua registers<cr>", desc = "Registers" },
       { "<leader>st", "<cmd>FzfLua btags<cr>", desc = "Tags (Current Buffer)" },
       { "<leader>sT", "<cmd>FzfLua tags<cr>", desc = "Tags" },
+      -- "Jump" keys
+      -- Rails basics
+      { "<leader>jm", "<cmd>FzfLua files cwd=./app/models<cr>", desc = "Rails models" },
+      { "<leader>jv", "<cmd>FzfLua files cwd=./app/views<cr>", desc = "Rails views" },
+      { "<leader>jc", "<cmd>FzfLua files cwd=./app/controllers<cr>", desc = "Rails controllers" },
+      { "<leader>jC", "<cmd>FzfLua files cwd=./config<cr>", desc = "Rails configs" },
+      { "<leader>jh", "<cmd>FzfLua files cwd=./app/helpers<cr>", desc = "Rails helpers" },
+      { "<leader>jl", "<cmd>FzfLua files cwd=./lib<cr>", desc = "Rails libs" },
+      { "<leader>js", "<cmd>FzfLua files cwd=./spec<cr>", desc = "Rails specs" },
+      -- Rails APIs
+      { "<leader>jg", "<cmd>FzfLua files cwd=./app/graphql<cr>", desc = "Rails graphql" },
       -- TODO: Add lsp keys
     },
   },
