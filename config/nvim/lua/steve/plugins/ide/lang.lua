@@ -114,9 +114,11 @@ return {
     dependencies = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
+      "hrsh7th/cmp-nvim-lsp", -- LSP (Language Server Protocol) source.
     },
     config = function()
       local lspconfig = require("lspconfig")
+      local cmp_lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
       lspconfig.bashls.setup({})
       lspconfig.cssls.setup({})
       lspconfig.gopls.setup({})
@@ -135,6 +137,7 @@ return {
       -- * disable formatting
       --------------------------------------------------------------------------------
       lspconfig.lua_ls.setup({
+        capabilities = cmp_lsp_capabilities,
         settings = {
           Lua = {
             diagnostics = { enable = true },
@@ -147,7 +150,7 @@ return {
       -- Ruby
       --------------------------------------------------------------------------------
       lspconfig.ruby_lsp.setup({
-        cmd = { vim.fn.expand("~/.rbenv/shims/ruby-lsp") },
+        capabilities = cmp_lsp_capabilities,
       })
 
       --------------------------------------------------------------------------------
@@ -222,7 +225,6 @@ return {
         ["markdown"] = { "prettier" },
         ["markdown.mdx"] = { "prettier" },
         ["ruby"] = { "rubocop" },
-        -- ["ruby"] = { "rubyfmt" },
         ["scss"] = { "prettier" },
         ["sh"] = { "shfmt" },
         ["sql"] = { "sqlfluff" },
