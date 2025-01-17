@@ -82,6 +82,7 @@ return {
         "marksman", -- markdown
         "pyright", -- python
         -- For ruby: gem install ruby-lsp
+        ["scss"] = { "prettier" },
         "ts_ls", -- typescript, javascript
         "yamlls", -- yaml
         -- See:
@@ -151,6 +152,10 @@ return {
       --------------------------------------------------------------------------------
       lspconfig.ruby_lsp.setup({
         capabilities = cmp_lsp_capabilities,
+        init_options = {
+          formatter = "standard",
+          linters = { "standard" },
+        },
       })
 
       --------------------------------------------------------------------------------
@@ -224,7 +229,7 @@ return {
         ["lua"] = { "stylua" },
         ["markdown"] = { "prettier" },
         ["markdown.mdx"] = { "prettier" },
-        ["ruby"] = { "standardrb" },
+        -- NOTE: ruby is configured in lsp
         ["scss"] = { "prettier" },
         ["sh"] = { "shfmt" },
         ["sql"] = { "sqlfluff" },
@@ -232,13 +237,6 @@ return {
         ["typescriptreact"] = { "prettier" },
         ["vue"] = { "prettier" },
         ["yaml"] = { "prettier" },
-      },
-      -- The options you set here will be merged with the builtin formatters.
-      formatters = {
-        ruby = {
-          command = { "bundle" },
-          append_args = { "exec", "standard", "--lsp" },
-        },
       },
     },
   },
