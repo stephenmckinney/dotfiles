@@ -353,6 +353,41 @@
   # Change the value of this parameter to show a different icon.
   typeset -g POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
 
+  ###################################### Tokyo Night Colors #####################################
+  # Redefine above colors into
+  local TN_BLACK='#15161B'
+  local TN_RED='#F7765D'
+  local TN_GREEN='#9ECE6A'
+  local TN_YELLOW='#E0AF68'
+  local TN_BLUE='#7AA2F7'
+  local TN_MAGENTA='#BB9AF7'
+  local TN_CYAN='#7DCFFF'
+  local TN_WHITE='#A9B1D6'
+  local TN_BRIGHT_BLACK='#414868'
+  local TN_BRIGHT_WHITE='#C0CAF5'
+  ################################[ prompt_char: prompt symbol ]################################
+  # Green prompt symbol if the last command succeeded.
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=$TN_GREEN
+  # Red prompt symbol if the last command failed.
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=$TN_RED
+
+  ##################################[ dir: current directory ]##################################
+  # Default current directory color.
+  typeset -g POWERLEVEL9K_DIR_FOREGROUND=$TN_CYAN
+  # If directory is too long, shorten some of its segments to the shortest possible unique
+  # prefix. The shortened directory can be tab-completed to the original.
+  typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
+  # Replace removed segment suffixes with this symbol.
+  typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
+  # Color of the shortened directory segments.
+  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=$TN_MAGENTA
+  # Color of the anchor directory segments. Anchor segments are never shortened. The first
+  # segment is always an anchor.
+  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=$TN_BLUE
+  # Display anchor directory segments in bold.
+  typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=true
+  #############################################################################################
+
   # Formatter for Git status.
   #
   # Example output: master wip ⇣42⇡42 *42 merge ~42 +42 !42 ?42.
@@ -373,11 +408,23 @@
 
     if (( $1 )); then
       # Styling for up-to-date Git status.
-      local       meta='%f'     # default foreground
-      local      clean='%76F'   # green foreground
-      local   modified='%178F'  # yellow foreground
-      local  untracked='%39F'   # blue foreground
-      local conflicted='%196F'  # red foreground
+      # Tokyo Night colors mapped to closest 256-color values
+      local TN_BLACK_NUM=234          # #15161B
+      local TN_RED_NUM=209           # #F7765D
+      local TN_GREEN_NUM=149         # #9ECE6A
+      local TN_YELLOW_NUM=179        # #E0AF68
+      local TN_BLUE_NUM=111          # #7AA2F7
+      local TN_MAGENTA_NUM=141       # #BB9AF7
+      local TN_CYAN_NUM=117          # #7DCFFF
+      local TN_WHITE_NUM=146         # #A9B1D6
+      local TN_BRIGHT_BLACK_NUM=239  # #414868
+      local TN_BRIGHT_WHITE_NUM=153  # #C0CAF5
+
+      local       meta="%f"              # default foreground
+      local      clean="%F{$TN_GREEN_NUM}"   # green foreground
+      local   modified="%F{$TN_YELLOW_NUM}"  # yellow foreground
+      local  untracked="%F{$TN_BLUE_NUM}"    # blue foreground
+      local conflicted="%F{$TN_RED_NUM}"     # red foreground
     else
       # Styling for incomplete and stale Git status.
       local       meta='%244F'  # grey foreground
