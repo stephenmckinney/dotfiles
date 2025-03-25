@@ -16,7 +16,7 @@ function start_tmux_session_with_layout
   tmux select-window -t "$SESSION_NAME":1
 
   # Resize panes on window "Editor" when a client is attached
-  tmux set-hook -t "$SESSION_NAME" client-attached 'run-shell "~/.bin/tmux_resize.sh -p 10'""
+  tmux set-hook -t "$SESSION_NAME" client-attached 'run-shell "~/.bin/tmux_resize.sh -p 10"'
 
   # Attach to the session on window "Editor"
   tmux attach-session -t "$SESSION_NAME"
