@@ -1,3 +1,4 @@
+.bundle
 .DS_Store
 /bundle/cache
 /config/karabiner/automatic_backups/*
