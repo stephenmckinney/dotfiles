@@ -32,7 +32,6 @@ return {
         {
           "<leader>r",
           function()
-            neotest.output_panel.open()
             neotest.run.run(vim.fn.expand("%"))
           end,
           desc = "Neotest: Run current test file",
@@ -44,6 +43,14 @@ return {
             neotest.run.run()
           end,
           desc = "Neotest: Run nearest test",
+          icon = { cat = "extension", name = "test.jsx" },
+        },
+        {
+          "<leader>o",
+          function()
+            neotest.output.open({ enter = true })
+          end,
+          desc = "Neotest: Open output window",
           icon = { cat = "extension", name = "test.jsx" },
         },
       })
