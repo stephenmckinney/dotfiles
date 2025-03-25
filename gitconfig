@@ -112,10 +112,10 @@
   verbose = true
 [core]
   excludesfile = $HOME/.gitignore
-  editor = vim -f
+  editor = nvim -f
   quotepath = false
 [mergetool "fugitive"]
-  cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+  cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
 [merge]
   tool = fugitive
 # 'simple' - in centralized workflow (e.g. Github), work like 'upstream' with an added

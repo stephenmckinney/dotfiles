@@ -10,7 +10,7 @@ set -g fish_greeting
 set -gx LANG "en_US.UTF-8"
 
 # Set preferred editor, etc.
-set -gx BROWSER "open -a Safari"
+set -gx BROWSER "open -a Arc"
 set -gx EDITOR "nvim"
 set -gx VISUAL "nvim"
 set -gx PAGER "less"

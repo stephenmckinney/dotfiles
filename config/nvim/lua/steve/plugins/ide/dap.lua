@@ -62,6 +62,9 @@ return {
         opts = {},
       },
 
+      -- ruby support
+      { "suketa/nvim-dap-ruby" },
+
       -- mason.nvim integration
       {
         "jay-babu/mason-nvim-dap.nvim",
@@ -126,6 +129,9 @@ return {
         sign = type(sign) == "table" and sign or { sign }
         vim.fn.sign_define("Dap" .. name, { text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] })
       end
+
+      -- Setup ruby debug adapter
+      require("dap-ruby").setup()
 
       -- Setup javascript debug adapter
       dap.adapters["pwa-node"] = {
