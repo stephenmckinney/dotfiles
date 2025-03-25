@@ -126,6 +126,13 @@ return {
     event = "VeryLazy",
   },
 
+  -- Search and replace varients of words using `Subvert`
+  {
+    "tpope/vim-abolish",
+    event = "VeryLazy",
+    cmd = { "Abolish", "Subvert", "S" },
+  },
+
   -- Displays colors based on their HEX/rgb/hsl value
   {
     "NvChad/nvim-colorizer.lua",
