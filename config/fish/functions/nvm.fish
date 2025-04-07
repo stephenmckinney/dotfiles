@@ -1,3 +1,3 @@
 function nvm
-  bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
+  bass source "/opt/homebrew/opt/nvm/nvm.sh" --no-use ';' nvm $argv
 end
