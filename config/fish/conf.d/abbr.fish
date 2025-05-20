@@ -118,3 +118,6 @@ abbr h "heroku"
 abbr edots "v ~/.dotfiles"
 abbr efish "v ~/.dotfiles/config/fish"
 abbr evim  "v ~/.dotfiles/config/nvim"
+
+# Ruby install
+abbr rlocalinstall 'rbenv install (cat ./.ruby-version | string replace -r "ruby-" "")'
