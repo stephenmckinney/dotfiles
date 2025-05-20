@@ -14,10 +14,11 @@ abbr bi "bundle install && bundle exec yard gems"
 abbr bu "bundle update && bundle exec yard gems"
 abbr bclean "rm -rf .bundle; and bundle install"
 
+# SFIX devsetup
+abbr devsetup "fixops ecr login; and cd ~/code/work/local-development-setup/devservices; and docker compose up -d"
+
 # Git
 abbr g "git"
-
-# checkout/fetch/merge/push/rebase
 # checkout
 abbr gco   "git checkout"
 abbr gcob  "git checkout -b"
@@ -43,14 +44,12 @@ abbr gri   "git rebase --interactive"
 abbr grs   "git rebase --skip"
 abbr grom  "git rebase origin/main"
 abbr griom "git rebase --interactive origin/main"
-
 # branch
 abbr gb  "git branch"
 abbr gba "git branch --all --verbose"
 abbr gbd "git branch --delete"
 abbr gbm "git branch --move"
 abbr gbs "git show-branch"
-
 # commit
 abbr gc      "git commit --verbose"
 abbr gcm     "git commit --message --verbose"
@@ -62,8 +61,6 @@ abbr gcp     "git cherry-pick --edit -sx"
 abbr gundo-last-commit  "git reset --soft 'HEAD^'"
 abbr gbpurgedryrun 'git branch --merged | grep -v "\*" | grep -v "master"'
 abbr gbpurge 'git branch --merged | grep -v "\*" | grep -v "master" | xargs -n 1 git branch -d'
-
-
 # #stash
 abbr gsl  "git stash list"
 abbr gss  "git stash show"
@@ -71,20 +68,17 @@ abbr gssp "git stash show -p"
 abbr gsp  "git stash pop"
 abbr gsd  "git stash drop"
 abbr gsc  "git stash clear"
-
 # diff
 abbr gd  "git diff"           # Diff working dir to index
 abbr gdw "git diff  -w"       # Diff ignore whitespace
 abbr gds "git diff  --staged" # Diff index to HEAD
 abbr gdh "git diff  HEAD"     # Diff working dir and index to HEAD
-
 # index
 abbr gs  "git status"
 abbr ga  "git add"
 abbr gia "git add"
 abbr gir "git reset"
 abbr gunstage "git reset HEAD "
-
 # log
 abbr gl   "git log --topo-order --pretty=format:'%C(yellow)%h %C(cyan)%cn %C(blue)%cr%C(reset) %s'"
 abbr gls  "git log --topo-order --stat --pretty=format:'%C(bold)%C(yellow)Commit:%C(reset) %C(yellow)%H%C(red)%d%n%C(bold)%C(yellow)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)%C(yellow)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B'"
@@ -95,10 +89,8 @@ abbr glm  "git log --topo-order --pretty=format:'%s'"
 abbr glh  "git shortlog --summary --numbered"
 abbr gllf "git fsck --lost-found"
 abbr glme "git log --author='Steve McKinney'"
-
 # show
 abbr gsh "git show HEAD"
-
 # remote
 abbr gre  "git remote"
 abbr grel "git remote --verbose"
