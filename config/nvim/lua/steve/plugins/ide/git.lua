@@ -27,7 +27,7 @@ return {
         desc = "`git status` (Fugitive)",
       },
       -- diff
-      { "<leader>dg", ":diffget<bar>diffudpate<cr>", mode = "x", desc = "diffget" },
+      { "<leader>dg", ":diffget<bar>diffupdate<cr>", mode = "x", desc = "diffget" },
       { "<leader>dp", ":diffput<bar>diffupdate<cr>", mode = "x", desc = "diffput" },
     },
   },
