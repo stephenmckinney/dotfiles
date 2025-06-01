@@ -1,8 +1,11 @@
 function start_tmux_automatically --on-event fish_prompt
   if status is-interactive
-    # Check if we're not already in a tmux session
+    # Prevent execution if already in a tmux session
     if not set -q TMUX
-      start_tmux_session_with_layout
+      # Prevent tmux from starting if running inside Cursor terminal
+      if not set -q CURSOR_TRACE_ID
+        start_tmux_session_with_layout
+      end
     end
   end
 end
