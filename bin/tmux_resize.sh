@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Tmux Pane Splitting Script
 # Usage:
