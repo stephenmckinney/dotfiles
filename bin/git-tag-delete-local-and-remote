@@ -5,7 +5,24 @@
 #   Exits with an error message if no tag name is provided.
 #     Example: ./script.sh <tag_name>
 
+show_usage() {
+    echo "Usage: $0 [-h] <tag_name>"
+    echo "Delete a git tag both locally and remotely."
+    echo ""
+    echo "Options:"
+    echo "  -h    Show this help message"
+    echo ""
+    echo "Arguments:"
+    echo "  tag_name    Name of the tag to delete"
+    exit 1
+}
+
+# Handle -h flag
+if [ "$1" = "-h" ]; then
+    show_usage
+fi
+
 tagname=$1
-test -z $tagname && echo "tag required." 1>&2 && exit 1
+test -z "$tagname" && echo "Error: tag name required." 1>&2 && show_usage
 git tag -d $tagname
 git push origin :refs/tags/$tagname

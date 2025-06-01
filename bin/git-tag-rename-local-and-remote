@@ -6,11 +6,29 @@
 #   Exits with an error message if either tag name is not provided.
 #     Example: ./script.sh <old_tag_name> <new_tag_name>
 
+show_usage() {
+    echo "Usage: $0 [-h] <old_tag_name> <new_tag_name>"
+    echo "Rename a git tag both locally and remotely."
+    echo ""
+    echo "Options:"
+    echo "  -h    Show this help message"
+    echo ""
+    echo "Arguments:"
+    echo "  old_tag_name    Current name of the tag"
+    echo "  new_tag_name    New name for the tag"
+    exit 1
+}
+
+# Handle -h flag
+if [ "$1" = "-h" ]; then
+    show_usage
+fi
+
 old_tag_name=$1
 new_tag_name=$2
 
-test -z $old_tag_name && echo "old tag name required." 1>&2 && exit 1
-test -z $new_tag_name && echo "new tag name required." 1>&2 && exit 1
+test -z "$old_tag_name" && echo "Error: old tag name required." 1>&2 && show_usage
+test -z "$new_tag_name" && echo "Error: new tag name required." 1>&2 && show_usage
 
 git tag $new_tag_name $old_tag
 git tag -d $old_tag_name
