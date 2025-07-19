@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Usage: ./check_neovim.sh [--brews] [--gems] [--dry-run]
 

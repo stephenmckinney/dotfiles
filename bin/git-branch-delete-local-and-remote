@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 # Branch Deletion Script
 # Usage:
@@ -6,8 +6,25 @@
 #   Exits with an error message if no branch name is provided.
 #     Example: ./script.sh <branch_name>
 
+show_usage() {
+    echo "Usage: $0 [-h] <branch_name>"
+    echo "Delete a branch both locally and remotely."
+    echo ""
+    echo "Options:"
+    echo "  -h    Show this help message"
+    echo ""
+    echo "Arguments:"
+    echo "  branch_name    Name of the branch to delete"
+    exit 1
+}
+
+# Handle -h flag
+if [ "$1" = "-h" ]; then
+    show_usage
+fi
+
 branch=$1
-test -z $branch && echo "branch required." 1>&2 && exit 1
+test -z "$branch" && echo "Error: branch name required." 1>&2 && show_usage
 git branch -d $branch
 git branch -d -r origin/$branch
 git push origin :refs/heads/$branch

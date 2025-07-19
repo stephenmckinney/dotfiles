@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 # Email Address Changer Script for Git Repository
 # Usage:

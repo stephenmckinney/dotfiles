@@ -1,0 +1,40 @@
+#!/bin/sh
+
+# Branch Renaming Script
+# Usage:
+#   Provide old branch name as the first argument and new branch name as the second argument to rename the branch locally and remotely.
+#   Exits with an error message if either branch name is not provided.
+#     Example: ./script.sh <old_branch_name> <new_branch_name>
+
+show_usage() {
+    echo "Usage: $0 [-h] <old_branch_name> <new_branch_name>"
+    echo "Rename a branch both locally and remotely."
+    echo ""
+    echo "Options:"
+    echo "  -h    Show this help message"
+    echo ""
+    echo "Arguments:"
+    echo "  old_branch_name    Current name of the branch"
+    echo "  new_branch_name    New name for the branch"
+    exit 1
+}
+
+# Handle -h flag
+if [ "$1" = "-h" ]; then
+    show_usage
+fi
+
+old=$1
+new=$2
+
+test -z "$old" && echo "Error: old branch name required." 1>&2 && show_usage
+test -z "$new" && echo "Error: new branch name required." 1>&2 && show_usage
+
+# unset upstream config
+git branch --unset-upstream $old
+# rename local branch
+git branch --move $old $new
+# delete old remote branch
+git push origin -d $old
+# push new branch upstream
+git push --set-upstream origin $new
