@@ -37,4 +37,8 @@ if status --is-interactive
   # -X or --no-init - Dsables mouse-wheel scrolling. Disables sending the termcap init/deinit strings to the terminal.
   # -[z]n or --window=n - For example, if the screen is 24 lines, -z-4 sets the scrolling window to 20 lines.
   set -gx LESS "-g -i -M -R -S -w -X -z-4"
+
+  # Add default Node.js version to PATH (prepend to ensure it takes precedence)
+  set -gx NVM_DIR $HOME/.nvm
+  fish_add_path -g $NVM_DIR/versions/node/v24.4.1/bin
 end
