@@ -125,14 +125,6 @@ Custom scripts in `bin/` directory:
 - Neovim integration scripts
 - `check_neovim`: Validates and installs Neovim dependencies
 
-### Additional Tool Configurations
-- `ackrc`: Ack search tool configuration
-- `agignore`: Silver Searcher ignore patterns
-- `aprc`: Apache configuration
-- `dir_colors`: Directory color schemes
-- `inputrc`: Readline configuration
-- `editrc`: Line editor configuration
-
 ## Directory Structure
 ```
 .
