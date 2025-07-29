@@ -25,7 +25,8 @@ if status --is-interactive
   set -gx BROWSER "open -a Arc"
   set -gx EDITOR "nvim"
   set -gx VISUAL "nvim"
-  set -gx PAGER "less"
+  set -gx PAGER "cat"
+  set -gx BAT_THEME "OneHalfDark"
 
   # Disable fish greeting
   set -g fish_greeting
