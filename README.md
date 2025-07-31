@@ -1,22 +1,19 @@
-# my dotfiles
+# dotfiles
 
-Create an IDE using vim + tmux + fish with a focus on Ruby and TypeScript development on OS X.
-
-## First...
-
-- copy over `~/.localrc`.
-- copy over `~/.zhistory` to aid `fasd`.
-- generate and add new ssh keys for git/github. remove the keys from the
-  previous computer.
+My dotfiles install and configure an IDE comprising of neovim + tmux + fish shell on OS X, with a focus on Ruby/Rails and TypeScript development. 
 
 ## Getting started
 
+### Generate SSH Keys
+
+Generate and add new ssh keys for git/github. remove the keys from the previous computer.
+
 ### Install dotfiles
 
-Installs dotfiles, prezto, and iTerm preferences.
+Installs dotfiles and iTerm preferences.
 
 ```shell
-git clone --recursive git@github.com:stephenmckinney/dotfiles.git ~/.dotfiles
+git clone git@github.com:stephenmckinney/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles && ./install.sh
 ```
 
@@ -49,7 +46,3 @@ use it as `ESC` in Vim, but if you hold down `Caps Lock` and hit another
 key (like most Emacs keybindings), it will act as if you hit `Control`
 plus that other key. Bonus: `CMD` + `Caps Lock` is used in iTerm as a
 Visor hotkey.
-
-## Staying updated
-
-Merge updates from prezto/sorin/master and rebase changes.
