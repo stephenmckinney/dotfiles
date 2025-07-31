@@ -1,5 +1,5 @@
 #!/bin/bash
-# Minimal bash config for Claude Code
+# Minimal bash config for Claude Code and other tools
 
 # Language
 export LANG="en_US.UTF-8"
@@ -11,6 +11,9 @@ export HOMEBREW_REPOSITORY="/opt/homebrew"
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 export MANPATH="/opt/homebrew/share/man:$MANPATH"
 export INFOPATH="/opt/homebrew/share/info:$INFOPATH"
+
+# Add local bin directories to PATH
+export PATH="$HOME/.bin:./bin:$PATH"
 
 # Ruby/Rails
 export DISABLE_SPRING=1
@@ -24,6 +27,12 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export PAGER="less"
 export LESS="-g -i -M -R -S -w -X -z-4"
+
+# Browser (macOS)
+if [[ -z "$BROWSER" && "$OSTYPE" == darwin* ]]; then
+  export BROWSER='open'
+fi
+
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
