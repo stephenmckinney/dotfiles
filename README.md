@@ -1,12 +1,12 @@
 # dotfiles
 
-My dotfiles install and configure an IDE comprising of neovim + tmux + fish shell on OS X, with a focus on Ruby/Rails and TypeScript development. 
+My dotfiles install and configure an IDE comprising neovim + tmux + fish shell on macOS, with a focus on Ruby/Rails and TypeScript development. 
 
 ## Getting started
 
 ### Generate SSH Keys
 
-Generate and add new ssh keys for git/github. remove the keys from the previous computer.
+Generate and add new SSH keys for Git/GitHub. Remove the keys from the previous computer.
 
 ### Install dotfiles
 
@@ -17,9 +17,9 @@ git clone git@github.com:stephenmckinney/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles && ./install.sh
 ```
 
-### Install brews
+### Install Homebrew packages
 
-Installs brews, casks (e.g. iTerm), and mas (e.g. Slack)
+Installs Homebrew packages, casks (e.g., iTerm), and Mac App Store apps (e.g., Slack)
 
 - Install [Homebrew](https://brew.sh/)
 - Check install: `brew doctor`
@@ -33,11 +33,9 @@ Installs brews, casks (e.g. iTerm), and mas (e.g. Slack)
 
 - Open Preferences.
 - In **General** tab, under **Preferences** tab, check **Load preferences from a custom folder or URL**.
-- Paste `~/.dotfiles/iterm2` into the text field (this should import
-  of Solarized Dark and Solarized Light
-  [itermcolors](https://iterm2colorschemes.com).
+- Paste `~/.dotfiles/iterm2` into the text field.
 
-### Remap `Caps Lock` to act like `Control` and `ESC` at the same time
+### Configure Caps Lock as Control/ESC
 
 - Karabiner should load configuration from [karabiner.json](config/karabiner/karabiner.json).
 
@@ -48,4 +46,4 @@ plus that other key. Bonus: `CMD` + `Caps Lock` is used in iTerm as a
 Visor hotkey.
 
 ## Developer Notes
-See CLAUDE.md for developer notes.
+See [CLAUDE.md](CLAUDE.md) for detailed developer documentation and notes.
