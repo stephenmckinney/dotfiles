@@ -40,3 +40,10 @@ fi
 # rbenv
 eval "$(rbenv init - bash 2>/dev/null)" 2>/dev/null || true
 
+# Starship prompt
+eval "$(starship init bash)"
+
+# zoxide - modern replacement for fasd/autojump
+eval "$(zoxide init bash)"
+alias j='z'  # Keep the same muscle memory
+
