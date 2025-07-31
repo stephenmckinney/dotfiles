@@ -46,3 +46,6 @@ use it as `ESC` in Vim, but if you hold down `Caps Lock` and hit another
 key (like most Emacs keybindings), it will act as if you hit `Control`
 plus that other key. Bonus: `CMD` + `Caps Lock` is used in iTerm as a
 Visor hotkey.
+
+## Developer Notes
+See CLAUDE.md for developer notes.
