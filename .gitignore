@@ -10,3 +10,6 @@ config/fish/fish_variables
 # Ignore fisher plubins
 /config/fish/plugins/*
 !/config/fish/plugins/.keep
+
+# Ignore local claude settings
+.claude/settings.local.json

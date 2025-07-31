@@ -42,10 +42,10 @@ The repository supports three shell environments:
    - Plugins managed via Fisher (fish plugin manager)
    - Includes custom functions, aliases, and environment settings
 
-2. **Zsh with Prezto (Secondary)** - Traditional shell with extensive framework
-   - Main config: `zshrc`, `zshenv`, `zprofile`, `zlogin`, `zlogout`, `zpreztorc`
-   - Theme: Powerlevel10k (`p10k.zsh`)
-   - Framework: Prezto (included as git submodule)
+2. **Zsh (Minimal)** - Basic configuration without framework
+   - Main config: `zshrc`
+   - Minimal setup for compatibility
+   - No longer uses Prezto or Powerlevel10k
 
 3. **Bash (Minimal)** - Basic configuration for compatibility
    - Configuration: `bashrc`

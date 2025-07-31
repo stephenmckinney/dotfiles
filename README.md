@@ -1,28 +1,25 @@
-# my dotfiles
+# dotfiles
 
-Create an IDE using vim + tmux + fish with a focus on Ruby and TypeScript development on OS X.
-
-## First...
-
-- copy over `~/.localrc`.
-- copy over `~/.zhistory` to aid `fasd`.
-- generate and add new ssh keys for git/github. remove the keys from the
-  previous computer.
+My dotfiles install and configure an IDE comprising neovim + tmux + fish shell on macOS, with a focus on Ruby/Rails and TypeScript development. 
 
 ## Getting started
 
+### Generate SSH Keys
+
+Generate and add new SSH keys for Git/GitHub. Remove the keys from the previous computer.
+
 ### Install dotfiles
 
-Installs dotfiles, prezto, and iTerm preferences.
+Installs dotfiles and iTerm preferences.
 
 ```shell
-git clone --recursive git@github.com:stephenmckinney/dotfiles.git ~/.dotfiles
+git clone git@github.com:stephenmckinney/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles && ./install.sh
 ```
 
-### Install brews
+### Install Homebrew packages
 
-Installs brews, casks (e.g. iTerm), and mas (e.g. Slack)
+Installs Homebrew packages, casks (e.g., iTerm), and Mac App Store apps (e.g., Slack)
 
 - Install [Homebrew](https://brew.sh/)
 - Check install: `brew doctor`
@@ -36,11 +33,9 @@ Installs brews, casks (e.g. iTerm), and mas (e.g. Slack)
 
 - Open Preferences.
 - In **General** tab, under **Preferences** tab, check **Load preferences from a custom folder or URL**.
-- Paste `~/.dotfiles/iterm2` into the text field (this should import
-  of Solarized Dark and Solarized Light
-  [itermcolors](https://iterm2colorschemes.com).
+- Paste `~/.dotfiles/iterm2` into the text field.
 
-### Remap `Caps Lock` to act like `Control` and `ESC` at the same time
+### Configure Caps Lock as Control/ESC
 
 - Karabiner should load configuration from [karabiner.json](config/karabiner/karabiner.json).
 
@@ -50,6 +45,5 @@ key (like most Emacs keybindings), it will act as if you hit `Control`
 plus that other key. Bonus: `CMD` + `Caps Lock` is used in iTerm as a
 Visor hotkey.
 
-## Staying updated
-
-Merge updates from prezto/sorin/master and rebase changes.
+## Developer Notes
+See [CLAUDE.md](CLAUDE.md) for detailed developer documentation and notes.
