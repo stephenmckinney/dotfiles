@@ -111,4 +111,4 @@ abbr efish "v ~/.dotfiles/config/fish"
 abbr evim  "v ~/.dotfiles/config/nvim"
 
 # Ruby install
-abbr rlocalinstall 'rbenv install (cat ./.ruby-version | string replace -r "ruby-" "")'
+abbr rubyinstall 'brew upgrade ruby-build && rbenv install (cat ./.ruby-version | string replace -r "ruby-" "")'
