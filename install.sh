@@ -15,9 +15,9 @@ dry_run=false
 # remote shell flag
 remote_shell=false
 # allowlist of files for remote shell
-remote_shell_allowlist=("bash_aliases" "editrc" "inputrc" "irbrc")
+remote_shell_allowlist=("bashrc")
 # denylist of files to always skip
-denylist=("Brewfile" "Brewfile.lock.json" "Rakefile" "README.md" "install.sh" "iterm2" "stylua.toml")
+denylist=("Brewfile" "Brewfile.lock.json" "Rakefile" "README.md" "install.sh" "iterm2" "stylua.toml" "CLAUDE.md")
 
 # check if source and destination directories exist
 if [[ ! -d $src_dir ]]; then
@@ -180,14 +180,8 @@ function setup_fisher() {
   # check if fisher is already installed by trying to run it within a fish shell
   if fish -c 'type fisher' >/dev/null 2>&1; then
     echo "installing fish plugins..."
-    execute_and_echo fisher install ilancosman/tide
-    execute_and_echo fisher install gregorias/fasd.fish
-    execute_and_echo fisher install edc/bass
+    execute_and_echo fisher install patrickf1/fzf.fish
     echo "fish plugins installed successfully."
-
-    echo "configuring tide..."
-    execute_and_echo tide configure --auto --style=Classic --prompt_colors='16 colors' --show_time=No --classic_prompt_separators=Angled --powerline_prompt_heads=Sharp --powerline_prompt_tails=Flat --powerline_prompt_style='One line' --prompt_spacing=Sparse --icons='Many icons' --transient=No
-    echo "tide configured successfully."
   else
     echo "fisher is not installed. unable to setup."
   fi
