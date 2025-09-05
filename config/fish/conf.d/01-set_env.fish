@@ -22,7 +22,7 @@ end
 
 if status --is-interactive
   # Set preferred editor, pager, etc.
-  set -gx BROWSER "open -a Arc"
+  set -gx BROWSER "open -a Dia"
   set -gx EDITOR "nvim"
   set -gx VISUAL "nvim"
   set -gx PAGER "cat"
