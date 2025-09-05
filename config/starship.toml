@@ -53,7 +53,7 @@ ahead = "⇡${count}"
 behind = "⇣${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 untracked = "?"
-stashed = "$"
+stashed = "\\$"
 modified = "!"
 staged = "+"
 renamed = "»"
@@ -65,7 +65,6 @@ symbol = " "
 format = "using [$symbol($version )]($style)"
 detect_extensions = ["rb"]
 detect_files = ["Gemfile", ".ruby-version"]
-detect_folders = []
 style = "bold red"
 
 [nodejs]
@@ -73,15 +72,11 @@ symbol = " "
 format = "using [$symbol($version )]($style)"
 detect_extensions = ["js", "mjs", "cjs", "ts", "tsx"]
 detect_files = ["package.json", ".node-version", ".nvmrc"]
-detect_folders = ["node_modules"]
 style = "bold green"
 
-# Package version
+# Package version - disabled for performance
 [package]
-symbol = "pkg "
-format = "[$symbol$version]($style) "
-display_private = false
-disabled = false
+disabled = true
 
 # Command duration
 [cmd_duration]
@@ -115,3 +110,55 @@ symbol = " "
 # Line break
 [line_break]
 disabled = false
+
+# Disable unused language modules for performance
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[kubernetes]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[python]
+disabled = true
+
+[golang]
+disabled = true
+
+[rust]
+disabled = true
+
+[java]
+disabled = true
+
+[php]
+disabled = true
+
+[dotnet]
+disabled = true
+
+[swift]
+disabled = true
+
+[terraform]
+disabled = true
+
+[vagrant]
+disabled = true
+
+[nix_shell]
+disabled = true
+
+[conda]
+disabled = true
+
+[memory_usage]
+disabled = true
+
+[battery]
+disabled = true
